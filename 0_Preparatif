@@ -1,0 +1,95 @@
+################################################
+# Etape 0: Création d'un compte dédié à Docker #
+################################################
+useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash; 
+echo "docker:admin" | chpasswd
+
+################################################
+# Etape 2: Rendre le dossier accessible à tous #
+################################################
+sudo chmod 777 /home/docker
+
+##################################
+# Etape 3: Installation de Samba #
+##################################
+sudo apt update ;
+sudo apt install -y samba ;
+
+############################################
+# Etape 4: Création d'un utilisateur Samba #
+############################################
+
+# Ajout, activation du compte de partage docker et relance du samba
+(echo docker; echo docker; echo ) | sudo smbpasswd -a docker ; sudo smbpasswd -e docker; sudo systemctl restart smbd
+
+##########################################
+# Etape 5 : Activer la découverte réseau #
+##########################################
+# https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/
+# apt install unzip -y ; 
+
+# Projet wsdd
+rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
+sudo mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
+sudo cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system
+sed -i 's/User=nobody/User=docker/g' /etc/systemd/system/wsdd.service ; 
+sed -i 's/Group=nobody/Group=docker/g' /etc/systemd/system/wsdd.service ;
+sudo systemctl daemon-reload
+sudo systemctl start wsdd
+sudo systemctl enable wsdd
+sudo service wsdd status
+
+
+###################################
+# Etape 5: Configuration de Samba #
+###################################
+nano /etc/samba/smb.conf
+clear ; sudo nano /etc/samba/smb.conf ; sudo systemctl restart smbd  ; systemctl status smbd  
+
+
+#########################################################################################################
+
+#======================= Global Settings =======================
+[global]
+   workgroup = WORKGROUP
+   log file = /var/log/samba/log.%m
+   max log size = 1000
+   logging = file
+   panic action = /usr/share/samba/panic-action %d
+   server role = standalone server
+   obey pam restrictions = yes
+   unix password sync = yes
+   passwd program = /usr/bin/passwd %u
+   passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+   pam password change = yes
+   map to guest = bad user
+   usershare allow guests = yes
+
+#======================= Share Definitions =======================
+
+[homes]
+comment = Dossier Utilisateurs 
+browseable = no 
+read only = no
+writable = yes
+create mask = 0700
+directory mask = 0700
+guest ok = no
+			
+			
+[SYSTEM]
+comment = Acces au dossier root
+path = /
+browseable = yes
+writable = yes
+read only = no
+valid users = docker
+force user = root
+
+
+#======================= No Delete Line Next =======================
+;   write list = root, @lpadmin
+#===================================================================
+
+
+#########################################################################################################
