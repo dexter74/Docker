@@ -11,7 +11,6 @@ docker container rm portainer ;
 docker image rm portainer/portainer -f ;
 docker image rm portainer/portainer-ce -f
 
-
 #############################
 # Installation de Portainer #
 #############################
