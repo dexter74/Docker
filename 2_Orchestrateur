@@ -1,0 +1,31 @@
+################
+# Docker Swarm #
+################
+Permet de regrouper plusieurs machines pour les gérer.
+
+docker swarm 
+  ca          Display and rotate the root CA
+  init        Initialize a swarm
+  join        Join a swarm as a node and/or manager
+  join-token  Manage join tokens
+  leave       Leave the swarm
+  unlock      Unlock swarm
+  unlock-key  Manage the unlock key
+  update      Update the swarm
+
+
+# Les managers : Ce sont les nodes gestionnaires de votre cluster. Le manager écoute sur le port 2377
+sudo docker swarm init --advertise-addr 192.168.1.20
+
+# Afficher le jeton du Manager
+docker swarm join-token manager
+
+# Quitter le mode Manager
+sudo docker swarm leave --force
+
+# Les workers : Les petites mains de votre cluster.
+docker swarm join --token <token> 192.168.1.2:2377
+
+# Lister les Nodes (workers, manager)
+sudo docker node ls
+
