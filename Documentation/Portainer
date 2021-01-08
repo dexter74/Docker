@@ -1,9 +1,20 @@
-##############################
-# Configuration de Portainer #
-##############################
+###########################
+# Source de documentation #
+###########################
+# Portainer   : https://www.asustor.com/fr/online/College_topic?topic=145
 
-# https://www.asustor.com/fr/online/College_topic?topic=145
 
-Pour permettre d'avoir la bonne adresse pour les conteneurs autre que 0.0.0.0, il faut modifier le Endpoint.
+############################
+# Configurer les Endpoints #
+############################
+Un endpoint est l'adresse pour les conteneurs, par défaut il y en a pas ce qui donne : 0.0.0.0:XXX 
 Il suffit d'aller dans SETTINGS > Endpoints > Local > Public IP : <adresse IP ou DNS>
+Ce qui donne : <Endpoint>:<port>
 
+##################################
+# Mise à jour d'une image Docker #
+##################################
+- Arrêter le conteneur
+- Aller dans les images, sélectionner l'image et faire Pull
+- Aller dans le conteneur en cliquant sur son nom et faire "Duplicate / Edit"
+- Supprimer l'ancienne image si le conteneur se lance bien
