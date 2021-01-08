@@ -18,3 +18,18 @@ Ce qui donne : <Endpoint>:<port>
 - Aller dans les images, sélectionner l'image et faire Pull
 - Aller dans le conteneur en cliquant sur son nom et faire "Duplicate / Edit"
 - Supprimer l'ancienne image si le conteneur se lance bien
+
+##################################
+# Rendre persistant le conteneur #
+##################################
+Il suffit de créer un volume.
+Ajouter le nom du volume dans le fichier stack
+  volumes:  
+    - nomdemonvolume
+    
+################################
+# Obtenir le chemin applicatif #
+################################
+
+Pour obtenir le chemin applicatif, il suffit de créer le conteneur puis d'aller dans celui ci et de regarder les volumes
+Il y aura le path
