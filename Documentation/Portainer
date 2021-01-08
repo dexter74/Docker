@@ -40,4 +40,15 @@ Exemple:
 
   volumes:
     - httpd:/usr/local/apache2/htdocs
+    
+##############################
+# Obtenir le port Applicatif #
+##############################
+Pour obtenir le port applicatif, il suffit d'aller dans:
+  - Conteneur
+  - Image (docker.io) : <nom de l'image sur le Docker Hub>
+  - Cocher la case : Publish all exposed network ports to random host ports
+  - Déployer le conteneur
+  - Cliquer sur le conteneur qui viens de créer via la colonne name
+  - Descendre sur la partie: PORT CONFIGURATION
   
