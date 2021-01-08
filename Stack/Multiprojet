@@ -1,0 +1,147 @@
+##############################
+# Fonctionnels:              #
+#   - Mariadb                #
+#   - phpMyAdmin             #
+#   - Wordpress              #
+# En cours :                 #
+##############################
+
+
+# Settings > Endpoints > Local > Public IP: 192.168.1.2
+# Settings > Endpoints > ADD   > Public IP: drthrax74.ddns.net
+# HOME     > drthrax74.ddns.net
+
+# FQDN :
+# hostname: XXXX
+# domainname: XXXX
+
+# http://drthrax74.ddns.net:19900
+
+##########################################
+# Créer un bolume pour monter le partage #
+##########################################
+
+docker volume create \
+     --driver local \
+     --opt type=cifs \
+     --opt device=//192.168.1.10/Films \
+     --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777 \
+     --name Films
+     
+#################
+version: '2.4'  #
+#################
+
+############
+services:  #
+#########################################################################
+# https://hub.docker.com/_/mariadb                                      #
+  mysql:                                                                #
+    network_mode: bridge                                                #
+    container_name: mysql                                               #
+    image: mariadb                                                      #
+    restart: always                                                     #
+    environment:                                                        #
+      MYSQL_ROOT_PASSWORD: 'root'                                       #
+      MYSQL_DATABASE: 'database'                                        #
+      MYSQL_USER: 'admin'                                               #
+      MYSQL_PASSWORD: 'admin'                                           #
+    volumes:                                                            #
+      - /volume1/Docker/MariaDB:/var/lib/mysql                          #
+#    ports:                                                             #
+#      - 3306:3306                                                      #
+#    expose:                                                            #
+#     - 3306                                                            #
+#########################################################################
+
+#########################################################################
+# https://hub.docker.com/_/php                                          #
+  web:                                                                  #
+    depends_on:                                                         #
+      - mysql                                                           #
+    network_mode: bridge                                                #
+    container_name: php                                                 #
+    image: php:7.2.2-apache                                             #
+    restart: always                                                     #
+    volumes:                                                            #
+      - /volume1/Docker/php:/var/www/html/                              #
+    ports:                                                              #
+      - 27015:80                                                        #
+#########################################################################
+
+
+#########################################################################
+# https://hub.docker.com/r/phpmyadmin/phpmyadmin/                       #
+  phpmyadmin:                                                           #
+    depends_on:                                                         #
+      - mysql                                                           #
+    network_mode: bridge                                                #
+    container_name: phpmyadmin                                          #
+    image: phpmyadmin/phpmyadmin                                        #
+    restart: always                                                     #
+    environment:                                                        #
+      PMA_HOST: mysql                                                   #
+      PMA_PORT: 3306                                                    #
+      PMA_USER: 'admin'                                                 #
+      PMA_PASSWORD: 'admin'                                             #
+      PMA_PMADB: 'phpmyadmin'                                           #
+      PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81                    #
+    ports:                                                              #
+      - 27016:80                                                        #
+    links:                                                              #
+      - mysql                                                           #
+#########################################################################
+
+
+
+#########################################################################
+# Wordpress: https://hub.docker.com/_/wordpress                         #
+#  wordpress:                                                            #
+#    depends_on:                                                         #
+#      - mysql                                                           #
+#    network_mode: bridge                                                #
+#    container_name: wordpress                                           #
+#    image: wordpress                                                    #
+#    restart: always                                                     #
+#    environment:                                                        #
+#      WORDPRESS_DB_HOST: 'mysql'                                        #
+#      WORDPRESS_DB_USER:  'admin'                                       #
+#      WORDPRESS_DB_PASSWORD: 'admin'                                    #
+#      WORDPRESS_DB_NAME: 'database'                                     #
+#      WORDPRESS_TABLE_PREFIX: 'wp_'                                     #
+#    volumes:                                                            #
+#      - /volume1/Docker/Wordpress:/var/www/html                         #
+#    ports:                                                              #
+#      - 27017:80                                                        #
+#    links:                                                              #
+#      - mysql                                                           #
+#########################################################################
+
+
+#########################################################################
+# Plex  : https://hub.docker.com/r/plexinc/pms-docker
+#       : https://www.plex.tv/claim/
+  plex:
+    hostname: plex
+    domainname: lan
+    network_mode: bridge
+    container_name: pms
+    image: plexinc/pms-docker
+    restart: always
+    environment:
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+    volumes:
+      - /volume1/Docker/Plex:/config
+      - /volume1/Docker/Plex:/transcode
+      - /volume1/Docker/Plex:/data
+      - Films:/mnt/Films
+    ports:
+      - 27018:32400
+  
+
+
+# Note:
+# phpMyAdmin:
+# Uuilise la DB "PMA_PMADB" pour lui même.
+# Indispensable Hors compte root
