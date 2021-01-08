@@ -30,6 +30,14 @@ Ajouter le nom du volume dans le fichier stack
 ################################
 # Obtenir le chemin applicatif #
 ################################
-
 Pour obtenir le chemin applicatif, il suffit de créer le conteneur puis d'aller dans celui ci et de regarder les volumes
-Il y aura le path
+
+Exemple:
+  - Création du conteneur httpd depuis le menu templates
+  - Aller dans conteneur puis cliquer le nom du conteneur dans la colonne "Name"
+  - Aller en bas et regarder à droite du volumes, on a le chemin de montage.
+  - Dans le cas présent: /usr/local/apache2/htdocs
+
+  volumes:
+    - httpd:/usr/local/apache2/htdocs
+  
