@@ -1,0 +1,9 @@
+##############################
+# Configuration de Portainer #
+##############################
+
+# https://www.asustor.com/fr/online/College_topic?topic=145
+
+Pour permettre d'avoir la bonne adresse pour les conteneurs autre que 0.0.0.0, il faut modifier le Endpoint.
+Il suffit d'aller dans SETTINGS > Endpoints > Local > Public IP : <adresse IP ou DNS>
+
