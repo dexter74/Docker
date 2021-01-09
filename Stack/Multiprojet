@@ -91,10 +91,9 @@ services:  #
 #########################################################################
 
 
-
-
 #########################################################################
-# Wordpress: https://hub.docker.com/_/wordpress                         #
+# Wordpress : https://hub.docker.com/_/wordpress                        #
+# Compte    : www-data:www-data                                         #
   wordpress:                                                            #
     depends_on:                                                         #
       - mysql                                                           #
@@ -114,6 +113,9 @@ services:  #
       - mysql                                                           #
     ports:                                                              #
       - 27017:80                                                        #
+#########################################################################
+
+
 #########################################################################
 # Plex  : https://hub.docker.com/r/plexinc/pms-docker                   #
 #       : https://www.plex.tv/claim/                                    #
