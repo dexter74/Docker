@@ -9,13 +9,13 @@ rm -rf /etc/docker ;
 ################################
 # Installation des dépendances #
 ################################
-apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo
+apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl
 
 
 ############################################
 # Ajout de la clé Dépôt docker pour Debian #
 ############################################
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - ;
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - ;
 
 #####################################
 # Ajout du dépôt Docker pour Debian #
