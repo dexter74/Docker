@@ -15,62 +15,16 @@ RUN apt update && apt upgrade -y
 # Installation Openssl et Apache2
 RUN apt install ${APT} openssl apache2
 
-# Certificat : 
-RUN mkdir -p /etc/apache2/certs
-RUN openssl genrsa -out /etc/apache2/certs/server.key 2048
-RUN (echo "FR" ; echo "France" ; echo "Annecy" ; echo "Personnel" ; echo "test.com" ; echo "debian.lan" ; echo "";  echo "";  echo "";  ) |openssl req -new -key /etc/apache2/certs/server.key -out /etc/apache2/certs/server.csr
-RUN openssl x509 -req -days 365 -in /etc/apache2/certs/server.csr -signkey /etc/apache2/certs/server.key -out /etc/apache2/certs/server.crt
-RUN ls /etc/apache2/certs ;    
-RUN echo "Bienvenue sur Test.com" > /var/www/html/test.html
-
-# Désactivation des site par défaut
-RUN a2dissite 000-default.conf
+# Desactivation Site par defaut
+RUN a2dissite 000-default.conf 
 RUN a2dissite default-ssl.conf
+RUN a2dismod ssl 
+RUN a2dismod rewrite 
+RUN rm /etc/apache2/sites-available/*.conf
+RUN chown -R www-data:www-data /var/www/
+RUN a2enmod ssl
+RUN a2enmod rewrite
 
-# Désactivation modules 
-RUN a2dismod ssl
-RUN a2dismod rewrite
-
-# Suppression des sites
-RUN rm /etc/apache2/sites-available/*.conf;
-
-
-RUN echo "<VirtualHost *:80> \
-  ServerName test.com \
-  ServerAlias test.com \
-  DocumentRoot /var/www/html/ \
-</VirtualHost> \
-<VirtualHost *:80> \
-  ServerName wordpress.test.com \
-  DocumentRoot /var/www/html/ \
-</VirtualHost>" > /etc/apache2/sites-available/001.drthrax74.ddns.net.conf ;
-
-
-
-RUN echo "<VirtualHost *:443> \
-    ServerName test.com \
-    ServerAlias test.com \
-    SSLEngine on \
-    SSLCertificateFile /etc/apache2/certs/server.crt \
-    SSLCertificateKeyFile /etc/apache2/certs/server.key \
-    DocumentRoot /var/www/html/ \
-</VirtualHost> \
-<VirtualHost *:443>\
-    ServerName wordpress.test.com \
-    SSLEngine on \
-    SSLCertificateFile /etc/apache2/certs/server.crt \
-    SSLCertificateKeyFile /etc/apache2/certs/server.key \
-    DocumentRoot /var/www/html/wordpress \
-</VirtualHost> \
-<VirtualHost *:443> \
-    ServerName mysql.test.com \
-    SSLEngine on \
-    SSLCertificateFile /etc/apache2/certs/server.crt \
-    SSLCertificateKeyFile /etc/apache2/certs/server.key \
-    DocumentRoot /var/www/html/phpmyadmin \
-</VirtualHost> \
-" > /etc/apache2/sites-available/002.drthrax74.ddns.net.conf
 
 expose 80 443
-
 CMD apachectl -D FOREGROUND
