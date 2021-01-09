@@ -1,0 +1,43 @@
+version: '2.4'
+services:
+
+  appz_1:
+    command:
+    container_name:
+    depends_on:
+      - appz_X
+        condition: <service_healthy|service_started>
+    dns: 
+      - 8.8.8.8
+      - 192.168.1.1
+      
+    domainname:
+    environment:
+      XXXX: "YYY"
+      
+    expose:
+      - "XXXX"
+      
+    extra_hosts:
+      - "XXXX:172.17.0."
+      - "XXXX.YYYY:172.17.0."
+      - "127.0.0.1:localhost"
+      - "192.168.1.20:localhost"
+      
+    hostname: ""
+    image:
+    
+    links:
+      - services
+      - services:alias
+    network_mode: bridge
+    mac_address: "02:42:ac:11:YY:XX"
+    ports:
+      - "XXXXX-YYYY:XXXXX-YYYY"
+    privileged: false
+    pull_policy: always
+    restart: on-failure
+    user: docker
+    
+    volumes:
+      - test
