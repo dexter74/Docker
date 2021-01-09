@@ -3,10 +3,10 @@ services:
   appz_1:
     privileged: false
     restart: on-failure
-    image:
-    container_name:
+    image: ""
+    container_name: ""
     hostname: ""
-    domainname:
+    domainname: ""
     extra_hosts:
       - ""
     dns: 
@@ -20,7 +20,7 @@ services:
     expose:
       - "XXXX"
     volumes:
-      - test
+      - ""
 
     depends_on:
       - appz_X
