@@ -6,6 +6,7 @@ services:
     container_name: filebrowser
     volumes:
       - /home/docker/root
-    ports
+      - /home/docker:/mnt/docker
+    ports:
       - 80:80
  
