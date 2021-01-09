@@ -1,51 +1,11 @@
-# --------------------------------------------------------------------------------------------------- #
-# Guide : https://devopssec.fr/article/creer-ses-propres-images-docker-dockerfile                     #
-# Image : https://hub.docker.com/_/debian                                                             #
-#                                                                                                     #
-# --------------------------------------------------------------------------------------------------- #
-#                                                                                                     #
 FROM debian:stable-slim
 LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
-# --------------------------------------------------------------------------------------------------- #
-# Utilisation: ${APT}
+
+# Variable environnement temporaire
 ARG APT="-q -y"
-ARG DOSSIER="/var/www/html"
-# --------------------------------------------------------------------------------------------------- #
 
-# --------------------------------------------- Couche 1 -------------------------------------------- #
-# Update et MYSQL
-RUN apt update -y   
-# --------------------------------------------------------------------------------------------------- #
+# Mise à jour: 
+RUN apt update && apt upgrade -y
 
-
-# --------------------------------------------- Couche 2 -------------------------------------------- #
 RUN apt install ${APT} apache2
-# --------------------------------------------------------------------------------------------------- #
-
-# --------------------------------------------- Couche 3 -------------------------------------------- #
-RUN apt-get install ${APT} mariadb-server
-# --------------------------------------------------------------------------------------------------- #
-
-
-# --------------------------------------------- Couche 4 -------------------------------------------- #
-RUN apt install ${APT}  php-mysql php && \
-    rm -f ${DOCUMENTROOT}/index.html && \
-    apt autoclean -y
-# -------------------------------------------- Fin Couche ------------------------------------------- # 
-
-# OUVERTURE DU PORT HTTP
-EXPOSE 80
-
-WORKDIR ${DOSSIER}
-
-ENTRYPOINT service mysql start && apache2ctl -D FOREGROUND
-
-# COPY
-# ADD
-# ENTRYPOINT
-# CMD
-# WORKDIR 
-# EXPOSE 
-# VOLUMES
-# USER 
-# ENV
+RUN apt install ${APT} mariadb-server
