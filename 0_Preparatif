@@ -1,6 +1,8 @@
 ################################################
 # Etape 0: Création d'un compte dédié à Docker #
 ################################################
+delgroup docker; addgroup docker --gid 74240;
+
 useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo --gid root --shell /bin/bash; 
 echo "docker:admin" | chpasswd
 
