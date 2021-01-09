@@ -24,10 +24,6 @@ services:  #
     ports:                                                              #
       - 27015:80                                                        #
 #########################################################################
-
-
-
-#########################################################################
 # Plex  : https://hub.docker.com/r/plexinc/pms-docker                   #
 #       : https://www.plex.tv/claim/                                    #
 # User  : root:root                                                     #
@@ -42,9 +38,9 @@ services:  #
       TZ: 'Europe\Paris'                                                #
       PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'                                  #
     volumes:                                                            #
-      - /home/docker/container/Plex/config:/config                      #
-      - /home/docker/container/Plex/transcode:/transcode                #
-      - /home/docker/container/Plex/data:/data                          #
+      - /home/docker/container/root/Plex/config:/config                 #
+      - /home/docker/container/root/Plex/transcode:/transcode           #
+      - /home/docker/container/root/Plex/data:/data                     #
       - Films:/mnt/Films                                                #
     ports:                                                              #
       - 27018:32400                                                     #
