@@ -30,13 +30,15 @@ RUN a2dismod rewrite
 RUN rm /etc/apache2/sites-available/*.conf;
 
 
-RUN echo "<VirtualHost *:80>
-  ServerName test.com
-  ServerAlias test.com
-  DocumentRoot /var/www/html/
-</VirtualHost>
 
-<VirtualHost *:80>
-  ServerName wordpress.test.com
-  DocumentRoot /var/www/html/
+
+
+RUN echo "<VirtualHost *:80> \
+  ServerName test.com \
+  ServerAlias test.com \
+  DocumentRoot /var/www/html/ \
+</VirtualHost> \
+<VirtualHost *:80> \
+  ServerName wordpress.test.com \
+  DocumentRoot /var/www/html/ \
 </VirtualHost>" > /etc/apache2/sites-available/001.drthrax74.ddns.net.conf ;
