@@ -65,7 +65,7 @@ services:  #
       - /home/docker/container/root/filebrowser/filebrowser.db:/database.db
       - /home/docker/container/root/filebrowser/.filebrowser.json:/.filebrowser.json
     ports:
-      -27019:80
+      - 27019:80
 ###############################################################################################
 
 
