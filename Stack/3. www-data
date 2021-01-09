@@ -30,3 +30,26 @@ services:  #
     ports:                                                              #
       - 27017:80                                                        #
 #########################################################################
+
+
+version: '2.4'
+
+services:
+  test:
+    hostname: "test"
+    domainname: "lan"
+    image: joomla
+    container_name: test
+    external_links:
+      - mysql
+    volumes:
+      - /home/docker/container/www-data/joomla
+      - /home/docker/container/www-data/joomla:/var/www/html
+
+    environment:
+      JOOMLA_DB_HOST: mysql
+      JOOMLA_DB_NAME: database
+      JOOMLA_DB_USER: admin
+      JOOMLA_DB_PASSWORD: admin
+    ports:
+      - 8080:80
