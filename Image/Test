@@ -1,0 +1,60 @@
+# --------------------------------------------------------------------------------------------------- #
+# Guide : https://devopssec.fr/article/creer-ses-propres-images-docker-dockerfile                     #
+# Image : https://hub.docker.com/_/debian                                                             #
+#                                                                                                     #
+# --------------------------------------------------------------------------------------------------- #
+#                                                                                                     #
+FROM debian:stable-slim                                                                               #
+LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"                                     #
+#                                                                                                     #
+# --------------------------------------------------------------------------------------------------- #
+#                                                                                                     #
+# Utilisation: ${APT_FLAGS}                                                                           #
+ARG APT="-q -y"
+ARG DOSSIER="/var/www/html"
+
+
+#                                                                                                     #
+# --------------------------------------------- Couche 1 ---------------------------------------------
+#
+# Update et MYSQL
+RUN apt update -y   
+#                                                                                                     #
+# --------------------------------------------- Couche 2 ---------------------------------------------
+#                                                                                                     #
+apt install ${APT_FLAGS} apache2
+#                                                                                                     #
+# --------------------------------------------- Couche 3 ---------------------------------------------
+#                                                                                                     #
+RUN apt-get install ${APT_FLAGS} mariadb-server
+#                                                                                                     #
+# --------------------------------------------- Couche 4 ---------------------------------------------
+#                                                                                                     #
+RUN apt install ${APT_FLAGS}  php-mysql php && \
+    rm -f ${DOCUMENTROOT}/index.html && \
+    apt autoclean -y
+#                                                                                                     #
+# --------------------------------------------- Couche 5 ---------------------------------------------
+#                                                                                                     #
+
+#                                                                                                     #
+# --------------------------------------------- Couche 6 ---------------------------------------------
+
+
+# -------------------------------------------- Fin Couche ------------------------------------------- # 
+# OUVERTURE DU PORT HTTP
+EXPOSE 80
+
+WORKDIR ${DOSSIER}
+
+ENTRYPOINT service mysql start && apache2ctl -D FOREGROUND
+
+# COPY
+# ADD
+# ENTRYPOINT
+# CMD
+# WORKDIR 
+# EXPOSE 
+# VOLUMES
+# USER 
+# ENV
