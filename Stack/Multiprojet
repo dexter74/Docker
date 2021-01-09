@@ -90,7 +90,7 @@ services:  #
     container_name: wordpress                                           #
     image: wordpress                                                    #
     restart: always                                                     #
-   environment:                                                         #
+    environment:                                                        #
       WORDPRESS_DB_HOST: 'mysql'                                        #
       WORDPRESS_DB_USER:  'admin'                                       #
       WORDPRESS_DB_PASSWORD: 'admin'                                    #
