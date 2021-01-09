@@ -7,5 +7,14 @@ ARG APT="-q -y"
 # Mise à jour: 
 RUN apt update && apt upgrade -y
 
-RUN apt install ${APT} apache2
-RUN apt install ${APT} mariadb-server
+# Installation Openssl et Apache2
+RUN apt install ${APT} openssl apache2
+
+# Certificat : 
+RUN mkdir -p /etc/apache2/certs
+RUN openssl genrsa -out /etc/apache2/certs/server.key 2048
+RUN (echo "FR" ; echo "France" ; echo "Annecy" ; echo "Personnel" ; echo "test.com" ; echo "debian.lan" ; echo "";  echo "";  echo "";  ) |openssl req -new -key /etc/apache2/certs/server.key -out /etc/apache2/certs/server.csr
+RUN openssl x509 -req -days 365 -in /etc/apache2/certs/server.csr -signkey /etc/apache2/certs/server.key -out /etc/apache2/certs/server.crt
+RUN ls /etc/apache2/certs ;    
+RUN echo "Bienvenue sur Test.com" > /var/www/html/test.html
+
