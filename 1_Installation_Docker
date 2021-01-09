@@ -77,3 +77,6 @@ docker rmi $(docker images -q)
 # Problème #
 ############
 systemctl status docker
+
+# Non Root: 
+# - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
