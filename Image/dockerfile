@@ -1,8 +1,11 @@
 # Tutorial : https://devopssec.fr/article/creer-ses-propres-images-docker-dockerfile
 
 # --------------- DÉBUT COUCHE OS -------------------
-FROM
+FROM debian:stable-slim
 # --------------- FIN COUCHE OS ---------------------
+
+
+# -------------------- Custom OS --------------------
 
 # MÉTADONNÉES DE L'IMAGE
 LABEL version="1.0" maintainer="JAffre Marc <teste74@hotmail.fr>"
@@ -10,7 +13,6 @@ LABEL version="1.0" maintainer="JAffre Marc <teste74@hotmail.fr>"
 # VARIABLES TEMPORAIRES
 ARG APT_FLAGS="-q -y"
 ARG DOCUMENTROOT="/var/www/html"
-
 
 
 # --------------- DÉBUT COUCHE APACHE ---------------
