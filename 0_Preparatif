@@ -7,7 +7,7 @@ echo "docker:admin" | chpasswd
 ################################################
 # Etape 2: Rendre le dossier accessible à tous #
 ################################################
-sudo chmod 777 /home/docker
+sudo chmod -R 777 /home/docker
 
 ##################################
 # Etape 3: Installation de Samba #
