@@ -30,8 +30,12 @@ sudo apt install -y samba ;
 
 # Projet wsdd
 rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
+
 sudo mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
-sudo cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system
+sudo cp /tmp/wsdd-master/src/wsdd /usr/bin
+
+
+sudo cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
 sed -i 's/User=nobody/User=docker/g' /etc/systemd/system/wsdd.service ; 
 sed -i 's/Group=nobody/Group=docker/g' /etc/systemd/system/wsdd.service ;
 sudo systemctl daemon-reload
