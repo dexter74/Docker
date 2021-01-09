@@ -18,3 +18,14 @@ RUN openssl x509 -req -days 365 -in /etc/apache2/certs/server.csr -signkey /etc/
 RUN ls /etc/apache2/certs ;    
 RUN echo "Bienvenue sur Test.com" > /var/www/html/test.html
 
+# Désactivation des site par défaut
+RUN a2dissite 000-default.conf
+RUN a2dissite default-ssl.conf
+
+# Désactivation modules 
+RUN a2dismod ssl
+RUN a2dismod rewrite
+
+# Suppression des sites
+RUN rm /etc/apache2/sites-available/*.conf;
+
