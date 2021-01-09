@@ -1,8 +1,3 @@
-# echo "address=/test.com/www.test.com/192.168.1.20"                        >  /jffs/configs/dnsmasq.conf.add 
-# echo "address=/wordpress.test.com/www.wordpress.test.com /192.168.1.20"   >> /jffs/configs/dnsmasq.conf.add
-# echo "address=/wmysql.test.com/www.mysql.test.com/192.168.1.20"           >> /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
-
-
 FROM debian:stable-slim
 LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
 
@@ -15,18 +10,13 @@ RUN apt update && apt upgrade -y ${APT}
 # Installation Openssl et Apache2
 RUN apt install ${APT} openssl apache2
 
-# Desactivation Site par defaut
-RUN a2dissite 000-default.conf 
-RUN a2dissite default-ssl.conf
-RUN a2dismod ssl 
-RUN a2dismod rewrite 
-RUN rm /etc/apache2/sites-available/*.conf
-RUN chown -R www-data:www-data /var/www/
-RUN a2enmod ssl
-RUN a2enmod rewrite
+RUN (echo "FR" ; echo "France" ; echo "Annecy" ; echo "Personnel" ; echo "test.com" ; echo "dev ; echo "";  echo "";  echo "";  ) |openssl req -new -key server.key -out server.csr
+
 
 expose 80 443
 CMD apachectl -D FOREGROUND
 
 
-# RUN openssl req -x509 -nodes -days 365 -subj  "/C=CA/ST=QC/O=Company Inc/CN=test.com"-newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
+
+
+
