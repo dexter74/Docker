@@ -48,12 +48,6 @@ services:  #
       MYSQL_PASSWORD: 'admin'                                           #
     volumes:                                                            #
       - /home/docker/container/MariaDB:/var/lib/mysql                   #
-#    ports:                                                             #
-#      - 3306:3306                                                      #
-#    expose:                                                            #
-#     - 3306                                                            #
-#########################################################################
-
 #########################################################################
 # https://hub.docker.com/_/php                                          #
   web:                                                                  #
@@ -67,9 +61,6 @@ services:  #
       - /home/docker/container/php:/var/www/html/                       #
     ports:                                                              #
       - 27015:80                                                        #
-#########################################################################
-
-
 #########################################################################
 # https://hub.docker.com/r/phpmyadmin/phpmyadmin/                       #
   phpmyadmin:                                                           #
@@ -86,59 +77,52 @@ services:  #
       PMA_PASSWORD: 'admin'                                             #
       PMA_PMADB: 'phpmyadmin'                                           #
       PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81                    #
-    ports:                                                              #
-      - 27016:80                                                        #
     links:                                                              #
       - mysql                                                           #
-#########################################################################
-
-
-
+    ports:                                                              #
+      - 27016:80                                                        #
 #########################################################################
 # Wordpress: https://hub.docker.com/_/wordpress                         #
-#  wordpress:                                                            #
-#    depends_on:                                                         #
-#      - mysql                                                           #
-#    network_mode: bridge                                                #
-#    container_name: wordpress                                           #
-#    image: wordpress                                                    #
-#    restart: always                                                     #
-#    environment:                                                        #
-#      WORDPRESS_DB_HOST: 'mysql'                                        #
-#      WORDPRESS_DB_USER:  'admin'                                       #
-#      WORDPRESS_DB_PASSWORD: 'admin'                                    #
-#      WORDPRESS_DB_NAME: 'database'                                     #
-#      WORDPRESS_TABLE_PREFIX: 'wp_'                                     #
-#    volumes:                                                            #
-#      - /home/docker/container/Wordpress:/var/www/html                  #
-#    ports:                                                              #
-#      - 27017:80                                                        #
-#    links:                                                              #
-#      - mysql                                                           #
+  wordpress:                                                            #
+    depends_on:                                                         #
+      - mysql                                                           #
+    network_mode: bridge                                                #
+    container_name: wordpress                                           #
+    image: wordpress                                                    #
+    restart: always                                                     #
+   environment:                                                         #
+      WORDPRESS_DB_HOST: 'mysql'                                        #
+      WORDPRESS_DB_USER:  'admin'                                       #
+      WORDPRESS_DB_PASSWORD: 'admin'                                    #
+      WORDPRESS_DB_NAME: 'database'                                     #
+      WORDPRESS_TABLE_PREFIX: 'wp_'                                     #
+    volumes:                                                            #
+      - /home/docker/container/Wordpress:/var/www/html                  #
+    links:                                                              #
+      - mysql                                                           #
+    ports:                                                              #
+      - 27017:80                                                        #
 #########################################################################
-
-
-#########################################################################
-# Plex  : https://hub.docker.com/r/plexinc/pms-docker
-#       : https://www.plex.tv/claim/
-  plex:
-    hostname: plex
-    domainname: lan
-    network_mode: bridge
-    container_name: pms
-    image: plexinc/pms-docker
-    restart: always
-    environment:
-      TZ: 'Europe\Paris'
-      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
-    volumes:
-      - /home/docker/container/Plex/config:/config
-      - /home/docker/container/Plex/transcode:/transcode
-      - /home/docker/container/Plex/data:/data
-      - Films:/mnt/Films
-    ports:
-      - 27018:32400
-  
+# Plex  : https://hub.docker.com/r/plexinc/pms-docker                   #
+#       : https://www.plex.tv/claim/                                    #
+  plex:                                                                 #
+    hostname: plex                                                      #
+    domainname: lan                                                     #
+    network_mode: bridge                                                #
+    container_name: pms                                                 #
+    image: plexinc/pms-docker                                           #
+    restart: always                                                     #
+    environment:                                                        #
+      TZ: 'Europe\Paris'                                                #
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'                                  #
+    volumes:                                                            #
+      - /home/docker/container/Plex/config:/config                      #
+      - /home/docker/container/Plex/transcode:/transcode                #
+      - /home/docker/container/Plex/data:/data                          #
+      - Films:/mnt/Films                                                #
+    ports:                                                              #
+      - 27018:32400                                                     #
+  #######################################################################
 
 
 # Note:
