@@ -115,7 +115,7 @@ services:
         protocol: <tcp|udp>
         mode: <host|ingress>
       
-    privileged: "true|false"
+    privileged: true|false
     pull_policy: <always|never|if_not_present|build>
     read_only: "true|false"
     restart:<no, always, on-failure, unless-stopped>
