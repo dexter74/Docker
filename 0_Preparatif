@@ -88,8 +88,8 @@ directory mask = 0700
 guest ok = no
 valid users = docker
 force user = docker
-			
-			
+
+
 [SYSTEM]
 comment = Acces au dossier root
 path = /
@@ -98,6 +98,15 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
+
+[Docker-Admin]
+comment = Acces au dossier root
+path = /
+browseable = yes
+writable = yes
+read only = no
+valid users = docker
+force user = systemd-coredump
 
 
 #======================= No Delete Line Next =======================
