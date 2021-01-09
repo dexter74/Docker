@@ -66,5 +66,6 @@ RUN echo "<VirtualHost *:443> \
 </VirtualHost> \
 " > /etc/apache2/sites-available/002.drthrax74.ddns.net.conf
 
+expose 80 443
 
 CMD apachectl -D FOREGROUND
