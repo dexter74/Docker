@@ -65,3 +65,6 @@ RUN echo "<VirtualHost *:443> \
     DocumentRoot /var/www/html/phpmyadmin \
 </VirtualHost> \
 " > /etc/apache2/sites-available/002.drthrax74.ddns.net.conf
+
+
+CMD apachectl -D FOREGROUND
