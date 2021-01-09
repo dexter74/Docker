@@ -1,31 +1,169 @@
 ##################
 # Docker Compose #
 ##################
-
-
-https://github.com/compose-spec/compose-spec/blob/master/spec.md
-
+# Documentation :  https://github.com/compose-spec/compose-spec/blob/master/spec.md
+#               :  https://docs.docker.com/compose/compose-file/compose-file-v2
 
 version: 'X'
 services:
-  XXX:
-    container_name:
+  <Nom_du_service>:    
+    command: batch -c ""
+    container_name: <Nom_du_conteneur>
+    credential_spec:
+      file: my-credential-spec.json
+      
+    depends_on:
+      - <Nom_du_service>
+        condition: <service_healthy|service_started>
+      - <Nom_du_service>
+    
+    dns: 8.8.8.8
+    dns: 
+      - 8.8.8.8
+      - 192.168.1.1
+      
+    domainname: mondomaine.com (mail.mondomaine.com)
+    entrypoint: /code/entrypoint.sh
+    
+    env_file: .env
+    env_file:
+      - ./a.env
+      - ./b.env
+    
+    environment:          #TrueF et alse doivent mis entre guillemets)
+      - XXXX=YYYY
+      ou 
+      XXXX=YYYY
+    
+    
+    expose: Ces ports DOIVENT être accessibles aux services liés et NE DEVRAIENT PAS être publiés sur la machine hôte.
+      - "XXXX"
+    
+    external_links: 
+      - XXXX
+      
+    extra_hosts:
+      - "nomdeserveur:adresse"
+      - "localhost:192.168.1.20"
+    
+    group_ad:
+      - xXXX
+    
+    healthcheck:
+      disable: true    
+      test: ["CMD", "curl", "-f", "http://localhost"] 
+      test: ["CMD-SHELL", "curl -f http://localhost || exit 1"]
+      test: curl -f https://localhost || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+      
+
+    hostname: 'Nom_de_la_Machine'
+      
+    image: <projet>/<image_docker_hub>:<tag>
+      
+    init: true
+    labels:
+      com.example.description: "Accounting webapp"
+      com.example.department: "Finance"
+      com.example.label-with-empty-value: ""
+      ou 
+      - com.example.description: "Accounting webapp"
+      - com.example.department: "Finance"
+      - com.example.label-with-empty-value: ""
+       
+    links:
+      - db
+      - db:database
+      - <service>:<alias>
+    
+    logging
+      driver: syslog
+      options:
+        syslog-address: "tcp://192.168.0.42:123"
+    
+
+    network_mode: "<host|none|bridge>"
+   
+    networks: # Définit les réseaux qui sont rattachés aux services.
+      - none
+      - bridge
+      - host
+      
+      - LAN
+        aliases:
+          - Plex
+        ipv4_address: 176.16.X.X.X
+    
+      - VLAN:
+        ipam:
+          driver: default
+            - subnet: "172.16.X.0/24"
+
+
+    mac_address: ab:cd:ef:gh:ij:kl
+    pid
+    platform: <osx | Windows/amd64 | linux/arm64/v8>
+    
+    ports:
+      - "<Port extérieur>:<Port applicatif>"
+      - "<Port exterieur>-<Port extérieur>:<Port applicatif>-<Port applicatif>"   # Range
+      
+      - target: <port>
+        published: <port>
+        protocol: <tcp|udp>
+        mode: <host|ingress>
+      
+    privileged: "true|false"
+    pull_policy: <always|never|if_not_present|build>
+    read_only: "true|false"
     restart:<no, always, on-failure, unless-stopped>
-    container_name: <name>
-    image: <image_docker_hub>:<version>
+    
+    sysctls:
+      net.core.somaxconn: 1024
+      ou
+      - net.core.somaxconn: 1024
+    
+    tmpfs: /run
+    tmpfs:
+      - /run
+      - /tmp
+    
+    tty:
+    
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+
+    user: <défini l'utilisateur qui lance le conteneur>
+    
     volumes:
       - <nomduvolume>:<Path de montage dans le conteneur>
       - /path_du_volume:<Path de montage dans le conteneur>
       - /path_du_volume/maconfig.conf:<Path de montage dans le conteneur>/maconfig.conf
+      - type: <volume|bind|tmpfs|npipe>
+        source: <source>
+        target: <targe>
+        read_only: "true|false"
+        bind: "nomdemonbin"
+          propagation: "true|false"
+        volume:
+          nocopy: ""
+        tpmfs: 
+          size: ""   
+        consistency: ""
+        
+    volumes_from:
+      - service_name
+      - service_name:ro
+      - container:container_name
+      - container:container_name:rw
       
-    ports:
-      - "<Port extérieur>:<Port applicatif>"
-      
-    expose:
-      - "XXXX"
-
-
-
+    working_dir: <>
 
 ############################
 # Dockerfile (Build Image) #
