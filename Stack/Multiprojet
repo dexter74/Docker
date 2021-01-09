@@ -73,22 +73,6 @@ services:  #
 #########################################################################
 
 
-      
-#########################################################################
-# https://hub.docker.com/_/php                                          #
-# root:root                                                             #
-  web:                                                                  #
-    depends_on:                                                         #
-      - mysql                                                           #
-    network_mode: bridge                                                #
-    container_name: php                                                 #
-    image: php:7.2.2-apache                                             #
-    restart: always                                                     #
-    volumes:                                                            #
-      - /home/docker/container/root/php:/var/www/html/                  #
-    ports:                                                              #
-      - 27015:80                                                        #
-#########################################################################
 
 
 #########################################################################
@@ -115,29 +99,6 @@ services:  #
       - 27017:80                                                        #
 #########################################################################
 
-
-#########################################################################
-# Plex  : https://hub.docker.com/r/plexinc/pms-docker                   #
-#       : https://www.plex.tv/claim/                                    #
-# User  : root:root                                                     #
-  plex:                                                                 #
-    hostname: plex                                                      #
-    domainname: lan                                                     #
-    network_mode: bridge                                                #
-    container_name: pms                                                 #
-    image: plexinc/pms-docker                                           #
-    restart: always                                                     #
-    environment:                                                        #
-      TZ: 'Europe\Paris'                                                #
-      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'                                  #
-    volumes:                                                            #
-      - /home/docker/container/Plex/config:/config                      #
-      - /home/docker/container/Plex/transcode:/transcode                #
-      - /home/docker/container/Plex/data:/data                          #
-      - Films:/mnt/Films                                                #
-    ports:                                                              #
-      - 27018:32400                                                     #
-  #######################################################################
 
 
 # Note:
