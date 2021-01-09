@@ -78,5 +78,22 @@ docker rmi $(docker images -q)
 ############
 systemctl status docker
 
+
+##########################
+# Connexion à Docker-hub #
+##########################
+docker login -u dexter74 -p 382000
+
 # Non Root: 
 # - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
+
+
+
+
+
+
+
+
+
+
+
