@@ -6,7 +6,9 @@ services:
     container_name:
     depends_on:
       - appz_X
-        condition: <service_healthy|service_started>
+      
+    condition: <service_healthy|service_started>
+    
     dns: 
       - 8.8.8.8
       - 192.168.1.1
