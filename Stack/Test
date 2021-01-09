@@ -6,7 +6,17 @@ version: '2.4'  #
 services:  #
 ############
   test:
-    image:
+    image: 
     container_name: test
-    volume:
-      - test
+    volumes:
+      - /home/docker/container/root/test
+    ports:
+      - 8080:80
+      
+      
+      
+
+
+
+##################################################################
+# A voir : https://fr.bonitasoft.com/ 
