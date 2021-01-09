@@ -41,7 +41,7 @@ services:  #
       PMA_PASSWORD: 'admin'                                             #
       PMA_PMADB: 'phpmyadmin'                                           #
       PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81                    #
-    links:                                                              #
+    external_links:                                                     #
       - mysql                                                           #
     ports:                                                              #
       - 27016:80                                                        #
