@@ -10,8 +10,11 @@ version: '2.4'  #
 services:  #
 ############
 
+
+############
+# Mariabdb #
 ###############################################################################################
-# https://hub.docker.com/_/mariadb
+# Hub   : https://hub.docker.com/_/mariadb
   mysql:
     network_mode: bridge
     container_name: mysql
@@ -24,10 +27,14 @@ services:  #
       MYSQL_PASSWORD: 'admin'
     volumes:
       - /home/docker/container/root/MariaDB:/var/lib/mysql
-     
 ###############################################################################################
-# Plex  : https://hub.docker.com/r/plexinc/pms-docker
-#       : https://www.plex.tv/claim/
+     
+     
+########
+# Plex #
+###############################################################################################
+# Hub   : https://hub.docker.com/r/plexinc/pms-docker
+# CLaim : https://www.plex.tv/claim
   plex:
     hostname: plex
     domainname: lan
@@ -45,6 +52,9 @@ services:  #
       - Films:/mnt/Films
     ports:
       - 27018:32400
+      
+##############
+# FileBrower #
 ###############################################################################################
 # https://github.com/filebrowser/filebrowser/blob/master/.docker.json (.filebrowser.json)
   filebrowser:
@@ -55,24 +65,13 @@ services:  #
       - /home/docker/container/root/filebrowser/filebrowser.db:/database.db
       - /home/docker/container/root/filebrowser/.filebrowser.json:/.filebrowser.json
     ports:
-      - 80:80
+      -27019:80
 ###############################################################################################
 
 
-version: '2.4'
-
-services:
-  filebrowser:
-    image: filebrowser/filebrowser
-    container_name: filebrowser
-    volumes:
-
-
-    ports:
-      - 80:80
-
-
-#########################################################################
+#######
+# PHP #
+###############################################################################################
 # https://hub.docker.com/_/php
 # root:root
   web:
@@ -83,4 +82,5 @@ services:
     volumes:
       - /home/docker/container/root/php:/var/www/html/
     ports:
-      - 27015:80
+      - 27020:80
+###############################################################################################
