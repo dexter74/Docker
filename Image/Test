@@ -1,3 +1,8 @@
+# echo "address=/test.com/www.test.com/192.168.1.20" > /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
+# echo "address=/test02.com/www.test02.com/192.168.1.20" >> /jffs/configs/dnsmasq.conf.add ; service restart_dnsmasq ;
+
+# 
+
 FROM debian:stable-slim
 LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
 
