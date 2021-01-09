@@ -1,4 +1,4 @@
-# echo "address=/test.com/www.test.com/192.168.1.20"                        > /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
+# echo "address=/test.com/www.test.com/192.168.1.20"                        >  /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
 # echo "address=/wordpress.test.com/www.wordpress.test.com /192.168.1.20"   >> /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
 # echo "address=/wmysql.test.com/www.mysql.test.com/192.168.1.20"           >> /jffs/configs/dnsmasq.conf.add  ; service restart_dnsmasq ;
 
