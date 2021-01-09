@@ -14,8 +14,7 @@ services:
       
     depends_on:
       - <Nom_du_service>
-        condition: <service_healthy|service_started>
-      - <Nom_du_service>
+          condition: <service_healthy|service_started>
     
     dns: 8.8.8.8
     dns: 
