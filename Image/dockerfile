@@ -21,7 +21,6 @@ RUN apt-get update -y && \
 # --------------- FIN COUCHE APACHE -----------------
 
 
-
 # --------------- DÉBUT COUCHE MYSQL ----------------
 RUN apt-get install ${APT_FLAGS} mariadb-server
 # --------------- FIN COUCHE MYSQL ------------------
@@ -35,7 +34,6 @@ RUN apt-get install ${APT_FLAGS} \
     rm -f ${DOCUMENTROOT}/index.html && \
     apt-get autoclean -y
 
-COPY app ${DOCUMENTROOT}
 # --------------- FIN COUCHE PHP --------------------
 
 
