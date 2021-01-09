@@ -47,9 +47,7 @@ sudo service wsdd status
 ###################################
 # Etape 5: Configuration de Samba #
 ###################################
-mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf
-clear ; sudo nano /etc/samba/smb.conf ; sudo systemctl restart smbd  ; systemctl status smbd  
-
+mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; sudo systemctl restart smbd  ; systemctl status smbd  
 
 #########################################################################################################
 
