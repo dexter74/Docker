@@ -8,11 +8,14 @@ services:  #
   test:
     image: 
     container_name: test
+    external_links:
+      - mysql
     volumes:
       - /home/docker/container/root/test
     ports:
       - 8080:80
       
+    environment:
       
       
 
