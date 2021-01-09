@@ -7,7 +7,6 @@
 # Wordpress : https://hub.docker.com/_/wordpress                        #
 # Compte    : www-data:www-data                                         #
   wordpress:                                                            #
-    network_mode: bridge                                                #
     container_name: wordpress                                           #
     image: wordpress                                                    #
     restart: always                                                     #
@@ -19,9 +18,8 @@
       WORDPRESS_TABLE_PREFIX: 'wp_'                                     #
     volumes:                                                            #
       - /home/docker/container/www-data/Wordpress:/var/www/html         #
-    links:                                                              #
+    external_links:                                                     #
       - mysql                                                           #
     ports:                                                              #
       - 27017:80                                                        #
 #########################################################################
-
