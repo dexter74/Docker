@@ -101,7 +101,7 @@ force user = root
 
 [Docker-Admin]
 comment = Acces au dossier root
-path = /
+path = /home/docker/container/
 browseable = yes
 writable = yes
 read only = no
