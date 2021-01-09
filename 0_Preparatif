@@ -26,7 +26,7 @@ sudo apt install -y samba ;
 # Etape 5 : Activer la découverte réseau #
 ##########################################
 # https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/
-# apt install unzip -y ; 
+# apt install -y  unzip ; 
 
 # Projet wsdd
 rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
