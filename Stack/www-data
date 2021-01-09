@@ -1,0 +1,29 @@
+############################################################
+# Stack qui utilise a comme permission de dossier www-data #
+############################################################
+
+
+#########################################################################
+# Wordpress : https://hub.docker.com/_/wordpress                        #
+# Compte    : www-data:www-data                                         #
+  wordpress:                                                            #
+    depends_on:                                                         #
+      - mysql                                                           #
+    network_mode: bridge                                                #
+    container_name: wordpress                                           #
+    image: wordpress                                                    #
+    restart: always                                                     #
+    environment:                                                        #
+      WORDPRESS_DB_HOST: 'mysql'                                        #
+      WORDPRESS_DB_USER:  'admin'                                       #
+      WORDPRESS_DB_PASSWORD: 'admin'                                    #
+      WORDPRESS_DB_NAME: 'database'                                     #
+      WORDPRESS_TABLE_PREFIX: 'wp_'                                     #
+    volumes:                                                            #
+      - /home/docker/container/Wordpress:/var/www/html                  #
+    links:                                                              #
+      - mysql                                                           #
+    ports:                                                              #
+      - 27017:80                                                        #
+#########################################################################
+
