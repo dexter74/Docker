@@ -1,12 +1,3 @@
-##############################
-# Fonctionnels:              #
-#   - Mariadb                #
-#   - phpMyAdmin             #
-#   - Wordpress              #
-# En cours :                 #
-##############################
-
-
 # Settings > Endpoints > Local > Public IP: 192.168.1.2
 # Settings > Endpoints > ADD   > Public IP: drthrax74.ddns.net
 # HOME     > drthrax74.ddns.net
