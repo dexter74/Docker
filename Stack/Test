@@ -5,8 +5,6 @@ services:
     image: filebrowser/filebrowser
     container_name: filebrowser
     volumes:
-      - /home/docker/root
-      - /home/docker:/mnt/docker
+      - /home/docker/container/:/srv
     ports:
       - 80:80
- 
