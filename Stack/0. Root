@@ -2,7 +2,6 @@
 # Information: Stack qui ont leur permission en dossier en root #
 #################################################################
 
-
 #################
 version: '2.4'  #
 #################
@@ -22,7 +21,7 @@ services:  #
       MYSQL_USER: 'admin'                                               #
       MYSQL_PASSWORD: 'admin'                                           #
     volumes:                                                            #
-      - /home/docker/container/systemd-coredump/MariaDB:/var/lib/mysql  #
+      - /home/docker/container/root/MariaDB:/var/lib/mysql              #
 #########################################################################
 # https://hub.docker.com/_/php                                          #
 # root:root                                                             #
