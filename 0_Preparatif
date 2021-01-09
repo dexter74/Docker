@@ -102,7 +102,7 @@ force user = root
 
 [Docker-systemd]
 comment = Utilisateur docker qui prend les droits systemd-coredump
-path = /home/docker/container/systemd-coredump
+path = /home/docker/container/systemd-coredump/
 browseable = yes
 writable = yes
 read only = no
