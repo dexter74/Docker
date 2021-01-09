@@ -10,7 +10,7 @@ LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
 ARG APT="-q -y"
 
 # Mise à jour: 
-RUN apt update && apt upgrade -y
+RUN apt update && apt upgrade -y ${APT}
 
 # Installation Openssl et Apache2
 RUN apt install ${APT} openssl apache2
