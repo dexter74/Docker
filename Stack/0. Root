@@ -83,4 +83,6 @@ services:  #
       - /home/docker/container/root/php:/var/www/html/
     ports:
       - 27020:80
+     
+# Note: phpMyAdmin : Uilise la variable "PMA_PMADB" pour sa db à lui lui même.
 ###############################################################################################
