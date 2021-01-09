@@ -10,7 +10,7 @@ RUN apt update && apt upgrade -y ${APT}
 # Installation Openssl et Apache2
 RUN apt install ${APT} openssl apache2
 
-RUN (echo "FR" ; echo "France" ; echo "Annecy" ; echo "Personnel" ; echo "test.com" ; echo "dev ; echo "";  echo "";  echo "";  ) |openssl req -new -key server.key -out server.csr
+RUN (echo "FR" ; echo "France" ; echo "Annecy" ; echo "Personnel" ; echo "test.com" ; echo "dev" ; echo "";  echo "";  echo "";  ) |openssl req -new -key server.key -out server.csr
 
 
 expose 80 443
