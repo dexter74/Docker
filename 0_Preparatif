@@ -75,6 +75,8 @@ writable = yes
 create mask = 0700
 directory mask = 0700
 guest ok = no
+valid users = docker
+force user = docker
 			
 			
 [SYSTEM]
