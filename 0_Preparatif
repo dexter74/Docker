@@ -89,24 +89,34 @@ mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; syst
 ; guest ok = no
 
 
-[SYSTEM]
-comment = Acces au dossier root
-path = /
+
+[Docker-root]
+comment = Utilisateur docker qui prend les droits root
+path = /home/docker/container/root
 browseable = yes
 writable = yes
 read only = no
 valid users = docker
 force user = root
 
-[Docker-Admin]
-comment = Acces au dossier root
-path = /home/docker/container/
+
+[Docker-systemd]
+comment = Utilisateur docker qui prend les droits systemd-coredump
+path = /home/docker/container/systemd-coredump
 browseable = yes
 writable = yes
 read only = no
 valid users = docker
 force user = systemd-coredump
 
+[SYSTEM]
+comment = Utilisateur docker qui prend les droits www-data
+path = /home/docker/container/www-data
+browseable = yes
+writable = yes
+read only = no
+valid users = docker
+force user = www-data
 
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
