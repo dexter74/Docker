@@ -1,0 +1,12 @@
+#################
+version: '2.4'  #
+#################
+
+############
+services:  #
+############
+  test:
+    image:
+    container_name: test
+    volume:
+      - test
