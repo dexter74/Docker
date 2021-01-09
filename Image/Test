@@ -7,7 +7,7 @@
 FROM debian:stable-slim
 LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
 # --------------------------------------------------------------------------------------------------- #
-# Utilisation: ${APT_FLAGS}
+# Utilisation: ${APT}
 ARG APT="-q -y"
 ARG DOSSIER="/var/www/html"
 # --------------------------------------------------------------------------------------------------- #
@@ -28,7 +28,7 @@ RUN apt-get install ${APT_FLAGS} mariadb-server
 
 
 # --------------------------------------------- Couche 4 -------------------------------------------- #
-RUN apt install ${APT_FLAGS}  php-mysql php && \
+RUN apt install ${APT}  php-mysql php && \
     rm -f ${DOCUMENTROOT}/index.html && \
     apt autoclean -y
 # -------------------------------------------- Fin Couche ------------------------------------------- # 
