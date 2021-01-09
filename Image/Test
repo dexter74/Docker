@@ -4,12 +4,12 @@
 #                                                                                                     #
 # --------------------------------------------------------------------------------------------------- #
 #                                                                                                     #
-FROM debian:stable-slim                                                                               #
-LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"                                     #
+FROM debian:stable-slim
+LABEL version="1.0" maintainer="Marc Jaffre <teste74@hotmail.fr>"
 #                                                                                                     #
 # --------------------------------------------------------------------------------------------------- #
-#                                                                                                     #
-# Utilisation: ${APT_FLAGS}                                                                           #
+#
+# Utilisation: ${APT_FLAGS}
 ARG APT="-q -y"
 ARG DOSSIER="/var/www/html"
 
