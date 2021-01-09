@@ -10,6 +10,20 @@ version: '2.4'  #
 ############
 services:  #
 #########################################################################
+# https://hub.docker.com/_/mariadb                                      #
+  mysql:                                                                #
+    network_mode: bridge                                                #
+    container_name: mysql                                               #
+    image: mariadb                                                      #
+    restart: always                                                     #
+    environment:                                                        #
+      MYSQL_ROOT_PASSWORD: 'root'                                       #
+      MYSQL_DATABASE: 'database'                                        #
+      MYSQL_USER: 'admin'                                               #
+      MYSQL_PASSWORD: 'admin'                                           #
+    volumes:                                                            #
+      - /home/docker/container/systemd-coredump/MariaDB:/var/lib/mysql  #
+#########################################################################
 # https://hub.docker.com/_/php                                          #
 # root:root                                                             #
   web:                                                                  #
