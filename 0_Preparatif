@@ -14,6 +14,7 @@ addgroup docker --gid 74240 ;
 useradd docker --uid 1001 --home /home/docker/ 	--create-home --groups root,sudo,docker --gid root --shell /bin/bash;
 echo "docker:admin" | chpasswd
 
+
 ################################################
 # Etape 2: Rendre le dossier accessible à tous #
 ################################################
@@ -78,16 +79,14 @@ mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; syst
 
 #======================= Share Definitions =======================
 
-[homes]
-comment = Dossier Utilisateurs 
-browseable = no 
-read only = no
-writable = yes
-create mask = 0700
-directory mask = 0700
-guest ok = no
-valid users = docker
-force user = docker
+; [homes]
+; comment = Dossier Utilisateurs 
+; browseable = no 
+; read only = no
+; writable = yes
+; create mask = 0700
+; directory mask = 0700
+; guest ok = no
 
 
 [SYSTEM]
