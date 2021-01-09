@@ -9,9 +9,6 @@ rm -rf /etc/docker ;
 ################################
 # Installation des dépendances #
 ################################
-echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
-apt update ;
- 
 apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo
 
 
