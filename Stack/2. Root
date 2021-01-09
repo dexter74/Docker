@@ -13,8 +13,6 @@ services:  #
 # https://hub.docker.com/_/php                                          #
 # root:root                                                             #
   web:                                                                  #
-    depends_on:                                                         #
-      - mysql                                                           #
     network_mode: bridge                                                #
     container_name: php                                                 #
     image: php:7.2.2-apache                                             #
