@@ -21,7 +21,7 @@ apt install -y samba ;
 ############################################
 
 # Ajout, activation du compte de partage docker et relance du samba
-(echo docker; echo docker; echo ) | sudo smbpasswd -a docker ; sudo smbpasswd -e docker; sudo systemctl restart smbd
+(echo docker; echo docker; echo ) | smbpasswd -a docker ; smbpasswd -e docker; systemctl restart smbd
 
 ##########################################
 # Etape 5 : Activer la découverte réseau #
@@ -32,23 +32,23 @@ apt install -y samba ;
 # Projet wsdd
 rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
 
-sudo mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
-sudo cp /tmp/wsdd-master/src/wsdd /usr/bin
+mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
+cp /tmp/wsdd-master/src/wsdd /usr/bin
 
 
-sudo cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
+cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
 sed -i 's/User=nobody/User=docker/g' /etc/systemd/system/wsdd.service ; 
 sed -i 's/Group=nobody/Group=docker/g' /etc/systemd/system/wsdd.service ;
-sudo systemctl daemon-reload
-sudo systemctl start wsdd
-sudo systemctl enable wsdd
-sudo service wsdd status
+systemctl daemon-reload
+systemctl start wsdd
+systemctl enable wsdd
+service wsdd status
 
 
 ###################################
 # Etape 5: Configuration de Samba #
 ###################################
-mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; sudo systemctl restart smbd  ; systemctl status smbd  
+mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; systemctl restart smbd  ; systemctl status smbd  
 
 #########################################################################################################
 
