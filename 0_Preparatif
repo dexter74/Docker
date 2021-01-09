@@ -109,14 +109,24 @@ read only = no
 valid users = docker
 force user = systemd-coredump
 
-[SYSTEM]
-comment = Utilisateur docker qui prend les droits www-data
+[Docker-www-data]
+comment = Utilisateur docker qui prend les droits systemd-coredump
 path = /home/docker/container/www-data
 browseable = yes
 writable = yes
 read only = no
 valid users = docker
 force user = www-data
+
+
+[SYSTEM]
+comment = Utilisateur docker qui prend les droits root
+path = /
+browseable = yes
+writable = yes
+read only = no
+valid users = docker
+force user = root
 
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
