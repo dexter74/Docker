@@ -30,7 +30,7 @@ services:
       - services:alias
     mac_address: "02:42:ac:11:YY:XX"
     command:
-    user: docker
+    user: <UID>:<GiD>
     pull_policy: always
     condition: <service_healthy|service_started>
 
