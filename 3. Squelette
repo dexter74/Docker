@@ -8,26 +8,18 @@ services:
     hostname: ""
     domainname: ""
     extra_hosts:
-      - ""
+      - "host:ip"
     dns: 
       - 8.8.8.8
-      - 192.168.1.1
     network_mode: bridge
     environment:
-      XXXX: "YYY"
     ports:
-      - "XXXXX-YYYY:XXXXX-YYYY"
     expose:
-      - "XXXX"
     volumes:
-      - ""
-
     depends_on:
-      - appz_X
-      
+      - db
     links:
-      - services
-      - services:alias
+      - db
     mac_address: "02:42:ac:11:YY:XX"
     command:
     user: <UID>:<GiD>
