@@ -5,17 +5,18 @@ version: '2.4'  #
 ############
 services:  #
 ############
-    hostname:   "ZNC"
-    domainname: "lan"
-    image: "linuxserver/znc"
-    container_name: ZNC
-    external_links:
-      - mysql
-    volumes:
-      - /home/docker/container/marc/znc:/config
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-    ports:
-      - 80:6501
+    znc:
+        hostname:   "ZNC"
+        domainname: "lan"
+        image: "linuxserver/znc"
+        container_name: ZNC
+        external_links:
+            - mysql
+        volumes:
+            - /home/docker/container/marc/znc:/config
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/Paris
+        ports:
+            - 80:6501
