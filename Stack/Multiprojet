@@ -119,6 +119,7 @@ services:  #
 #########################################################################
 # Plex  : https://hub.docker.com/r/plexinc/pms-docker                   #
 #       : https://www.plex.tv/claim/                                    #
+# User  : root:root                                                     #
   plex:                                                                 #
     hostname: plex                                                      #
     domainname: lan                                                     #
