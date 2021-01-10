@@ -8,6 +8,14 @@ version: 'X'
 services:
   <Nom_du_service>:    
     command: batch -c ""
+    
+    command:
+        --ssl
+        --sslcert /certs/portainer.crt
+        --sslkey /certs/portainer.key
+    
+    
+    
     container_name: <Nom_du_conteneur>
     credential_spec:
       file: my-credential-spec.json
