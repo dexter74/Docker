@@ -104,8 +104,8 @@ services:  #
     environment:
       PUID: '1001'
       PGID: '74240'
-      PMA_HOST: mysql
-      PMA_PORT: 3306
+      PMA_HOST: 'mysql'
+      PMA_PORT: '3306'
       PMA_USER: 'admin'
       PMA_PASSWORD: 'admin'
       PMA_PMADB: 'phpmyadmin'
@@ -145,7 +145,6 @@ services:  #
       - 27017:80
 #########################################################################
 
-
 ##########
 # Joomla #
 #########################################################################
@@ -163,10 +162,31 @@ services:  #
     environment:
       PUID: '1001'
       PGID: '74240'
-      JOOMLA_DB_HOST: mysql
-      JOOMLA_DB_NAME: database
-      JOOMLA_DB_USER: admin
-      JOOMLA_DB_PASSWORD: admin
+      JOOMLA_DB_HOST: 'mysql'
+      JOOMLA_DB_NAME: 'database'
+      JOOMLA_DB_USER: 'admin'
+      JOOMLA_DB_PASSWORD: 'admin'
     ports:
       - 8080:80
 #########################################################################
+
+
+
+#######
+# ZNC #
+#######
+  znc:
+    hostname:   "ZNC"
+    domainname: "lan"
+    image: "linuxserver/znc"
+    container_name: ZNC
+    external_links:
+      - mysql
+    volumes:
+      - /home/docker/container/marc/znc:/config
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - 80:6501
