@@ -2,7 +2,7 @@
 # Nettoyage / Suppression de Portainer #
 ########################################
 # Arrêt et suppression du conteneur Portainer 
-docker kill portainer ; 
+docker kill portainer ;
 docker rm portainer ;
 
 # Suppression du volume, conteneur et image portainer
