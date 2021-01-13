@@ -13,6 +13,8 @@ services:
       - 8.8.8.8
     network_mode: bridge
     environment:
+      PUID: ''  # Taper la commande 'id docker' pour trouver le compte et groupe
+      PGID: ''
     ports:
     expose:
     volumes:
