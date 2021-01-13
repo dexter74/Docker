@@ -12,11 +12,11 @@ services: #
   mysql:
     network_mode: bridge
     container_name: mysql
-    image: mariadb
+    image: ghcr.io/linuxserver/mariadb
     restart: always
     environment:
-      PUID: '1001'
-      PGID: '74240'
+      PUID: '1000'
+      PGID: '1000'
       MYSQL_ROOT_PASSWORD: 'root'
       MYSQL_DATABASE: 'database'
       MYSQL_USER: 'admin'
