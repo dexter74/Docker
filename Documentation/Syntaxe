@@ -14,7 +14,8 @@ services:
         --sslcert /certs/portainer.crt
         --sslkey /certs/portainer.key
     
-    
+    PUID: 'ID USER'
+    PGID: 'ID GROUP'
     
     container_name: <Nom_du_conteneur>
     credential_spec:
