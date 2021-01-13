@@ -11,7 +11,7 @@ delgroup docker ;
 ################################################
 
 addgroup docker --gid 74240 ;
-useradd docker --uid 1001 --home /home/docker/ 	--create-home --groups root,sudo,docker --gid root --shell /bin/bash;
+useradd docker --uid 1001 --home /home/docker/ 	--create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 echo "docker:admin" | chpasswd
 
 
