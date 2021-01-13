@@ -1,34 +1,20 @@
-################
-version: '2.4' #
-################
-services: #
-###########
-    
-  Taisun:
+version: "2"
+services:
+  taisun:
+    image: linuxserver/taisun
+    container_name: taisun
     network_mode: bridge
-    container_name: 'Taisun'
-    image: 'linuxserver/taisun'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/docker/container/taisun:/root
+      - /home/docker/container/taisun
+      
     ports:
       - 3000:3000
-    links:
-      - guacd
+    restart: unless-stopped
+    
+    
+
+      
 
 
-##########
-# Guadcd #
-#############################################################################################################
-  guacd:
-    network_mode: bridge
-    container_name: 'GuaCD'
-    image: 'linuxserver/guacd'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-    ports:
-      - 4822:4822
+
