@@ -5,74 +5,81 @@
 #################
 version: '2.4'  #
 #################
-services: #
-########################################################################################################################
-  Torrent:
-    restart: unless-stopped
-    container_name: Qbitorrent
-    hostname: Qbitorrent
-    image: 'linuxserver/qbittorrent'
-    environment:
-      TZ: Europe/Paris
-      WEBUI_PORT: 8080
-      UMASK_SET: 022
-    ports:
-      - 8080:8080
-    volumes:
-      - /home/docker/container/qbitorrent/config:/config
-      - /home/docker/container/qbitorrent/downloads:/downloads
+services: #      
       
 ########################################################################################################################
   Jackett:
+    network_mode: bridge
     restart: unless-stopped
     container_name: Jackett
     hostname: Jackett
     image: 'linuxserver/jackett'
-    links:
-      - Torrent
     environment:
       TZ: 'Europe\Paris'
       AUTO_UPDATE: 'true'
+      PUID: 1001
+      PGID: 74240
+      
     ports:
       - 9117:9117
     volumes:
       - /home/docker/container/jackett/config:/config
       - /home/docker/container/jackett/downloads:/downloads
-
-#######################################################################################################################   
-  Radarr:
-    restart: unless-stopped
-    container_name: Radarr
-    hostname: Radarr
-    image: 'linuxserver/radarr'
-    links:
-      - Torrent
-    environment:
-      TZ: 'Europe\Paris'
-      UMASK_SET: '022'
-    ports:
-      - 7878:7878
-    volumes:
-      - /home/docker/container/radarr/config:/config
-      - /home/docker/container/radarr/movies:/movies
-      - /home/docker/container/radarr/downloads:/downloads
-      
+     
 ########################################################################################################################
   Sonarr:
+    network_mode: bridge
     restart: unless-stopped
     container_name: Sonarr
     hostname: Sonarr
     image: 'linuxserver/sonarr'
-    links:
-      - Torrent
     environment:
       TZ: 'Europe\Paris'
       UMASK_SET: '022'
+      PUID: 1001
+      PGID: 74240
+      
     ports:
       - 8989:8989
     volumes:
       - /home/docker/container/sonarr/config:/config
       - /home/docker/container/sonarr/tv:/tv
       - /home/docker/container/sonarr/downloads:/downloads
+     
+########################################################################################################################
+#  Torrent:
+#    network_mode: bridge
+#    restart: unless-stopped
+#    container_name: Qbitorrent_OK
+#    hostname: Qbitorrent
+#    image: 'linuxserver/qbittorrent'
+#    environment:
+#      TZ: Europe/Paris
+#      WEBUI_PORT: 8080
+#      UMASK_SET: 022
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - /home/docker/container/qbitorrent/config:/config
+#      - /home/docker/container/qbitorrent/downloads:/downloads
       
+#######################################################################################################################   
+#  Radarr:
+#    network_mode: bridge
+#    restart: unless-stopped
+#    container_name: Radarr_OK
+#    hostname: Radarr
+#    image: 'linuxserver/radarr'
+#    environment:
+#      TZ: 'Europe\Paris'
+#      UMASK_SET: '022'
+#      PUID: 1001
+#      PGID: 74240
+#      
+#    ports:
+#      - 7878:7878
+#    volumes:
+#      - /home/docker/container/radarr/config:/config
+#      - /home/docker/container/radarr/movies:/movies
+#      - /home/docker/container/radarr/downloads:/downloads
 ########################################################################################################################
