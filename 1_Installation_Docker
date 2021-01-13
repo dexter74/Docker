@@ -9,7 +9,7 @@ rm -rf /etc/docker ;
 ################################
 # Installation des dépendances #
 ################################
-apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl
+apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
 
 
 ############################################
@@ -31,58 +31,58 @@ apt install -y docker-ce docker-ce-cli containerd.io ;
 #######################################################
 # Modifier l'utilisateur qui lancer le service Docker #
 #######################################################
-sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket
-sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket
-systemctl daemon-reload
+sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
+sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket ;
+systemctl daemon-reload ;
 
 # Appartenenance du socket (Défaut: root:systemd-coredump)
-sudo chown docker:docker /var/run/docker.sock
+sudo chown docker:docker /var/run/docker.sock ;
 
 ##################################
 # Vérification du fonctionnement #
 ##################################
-systemctl reboot 
-docker run hello-world ; 
+systemctl reboot  ;
+docker run hello-world ;
 
 
 ##################################
 # Installation de Docker-compose #
 ##################################
-curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ;
+chmod +x /usr/local/bin/docker-compose ;
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose ;
 
 
 #################################
 # Création du dossier container #
 #################################
-mkdir -p /home/docker/container/
-chown -R systemd-coredump:root /home/docker/container/
+mkdir -p /home/docker/container/ ;
+chown -R systemd-coredump:root /home/docker/container/ ;
 
 #####################
 # Check des version #
 #####################
-docker --version
-docker-compose --version
+docker --version ;
+docker-compose --version ;
 
 ###############################
 # Nettoyage du contenu Docker #
 ###############################
-docker kill $(docker ps -q) 
-docker rm $(docker ps -a -q)
-docker rmi $(docker images -q)
+docker kill $(docker ps -q) ;
+docker rm $(docker ps -a -q) ;
+docker rmi $(docker images -q) ;
 
 
 ############
 # Problème #
 ############
-systemctl status docker
+systemctl status docker ;
 
 
 ##########################
 # Connexion à Docker-hub #
 ##########################
-docker login -u dexter74 -p 382000
+docker login -u dexter74 -p 382000 ;
 
 # Non Root: 
 # - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
