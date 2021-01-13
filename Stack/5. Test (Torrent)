@@ -13,7 +13,7 @@ services: #
     restart: unless-stopped
     container_name: Jackett
     hostname: Jackett
-    image: 'linuxserver/jackett'
+    image: 'hotio/jackett'
     environment:
       TZ: 'Europe\Paris'
       AUTO_UPDATE: 'true'
