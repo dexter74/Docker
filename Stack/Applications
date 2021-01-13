@@ -5,6 +5,28 @@ version: '2.4'  #
 #################
 services:  #
 ############
+           
+##############
+# FileBrower #
+###############################################################################################
+# https://github.com/filebrowser/filebrowser/blob/master/.docker.json (.filebrowser.json)
+  filebrowser:
+    image: filebrowser/filebrowser
+    container_name: filebrowser
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+    volumes:
+      - /:/srv
+      - /home/docker/database.db:/database.db
+      - /home/docker/.filebrowser.json:/.filebrowser.json
+    ports:
+      - 27019:80
+###############################################################################################
+
+
+
+
 
 ############
 # Mariabdb #
@@ -25,7 +47,6 @@ services:  #
     volumes:
       - /home/docker/container/MariaDB:/var/lib/mysql
 ###############################################################################################
-     
      
 ########
 # Plex #
@@ -51,25 +72,7 @@ services:  #
       - Films:/mnt/Films
     ports:
       - 27018:32400
-      
-##############
-# FileBrower #
 ###############################################################################################
-# https://github.com/filebrowser/filebrowser/blob/master/.docker.json (.filebrowser.json)
-  filebrowser:
-    image: filebrowser/filebrowser
-    container_name: filebrowser
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-    volumes:
-      - /:/srv
-      - /home/docker/database.db:/database.db
-      - /home/docker/.filebrowser.json:/.filebrowser.json
-    ports:
-      - 27019:80
-###############################################################################################
-
 
 #######
 # PHP #
@@ -114,3 +117,54 @@ services:  #
 ###############################################################################################
 
 
+
+
+#############
+# Wordpress #
+#########################################################################
+# Wordpress : https://hub.docker.com/_/wordpress
+# Compte    : www-data:www-data
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      WORDPRESS_DB_HOST: 'mysql'#
+      WORDPRESS_DB_USER:  'admin'
+      WORDPRESS_DB_PASSWORD: 'admin'
+      WORDPRESS_DB_NAME: 'database'
+      WORDPRESS_TABLE_PREFIX: 'wp_'
+    volumes:
+      - /home/docker/container/Wordpress:/var/www/html
+    external_links:
+      - mysql
+    ports:
+      - 27017:80
+#########################################################################
+
+
+##########
+# Joomla #
+#########################################################################
+  joomla:
+    hostname: "joomla"
+    domainname: "lan"
+    image: joomla
+    container_name: test
+    external_links:
+      - mysql
+    volumes:
+      - /home/docker/container/joomla
+      - /home/docker/container/joomla:/var/www/html
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      JOOMLA_DB_HOST: mysql
+      JOOMLA_DB_NAME: database
+      JOOMLA_DB_USER: admin
+      JOOMLA_DB_PASSWORD: admin
+    ports:
+      - 8080:80
+#########################################################################
