@@ -1,14 +1,29 @@
-#############################################
-# Stack: Torrent, Jackett, Radarr et Sonarr #
-#############################################
+################################################
+# Stack: Qbitorrent, Jackett, Radarr et Sonarr #
+################################################
 
 #################
 version: '2.4'  #
 #################
-services: #      
+services: #
+#####################################################################################################
+  BiTorrent:
+    container_name: QBiTorrent
+    image:
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      
+    ports:
+      - 8080:8080
+      
+    volumes:
 
 
 
+
+#####################################################################################################
   Jackett:
     container_name: Jackett
     image: 'hotio/jackett'
@@ -23,7 +38,7 @@ services: #
       - 9117:9117
     volumes:
      - /home/docker/container/jackett:/config
-
+#####################################################################################################
   Radarr:
     container_name: Radarr
     image: 'hotio/radarr'
@@ -37,7 +52,7 @@ services: #
       - 7878:7878
     volumes:
       - /home/docker/container/radarr:/config
-      
+#####################################################################################################
   Sonarr:
     container_name: Sonarr
     image: 'hotio/sonarr'
@@ -51,3 +66,4 @@ services: #
       - 8989:8989
     volumes:
       - /home/docker/container/sonarr:/config
+#####################################################################################################
