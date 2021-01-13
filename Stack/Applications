@@ -18,8 +18,8 @@ services:  #
       PGID: '74240'
     volumes:
       - /:/srv
-      - /home/docker/database.db:/database.db
-      - /home/docker/.filebrowser.json:/.filebrowser.json
+      - /home/docker/container/database.db:/database.db
+      - /home/docker/container/.filebrowser.json:/.filebrowser.json
     ports:
       - 27019:80
 #############################################################################################################
