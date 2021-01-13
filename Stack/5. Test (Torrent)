@@ -7,7 +7,7 @@ version: '2.4'  #
 #################
 services: #
 ########################################################################################################################
-  torrent:
+  Torrent:
     restart: unless-stopped
     container_name: Qbitorrent
     hostname: Qbitorrent
@@ -22,14 +22,15 @@ services: #
     volumes:
       - /home/marc/container/qbitorrent/config:/config
       - /home/marc/container/qbitorrent/downloads:/downloads
+      
 ########################################################################################################################
-  jackett:
+  Jackett:
     restart: unless-stopped
     container_name: Jackett
     hostname: Jackett
     image: 'linuxserver/jackett'
     links:
-      - torrent
+      - Torrent
     environment:
       TZ: 'Europe\Paris'
       AUTO_UPDATE: 'true'
@@ -40,13 +41,13 @@ services: #
       - /home/marc/container/jackett/downloads:/downloads
 
 #######################################################################################################################   
-  radarr:
+  Radarr:
     restart: unless-stopped
     container_name: Radarr
     hostname: Radarr
     image: 'linuxserver/radarr'
     links:
-      - torrent
+      - Torrent
     environment:
       TZ: 'Europe\Paris'
       UMASK_SET: '022'
@@ -56,14 +57,15 @@ services: #
       - /home/marc/container/radarr/config:/config
       - /home/marc/container/radarr/movies:/movies
       - /home/marc/container/radarr/downloads:/downloads
+      
 ########################################################################################################################
-  radarr:
+  Sonarr:
     restart: unless-stopped
     container_name: Sonarr
     hostname: Sonarr
     image: 'linuxserver/sonarr'
     links:
-      - torrent
+      - Torrent
     environment:
       TZ: 'Europe\Paris'
       UMASK_SET: '022'
@@ -73,4 +75,5 @@ services: #
       - /home/marc/container/sonarr/config:/config
       - /home/marc/container/sonarr/tv:/tv
       - /home/marc/container/sonarr/downloads:/downloads
+      
 ########################################################################################################################
