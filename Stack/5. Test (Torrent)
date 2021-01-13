@@ -18,10 +18,9 @@ services: #
       UMASK_SET: 022
     ports:
       - 8080:8080
-      - 6881:6881
     volumes:
-      - /home/marc/container/qbitorrent/config:/config
-      - /home/marc/container/qbitorrent/downloads:/downloads
+      - /home/docker/container/qbitorrent/config:/config
+      - /home/docker/container/qbitorrent/downloads:/downloads
       
 ########################################################################################################################
   Jackett:
@@ -37,8 +36,8 @@ services: #
     ports:
       - 9117:9117
     volumes:
-      - /home/marc/container/jackett/config:/config
-      - /home/marc/container/jackett/downloads:/downloads
+      - /home/docker/container/jackett/config:/config
+      - /home/docker/container/jackett/downloads:/downloads
 
 #######################################################################################################################   
   Radarr:
@@ -54,9 +53,9 @@ services: #
     ports:
       - 7878:7878
     volumes:
-      - /home/marc/container/radarr/config:/config
-      - /home/marc/container/radarr/movies:/movies
-      - /home/marc/container/radarr/downloads:/downloads
+      - /home/docker/container/radarr/config:/config
+      - /home/docker/container/radarr/movies:/movies
+      - /home/docker/container/radarr/downloads:/downloads
       
 ########################################################################################################################
   Sonarr:
@@ -72,8 +71,8 @@ services: #
     ports:
       - 8989:8989
     volumes:
-      - /home/marc/container/sonarr/config:/config
-      - /home/marc/container/sonarr/tv:/tv
-      - /home/marc/container/sonarr/downloads:/downloads
+      - /home/docker/container/sonarr/config:/config
+      - /home/docker/container/sonarr/tv:/tv
+      - /home/docker/container/sonarr/downloads:/downloads
       
 ########################################################################################################################
