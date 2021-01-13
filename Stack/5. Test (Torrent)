@@ -1,0 +1,57 @@
+version: '2.4'
+services:
+########################################################################################################################
+  torrent:
+    restart: unless-stopped
+    container_name: Qbitorrent
+    hostname: Qbitorrent
+    image: 'linuxserver/qbittorrent'
+    environment:
+      TZ: Europe/Paris
+      WEBUI_PORT: 8080
+      UMASK_SET: 022
+    ports:
+      - 8080:8080
+      - 6881:6881
+    volumes:
+      - /home/marc/container/qbitorrent/config:/config
+      - /home/marc/container/qbitorrent/downloads:/downloads
+########################################################################################################################
+  jackett:
+    restart: unless-stopped
+    container_name: Jackett
+    hostname: Jackett
+    image: 'linuxserver/jackett'
+    links:
+      - torrent
+    environment:
+      TZ: 'Europe\Paris'
+      AUTO_UPDATE: 'true'
+    ports:
+      - 9117:9117
+    volumes:
+      - /home/marc/container/jackett/config:/config
+      - /home/marc/container/jackett/downloads:/downloads
+
+#######################################################################################################################   
+  radarr:
+    restart: unless-stopped
+    container_name: Radarr
+    hostname: Radarr
+    image: 'linuxserver/radarr'
+    links:
+      - torrent
+    environment:
+      TZ: 'Europe\Paris'
+      UMASK_SET: '022'
+    ports:
+      - 7878:7878
+    volumes:
+      - /home/marc/container/radarr/config:/config
+      - /home/marc/container/radarr/movies:/movies
+      - /home/marc/container/radarr/downloads:/downloads
+########################################################################################################################
+
+
+
+
