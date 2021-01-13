@@ -1,0 +1,27 @@
+################
+version: '2.4' #
+################
+services: #
+###########
+
+
+############
+# Mariabdb #
+#############################################################################################################
+# Hub   : https://hub.docker.com/_/mariadb
+  mysql:
+    network_mode: bridge
+    container_name: mysql
+    image: mariadb
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'database'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+    volumes:
+      - /home/docker/container/MariaDB:/var/lib/mysql
+#############################################################################################################
+     
