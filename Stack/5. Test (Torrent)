@@ -57,7 +57,20 @@ services: #
       - /home/marc/container/radarr/movies:/movies
       - /home/marc/container/radarr/downloads:/downloads
 ########################################################################################################################
-
-
-
-
+  radarr:
+    restart: unless-stopped
+    container_name: Sonarr
+    hostname: Sonarr
+    image: 'linuxserver/sonarr'
+    links:
+      - torrent
+    environment:
+      TZ: 'Europe\Paris'
+      UMASK_SET: '022'
+    ports:
+      - 8989:8989
+    volumes:
+      - /home/marc/container/sonarr/config:/config
+      - /home/marc/container/sonarr/tv:/tv
+      - /home/marc/container/sonarr/downloads:/downloads
+########################################################################################################################
