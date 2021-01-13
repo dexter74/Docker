@@ -11,24 +11,14 @@ version: '2.4'  #
 services:  #
 ############
   test:
-    image: 
     container_name: test
-    restart: always
-    
-    external_links:
-      - mysql
-
+    image:
     environment:
       PUID: '1001'  # User  : Processus lancer avec le compte Docker
       PGID: '74240' # Group : Processus lancer avec le groupe Docker
-
     ports:
-      - 8080:80
-
     volumes:
-      - /home/docker/container/XXXXXXXx
-
-    
+  
 
 ##################################################################
 # A voir : https://fr.bonitasoft.com/ 
