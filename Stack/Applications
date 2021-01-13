@@ -110,8 +110,7 @@ services:  #
       - mysql
     ports:
       - 27016:80
-# Note: phpMyAdmin : Uilise la variable "PMA_PMADB" pour sa db à lui lui même.
-
+# Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
 ###############################################################################################
 
 
