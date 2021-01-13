@@ -16,4 +16,19 @@ services: #
       - /home/docker/container/taisun:/root
     ports:
       - 3000:3000
+    links:
+      - guacd
 
+
+##########
+# Guadcd #
+#############################################################################################################
+  guacd:
+    network_mode: bridge
+    container_name: 'GuaCD'
+    image: 'linuxserver/guacd'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+    ports:
+      - 4822:4822
