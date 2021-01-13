@@ -1,0 +1,53 @@
+#############################################
+# Stack: Torrent, Jackett, Radarr et Sonarr #
+#############################################
+
+#################
+version: '2.4'  #
+#################
+services: #      
+
+
+
+  Jackett:
+    container_name: Jackett
+    image: 'hotio/jackett'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    ports:
+      - 9117:9117
+    volumes:
+     - /home/docker/container/jackett:/config
+
+  Radarr:
+    container_name: Radarr
+    image: 'hotio/radarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    ports:
+      - 7878:7878
+    volumes:
+      - /home/docker/container/radarr:/config
+      
+  Sonarr:
+    container_name: Sonarr
+    image: 'hotio/sonarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    ports:
+      - 8989:8989
+    volumes:
+      - /home/docker/container/sonarr:/config
