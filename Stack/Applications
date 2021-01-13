@@ -3,20 +3,7 @@ version: '2.4' #
 ################
 services: #
 ###########
-           
-
-##########
-# Guadcd #
-#############################################################################################################
-  guacd:
-    network_mode: bridge
-    container_name: 'GuaCD'
-    image: 'linuxserver/guacd'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-    ports:
-      - 4822:4822
+  
 
 ############
 # Mariabdb #
