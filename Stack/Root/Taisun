@@ -1,0 +1,19 @@
+################
+version: '2.4' #
+################
+services: #
+###########
+    
+  Taisun:
+    network_mode: bridge
+    container_name: 'Taisun'
+    image: 'linuxserver/taisun'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/docker/container/taisun:/root
+    ports:
+      - 3000:3000
+
