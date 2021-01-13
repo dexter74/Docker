@@ -7,19 +7,21 @@ version: '2.4'  #
 #################
 services: #
 #####################################################################################################
-  BiTorrent:
-    container_name: QBiTorrent
-    image:
+  QBitTorrent:
+    container_name: QBitTorrent
+    image: 'linuxserver/qbittorrent'
     environment:
       TZ: 'Europe/Paris'
       PUID: '1001'
       PGID: '74240'
+      UMASK_SET: '022'
+      WEBUI_PORT: '8080'
     ports:
       - 8080:8080
+      
     volumes:
-      - /home/docker/container/Qbitorrent:XXXXXXXXXXXXXX
-
-
+      - /home/docker/container/qbittorrent/:/config
+      - /home/docker/container/qbittorrent/downloads:/downloads
 
 #####################################################################################################
   Jackett:
