@@ -1,0 +1,33 @@
+################
+version: '2.4' #
+################
+services: #
+###########
+
+
+############
+# Mariabdb #
+#############################################################################################################
+# Hub   : https://hub.docker.com/r/linuxserver/mariadb
+
+version: "2.4"
+services:
+  mariadb:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Europe/Paris
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      
+    volumes:
+      - /home/docker/container/MariaDB:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped
+#############################################################################################################
+     
