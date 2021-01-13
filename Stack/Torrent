@@ -14,12 +14,10 @@ services: #
       TZ: 'Europe/Paris'
       PUID: '1001'
       PGID: '74240'
-      
     ports:
       - 8080:8080
-      
     volumes:
-
+      - /home/docker/container/Qbitorrent:XXXXXXXXXXXXXX
 
 
 
