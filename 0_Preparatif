@@ -6,6 +6,9 @@ deluser docker ;
 rm -r /home/docker ;
 delgroup docker ;  
 
+rm /var/lib/apt/lists/*
+rm /var/lib/apt/lists/partial/*
+
 ################################################
 # Etape 0: Création d'un compte dédié à Docker #
 ################################################
