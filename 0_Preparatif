@@ -1,18 +1,14 @@
 #################################################
 # Etape 0: Suppression du compte dédié à Docker #
 #################################################
-
 deluser docker ;
 rm -r /home/docker ;
-delgroup docker ;  
+delgroup docker ;
 
-rm /var/lib/apt/lists/*
-rm /var/lib/apt/lists/partial/*
 
 ################################################
 # Etape 0: Création d'un compte dédié à Docker #
 ################################################
-
 addgroup docker --gid 74240 ;
 useradd docker --uid 1001 --home /home/docker/ 	--create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 echo "docker:admin" | chpasswd
@@ -26,15 +22,15 @@ chmod 777 /home/docker
 ##################################
 # Etape 3: Installation de Samba #
 ##################################
-echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
-apt update ;
-apt install -y samba ;
+# echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
+# apt update ;
+# apt install -y samba ;
 
 ############################################
 # Etape 4: Création d'un utilisateur Samba #
 ############################################
 # Ajout, activation du compte de partage docker et relance du samba
-(echo docker; echo docker; echo ) | smbpasswd -a docker ; smbpasswd -e docker; systemctl restart smbd
+# (echo docker; echo docker; echo ) | smbpasswd -a docker ; smbpasswd -e docker; systemctl restart smbd
 
 ##########################################
 # Etape 5 : Activer la découverte réseau #
@@ -42,25 +38,25 @@ apt install -y samba ;
 # https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/
 
 # Paquets :
-apt install -y  unzip ; 
+# apt install -y  unzip ; 
 
 # Projet wsdd
-rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
-mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
-cp /tmp/wsdd-master/src/wsdd /usr/bin
-cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
-sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ; 
-sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
-systemctl daemon-reload
-systemctl start wsdd
-systemctl enable wsdd
-service wsdd status
+# rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
+# mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
+# cp /tmp/wsdd-master/src/wsdd /usr/bin
+# cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
+# sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ; 
+# sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
+# systemctl daemon-reload
+# systemctl start wsdd
+# systemctl enable wsdd
+# service wsdd status
 
 
 ###################################
 # Etape 5: Configuration de Samba #
 ###################################
-mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; systemctl restart smbd  ; systemctl status smbd  
+# mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; systemctl restart smbd  ; systemctl status smbd  
 
 #########################################################################################################
 
