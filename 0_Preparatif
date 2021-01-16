@@ -11,13 +11,13 @@ delgroup docker ;
 ################################################
 addgroup docker --gid 74240 ;
 useradd docker --uid 1001 --home /home/docker/ 	--create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
-echo "docker:admin" | chpasswd
+echo "docker:admin" | chpasswd ;
 
 
 ################################################
 # Etape 2: Rendre le dossier accessible à tous #
 ################################################
-chmod 777 /home/docker
+chmod 777 /home/docker ;
 
 ##################################
 # Etape 3: Installation de Samba #
@@ -29,38 +29,42 @@ chmod 777 /home/docker
 ############################################
 # Etape 4: Création d'un utilisateur Samba #
 ############################################
-# Ajout, activation du compte de partage docker et relance du samba
-# (echo docker; echo docker; echo ) | smbpasswd -a docker ; smbpasswd -e docker; systemctl restart smbd
+# Ajout, activation du compte de partage docker et relance du samba:
+# (echo docker; echo docker; echo ) | smbpasswd -a docker ;
+smbpasswd -e docker ;
+systemctl restart smbd ;
 
 ##########################################
 # Etape 5 : Activer la découverte réseau #
 ##########################################
 # https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/
+ apt install -y unzip ; 
 
-# Paquets :
-# apt install -y  unzip ; 
+# Purge du dossier Temportaire:
+rm -r /tmp/* ;
 
-# Projet wsdd
-# rm -r /tmp/* ; wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip  ; unzip /tmp/master.zip -d /tmp
-# mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd
-# cp /tmp/wsdd-master/src/wsdd /usr/bin
-# cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
-# sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ; 
-# sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
-# systemctl daemon-reload
-# systemctl start wsdd
-# systemctl enable wsdd
-# service wsdd status
+# Telechargement et decompression:
+wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
+unzip /tmp/master.zip -d /tmp ;
+
+mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd ;
+cp /tmp/wsdd-master/src/wsdd /usr/bin ;
+cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
+sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ; 
+sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
+systemctl daemon-reload ;
+systemctl start wsdd ;
+systemctl enable wsdd ;
+service wsdd status ;
 
 
 ###################################
 # Etape 5: Configuration de Samba #
 ###################################
-# mv /etc/samba/smb.conf /etc/samba/smb.conf.old ; nano /etc/samba/smb.conf ; systemctl restart smbd  ; systemctl status smbd  
+mv /etc/samba/smb.conf /etc/samba/smb.conf.old ;
 
-#########################################################################################################
 
-#======================= Global Settings =======================
+echo "#======================= Global Settings =======================
 [global]
    workgroup = WORKGROUP
    log file = /var/log/samba/log.%m
@@ -79,8 +83,8 @@ chmod 777 /home/docker
 #======================= Share Definitions =======================
 
 ; [homes]
-; comment = Dossier Utilisateurs 
-; browseable = no 
+; comment = Dossier Utilisateurs
+; browseable = no
 ; read only = no
 ; writable = yes
 ; create mask = 0700
@@ -108,6 +112,7 @@ read only = no
 valid users = docker
 force user = systemd-coredump
 
+
 [Docker-www-data]
 comment = Utilisateur docker qui prend les droits systemd-coredump
 path = /home/docker/container/www-data
@@ -129,7 +134,9 @@ force user = root
 
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
-#===================================================================
+#===================================================================" > /etc/samba/smb.conf ;
 
+systemctl restart smbd ;
+systemctl status smbd ;
 
 #########################################################################################################
