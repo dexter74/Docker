@@ -13,7 +13,7 @@ services: #
     hostname: plex
     domainname: lan
     network_mode: bridge
-    container_name: pms
+    container_name: Plex
     image: plexinc/pms-docker
     restart: always
     environment:
