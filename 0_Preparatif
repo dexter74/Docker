@@ -30,7 +30,7 @@ apt install -y samba ;
 # Etape 4: Création d'un utilisateur Samba #
 ############################################
 # Ajout, activation du compte de partage docker et relance du samba:
-# (echo docker; echo docker; echo ) | smbpasswd -a docker ;
+(echo docker; echo docker; echo ) | smbpasswd -a docker ;
 smbpasswd -e docker ;
 systemctl restart smbd ;
 
