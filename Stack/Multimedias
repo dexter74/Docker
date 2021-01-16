@@ -58,7 +58,7 @@ services: #
       UMASK_SET: '022'
       WEBUI_PORT: '8080'
     ports:
-      - 8080:8080
+      - 82:8080
       
     volumes:
       - /home/docker/container/qbittorrent/:/config
@@ -78,11 +78,9 @@ services: #
       ARGS: ''
       DEBUG: 'no'
     ports:
-      - 9117:9117
+      - 83:9117
     volumes:
      - /home/docker/container/jackett:/config
-
-
 
 #####################################################################################################################################
   Radarr:
@@ -95,7 +93,7 @@ services: #
       ARGS: ''
       DEBUG: 'no'
     ports:
-      - 7878:7878
+      - 84:7878
     volumes:
       - /home/docker/container/radarr:/config
 
@@ -110,7 +108,7 @@ services: #
       ARGS: ''
       DEBUG: 'no'
     ports:
-      - 8989:8989
+      - 85:8989
     volumes:
       - /home/docker/container/sonarr:/config
       
