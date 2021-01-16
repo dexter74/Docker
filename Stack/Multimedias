@@ -36,9 +36,9 @@ services: #
       PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
 
     volumes:
-      - /home/docker/container/Plex/config:/config
-      - /home/docker/container/Plex/transcode:/transcode
-      - /home/docker/container/Plex/data:/data
+      - /home/docker/volumes/Plex/config:/config
+      - /home/docker/volumes/Plex/transcode:/transcode
+      - /home/docker/volumes/Plex/data:/data
       - Films:/mnt/Films
       - Video:/mnt/Video
 
@@ -61,8 +61,8 @@ services: #
       WEBUI_PORT: '8080'
 
     volumes:
-      - /home/docker/container/qbittorrent/:/config
-      - /home/docker/container/qbittorrent/downloads:/downloads
+      - /home/docker/volumes/QBitTorrent/:/config
+      - /home/docker/volumes/QBitTorrent/downloads:/downloads
       - Films:/mnt/Films
       - Video:/mnt/Video
 
@@ -82,7 +82,7 @@ services: #
       DEBUG: 'no'
 
     volumes:
-     - /home/docker/container/jackett:/config
+     - /home/docker/volumes/Jackett:/config
 
     ports:
       - 83:9117
@@ -99,7 +99,7 @@ services: #
       DEBUG: 'no'
 
     volumes:
-      - /home/docker/container/radarr:/config
+      - /home/docker/volumes/Radarr:/config
 
     ports:
       - 84:7878
@@ -116,7 +116,7 @@ services: #
       DEBUG: 'no'
 
     volumes:
-      - /home/docker/container/sonarr:/config
+      - /home/docker/volumes/Sonarr:/config
 
     ports:
       - 85:8989
