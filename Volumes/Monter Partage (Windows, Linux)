@@ -8,8 +8,8 @@ Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
 ##########################################
 # Protection anti-suppression Désactiver #
 ##########################################
-chattr -i /home/docker/volumes/volumes/Video ;
-chattr -i /home/docker/volumes/volumes/Films ;
+chattr -i /home/docker/volumes/Video ;
+chattr -i /home/docker/volumes/Films ;
 
 # Supprimer Volume:
 docker volume rm Video
@@ -31,8 +31,8 @@ docker volume create --driver local --opt type=cifs \
      --name Video
 
 # Protection Anti-suppression: ON
-chattr +i /home/docker/volumes/volumes/Video ;
-chattr +i /home/docker/volumes/volumes/Films ;
+chattr +i /home/docker/volumes/Video ;
+chattr +i /home/docker/volumes/Films ;
 
 ...
   volumes:
