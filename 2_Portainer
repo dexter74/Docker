@@ -11,6 +11,7 @@ docker rm portainer ;
 
 # Suppression du volume, conteneur et image portainer
 docker volume rm portainer_data ;
+docker volume rm Films ;
 docker container rm portainer ;
 docker image rm portainer/portainer -f ;
 docker image rm portainer/portainer-ce -f
