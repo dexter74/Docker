@@ -86,6 +86,17 @@ systemctl status docker ;
 ##########################
 docker login -u dexter74 -p 382000 ;
 
+###################################
+# Changer emplacement des volumes #
+###################################
+#https://stackoverflow.com/questions/36014554/how-to-change-the-default-location-for-docker-create-volume-command
+# nano /lib/systemd/system/docker.service
+# Avant : ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+# Apres : ExecStart=/usr/bin/dockerd --data-root /home/docker/ -H fd:// --containerd=/run/containerd/containerd.sock
+# systemctl daemon-reload
+# systemctl reload docker.service
+
+
 # Non Root:
 # - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
 
