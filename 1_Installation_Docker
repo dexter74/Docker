@@ -93,7 +93,7 @@ docker login -u dexter74 -p 382000 ;
 # Dossier par defaut : /var/lib/docker/volumes
 # nano /lib/systemd/system/docker.service
 # Avant : ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-# Apres : ExecStart=/usr/bin/dockerd --data-root /home/docker/volumes -H fd:// --containerd=/run/containerd/containerd.sock
+# Apres : ExecStart=/usr/bin/dockerd --data-root /home/docker/ -H fd:// --containerd=/run/containerd/containerd.sock
 # systemctl daemon-reload
 # systemctl restart docker.*
 
