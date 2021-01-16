@@ -97,6 +97,17 @@ docker login -u dexter74 -p 382000 ;
 # systemctl restart docker.*
 
 
+################
+# Volume FIlms #
+################
+# docker volume create --driver local --opt type=cifs --opt device=//192.168.1.10/Films --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777 --name Films
+
+###############################
+# Protection anti-suppression #
+###############################
+# chattr +i /home/docker/volumes/volumes/Films
+# chattr -i /home/docker/volumes/volumes/Films
+
 # Non Root:
 # - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
 
