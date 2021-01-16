@@ -23,8 +23,8 @@ chmod 777 /home/docker ;
 # Etape 3: Installation de Samba #
 ##################################
 # echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
-# apt update ;
-# apt install -y samba ;
+apt update ;
+apt install -y samba ;
 
 ############################################
 # Etape 4: Création d'un utilisateur Samba #
