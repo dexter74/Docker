@@ -49,33 +49,6 @@ services: #
       - 27020:80
 #############################################################################################################
  
-##############
-# PhpMyAdmin #
-#############################################################################################################
-# Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
-  phpmyadmin:
-    depends_on:
-      - mariadb
-    network_mode: bridge
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      PMA_HOST: 'mariadb'
-      PMA_PORT: '3306'
-      PMA_USER: 'admin'
-      PMA_PASSWORD: 'admin'
-      PMA_PMADB: 'phpmyadmin'
-    external_links:
-      - mariadb
-    ports:
-      - 8080:80
-# Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
-#############################################################################################################
-
-
 
 #############
 # Wordpress #
