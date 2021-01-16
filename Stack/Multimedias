@@ -17,6 +17,32 @@ version: '2.4'  #
 services: #
 ###########
 
+########
+# Plex #
+#############################################################################################################
+# Hub   : https://hub.docker.com/r/plexinc/pms-docker
+# Claim : https://www.plex.tv/claim
+  plex:
+    hostname: plex
+    domainname: lan
+    network_mode: bridge
+    container_name: Plex
+    image: plexinc/pms-docker
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+    volumes:
+      - /home/docker/container/Plex/config:/config
+      - /home/docker/container/Plex/transcode:/transcode
+      - /home/docker/container/Plex/data:/data
+      - Films:/mnt/Films
+    ports:
+      - 27018:32400
+#############################################################################################################
+
 #####################################################################################################################################
 # Option > Interface Web > Partie Sécurité > Décoché Activer la protection contre les fausses requêtes croisées de site (CSRF) 
 # Volume Films: Cifs 2.0 (Windows 10)
