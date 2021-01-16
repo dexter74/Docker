@@ -123,4 +123,4 @@ docker volume create --driver local --opt type=cifs  --name Video \
 
 # Protection anti-suppression activer
 chattr +i /home/docker/volumes/Films
-chattr -i /home/docker/volumes/Films
+chattr +i /home/docker/volumes/Video
