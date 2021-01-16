@@ -38,7 +38,7 @@ systemctl restart smbd ;
 # Etape 5 : Activer la découverte réseau #
 ##########################################
 # https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/
- apt install -y unzip ; 
+apt install -y unzip ;
 
 # Purge du dossier Temportaire:
 rm -r /tmp/* ;
