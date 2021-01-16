@@ -38,15 +38,15 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /va
 
 chattr +i	/home/docker/volumes/volumes/portainer_data
 
-################################################################"
+################################################################################################################################
 
 #######################
 # Volumess de partage #
 #######################
 
 # Désactivation de la Protection Anti-suppression du volume:
-chattr -i	/home/docker/volumes/volumes/Films
-chattr -i	/home/docker/volumes/volumes/Video
+chattr -i /home/docker/volumes/volumes/Films
+chattr -i /home/docker/volumes/volumes/Video
 
 # Suppression des volumes
 docker volume rm Video
@@ -64,8 +64,8 @@ docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/V
      --opt o=username==XXXXXXXX,password=XXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
 
 # Activation de la protection anti-suppression:
-chattr +i	/home/docker/volumes/volumes/Films
-chattr +i	/home/docker/volumes/volumes/Video
+chattr +i /home/docker/volumes/volumes/Films
+chattr +i /home/docker/volumes/volumes/Video
 
 
 
