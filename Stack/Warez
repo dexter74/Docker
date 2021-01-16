@@ -1,5 +1,11 @@
 ################################################
 # Stack: Jackett, Qbitorrent, Radarr et Sonarr #
+# Indexer:
+# - URL: Copier le code de Jackett
+# - API: Vide
+#
+
+
 ################################################
 version: '2.4'  #
 #################
