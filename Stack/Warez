@@ -1,12 +1,12 @@
-################################################
-# Stack: Jackett, Qbitorrent, Radarr et Sonarr #
-# Indexer:
-# - URL: Copier le code de Jackett
-# - API: Vide
-# - Multilanguages: French
+#################################################
+# Stack: Jackett, Qbitorrent, Radarr et Sonarr  #
+# Indexer:                                      #
+# - URL: Copier le code de Jackett              #
+# - API: Vide                                   #
+# - Multilanguages: French                      #
+#################################################
 
-
-################################################
+#################
 version: '2.4'  #
 #################
 services: #
