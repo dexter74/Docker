@@ -102,8 +102,8 @@ docker login -u dexter74 -p 382000 ;
 # Volumes de Partage Windows, Samba #
 #####################################
 # Protection anti-suppression desactiver
-chattr -i /home/docker/volumes/volumes/Video ;
-chattr -i /home/docker/volumes/volumes/Films ;
+chattr -i /home/docker/volumes/Video ;
+chattr -i /home/docker/volumes/Films ;
 
 # Suppression des Volumes
 docker volume rm Video ;
@@ -122,5 +122,5 @@ docker volume create --driver local --opt type=cifs  --name Video \
 
 
 # Protection anti-suppression activer
-chattr +i /home/docker/volumes/volumes/Films
-chattr -i /home/docker/volumes/volumes/Films
+chattr +i /home/docker/volumes/Films
+chattr -i /home/docker/volumes/Films
