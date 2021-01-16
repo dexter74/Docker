@@ -9,9 +9,11 @@
 docker kill portainer ;
 docker rm portainer ;
 
+# Désactivation de la Protection Anti-suppression du volume:
+chattr -i	/home/docker/volumes/volumes/portainer_data
+
 # Suppression du volume, conteneur et image portainer
 docker volume rm portainer_data ;
-docker volume rm Films ;
 docker container rm portainer ;
 docker image rm portainer/portainer -f ;
 docker image rm portainer/portainer-ce -f
@@ -34,9 +36,37 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /va
 
 # Paramètre sans authentification : --no-auth
 
+chattr +i	/home/docker/volumes/volumes/portainer_data
 
-###############################
-# Protection anti-suppression #
-###############################
-# chattr +i	/home/docker/volumes/volumes/portainer_data
-# chattr -i	/home/docker/volumes/volumes/portainer_data
+################################################################"
+
+#######################
+# Volumess de partage #
+#######################
+
+# Désactivation de la Protection Anti-suppression du volume:
+chattr -i	/home/docker/volumes/volumes/Films
+chattr -i	/home/docker/volumes/volumes/Video
+
+# Suppression des volumes
+docker volume rm Video
+docker volume rm Films
+
+
+
+
+# Création d'un volume (Partage Windows 10)
+docker volume create --driver local --opt type=cifs --opt device=//192.168.1.10/Films \
+     --opt o=username=Partage,password=XXXXX,vers=2.0,file_mode=0777,dir_mode=0777 --name Films
+
+# Création d'un volume (Partage Samba)
+docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/Video \
+     --opt o=username==XXXXXXXX,password=XXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
+
+# Activation de la protection anti-suppression:
+chattr +i	/home/docker/volumes/volumes/Films
+chattr +i	/home/docker/volumes/volumes/Video
+
+
+
+
