@@ -12,23 +12,9 @@ version: '2.4'  #
 services: #
 ###########
 
-# Docker Volume: Cifs 3.0 
+# Volume Films: Cifs 2.0 (Windows 10)
+# Volume Video: Cifs 3.0 (Samba)
 
-#####################################################################################################
-  Jackett:
-    container_name: Jackett
-    image: 'hotio/jackett'
-    environment:
-      TZ: 'Europe/Paris'
-      PUID: '1001'
-      PGID: '74240'
-      UMASK: '002'
-      ARGS: ''
-      DEBUG: 'no'
-    ports:
-      - 9117:9117
-    volumes:
-     - /home/docker/container/jackett:/config
 
 #####################################################################################################
   QBitTorrent:
@@ -47,6 +33,25 @@ services: #
       - /home/docker/container/qbittorrent/:/config
       - /home/docker/container/qbittorrent/downloads:/downloads
       - Films:/mnt/Films
+      - Video:/mnt/Video
+
+#####################################################################################################
+  Jackett:
+    container_name: Jackett
+    image: 'hotio/jackett'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    ports:
+      - 9117:9117
+    volumes:
+     - /home/docker/container/jackett:/config
+
+
 
 #####################################################################################################
   Radarr:
@@ -62,8 +67,7 @@ services: #
       - 7878:7878
     volumes:
       - /home/docker/container/radarr:/config
-      - Films:/mnt/Films
-      
+
 #####################################################################################################
   Sonarr:
     container_name: Sonarr
@@ -78,7 +82,6 @@ services: #
       - 8989:8989
     volumes:
       - /home/docker/container/sonarr:/config
-      - Films:/mnt/Films
       
 #####################################################################################################
 
