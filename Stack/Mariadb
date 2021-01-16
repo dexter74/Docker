@@ -8,7 +8,7 @@ services: #
     container_name: mariadb
     restart: unless-stopped
     volumes:
-      - /home/docker/volumes/volumes/MariaDB:/config
+      - /home/docker/volumes/MariaDB:/config
     environment:
       - PUID=1001
       - PGID=74240
