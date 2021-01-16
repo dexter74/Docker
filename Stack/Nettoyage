@@ -1,1 +1,1 @@
-docker container rm Radarr Jackett Plex Sonarr MariaDb -f
+docker container rm Radarr Jackett Plex Sonarr mariadb phpmyadmin -f
