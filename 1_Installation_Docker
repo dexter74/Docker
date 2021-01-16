@@ -5,6 +5,8 @@ apt autoremove --purge -y docker-ce docker-ce-cli containerd.io ;
 rm -rf /var/lib/docker ;
 rm -rf /var/lib/containerd ;
 rm -rf /etc/docker ;
+clear ;
+
 
 ################################
 # Installation des dépendances #
@@ -84,7 +86,7 @@ systemctl status docker ;
 ##########################
 docker login -u dexter74 -p 382000 ;
 
-# Non Root: 
+# Non Root:
 # - https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/
 
 
