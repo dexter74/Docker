@@ -1,7 +1,3 @@
-# /!\ Vider le cache navigateur avant d'aller sur la page /!\
-# http://192.168.1.4:9000
-
-
 ########################################
 # Nettoyage / Suppression de Portainer #
 ########################################
@@ -9,31 +5,27 @@
 docker kill portainer ;
 docker rm portainer ;
 
-# Désactivation de la Protection Anti-suppression du volume:
-chattr -i	/home/docker/volumes/volumes/portainer_data
+# Désactivation de la Protection Anti-suppression du volume
+chattr -i /home/docker/volumes/volumes/portainer_data ;
 
-# Suppression du volume, conteneur et image portainer
+# Purge de portainer (volume, conteneur et image)
 docker volume rm portainer_data ;
 docker container rm portainer ;
 docker image rm portainer/portainer -f ;
-docker image rm portainer/portainer-ce -f
+docker image rm portainer/portainer-ce -f ;
 
 #############################
 # Installation de Portainer #
 #############################
 
-# Image Portainer     : 1.X
-# Image Portainer-ce  : 2.X
-
-# Créer le volume:
+# Créer le volume
 docker volume create portainer_data
 
-# Télécharger l'image:
+# Télécharger l'image
 docker pull portainer/portainer-ce
 
-# Créé le conteneur Portainer:
-docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+# Créé le conteneur Portainer (--no-auth)
+docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce ;
 
-# Paramètre sans authentification : --no-auth
-
-chattr +i	/home/docker/volumes/volumes/portainer_data
+# Activation de la Protection Anti-suppression du volume
+chattr +i	/home/docker/volumes/volumes/portainer_data ;
