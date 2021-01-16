@@ -36,6 +36,7 @@ services: #
     volumes:
       - /home/docker/container/qbittorrent/:/config
       - /home/docker/container/qbittorrent/downloads:/downloads
+      - Films:/mnt/Films
 
 #####################################################################################################
   Radarr:
@@ -51,6 +52,7 @@ services: #
       - 7878:7878
     volumes:
       - /home/docker/container/radarr:/config
+      - Films:/mnt/Films
       
 #####################################################################################################
   Sonarr:
@@ -66,6 +68,7 @@ services: #
       - 8989:8989
     volumes:
       - /home/docker/container/sonarr:/config
+      - Films:/mnt/Films
       
 #####################################################################################################
 
