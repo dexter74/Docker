@@ -47,7 +47,7 @@ services: #
       - /home/docker/container/php:/var/www/html/
     ports:
       - 27020:80
- #############################################################################################################
+#############################################################################################################
  
 ##############
 # PhpMyAdmin #
@@ -55,7 +55,7 @@ services: #
 # Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
   phpmyadmin:
     depends_on:
-      - mysql
+      - mariadb
     network_mode: bridge
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
@@ -63,19 +63,17 @@ services: #
     environment:
       PUID: '1001'
       PGID: '74240'
-      PMA_HOST: 'mysql'
+      PMA_HOST: 'mariadb'
       PMA_PORT: '3306'
       PMA_USER: 'admin'
       PMA_PASSWORD: 'admin'
       PMA_PMADB: 'phpmyadmin'
-      PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81
     external_links:
-      - mysql
+      - mariadb
     ports:
-      - 27016:80
+      - 8080:80
 # Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
 #############################################################################################################
-
 
 
 
