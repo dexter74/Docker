@@ -8,11 +8,11 @@ Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
 ###############################
 # Protection anti-suppression #
 ###############################
-# chattr +i	/home/docker/volumes/volumes/Films
-# chattr +i	/home/docker/volumes/volumes/Video
+# chattr +i /home/docker/volumes/volumes/Films
+# chattr +i /home/docker/volumes/volumes/Video
 
-# chattr -i	/home/docker/volumes/volumes/Films
-# chattr -i	/home/docker/volumes/volumes/Video
+# chattr -i /home/docker/volumes/volumes/Films
+# chattr -i /home/docker/volumes/volumes/Video
 
 
 # Supprimer Volume:
