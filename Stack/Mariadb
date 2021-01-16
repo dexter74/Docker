@@ -4,14 +4,11 @@ version: '2.4' #
 services: #
 ###########
 
-
 ############
 # Mariabdb #
-#############################################################################################################
-# Hub   : https://hub.docker.com/r/linuxserver/mariadb
-
-version: "2.4"
-services:
+#########################################################
+# Hub   : https://hub.docker.com/r/linuxserver/mariadb  #
+#########################################################
   mariadb:
     image: ghcr.io/linuxserver/mariadb
     container_name: mariadb
@@ -29,5 +26,5 @@ services:
     ports:
       - 3306:3306
     restart: unless-stopped
-#############################################################################################################
+
      
