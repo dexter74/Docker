@@ -43,7 +43,7 @@ sudo chown docker:docker /var/run/docker.sock ;
 ##################################
 # Vérification du fonctionnement #
 ##################################
-systemctl reboot  ;
+# systemctl reboot  ;
 docker run hello-world ;
 
 
