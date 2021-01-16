@@ -33,12 +33,3 @@ docker pull portainer/portainer-ce
 docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 
 # Paramètre sans authentification : --no-auth
-
-docker volume create \
-     --driver local \
-     --opt type=cifs \
-     --opt device=//192.168.1.10/Films \
-     --opt o=username=Partage,password=XXXXX,vers=2.0,file_mode=0777,dir_mode=0777 \
-     --name Films
-
-
