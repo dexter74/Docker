@@ -94,7 +94,7 @@ docker login -u dexter74 -p 382000 ;
 # Avant : ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 # Apres : ExecStart=/usr/bin/dockerd --data-root /home/docker/ -H fd:// --containerd=/run/containerd/containerd.sock
 # systemctl daemon-reload
-# systemctl reload docker.service
+# systemctl restart docker.*
 
 
 # Non Root:
