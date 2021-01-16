@@ -34,14 +34,16 @@ services: #
       PGID: '74240'
       TZ: 'Europe\Paris'
       PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+
     volumes:
       - /home/docker/container/Plex/config:/config
       - /home/docker/container/Plex/transcode:/transcode
       - /home/docker/container/Plex/data:/data
       - Films:/mnt/Films
+      - Video:/mnt/Video
+
     ports:
       - 32400:32400
-#############################################################################################################
 
 #####################################################################################################################################
 # Option > Interface Web > Partie Sécurité > Décoché Activer la protection contre les fausses requêtes croisées de site (CSRF) 
@@ -57,14 +59,15 @@ services: #
       PGID: '74240'
       UMASK_SET: '022'
       WEBUI_PORT: '8080'
-    ports:
-      - 82:8080
-      
+
     volumes:
       - /home/docker/container/qbittorrent/:/config
       - /home/docker/container/qbittorrent/downloads:/downloads
       - Films:/mnt/Films
       - Video:/mnt/Video
+
+    ports:
+      - 82:8080
 
 #####################################################################################################################################
   Jackett:
@@ -77,10 +80,12 @@ services: #
       UMASK: '002'
       ARGS: ''
       DEBUG: 'no'
-    ports:
-      - 83:9117
+
     volumes:
      - /home/docker/container/jackett:/config
+
+    ports:
+      - 83:9117
 
 #####################################################################################################################################
   Radarr:
@@ -92,10 +97,12 @@ services: #
       UMASK: '002'
       ARGS: ''
       DEBUG: 'no'
-    ports:
-      - 84:7878
+
     volumes:
       - /home/docker/container/radarr:/config
+
+    ports:
+      - 84:7878
 
 #####################################################################################################################################
   Sonarr:
@@ -107,9 +114,11 @@ services: #
       UMASK: '002'
       ARGS: ''
       DEBUG: 'no'
-    ports:
-      - 85:8989
+
     volumes:
       - /home/docker/container/sonarr:/config
-      
+
+    ports:
+      - 85:8989
+
 #####################################################################################################################################
