@@ -5,13 +5,11 @@ Pour pouvoir monter un partage Windows dans un conteneur, il suffit de créer un
 Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
 
 
-###############################
-# Protection anti-suppression #
-###############################
-chattr -i /home/docker/volumes/volumes/Films ; chattr -i /home/docker/volumes/volumes/Video
-chattr +i /home/docker/volumes/volumes/Films ; chattr +i /home/docker/volumes/volumes/Video
-
-
+##########################################
+# Protection anti-suppression Désactiver #
+##########################################
+chattr -i /home/docker/volumes/volumes/Video ;
+chattr -i /home/docker/volumes/volumes/Films ;
 
 # Supprimer Volume:
 docker volume rm Video
@@ -20,17 +18,24 @@ docker volume rm Films
 
 
 # Création d'un volume (Partage Windows 10)
-docker volume create --driver local --opt type=cifs --opt device=//192.168.1.10/Films \
-     --opt o=username=Partage,password=XXXXX,vers=2.0,file_mode=0777,dir_mode=0777 --name Films
-
+docker volume create --driver local --opt type=cifs \
+     --opt device=//192.168.1.10/Films \
+     --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777 \
+     --name Films
 
 
 # Création d'un volume (Partage Samba)
-docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/Video \
-     --opt o=username==XXXXXXXX,password=XXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
+docker volume create --driver local --opt type=cifs \
+     --opt device=//192.168.1.2/Video \
+     --opt o=username=Drthrax74,password=XXXXXXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 \
+     --name Video
+
+# Protection Anti-suppression: ON
+chattr +i /home/docker/volumes/volumes/Video ;
+chattr +i /home/docker/volumes/volumes/Films ;
 
 ...
   volumes:
-    - Films:/mnt/Drthrax
-    - Video:/mnt/NAS
+    - Films:/mnt/Films
+    - Video:/mnt/Video
 ...
