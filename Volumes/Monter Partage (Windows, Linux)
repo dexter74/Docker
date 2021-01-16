@@ -1,0 +1,28 @@
+##############################################
+# Monter un partage Windows sur un conteneur #
+##############################################
+Pour pouvoir monter un partage Windows dans un conteneur, il suffit de créer un volume qui monte le partage.
+Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
+
+
+#Supprimer Volume:
+docker volume rm Video
+docker volume rm Films
+
+
+
+# Création d'un volume (Partage Windows 10)
+docker volume create --driver local --opt type=cifs --opt device=//192.168.1.10/Films \
+     --opt o=username=Partage,password=XXXXX,vers=2.0,file_mode=0777,dir_mode=0777 --name Films
+
+
+
+# Création d'un volume (Partage Samba)
+docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/Video \
+     --opt o=username==XXXXXXXX,password=XXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
+
+...
+  volumes:
+    - Films:/mnt/Drthrax
+    - Video:/mnt/NAS
+...
