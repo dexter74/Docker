@@ -1,0 +1,1 @@
+docker container rm Radarr Jackett Plex Sonarr MariaDb -f
