@@ -42,6 +42,6 @@ services: #
     external_links:
       - mariadb
     ports:
-      - 8080:80
+      - 81:80
 # Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
 #############################################################################################################
