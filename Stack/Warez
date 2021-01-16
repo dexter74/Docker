@@ -6,13 +6,16 @@
 # - Multilanguages: French                      #
 #################################################
 
+# Plex: 
+# - Films   : /mnt/Films/Films
+# - Series  : /mnt/Films/Dessins Animés
+# - Dessins : /mnt/Films/Series
+
 #################
 version: '2.4'  #
 #################
 services: #
 ###########
-
-
 
 #####################################################################################################################################
 # Option > Interface Web > Partie Sécurité > Décoché Activer la protection contre les fausses requêtes croisées de site (CSRF) 
