@@ -50,7 +50,7 @@ unzip /tmp/master.zip -d /tmp ;
 mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd ;
 cp /tmp/wsdd-master/src/wsdd /usr/bin ;
 cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
-sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ; 
+sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ;
 sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
 systemctl daemon-reload ;
 systemctl start wsdd ;
