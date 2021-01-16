@@ -29,7 +29,6 @@ services: #
     network_mode: bridge
     container_name: Plex
     image: plexinc/pms-docker
-    restart: always
     environment:
       PUID: '1001'
       PGID: '74240'
