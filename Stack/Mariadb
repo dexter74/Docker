@@ -3,15 +3,12 @@ version: '2.4' #
 ################
 services: #
 ###########
-
-############
-# Mariabdb #
-#########################################################
-# Hub   : https://hub.docker.com/r/linuxserver/mariadb  #
-#########################################################
   mariadb:
     image: ghcr.io/linuxserver/mariadb
     container_name: mariadb
+    restart: unless-stopped
+    volumes:
+      - /home/docker/volumes/volumes/MariaDB:/config
     environment:
       - PUID=1001
       - PGID=74240
@@ -21,10 +18,28 @@ services: #
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
       
-    volumes:
-      - /home/docker/container/MariaDB:/config
+##############
+# PhpMyAdmin #
+#############################################################################################################
+# Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+  phpmyadmin:
+    depends_on:
+      - mariadb
+    network_mode: bridge
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      PMA_HOST: 'mariadb'
+      PMA_PORT: '3306'
+      PMA_USER: 'admin'
+      PMA_PASSWORD: 'admin'
+      PMA_PMADB: 'phpmyadmin'
+    external_links:
+      - mariadb
     ports:
-      - 3306:3306
-    restart: unless-stopped
-
-     
+      - 8080:80
+# Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
+#############################################################################################################
