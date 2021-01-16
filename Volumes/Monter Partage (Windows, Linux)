@@ -5,7 +5,17 @@ Pour pouvoir monter un partage Windows dans un conteneur, il suffit de créer un
 Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
 
 
-#Supprimer Volume:
+###############################
+# Protection anti-suppression #
+###############################
+# chattr +i	/home/docker/volumes/volumes/Films
+# chattr +i	/home/docker/volumes/volumes/Video
+
+# chattr -i	/home/docker/volumes/volumes/Films
+# chattr -i	/home/docker/volumes/volumes/Video
+
+
+# Supprimer Volume:
 docker volume rm Video
 docker volume rm Films
 
