@@ -10,6 +10,7 @@
 # - Films   : /mnt/Films/Films
 # - Series  : /mnt/Films/Dessins Animés
 # - Dessins : /mnt/Films/Series
+# - Torrent : /mnt/Films/qbitorrent
 
 #################
 version: '2.4'  #
