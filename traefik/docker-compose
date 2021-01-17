@@ -18,17 +18,6 @@ services:     #
       web:
         ipv4_address: 192.168.20.2
 ##########################################################################################
-  wordpress:
-    container_name: wordpress
-    image: wordpress
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-    volumes:
-      - /home/docker/volumes/wordpress:/var/www/html
-    networks:
-      web:
-        ipv4_address: 192.168.20.3
 
 ##########################################################################################
 networks:
@@ -38,7 +27,6 @@ networks:
    config:
     - subnet: 192.168.20.0/24
       gateway: 192.168.20.1
-
 ###############################################################################
 # Guide
 # - Networks  : https://w3blog.fr/2016/09/20/docker-et-ses-networks/
