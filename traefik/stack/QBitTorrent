@@ -3,8 +3,7 @@
 ###############
 # Créer le conteneur, arrêter puis taper la commande et relancer.
 #
-# echo" /home/docker/volumes/QBitTorrent/qBittorrent.conf"  >> WebUI\HostHeaderValidation=false
-
+# echo " WebUI\HostHeaderValidation=false"  >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
 
   QBitTorrent:
     container_name: QBitTorrent
