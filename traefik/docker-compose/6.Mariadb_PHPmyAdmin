@@ -1,14 +1,9 @@
 ##################################################################################################################
-# Endpoint        : 
-# Port applicatif : 
-# Host            : teste74.ddns.net
+# Endpoint        : MariaDB
+# Port applicatif : 3306
+# Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
 
-
-
-###########
-# mariadb #
-##################################################################################################################
   MariaDB:
     image: ghcr.io/linuxserver/mariadb
     container_name: MariaDB
@@ -40,16 +35,42 @@
 
  
 ##################################################################################################################
+# Endpoint        : phpmyadmin
+# Port applicatif : 80
+# Host            : https://teste74.ddns.net:XXXX
+##################################################################################################################
+# Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+  phpmyadmin:
+    depends_on:
+      - mariadb
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      PMA_HOST: 'mariadb'
+      PMA_PORT: '3306'
+      PMA_USER: 'admin'
+      PMA_PASSWORD: 'admin'
+      PMA_PMADB: 'phpmyadmin'
+      PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81
+    links:
+      - mariadb
+
     networks:
       - traefik_network
+      
     labels:
       - "traefik.enable=true" 
       - "traefik.docker.network=traefik_network"
-      - "traefik.http.routers.plex.tls=true"
-      - "traefik.http.routers.plex.tls.certresolver=leresolver"
+      - "traefik.http.routers.phpmyadmin.tls=true"
+      - "traefik.http.routers.phpmyadmin.tls.certresolver=leresolver"
       
-      - "traefik.http.routers.plex.rule=Host(`teste74.ddns.net`)"     # URL
-      - "traefik.http.routers.plex.entrypoints=XXXXXXXX"              # Endpoint XXXXXXXX
-      - "traefik.http.services.plex.loadbalancer.server.port=XXXX"    # Port interne de l'application (XXXX)
+      - "traefik.http.routers.phpmyadmin.rule=Host(`teste74.ddns.net`)"   # URL
+      - "traefik.http.routers.phpmyadmin.entrypoints=phpmyadmin"          # Endpoint XXXXXXXX
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"    # Port interne de l'application (XXXX)
 
+      
+# Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".     
 ##################################################################################################################
