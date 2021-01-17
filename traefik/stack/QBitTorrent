@@ -1,6 +1,9 @@
-# nano /home/docker/volumes/QBitTorrent/qBittorrent.conf
-# > WebUI\HostHeaderValidation=false
-
+###############
+# Déploiement #
+###############
+# Créer le conteneur, arrêter puis taper la commande et relancer.
+#
+# echo" /home/docker/volumes/QBitTorrent/qBittorrent.conf"  >> WebUI\HostHeaderValidation=false
 
 
   QBitTorrent:
