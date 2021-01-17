@@ -22,22 +22,22 @@ services:
       - 443:443
       - 8080:8080
     networks:
-      - traefik_network
+      - web
       
 plex:
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=traefik_network"
+      - "traefik.docker.network=web"
       - "traefik.http.routers.plex.entrypoints=plex"                  # Le Endpoint Plex du fichier traefik.toml
       - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"   # URL pour y accéder
       - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port de l'applicatif
       - "traefik.http.routers.plex.tls=true"
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
     networks:
-      - traefik_network
+      - web
 
 networks:
-  traefik_network:
+  web:
   
 #############
 # acme.json #
