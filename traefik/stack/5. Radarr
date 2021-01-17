@@ -30,6 +30,6 @@
       - "traefik.http.services.Radarr.loadbalancer.server.port=7878"      # Port interne de l'application
 
     ports:
-      - 8081:8081
+      - 7878:7878
 ##################################################################################################################
       
