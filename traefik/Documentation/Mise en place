@@ -38,3 +38,8 @@ plex:
 
 networks:
   traefik_network:
+  
+#############
+# acme.json #
+#############
+LE fichier contient les certificats SSL.
