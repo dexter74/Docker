@@ -129,22 +129,19 @@
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe/Paris'
-
+##################################################################################################################################
 
 ###############
 # filebrowser #
 ##################################################################################################################################
-
-# touch "" > /home/docker/container/filebrowser/database.db
-# wget https://github.com/filebrowser/filebrowser/blob/master/.docker.json /home/docker/container/filebrowser/.filebrowser.json
-
-
+# touch "" > home/docker/volumes/filebrowser//database.db
+# wget https://github.com/filebrowser/filebrowser/blob/master/.docker.json home/docker/volumes/filebrowser/.filebrowser.json
   filebrowser:
     image: filebrowser/filebrowser
     container_name: filebrowser
     volumes:
       - /:/srv
-      - //home/docker/volumes/filebrowser/database.db:/database.db
+      - /home/docker/volumes/filebrowser/database.db:/database.db
       - /home/docker/volumes/filebrowser/.filebrowser.json:/.filebrowser.json
     ports:
       - 27019:80
