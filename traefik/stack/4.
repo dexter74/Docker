@@ -26,7 +26,9 @@ Radarr:
       - "traefik.http.routers.Radarr.tls.certresolver=leresolver" 
       - "traefik.http.routers.Radarr.rule=Host(`teste74.ddns.net`)"       # URL
       - "traefik.http.routers.Radarr.entrypoints=Radarr"                  # Endpoint test
-      - "traefik.http.services.Radarr.loadbalancer.server.port=7878"      # nterne de l'application
+      - "traefik.http.services.Radarr.loadbalancer.server.port=7878"      # Port interne de l'application
+      
+      
 #########################################################################################
 # Endpoint        : Sonarr
 # Port applicatif : 8989
@@ -55,4 +57,4 @@ Radarr:
       - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
       - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
       - "traefik.http.routers.QBitTorrent.entrypoints=Sonarr"                  # Endpoint test
-      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8989"      # nterne de l'application
+      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8989"      # Port interne de l'application
