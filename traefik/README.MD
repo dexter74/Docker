@@ -1,5 +1,7 @@
 ### Guide ####
 
+*** Il existe deux type d'écriture de configuration: Statique et Dynamique ***
+
 ````
 https://doc.traefik.io/traefik/routing/overview/
 - Entrypoints   : Écoutent le trafic entrant (ports, ...)
