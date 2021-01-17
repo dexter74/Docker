@@ -7,7 +7,6 @@
   insecure = true
 
 
-
 ########################################
 # Pise en charge du fournisseur Docker #
 ########################################
@@ -15,7 +14,6 @@
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedByDefault = false
-
 
 
 #####################################
@@ -28,12 +26,12 @@
     to = "websecure"
     scheme = "https"
 
+
 ############################################
 # Endpoint websecure qui écoute sur le 443 #
 ############################################
 [entryPoints.websecure]
   address = ":443"
-
 
 
 ##################
@@ -44,3 +42,4 @@
   storage = "acme.json"
   [certificatesResolvers.leresolver.acme.httpChallenge]
     entryPoint = "web"
+
