@@ -26,7 +26,7 @@
     labels:
       - "traefik.enable=true" 
       - "traefik.docker.network=traefik_network"
-      - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"
+      - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)" && Path(`/`)
       - "traefik.http.routers.plex.entrypoints=plex"
       - "traefik.http.services.plex.loadbalancer.server.port=32400"
       - "traefik.http.routers.plex.tls=true"
