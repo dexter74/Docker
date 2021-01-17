@@ -22,12 +22,10 @@
     networks:
       - traefik_network
     labels:
-      - "traefik.enable=true"                                                  # Activer la publication du container
-      - "traefik.docker.network=traefik_network"                               # Précise à Traefik quel réseau utilise le container XXXX.
-      - "traefik.http.routers.QBitTorrent.entrypoints=test"                    # Traefik.toml
-      - "traefik.http.routers.QBitTorrent.rule=Host(`drthrax74.ddns.net`)"     # Requête arrivant sur http://mondomaine.com sera transmise au container NOM_DU_CONTAINER.
-      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # Le port du container sur lequel les requêtes doivent être transmises
-      - "traefik.http.routers.QBitTorrent.tls=true"                            # Support SSL/TLS.
-      - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver"         # Précise le résolveur et donc les certificats à utiliser.
-    ports:
-      - 8081:8081
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.QBitTorrent.tls=true" 
+      - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
+      - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
+      - "traefik.http.routers.QBitTorrent.entrypoints=test"                    # Endpoint test
+      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # nterne de l'application
