@@ -67,7 +67,7 @@ services: #
       PUID: '1001'
       PGID: '74240'
     volumes:
-      - /home/docker/container/php:/var/www/html/
+      - /home/docker/volumes/php:/var/www/html/
     ports:
       - 27020:80
 #############################################################################################################
@@ -91,7 +91,7 @@ services: #
       WORDPRESS_DB_NAME: 'database'
       WORDPRESS_TABLE_PREFIX: 'wp_'
     volumes:
-      - /home/docker/container/Wordpress:/var/www/html
+      - /home/docker/volumes/Wordpress:/var/www/html
     external_links:
       - mysql
     ports:
@@ -110,8 +110,8 @@ services: #
     external_links:
       - mysql
     volumes:
-      - /home/docker/container/joomla
-      - /home/docker/container/joomla:/var/www/html
+      - /home/docker/volumes/joomla
+      - /home/docker/volumes/joomla:/var/www/html
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -136,7 +136,7 @@ services: #
     external_links:
       - mysql
     volumes:
-      - /home/docker/container/marc/znc:/config
+      - /home/docker/volumes/znc:/config
     environment:
       PUID: '1001'
       PGID: '74240'
