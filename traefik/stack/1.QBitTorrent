@@ -4,9 +4,9 @@
 # Host            : https://teste74.ddns.net:XXXXX
 ##################################################################################################################
 
-# Créer le conteneur, arrêter puis taper la commande et relancer.
-#
+# docker stop QBitTorrent; 
 # echo "WebUI\HostHeaderValidation=false"  >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
+# docker start QBitTorrent; 
 
   QBitTorrent:
     container_name: QBitTorrent
