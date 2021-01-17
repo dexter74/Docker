@@ -28,7 +28,7 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
   debug = false
   insecure = true
   
- [providers.docker]
+[providers.docker]
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedByDefault = false
