@@ -1,7 +1,7 @@
 #########################################################################################
 # Endpoint        : Jackett
 # Port applicatif : 9117
-# Host            : teste74.ddns.net
+# Host            : https://teste74.ddns.net:XXXXX
 #########################################################################################
   Jackett:
     container_name: Jackett
