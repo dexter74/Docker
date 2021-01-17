@@ -1,6 +1,7 @@
 ##############################################
 # Etape 1: Création des dossiers et dossiers #
 ##############################################
+rm -r /home/docker/volumes/traefik
 mkdir -p /home/docker/volumes/traefik/conf
 touch /home/docker/volumes/traefik/conf/traefik.toml
 touch /home/docker/volumes/traefik/conf/acme.json
