@@ -1,3 +1,6 @@
+#####################################
+# A mettre dans le stack de Traefik #
+#####################################
   plex:
     hostname: plex
     domainname: lan
