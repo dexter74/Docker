@@ -19,9 +19,13 @@ Entrypoint > Routeur > Service
 ### Ecoute de port ####
 ````
 https://doc.traefik.io/traefik/routing/entrypoints/
+Les EntryPoints sont les points d'entrée du réseau dans Traefik.
+Ils définissent le port qui recevra les paquets et s'il faut écouter TCP ou UDP.
 ````
 
 ### Routeur ###
 ````
 https://doc.traefik.io/traefik/routing/routers/
+Un routeur est chargé de connecter les demandes entrantes aux services qui peuvent les traiter. 
+Dans le processus, les routeurs peuvent utiliser des morceaux de middleware pour mettre à jour la demande, ou agir avant de transmettre la demande au service.
 ````
