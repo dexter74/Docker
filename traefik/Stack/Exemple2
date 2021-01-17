@@ -1,0 +1,52 @@
+###############
+version: '2'  #
+services:     #
+#########################################################################################
+  plex:
+    hostname: plex
+    domainname: lan
+    container_name: Plex
+    image: plexinc/pms-docker
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+     
+    volumes:
+      - /home/docker/volumes/Plex/config:/config
+      - /home/docker/volumes/Plex/transcode:/transcode
+      - /home/docker/volumes/Plex/data:/data
+      - Films:/mnt/Films
+      - Video:/mnt/Video
+
+    networks:
+      - traefik_network
+      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.plex.entrypoints=plex"
+      - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"
+      - "traefik.http.services.plex.loadbalancer.server.port=32400"
+      - "traefik.http.routers.plex.tls=true"
+      - "traefik.http.routers.plex.tls.certresolver=leresolver"
+#########################################################################################
+  traefik:
+    image: 'traefik:v2.2'
+    container_name: 'traefik'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/docker/volumes/traefik/conf/traefik.toml:/traefik.toml:ro
+      - /home/docker/volumes/traefik/conf/acme.json:/acme.json
+      
+    networks:
+      - traefik_network
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+      - 82:82
+#########################################################################################
+networks:
+  traefik_network:
