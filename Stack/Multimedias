@@ -12,6 +12,10 @@
 # - Dessins : /mnt/Films/Series
 # - Torrent : /mnt/Films/qbitorrent
 
+
+
+# Traefik : Supprimer le mode network_mode
+
 #################
 version: '2.4'  #
 #################
