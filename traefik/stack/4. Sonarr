@@ -1,8 +1,8 @@
-#########################################################################################
+##################################################################################################################
 # Endpoint        : Sonarr
 # Port applicatif : 8989
 # Host            : https://teste74.ddns.net:XXXXX
-#########################################################################################
+##################################################################################################################
 
   Sonarr:
     container_name: Sonarr
@@ -27,4 +27,7 @@
       - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
       - "traefik.http.routers.QBitTorrent.entrypoints=Sonarr"                  # Endpoint test
       - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8989"      # Port interne de l'application
-
+      
+    ports:
+      - 8081:8081
+##################################################################################################################
