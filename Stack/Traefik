@@ -1,4 +1,4 @@
-version: '2.4'
+version: '2'
 services:
   traefik:
     container_name: 'Traefik'
@@ -12,3 +12,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /root/traefik/conf/traefik.toml:/traefik.toml:ro
       - /root/traefik/conf/acme.json:/acme.json
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+    
