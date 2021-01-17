@@ -1,0 +1,27 @@
+#################################
+# Configuration de traefik.toml #
+#################################
+
+Pour écouter sur le port 32400, il suffit d'ajouter :
+[entryPoints.plex]
+  address = ":32400"
+  
+#########################
+# Labels des conteneurs #
+#########################
+Le conteneur Traefik doit avoir le port exposé. (Ne pas oublier le routeur)
+
+  Traefik:
+    ports:
+      - 32400:32400
+
+
+plex:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.plex.entrypoints=plex"                  # Le Endpoint Plex du fichier traefik.toml
+      - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"   # URL pour y accéder
+      - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port de l'applicatif
+      - "traefik.http.routers.plex.tls=true"
+      - "traefik.http.routers.plex.tls.certresolver=leresolver"
