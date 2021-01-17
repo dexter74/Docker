@@ -33,6 +33,13 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
   watch = true
   exposedByDefault = false
 
+[certificatesResolvers.leresolver.acme]
+  email = "teste74@hotmail.fr"
+  storage = "acme.json"
+  [certificatesResolvers.leresolver.acme.httpChallenge]
+    entryPoint = "web"
+
+
 [entryPoints.web]
   address = ":80"
   [entryPoints.web.http.redirections.entryPoint]
@@ -41,11 +48,8 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 
 [entryPoints.websecure]
   address = ":443"
-  
 
-[certificatesResolvers.leresolver.acme]
-  email = "teste74@hotmail.fr"
-  storage = "acme.json"
-  [certificatesResolvers.leresolver.acme.httpChallenge]
-    entryPoint = "web"
+[entryPoints.plex]
+  address = ":32400"
+  
 
