@@ -1,5 +1,7 @@
-version: '2'
-services:
+###############
+version: '2'  #
+services:     #
+###############################################################################
   traefik:
     container_name: 'Traefik'
     restart: unless-stopped
@@ -12,34 +14,23 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /home/docker/volumes/traefik/conf/traefik.toml:/traefik.toml:ro
       - /home/docker/volumes/traefik/conf/acme.json:/acme.json
+    networks:
+      web:
+        ipv4_address: 192.168.20.2
+###############################################################################
+  wordpress:
+    container_name: wordpress
+    image: wordpress
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+    volumes:
+      - /home/docker/volumes/wordpress:/var/www/html
+    networks:
+      web:
+        ipv4_address: 192.168.20.3
 
 
-
-
-##################################################################################################################
+###############################################################################
 # Guide
 # - Networks  : https://w3blog.fr/2016/09/20/docker-et-ses-networks/
-
-###############
-# IP statique #
-###############
-
-#  networks:
-#    web:
-#      ipv4_address: 10.0.0.2
-#networks:
-#  web:
-#    driver: bridge
-#    ipam:
-#     config:
-#       - subnet: 10.0.0.0/8
-#         gateway: 10.0.0.1
-
-################
-# IP Dynamique #
-################
-#  networks:
-#   - web
-#networks:
-#  web:
-#    driver: bridge
