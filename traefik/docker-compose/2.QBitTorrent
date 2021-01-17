@@ -2,6 +2,7 @@
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
+# Download        : /mnt/Films/qbitorrent
 ##################################################################################################################
 
 # docker stop QBitTorrent; 
