@@ -8,7 +8,20 @@ https://doc.traefik.io/traefik/routing/overview/
 - Providers     : Les découvrent les services qui vivent de votre infrastructure (ip, santé, ...) comme Docker.
 ````
 
+
+#### Schéma ####
+````
+Entrypoint > Routeur > Service
+                     > Dashboard
+                     
+````
+
 ### Ecoute de port ####
 ````
 https://doc.traefik.io/traefik/routing/entrypoints/
+````
+
+### Routeur ###
+````
+https://doc.traefik.io/traefik/routing/routers/
 ````
