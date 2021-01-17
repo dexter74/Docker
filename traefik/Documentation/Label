@@ -9,7 +9,7 @@ label:
 ############################
 # Traefik - Option de base #
 ############################
-label:
+labels:
   - traefik.enable=true                                                         # Activer la publication du container
   - traefik.docker.network=traefik_network                                      # Précise à Traefik quel réseau utilise le container XXXX.
   - traefik.port=8000                                                           # Le port interne ou Traefik redirigera
