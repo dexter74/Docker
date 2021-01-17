@@ -1,0 +1,18 @@
+
+version: '2.4'
+services:
+  container_name: 'Traefik'
+  restart: unless-stopped
+  
+  images: 'traefik:v2.2'
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    - /home/traefik/traefik.toml:/traefik.toml:ro
+    - /home/traefik/acme.json:/acme.json
+  ports:
+    - 5000:8080
+    
+    
+networks:
+  traefik_network:
+    external: true
