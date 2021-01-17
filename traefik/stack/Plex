@@ -1,8 +1,6 @@
-#####################################
-# A mettre dans le stack de Traefik #
-#####################################
-
-# entrypoints=plex
+#################################
+# Endpoint: Plex
+# Port: 32400
 
 #########################################################################################
   plex:
@@ -32,7 +30,7 @@
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
       
       - "traefik.http.routers.plex.rule=Host(`teste74.ddns.net`)"     # URL
-      - "traefik.http.routers.plex.entrypoints=plex"                  # Endpoint Plex
+      - "traefik.http.routers.plex.entrypoints=Plex"                  # Endpoint Plex
       - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port interne de l'application
 
 #########################################################################################
