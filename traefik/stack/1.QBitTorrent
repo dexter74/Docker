@@ -31,7 +31,7 @@
       - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
       - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
       - "traefik.http.routers.QBitTorrent.entrypoints=QBitTorrent"             # Endpoint test
-      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # nterne de l'application
+      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # Port interne de l'application
 
     ports:
       - 8081:8081
