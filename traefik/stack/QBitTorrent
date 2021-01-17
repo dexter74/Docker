@@ -1,6 +1,8 @@
-###############
-# Déploiement #
-###############
+#########################################################################################
+# Endpoint        : QBitTorrent
+# Port applicatif : 8081
+#########################################################################################
+
 # Créer le conteneur, arrêter puis taper la commande et relancer.
 #
 # echo "WebUI\HostHeaderValidation=false"  >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
@@ -27,5 +29,8 @@
       - "traefik.http.routers.QBitTorrent.tls=true" 
       - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
       - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
-      - "traefik.http.routers.QBitTorrent.entrypoints=test"                    # Endpoint test
+      - "traefik.http.routers.QBitTorrent.entrypoints=QBitTorrent"             # Endpoint test
       - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # nterne de l'application
+
+    ports:
+      - 8081:8081
