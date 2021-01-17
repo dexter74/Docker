@@ -1,26 +1,28 @@
 #####################################
 # A mettre dans le stack de Traefik #
 #####################################
-
 #########################################################################################
   plex:
     hostname: plex
     domainname: lan
     container_name: Plex
     image: plexinc/pms-docker
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+
     volumes:
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Films:/mnt/Films
       - Video:/mnt/Video
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe\Paris'
-      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+
     networks:
       - traefik_network
+
     labels:
       - "traefik.enable=true" 
       - "traefik.docker.network=traefik_network"
