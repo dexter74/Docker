@@ -28,7 +28,7 @@ plex:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=web"
-      - "traefik.http.routers.plex.entrypoints=plex"                  # Le Endpoint Plex du fichier traefik.toml
+      - "traefik.http.routers.plex.entrypoints=web"                   # Le Endpoint web du fichier traefik.toml
       - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"   # URL pour y accéder
       - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port de l'applicatif
       - "traefik.http.routers.plex.tls=true"
