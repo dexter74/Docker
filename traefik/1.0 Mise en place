@@ -61,7 +61,7 @@ services:
     image: 'traefik:v2.2' 
     networks:
       web:
-        ipv4_address: 192.168.20.2
+        ipv4_address: 192.168.20.X
     ports:
       - XXX:XXX
 
@@ -69,7 +69,7 @@ services:
   plex:
     networks:
       web:
-        ipv4_address: 192.168.20.3
+        ipv4_address: 192.168.20.X
     labels:
       - traefik.XXXX
       
