@@ -1,68 +1,4 @@
-###########
-# mariadb #
-##################################################################################################################################
-  mariadb:
-    image: ghcr.io/linuxserver/mariadb
-    container_name: mariadb
-    restart: unless-stopped
-    volumes:
-      - /home/docker/volumes/MariaDB:/config
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - MYSQL_ROOT_PASSWORD=root
-      - TZ=Europe/Paris
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
-##################################################################################################################################
 
-##############
-# PhpMyAdmin #
-##################################################################################################################################
-# Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
-  phpmyadmin:
-    depends_on:
-      - mariadb
-    network_mode: bridge
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    restart: always
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      PMA_HOST: 'mariadb'
-      PMA_PORT: '3306'
-      PMA_USER: 'admin'
-      PMA_PASSWORD: 'admin'
-      PMA_PMADB: 'phpmyadmin'
-      PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81
-      
-    external_links:
-      - mariadb
-    ports:
-      - 81:80
-# Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".
-##################################################################################################################################
-
-#######
-# PHP #
-##################################################################################################################################
-# Hub   : https://hub.docker.com/_/php
-  web:
-    network_mode: bridge
-    container_name: php
-    image: php:7.2.2-apache
-    restart: always
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-    volumes:
-      - /home/docker/volumes/php:/var/www/html/
-    ports:
-      - 27020:80
-##################################################################################################################################
- 
 #############
 # Wordpress #
 ##################################################################################################################################
@@ -87,6 +23,32 @@
     ports:
       - 27017:80
 ##################################################################################################################################
+
+
+#######
+# PHP #
+##################################################################################################################################
+# Hub   : https://hub.docker.com/_/php
+  web:
+    network_mode: bridge
+    container_name: php
+    image: php:7.2.2-apache
+    restart: always
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+    volumes:
+      - /home/docker/volumes/php:/var/www/html/
+    ports:
+      - 27020:80
+##################################################################################################################################
+ 
+
+
+
+
+
+
 
 ##########
 # Joomla #
