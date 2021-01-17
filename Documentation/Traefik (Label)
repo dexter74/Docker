@@ -28,3 +28,8 @@ traefik.enable=true                                                             
 traefik.port=8000                                                                         # Le port interne ou Traefik redirigera
 traefik.frontend.rule=Host:traefik.domain.tld                                             # Le sous-domaine du container.
 traefik.docker.network=traefik_network                                                    # Précise à Traefik quel réseau utilise le container XXXX.
+
+
+############################################################################################################################################################
+Sources : 
+  - https://howto.wared.fr/sonarr-docker-traefik-ubuntu/
