@@ -1,8 +1,0 @@
-time="2021-01-17T11:39:29Z" level=info msg="Configuration loaded from file: /traefik.toml"
-time="2021-01-17T11:39:29Z" level=error msg="The ACME resolver \"letsencrypt\" is skipped from the resolvers list because:
-unable to get ACME account: permissions 744 for acme.json are too open, please use 600"
-
-
-
-
-Correctif : chmod 600 /home/docker/volumes/traefik/conf/acme.json
