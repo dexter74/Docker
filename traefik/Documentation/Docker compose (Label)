@@ -13,7 +13,7 @@ labels:
   - "traefik.http.routers.[NOM_DU_CONTAINER].rule=Host(`drthrax74.ddns.net`)"     # Requête arrivant sur http://mondomaine.com sera transmise au container NOM_DU_CONTAINER.
   - "traefik.http.services.[NOM_DU_CONTAINER].loadbalancer.server.port=[PORT]"    # Le port du container sur lequel les requêtes doivent être transmises
   - "traefik.http.routers.[NOM_DU_CONTAINER].tls=[True|False]"                    # Support SSL/TLS.
-  - "traefik.http.routers.[NOM_DU_CONTAINER].tls.certresolver"                    # Précise le résolveur et donc les certificats à utiliser.
+  - "traefik.http.routers.[NOM_DU_CONTAINER].tls.certresolver=leresolver"         # Précise le résolveur et donc les certificats à utiliser.
 
 
 Pour Traefik:
