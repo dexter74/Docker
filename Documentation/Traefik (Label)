@@ -37,3 +37,4 @@ traefik.docker.network=traefik_network                                          
 ############################################################################################################################################################
 Sources : 
   - https://howto.wared.fr/sonarr-docker-traefik-ubuntu/
+  - https://github.com/containeroo-gists/traefik-examples
