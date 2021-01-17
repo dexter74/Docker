@@ -9,13 +9,21 @@ Pour écouter sur le port 32400, il suffit d'ajouter :
 #########################
 # Labels des conteneurs #
 #########################
+La version du conteneur doit être mis sur 2.
 Le conteneur Traefik doit avoir le port exposé. (Ne pas oublier le routeur)
+Les conteneurs doivent être sur le même réseau.
 
+
+version: '2'
+services:
   Traefik:
     ports:
       - 32400:32400
-
-
+      - 443:443
+      - 8080:8080
+    networks:
+      - traefik_network
+      
 plex:
     labels:
       - "traefik.enable=true"
@@ -25,3 +33,8 @@ plex:
       - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port de l'applicatif
       - "traefik.http.routers.plex.tls=true"
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
+    networks:
+      - traefik_network
+
+networks:
+  traefik_network:
