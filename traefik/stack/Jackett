@@ -1,0 +1,28 @@
+#################################
+# Port: 9117
+
+  Jackett:
+    container_name: Jackett
+    image: 'hotio/jackett'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+     - /home/docker/volumes/Jackett:/config
+    networks:
+      - traefik_network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.Jackett.tls=true"
+      - "traefik.http.routers.Jackett.tls.certresolver=leresolver"
+
+      - "traefik.http.routers.Jackett.entrypoints=test"                   # Endpoint test
+      - "traefik.http.routers.Jackett.rule=Host(`teste74.ddns.net`)"      # URL
+      - "traefik.http.services.Jackett.loadbalancer.server.port=9117"     # Port de Jackett en interne
+      
+      
