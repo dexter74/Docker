@@ -1,35 +1,19 @@
+La section labels qui contient des paramètres qui vont être utiles à Traefik pour savoir la configuration qu’il devra appliquer aux containers instancés.
+
 label:
   - traefik.XXXXXX=YYYYYYY
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
-
-traefik.enable=true                                                                       #  Activer la publication du container
-traefik.port=8000                                                                         #
-
-
-traefik.http.routers.sonarr.entrypoints=http
-
-traefik.http.routers.sonarr.rule=Host(`sonarr.example.com`)
-
-traefik.http.middlewares.sonarr-https-redirect.redirectscheme.scheme=https
-
-traefik.http.routers.sonarr.middlewares=nextcloud-https-redirect
-
-traefik.http.routers.sonarr-secure.entrypoints=https
-
-traefik.http.routers.sonarr-secure.rule=Host(`sonarr.examplle`)
-
-traefik.http.routers.sonarr-secure.tls=true
-
-traefik.http.routers.sonarr-secure.tls.certresolver=cloudflare
-
-traefik.http.routers.sonarr-secure.middlewares=secured@file
-
-traefik.http.routers.sonarr-secure.service=sonarr
-
-traefik.http.services.sonarr.loadbalancer.server.port=8989
-
-traefik.docker.network=proxy
+traefik.enable=true                                                                       # Activer la publication du container
+traefik.port=8000                                                                         # Le port interne ou Traefik redirigera
+traefik.frontend.rule=Host:traefik.domain.tld                                             # Le sous-domaine du container.
+traefik.docker.network=traefik_network                                                    # Précise à Traefik quel réseau utilise le container Sonarr.
+traefik.http.routers.[NOM_DU_CONTAINER].entrypoints                                       #
+traefik.http.routers.[NOM_DU_CONTAINER].rule=Host(`mondomaine.com`)                       # Requête arrivant sur http://mondomaine.com sera transmise au container NOM_DU_CONTAINER.
+traefik.http.services.[NOM_DU_CONTAINER].loadbalancer.server.port=[PORT]                  # Le port du container sur lequel les requêtes doivent être transmises
+traefik.http.routers.[NOM_DU_CONTAINER].tls                                               # Active le support SSL/TLS.
+traefik.http.routers.[NOM_DU_CONTAINER].tls.certresolver                                  # Précise le résolveur et donc les certificats à utiliser.
