@@ -3,8 +3,12 @@ version: '2'  #
 services:     #
 ###############
 
-
-
+# sh /root/purge.sh
+# QBitTorrent	https://teste74.ddns.net:81
+# Jackett		  https://teste74.ddns.net:82
+# Sonarr		  https://teste74.ddns.net:83
+# Radarr		  https://teste74.ddns.net:84
+# Plex			  https://teste74.ddns.net:32400
 
 ##################################################################################################################
   traefik:
