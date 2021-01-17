@@ -1,3 +1,8 @@
+# nano /home/docker/volumes/QBitTorrent/qBittorrent.conf
+# > WebUI\HostHeaderValidation=false
+
+
+
   QBitTorrent:
     container_name: QBitTorrent
     image: 'linuxserver/qbittorrent'
