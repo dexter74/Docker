@@ -1,0 +1,50 @@
+##############################################
+# Etape 1: Création des dossiers et dossiers #
+##############################################
+mkdir -p /home/docker/volumes/traefik/conf
+touch /home/docker/volumes/traefik/conf/traefik.toml
+touch /home/docker/volumes/traefik/conf/acme.json
+
+#########################################
+# Etape 2: Modification des permissions #
+#########################################
+#Le fichier acme contient les certificats SSL, il a besoin d'être accessible en écritue. 
+chmod 600 /home/docker/volumes/traefik/conf/acme.json
+
+#########################
+# Etape 3: traefik.toml #
+#########################
+# Dashboard activé en HTTP
+# Fournisseur Docker
+# Endpoint Web        qui écoute sur le port 80 . Avec redirection vers l'endpoint websecure . (80 > 443)
+# Endpoint websecure  qui écoute sur le port 443. 
+# Prise en charge du SSL.
+
+
+[api]
+  dashboard = true
+  debug = false
+  insecure = true
+  
+ [providers.docker]
+  endpoint = "unix:///var/run/docker.sock"
+  watch = true
+  exposedByDefault = false
+
+[entryPoints.web]
+  address = ":80"
+  [entryPoints.web.http.redirections.entryPoint]
+    to = "websecure"
+    scheme = "https"
+
+[entryPoints.websecure]
+  address = ":443"
+  
+
+[certificatesResolvers.leresolver.acme]
+  email = "teste74@hotmail.fr"
+  storage = "acme.json"
+  [certificatesResolvers.leresolver.acme.httpChallenge]
+    entryPoint = "web"
+    
+    
