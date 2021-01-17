@@ -7,3 +7,8 @@ https://doc.traefik.io/traefik/routing/overview/
 - Services      : Transmettre la demande à vos services (équilibrage de charge, ...) comme le service Plex.
 - Providers     : Les découvrent les services qui vivent de votre infrastructure (ip, santé, ...) comme Docker.
 ````
+
+### Ecoute de port ####
+````
+https://doc.traefik.io/traefik/routing/entrypoints/
+````
