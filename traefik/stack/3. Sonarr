@@ -22,11 +22,11 @@
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik_network"
-      - "traefik.http.routers.QBitTorrent.tls=true" 
-      - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
-      - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
-      - "traefik.http.routers.QBitTorrent.entrypoints=Sonarr"                  # Endpoint test
-      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8989"      # Port interne de l'application
+      - "traefik.http.routers.Sonarr.tls=true" 
+      - "traefik.http.routers.Sonarr.tls.certresolver=leresolver" 
+      - "traefik.http.routers.Sonarr.rule=Host(`teste74.ddns.net`)"       # URL
+      - "traefik.http.routers.Sonarr.entrypoints=Sonarr"                  # Endpoint test
+      - "traefik.http.services.Sonarr.loadbalancer.server.port=8989"      # Port interne de l'application
       
     ports:
       - 8989:8989
