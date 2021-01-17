@@ -1,0 +1,18 @@
+  QBitTorrent:
+    container_name: QBitTorrent
+    image: 'linuxserver/qbittorrent'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK_SET: '022'
+      WEBUI_PORT: '8080'
+
+    volumes:
+      - /home/docker/volumes/QBitTorrent/:/config
+      - /home/docker/volumes/QBitTorrent/downloads:/downloads
+      - Films:/mnt/Films
+      - Video:/mnt/Video
+      
+    networks:
+      - traefik_network
