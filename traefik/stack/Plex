@@ -28,9 +28,11 @@
     labels:
       - "traefik.enable=true" 
       - "traefik.docker.network=traefik_network"
-      - "traefik.http.routers.plex.rule=Host(`teste74.ddns.net`)"
-      - "traefik.http.routers.plex.entrypoints=plex"
-      - "traefik.http.services.plex.loadbalancer.server.port=32400"
       - "traefik.http.routers.plex.tls=true"
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
+      
+      - "traefik.http.routers.plex.rule=Host(`teste74.ddns.net`)"     # URL
+      - "traefik.http.routers.plex.entrypoints=plex"                  # Endpoint Plex
+      - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port interne de l'application
+
 #########################################################################################
