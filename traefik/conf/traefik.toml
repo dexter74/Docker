@@ -6,6 +6,9 @@
   dashboard = true
   debug = false
   insecure = true
+
+
+
 ########################################
 # Pise en charge du fournisseur Docker #
 ########################################
@@ -13,6 +16,7 @@
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedByDefault = false
+
 
 
 #####################################
@@ -26,12 +30,15 @@
     scheme = "https"
 
 
+
 ############################################
 # Endpoint websecure qui écoute sur le 443 #
 ############################################
 L'endpoint websecure en HTTPS 
 [entryPoints.websecure]
   address = ":443"
+
+
 
 ##################
 # Certificat SSL #
