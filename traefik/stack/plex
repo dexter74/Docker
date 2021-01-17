@@ -1,4 +1,4 @@
-  plex:
+ plex:
     hostname: plex
     domainname: lan
     container_name: Plex
