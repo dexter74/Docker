@@ -1,0 +1,35 @@
+label:
+  - traefik.XXXXXX=YYYYYYY
+
+
+
+
+
+
+traefik.enable=true                                                                       #  Activer la publication du container
+traefik.port=8000                                                                         #
+
+
+traefik.http.routers.sonarr.entrypoints=http
+
+traefik.http.routers.sonarr.rule=Host(`sonarr.example.com`)
+
+traefik.http.middlewares.sonarr-https-redirect.redirectscheme.scheme=https
+
+traefik.http.routers.sonarr.middlewares=nextcloud-https-redirect
+
+traefik.http.routers.sonarr-secure.entrypoints=https
+
+traefik.http.routers.sonarr-secure.rule=Host(`sonarr.examplle`)
+
+traefik.http.routers.sonarr-secure.tls=true
+
+traefik.http.routers.sonarr-secure.tls.certresolver=cloudflare
+
+traefik.http.routers.sonarr-secure.middlewares=secured@file
+
+traefik.http.routers.sonarr-secure.service=sonarr
+
+traefik.http.services.sonarr.loadbalancer.server.port=8989
+
+traefik.docker.network=proxy
