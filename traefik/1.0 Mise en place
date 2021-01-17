@@ -21,7 +21,7 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 # Endpoint websecure  qui écoute sur le port 443. 
 # Prise en charge du SSL.
 
-# nano /home/docker/volumes/traefik/conf
+# nano /home/docker/volumes/traefik/conf/traefik.toml
 
 [api]
   dashboard = true
