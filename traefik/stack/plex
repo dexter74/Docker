@@ -1,18 +1,21 @@
   plex:
     hostname: plex
     domainname: lan
-    network_mode: bridge
     container_name: Plex
     image: plexinc/pms-docker
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe\Paris'
-      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
-
+    
     volumes:
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Films:/mnt/Films
       - Video:/mnt/Video
+
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+
+    networks:
+      - traefik_network
