@@ -1,6 +1,8 @@
 #####################################
 # A mettre dans le stack de Traefik #
 #####################################
+
+#########################################################################################
   plex:
     hostname: plex
     domainname: lan
@@ -28,3 +30,4 @@
       - "traefik.http.routers.plex.tls=true"
       - "traefik.http.routers.plex.tls.certresolver" 
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
+#########################################################################################
