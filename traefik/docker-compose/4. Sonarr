@@ -3,7 +3,6 @@
 # Port applicatif : 8989
 # Host            : https://teste74.ddns.net:XXXXX
 ##################################################################################################################
-
   Sonarr:
     container_name: Sonarr
     image: 'hotio/sonarr'
@@ -15,10 +14,8 @@
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
-
     networks:
       - traefik_network
-      
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik_network"
