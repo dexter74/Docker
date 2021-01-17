@@ -1,0 +1,35 @@
+  Radarr:
+    container_name: Radarr
+    image: 'hotio/radarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+
+    volumes:
+      - /home/docker/volumes/Radarr:/config
+
+    ports:
+      - 83:7878
+      
+
+#####################################################################################################################################
+  Sonarr:
+    container_name: Sonarr
+    image: 'hotio/sonarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+
+    volumes:
+      - /home/docker/volumes/Sonarr:/config
+
+    ports:
+      - 84:8989
+
+#####################################################################################################################################
