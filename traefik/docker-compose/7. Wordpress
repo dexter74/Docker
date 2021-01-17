@@ -1,8 +1,10 @@
-#############
-# Wordpress #
-##################################################################################################################################
-# Hub   :  https://hub.docker.com/_/wordpress
-# User  : www-data:www-data
+  
+##################################################################################################################
+# Endpoint        : Wordpress
+# Port applicatif : 80
+# Host            : https://teste74.ddns.net:XXXX
+##################################################################################################################
+
   wordpress:
     container_name: wordpress
     image: wordpress
@@ -15,10 +17,24 @@
       WORDPRESS_DB_PASSWORD: 'admin'
       WORDPRESS_DB_NAME: 'database'
       WORDPRESS_TABLE_PREFIX: 'wp_'
+      
     volumes:
       - /home/docker/volumes/Wordpress:/var/www/html
+      
     external_links:
       - mysql
+            
+    labels:
+      - "traefik.enable=true" 
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.wordpress.tls=true"
+      - "traefik.http.routers.wordpress.tls.certresolver=leresolver"
+      
+      - "traefik.http.routers.wordpress.rule=Host(`teste74.ddns.net`)"   # URL
+      - "traefik.http.routers.wordpress.entrypoints=wordpress"           # Endpoint wordpress
+      - "traefik.http.services.wordpress.loadbalancer.server.port=80"    # Port interne de l'application
+      
     ports:
       - 27017:80
-##################################################################################################################################
+##################################################################################################################
+
