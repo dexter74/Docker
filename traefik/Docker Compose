@@ -1,0 +1,22 @@
+###############
+version: '2'  #
+services:     #
+#########################################################################################
+  traefik:
+    image: 'traefik:v2.2'
+    container_name: 'traefik'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/docker/volumes/traefik/conf/traefik.toml:/traefik.toml:ro
+      - /home/docker/volumes/traefik/conf/acme.json:/acme.json
+      
+    networks:
+      - traefik_network
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+      - 82:82
+      - 32400:32400
+networks:
+  traefik_network:
