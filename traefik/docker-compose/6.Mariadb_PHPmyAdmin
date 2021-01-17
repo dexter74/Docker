@@ -3,12 +3,43 @@
 # Port applicatif : 
 # Host            : teste74.ddns.net
 ##################################################################################################################
+
+
+
+###########
+# mariadb #
+##################################################################################################################
+  MariaDB:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: MariaDB
+    restart: unless-stopped
+    volumes:
+      - /home/docker/volumes/MariaDB:/config
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Europe/Paris
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      
+    networks:
+      - traefik_network
+
+    labels:
+      - "traefik.enable=true" 
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.MariaDB.tls=true"
+      - "traefik.http.routers.MariaDB.tls.certresolver=leresolver"
+      
+      - "traefik.http.routers.MariaDB.rule=Host(`teste74.ddns.net`)"     # URL
+      - "traefik.http.routers.MariaDB.entrypoints=MariaDB"               # Endpoint MariaDB
+      - "traefik.http.services.MariaDB.loadbalancer.server.port=3306"    # Port interne de l'application
+##################################################################################################################
+
  
- 
- 
- 
- 
- ##################################################################################################################
+##################################################################################################################
     networks:
       - traefik_network
     labels:
