@@ -13,15 +13,20 @@ Radarr:
       UMASK: '002'
       ARGS: ''
       DEBUG: 'no'
-
     volumes:
       - /home/docker/volumes/Radarr:/config
 
-    ports:
-      - 83:7878
+    networks:
+      - traefik_network
       
-
-
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.Radarr.tls=true" 
+      - "traefik.http.routers.Radarr.tls.certresolver=leresolver" 
+      - "traefik.http.routers.Radarr.rule=Host(`teste74.ddns.net`)"       # URL
+      - "traefik.http.routers.Radarr.entrypoints=Radarr"                  # Endpoint test
+      - "traefik.http.services.Radarr.loadbalancer.server.port=7878"      # nterne de l'application
 #########################################################################################
 # Endpoint        : Sonarr
 # Port applicatif : 8989
@@ -37,9 +42,17 @@ Radarr:
       UMASK: '002'
       ARGS: ''
       DEBUG: 'no'
-
     volumes:
       - /home/docker/volumes/Sonarr:/config
 
-    ports:
-      - 84:8989
+    networks:
+      - traefik_network
+      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.QBitTorrent.tls=true" 
+      - "traefik.http.routers.QBitTorrent.tls.certresolver=leresolver" 
+      - "traefik.http.routers.QBitTorrent.rule=Host(`teste74.ddns.net`)"       # URL
+      - "traefik.http.routers.QBitTorrent.entrypoints=Sonarr"                  # Endpoint test
+      - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8989"      # nterne de l'application
