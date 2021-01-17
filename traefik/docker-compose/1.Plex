@@ -2,7 +2,7 @@
 # Endpoint        : Plex
 # Port applicatif : 32400
 # Host            : https://teste74.ddns.net:32400
-# Plex CLaim      : https://www.plex.tv/claim/
+# Plex Claim      : https://www.plex.tv/claim/
 ##################################################################################################################
   plex:
     hostname: plex
