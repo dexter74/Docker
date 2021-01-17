@@ -1,3 +1,10 @@
 ###########################
 # Mise en place de Trafik #
 ###########################
+
+Docker : 
+  - /etc/traefik/traefik.toml
+  - /etc/traefik/traefik.yml
+  - /etc/traefik/traefik.yaml
+  
+  
