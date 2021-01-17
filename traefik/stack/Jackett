@@ -20,9 +20,9 @@
       - "traefik.docker.network=traefik_network"
       - "traefik.http.routers.Jackett.tls=true"
       - "traefik.http.routers.Jackett.tls.certresolver=leresolver"
-
-      - "traefik.http.routers.Jackett.entrypoints=test"                   # Endpoint test
+      
       - "traefik.http.routers.Jackett.rule=Host(`teste74.ddns.net`)"      # URL
+      - "traefik.http.routers.Jackett.entrypoints=test"                   # Endpoint test
       - "traefik.http.services.Jackett.loadbalancer.server.port=9117"     # Port de Jackett en interne
       
       
