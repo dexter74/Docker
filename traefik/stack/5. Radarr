@@ -1,0 +1,31 @@
+
+#########################################################################################
+# Endpoint        : Radarr
+# Port applicatif : 7878
+# Host            : teste74.ddns.net
+#########################################################################################
+
+Radarr:
+    container_name: Radarr
+    image: 'hotio/radarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+      - /home/docker/volumes/Radarr:/config
+
+    networks:
+      - traefik_network
+      
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.Radarr.tls=true" 
+      - "traefik.http.routers.Radarr.tls.certresolver=leresolver" 
+      - "traefik.http.routers.Radarr.rule=Host(`teste74.ddns.net`)"       # URL
+      - "traefik.http.routers.Radarr.entrypoints=Radarr"                  # Endpoint test
+      - "traefik.http.services.Radarr.loadbalancer.server.port=7878"      # Port interne de l'application
+      
