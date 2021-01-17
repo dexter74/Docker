@@ -1,7 +1,7 @@
 #########################################################################################
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
-# Host            : teste74.ddns.net
+# Host            : https://teste74.ddns.net:XXXXX
 #########################################################################################
 
 # Créer le conteneur, arrêter puis taper la commande et relancer.
