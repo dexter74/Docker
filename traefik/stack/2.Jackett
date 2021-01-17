@@ -25,6 +25,6 @@
       
       - "traefik.http.routers.Jackett.rule=Host(`teste74.ddns.net`)"      # URL
       - "traefik.http.routers.Jackett.entrypoints=Jackett"                # Endpoint test
-      - "traefik.http.services.Jackett.loadbalancer.server.port=9117"     # Port de Jackett en interne
+      - "traefik.http.services.Jackett.loadbalancer.server.port=9117"     # Port interne de l'application
       
       
