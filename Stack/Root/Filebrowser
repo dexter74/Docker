@@ -13,7 +13,7 @@ services: #
     container_name: filebrowser
     volumes:
       - /:/srv
-      - /home/docker/container/filebrowser/database.db:/database.db
-      - /home/docker/container/filebrowser/.filebrowser.json:/.filebrowser.json
+      - //home/docker/volumes/filebrowser/database.db:/database.db
+      - /home/docker/volumes/filebrowser/.filebrowser.json:/.filebrowser.json
     ports:
       - 27019:80
