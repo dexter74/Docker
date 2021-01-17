@@ -20,7 +20,6 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 # Endpoint websecure  qui écoute sur le port 443. 
 # Prise en charge du SSL.
 
-
 [api]
   dashboard = true
   debug = false
@@ -46,5 +45,34 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
   storage = "acme.json"
   [certificatesResolvers.leresolver.acme.httpChallenge]
     entryPoint = "web"
-    
-    
+
+###########################
+# Etape 4: Docker Compose #
+###########################
+Le docker compse doit être en version 2 pour la prise en charge du network.
+
+
+version: '2'
+services:
+  traefik:
+    networks:
+      web:
+        ipv4_address: 192.168.20.2
+###################################
+  plex:
+    networks:
+      web:
+        ipv4_address: 192.168.20.3
+    labels:
+      - traefik.XXXX
+      
+###################################
+networks:
+ web:
+  drivers: bridge
+  ipam:
+   config:
+    - subnet: 192.168.20.0/24
+      gateway: 192.168.20.1
+
+
