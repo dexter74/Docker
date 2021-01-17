@@ -1,0 +1,46 @@
+###############
+version: '2'  #
+services:     #
+###############
+  traefik:
+    image: "traefik:v2.2"
+    container_name: "traefik"
+    networks:
+      - traefik_network
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/docker/volumes/traefik/conf/traefik.toml:/traefik.toml:ro
+      - /home/docker/volumes/traefik/conf/acme.json:/acme.json
+
+#####################################################################################################################
+  sonarr:
+    image: linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: always
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    volumes:
+      - /home/docker/volumes/sonarr/config:/config
+      - /home/docker/volumes/sonarr/downloads:/downloads
+      - /home/docker/volumes/sonarr/tv:/tv
+    networks:
+      - traefik_network
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.sonarr.entrypoints=web,websecure"
+      - "traefik.http.routers.sonarr.rule=Host(`drthrax74.ddns.net`)"
+      - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
+      - "traefik.http.routers.sonarr.tls=true"
+      - "traefik.http.routers.sonarr.tls.certresolver=leresolver"
+
+#####################################################################################################################
+networks:
+  traefik_network:
