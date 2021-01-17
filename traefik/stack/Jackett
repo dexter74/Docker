@@ -1,4 +1,5 @@
 #################################
+# Endpoint: Jackett
 # Port: 9117
 
   Jackett:
@@ -22,7 +23,7 @@
       - "traefik.http.routers.Jackett.tls.certresolver=leresolver"
       
       - "traefik.http.routers.Jackett.rule=Host(`teste74.ddns.net`)"      # URL
-      - "traefik.http.routers.Jackett.entrypoints=test"                   # Endpoint test
+      - "traefik.http.routers.Jackett.entrypoints=Jackett"                # Endpoint test
       - "traefik.http.services.Jackett.loadbalancer.server.port=9117"     # Port de Jackett en interne
       
       
