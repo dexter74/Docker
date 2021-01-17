@@ -1,0 +1,32 @@
+https://www.pofilo.fr/post/20200926-traefik-retour-experience/
+
+touch /root/whoami/docker-compose.yml
+touch /root/traefik/docker-compose.yml
+touch /root/data/traefik/conf/traefik.toml                  # Fichier de configuration statique
+touch /root/data/traefik/conf/dynamic/traefik.config.toml   # Fichier de configuration dynamique
+
+##############################################################################
+### nano /root/data/traefik/conf/traefik.toml
+### STATIC ###
+defaultEntryPoints = ["websecure", "web"]
+[entryPoints]
+    [entryPoints.web]
+        address = ":80"
+    [entryPoints.web.http]
+        [entryPoints.web.http.redirections]
+            [entryPoints.web.http.redirections.entryPoint]
+                to = "websecure"
+                scheme = "https"
+    [entryPoints.websecure]
+        address = ":443"
+[providers]
+    [providers.file]
+        # Dynamic files
+        directory = "/etc/traefik/dynamic/"
+        watch = true
+    [providers.docker]
+        endpoint = "unix:///var/run/docker.sock"
+        exposedByDefault = false
+        watch = true
+[api]
+    dashboard = true
