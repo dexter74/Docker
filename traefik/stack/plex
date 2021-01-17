@@ -3,19 +3,25 @@
     domainname: lan
     container_name: Plex
     image: plexinc/pms-docker
-    
     volumes:
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Films:/mnt/Films
       - Video:/mnt/Video
-
     environment:
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe\Paris'
       PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
-
     networks:
       - traefik_network
+    labels:
+      - "traefik.enable=true" 
+      - "traefik.docker.network=traefik_network"
+      - "traefik.http.routers.plex.rule=Host(`drthrax74.ddns.net`)"
+      - "traefik.http.routers.plex.entrypoints=plex"
+      - "traefik.http.services.plex.loadbalancer.server.port=32400"
+      - "traefik.http.routers.plex.tls=true"
+      - "traefik.http.routers.plex.tls.certresolver" 
+      - "traefik.http.routers.plex.tls.certresolver=leresolver"
