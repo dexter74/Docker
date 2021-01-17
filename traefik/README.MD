@@ -31,3 +31,8 @@ https://doc.traefik.io/traefik/routing/routers/
 Un routeur est chargé de connecter les demandes entrantes aux services qui peuvent les traiter. 
 Dans le processus, les routeurs peuvent utiliser des morceaux de middleware pour mettre à jour la demande, ou agir avant de transmettre la demande au service.
 ````
+### Services ###
+````
+https://doc.traefik.io/traefik/routing/services/
+Les Services sont responsables de la configuration de la manière d'atteindre les services réels qui traiteront éventuellement les demandes entrantes.
+````
