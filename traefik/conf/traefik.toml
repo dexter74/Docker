@@ -1,17 +1,41 @@
+##########################
+# Dashboard en mode HTTP #
+##########################
+
+[api]
+  dashboard = true
+  debug = false
+  insecure = true
+########################################
+# Pise en charge du fournisseur Docker #
+########################################
 [providers.docker]
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedByDefault = false
 
+
+#####################################
+# Endpoint Web qui écoute sur le 80 #
+#####################################
+# Refirection HTTP en HTTPS
 [entryPoints.web]
   address = ":80"
   [entryPoints.web.http.redirections.entryPoint]
     to = "websecure"
     scheme = "https"
 
+
+############################################
+# Endpoint websecure qui écoute sur le 443 #
+############################################
+L'endpoint websecure en HTTPS 
 [entryPoints.websecure]
   address = ":443"
 
+##################
+# Certificat SSL #
+##################
 [certificatesResolvers.leresolver.acme]
   email = "teste74@hotmail.fr"
   storage = "acme.json"
