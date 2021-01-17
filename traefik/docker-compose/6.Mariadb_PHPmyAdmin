@@ -1,27 +1,14 @@
 ##################################################################################################################
-# Endpoint        : Plex
-# Port applicatif : 32400
+# Endpoint        : 
+# Port applicatif : 
 # Host            : teste74.ddns.net
-# Plex CLaim      : https://www.plex.tv/claim/
 ##################################################################################################################
-  plex:
-    hostname: plex
-    domainname: lan
-    container_name: Plex
-    image: plexinc/pms-docker
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe\Paris'
-      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
-
-    volumes:
-      - /home/docker/volumes/Plex/config:/config
-      - /home/docker/volumes/Plex/transcode:/transcode
-      - /home/docker/volumes/Plex/data:/data
-      - Films:/mnt/Films
-      - Video:/mnt/Video
-
+ 
+ 
+ 
+ 
+ 
+ ##################################################################################################################
     networks:
       - traefik_network
     labels:
@@ -31,9 +18,7 @@
       - "traefik.http.routers.plex.tls.certresolver=leresolver"
       
       - "traefik.http.routers.plex.rule=Host(`teste74.ddns.net`)"     # URL
-      - "traefik.http.routers.plex.entrypoints=Plex"                  # Endpoint Plex
-      - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port interne de l'application
+      - "traefik.http.routers.plex.entrypoints=XXXXXXXX"              # Endpoint XXXXXXXX
+      - "traefik.http.services.plex.loadbalancer.server.port=XXXX"    # Port interne de l'application (XXXX)
 
-    ports:
-      - 32401:32400
 ##################################################################################################################
