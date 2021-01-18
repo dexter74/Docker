@@ -8,7 +8,9 @@
 ##################################################################################################################
 
 # docker stop QBitTorrent; 
-# echo "WebUI\HostHeaderValidation=false"  >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
+# echo "WebUI\HostHeaderValidation=false"          >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
+# echo "Downloads\SavePath=/mnt/Films/qbitorrent/" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf
+
 # docker start QBitTorrent; 
 
   QBitTorrent:
