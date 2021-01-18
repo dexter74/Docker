@@ -2,6 +2,12 @@
 
 ***Il existe deux type d'écriture de configuration: Statique et Dynamique***
 
+***Problème :***
+````
+Le montage des volumes de partage provoque des lags. Montage du volume sur le host puis monté sur le conteneur
+````
+
+
 ````
 https://doc.traefik.io/traefik/routing/overview/
 - Entrypoints   : Écoutent le trafic entrant (ports, ...)
