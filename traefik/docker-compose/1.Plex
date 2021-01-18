@@ -19,8 +19,8 @@
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
-      - Films:/mnt/Films
-      - Video:/mnt/Video
+#      - Video:/mnt/Video
+#      - Films:/mnt/Films
 
     networks:
       - traefik_network
