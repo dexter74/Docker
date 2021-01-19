@@ -57,11 +57,8 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 [entryPoints.Jackett]
   address = ":83"
 
-[entryPoints.web]
-  address = ":84"
-
 [entryPoints.Sonarr]
-  address = ":85"
-
+  address = ":84"
   
-
+  
+  
