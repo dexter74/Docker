@@ -39,17 +39,29 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
   [certificatesResolvers.leresolver.acme.httpChallenge]
     entryPoint = "web"
 
-
+[entryPoints.websecure]
+  address = ":443"
+  
 [entryPoints.web]
   address = ":80"
   [entryPoints.web.http.redirections.entryPoint]
     to = "websecure"
     scheme = "https"
 
-[entryPoints.websecure]
-  address = ":443"
+[entryPoints.Radarr]
+  address = ":81"
 
-[entryPoints.plex]
-  address = ":32400"
+[entryPoints.QBitTorrent]
+  address = ":82"
+
+[entryPoints.Jackett]
+  address = ":83"
+
+[entryPoints.web]
+  address = ":84"
+
+[entryPoints.Sonarr]
+  address = ":85"
+
   
 
