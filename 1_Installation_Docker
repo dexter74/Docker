@@ -1,15 +1,12 @@
-
 #####################################################################################################################################
 # Guide:                                                                                                                            #
 # - Non Root  : https://julienc.io/blog/utiliser_le_client_docker_sans_etre_root/                                                   #
 # - Volume    : https://stackoverflow.com/questions/36014554/how-to-change-the-default-location-for-docker-create-volume-command    #
 #####################################################################################################################################
 
-
 ########################################
 # Editer les identifiants des partages #
 ########################################
-
 
 ########################
 # Nettoyage du système #
