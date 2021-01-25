@@ -27,7 +27,7 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
   dashboard = true
   debug = false
   insecure = true
-  
+
 [providers.docker]
   endpoint = "unix:///var/run/docker.sock"
   watch = true
@@ -42,12 +42,11 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 [accessLog]
    filePath = "/home/docker/traefik_accesslog.log"
    format = "json"
-   
-	 [accessLog.filters]    
+
+	 [accessLog.filters]
      statusCodes = ["200", "300-302"]
      retryAttempts = true
      minDuration = "10ms"
-
 
 [entryPoints.websecure]
   address = ":443"
