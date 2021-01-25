@@ -50,7 +50,7 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 
 [entryPoints.websecure]
   address = ":443"
-  
+
 [entryPoints.web]
   address = ":80"
   [entryPoints.web.http.redirections.entryPoint]
