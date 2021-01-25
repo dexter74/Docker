@@ -9,7 +9,7 @@ touch /home/docker/volumes/traefik/conf/acme.json
 #########################################
 # Etape 2: Modification des permissions #
 #########################################
-#Le fichier acme contient les certificats SSL, il a besoin d'être accessible en écritue. 
+#Le fichier acme contient les certificats SSL, il a besoin d'être accessible en écriture.
 chmod 600 /home/docker/volumes/traefik/conf/acme.json
 
 #########################
@@ -18,7 +18,7 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 # Dashboard activé en HTTP
 # Fournisseur Docker
 # Endpoint Web        qui écoute sur le port 80 . Avec redirection vers l'endpoint websecure . (80 > 443)
-# Endpoint websecure  qui écoute sur le port 443. 
+# Endpoint websecure  qui écoute sur le port 443.
 # Prise en charge du SSL.
 
 # nano /home/docker/volumes/traefik/conf/traefik.toml
