@@ -6,7 +6,7 @@ Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
 
 
 ##########################################
-# Protection anti-suppression Désactiver #
+# Protection anti-suppression Desactiver #
 ##########################################
 chattr -i /home/docker/volumes/Video ;
 chattr -i /home/docker/volumes/Films ;
@@ -17,14 +17,14 @@ docker volume rm Films
 
 
 
-# Création d'un volume (Partage Windows 10)
+# Creation d'un volume (Partage Windows 10)
 docker volume create --driver local --opt type=cifs \
      --opt device=//192.168.1.10/Films \
      --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777 \
      --name Films
 
 
-# Création d'un volume (Partage Samba)
+# Creation d_un volume (Partage Samba)
 docker volume create --driver local --opt type=cifs \
      --opt device=//192.168.1.2/Video \
      --opt o=username=Drthrax74,password=XXXXXXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 \
