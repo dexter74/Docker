@@ -68,4 +68,8 @@ chmod 600 /home/docker/volumes/traefik/conf/acme.json
 
 [entryPoints.Sonarr]
   address = ":84"
+  
+[entryPoints.Plex]
+  address = ":32400"
+  
 
