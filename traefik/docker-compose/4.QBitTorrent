@@ -39,6 +39,6 @@
       - "traefik.http.services.QBitTorrent.loadbalancer.server.port=8081"      # Port interne de l'application
 
     ports:
-      - 84:8081
+      - 8081:8081
       - 6881:6881
 ##################################################################################################################
