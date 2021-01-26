@@ -99,25 +99,25 @@ docker login -u dexter74 -p 382000 ;
 # Volumes de Partage Windows, Samba #
 #####################################
 # Protection anti-suppression desactiver
-chattr -i /home/docker/volumes/Video ;
-chattr -i /home/docker/volumes/Films ;
+#chattr -i /home/docker/volumes/Video ;
+#chattr -i /home/docker/volumes/Films ;
 
 # Suppression des Volumes
-docker volume rm Video ;
-docker volume rm Films ;
+#docker volume rm Video ;
+#docker volume rm Films ;
 
 # Partage Windows depuis Drthrax74
-docker volume create --driver local --opt type=cifs --name Films \
-     --opt device=//192.168.1.10/Films/ \
-     --opt o=username=Partage,password=XXXX,vers=2.0,file_mode=0777,dir_mode=0777
+#docker volume create --driver local --opt type=cifs --name Films \
+#     --opt device=//192.168.1.10/Films/ \
+#     --opt o=username=Partage,password=XXXX,vers=2.0,file_mode=0777,dir_mode=0777
 
 
 # Partage Samba depuis le NAS
-docker volume create --driver local --opt type=cifs  --name Video \
-     --opt device=//192.168.1.2/Video \
-     --opt o=username=Drthrax74,password=XXXX,vers=3.0,file_mode=0777,dir_mode=0777
+#docker volume create --driver local --opt type=cifs  --name Video \
+#     --opt device=//192.168.1.2/Video \
+#     --opt o=username=Drthrax74,password=XXXX,vers=3.0,file_mode=0777,dir_mode=0777
 
 
 # Protection anti-suppression activer
-chattr +i /home/docker/volumes/Films
-chattr +i /home/docker/volumes/Video
+#chattr +i /home/docker/volumes/Films
+#chattr +i /home/docker/volumes/Video
