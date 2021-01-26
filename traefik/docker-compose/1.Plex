@@ -35,5 +35,5 @@
       - "traefik.http.services.plex.loadbalancer.server.port=32400"   # Port interne de l'application
 
     ports:
-      - 32401:32400
+      - 32400:32400
 ##################################################################################################################
