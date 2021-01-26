@@ -26,5 +26,5 @@
       - "traefik.http.services.Sonarr.loadbalancer.server.port=8989"      # Port interne de l'application
       
     ports:
-      - 8989:8989
+      - 82:8989
 ##################################################################################################################
