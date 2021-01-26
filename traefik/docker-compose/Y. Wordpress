@@ -12,7 +12,7 @@
     environment:
       PUID: '1001'
       PGID: '74240'
-      WORDPRESS_DB_HOST: 'mysql'#
+      WORDPRESS_DB_HOST: 'mysql'
       WORDPRESS_DB_USER:  'admin'
       WORDPRESS_DB_PASSWORD: 'admin'
       WORDPRESS_DB_NAME: 'database'
