@@ -70,4 +70,7 @@
       - "traefik.http.routers.MariaDB.rule=Host(`teste74.ddns.net`)"     # URL
       - "traefik.http.routers.MariaDB.entrypoints=MariaDB"               # Endpoint MariaDB
       - "traefik.http.services.MariaDB.loadbalancer.server.port=3306"    # Port interne de l'application
+      
+    ports:
+      - 80:80
 ##################################################################################################################
