@@ -75,7 +75,27 @@ services:     #
 ##################################################################################################################
 
 
+##################################################################################################################
+# Endpoint        : Jackett
+# Port applicatif : 9117
+# Host            : https://teste74.ddns.net:XXXXX
+##################################################################################################################
+  Jackett:
+    container_name: Jackett
+    image: 'hotio/jackett'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+     - /home/docker/volumes/Jackett:/config
 
+    ports:
+      - 83:9117
+##################################################################################################################
 
 
 
@@ -108,7 +128,6 @@ services:     #
       - /home/docker/volumes/QBitTorrent/downloads:/downloads
 #      - Films:/mnt/Films
 #      - Video:/mnt/Video
-
 
     ports:
       - 84:8081
