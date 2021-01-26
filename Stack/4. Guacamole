@@ -4,26 +4,15 @@ services:      #
 ################
 
 ##################################################################################################################
-# Endpoint        : Wordpress
-# Port applicatif : 80
+# Endpoint        : Guacamole
+# Port applicatif : 8080
 # Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
-  wordpress:
+  Guacamole:
     container_name: Guacamole
     image: guacamole/guacamole
     restart: always
     environment:
-      PUID: '1001'
-      PGID: '74240'
-      WORDPRESS_DB_HOST: 'mysql'
-      WORDPRESS_DB_USER:  'wordpress'
-      WORDPRESS_DB_PASSWORD: 'wordpress'
-      WORDPRESS_DB_NAME: 'wordpress'
-      WORDPRESS_TABLE_PREFIX: 'wp_'
-    volumes:
-      - /home/docker/volumes/Wordpress:/var/www/html
-    external_links:
-      - MariaDB:mysql
     ports:
-      - 86:80
+      - 8080:8080
 ##################################################################################################################
