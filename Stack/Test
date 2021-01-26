@@ -2,6 +2,7 @@ https://hub.docker.com/r/bitwardenrs/server
 https://github.com/dani-garcia/bitwarden_rs/wiki
 https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-HTTPS
 https://github.com/dani-garcia/bitwarden_rs/wiki/Using-Docker-Compose
+https://hub.docker.com/r/emby/embyserver/
 
 #################
 version: '2.4'  #
