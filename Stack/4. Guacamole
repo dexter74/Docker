@@ -14,10 +14,12 @@ services:      #
     restart: always
     environment:
       - MYSQL_DATABASE=database
-      - MYSQL_USER=
-      - MYSQL_PASSWORD=
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
 
-
+    external_links:
+      - MariaDB:guacd
+      
     ports:
       - 8080:8080
 ##################################################################################################################
