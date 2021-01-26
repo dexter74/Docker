@@ -21,8 +21,7 @@
     volumes:
       - /home/docker/volumes/Wordpress:/var/www/html
       
-    external_links:
-      - MariaDB:mysql
+
             
     labels:
       - "traefik.enable=true" 
@@ -35,7 +34,14 @@
       - "traefik.http.services.wordpress.loadbalancer.server.port=80"    # Port interne de l'application
       
     ports:
-      - 27017:80
+      - 86:80
+      
 ##################################################################################################################
-# L'external_links permet de liée le nom du service au terme mysql et sous Wordpress on apelle mysql
+# Wordpress et MariaDB dans deux stack séparer: 
+#    external_links:
+#      - MariaDB:mysql
+# 
+# Wordpress et MariaDB dans le même stack
+#    links:
+#      - MariaDB:mysql
 ##################################################################################################################
