@@ -5,21 +5,16 @@ services:      #
 
 ##################################################################################################################
 # Endpoint        : AdGuardHome
+# Config Réseau   : Host
 # Port applicatif : 3000,80
 # Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
   AdGuardHome:
+    network_mode: host
     container_name: AdGuardHome
     image: adguard/adguardhome
     restart: always
-    environment:
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
-
-    external_links:
-      - MariaDB:guacd
-      
-    ports:
-      - 53:53
+    volumes:
+      - /home/docker/volumes/adguardhome:/work
+      - /home/docker/volumes/adguardhome:/conf
 ##################################################################################################################
