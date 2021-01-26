@@ -1,0 +1,74 @@
+###############
+version: '2'  #
+services:     #
+###############
+
+##################################################################################################################
+# Endpoint        : Plex
+# Port applicatif : 32400
+# Host            : https://teste74.ddns.net:32400
+# Plex Claim      : https://www.plex.tv/claim/
+##################################################################################################################
+  plex:
+    hostname: plex
+    domainname: lan
+    container_name: Plex
+    image: plexinc/pms-docker
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe\Paris'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
+
+    volumes:
+      - /home/docker/volumes/Plex/config:/config
+      - /home/docker/volumes/Plex/transcode:/transcode
+      - /home/docker/volumes/Plex/data:/data
+#      - Video:/mnt/Video
+#      - Films:/mnt/Films
+
+    ports:
+      - 32400:32400
+##################################################################################################################
+
+##################################################################################################################
+# Endpoint        : Sonarr
+# Port applicatif : 8989
+# Host            : https://teste74.ddns.net:XXXXX
+##################################################################################################################
+  Sonarr:
+    container_name: Sonarr
+    image: 'hotio/sonarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+      - /home/docker/volumes/Sonarr:/config
+      
+    ports:
+      - 82:8989
+##################################################################################################################
+
+##################################################################################################################
+# Endpoint        : Radarr
+# Port applicatif : 7878
+# Host            : https://teste74.ddns.net:XXXXX
+##################################################################################################################
+  Radarr:
+    container_name: Radarr
+    image: 'hotio/radarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+      - /home/docker/volumes/Radarr:/config
+
+    ports:
+      - 83:7878
+##################################################################################################################
