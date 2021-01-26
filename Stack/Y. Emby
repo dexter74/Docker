@@ -1,0 +1,18 @@
+# Port : 8080
+
+version: '2.4'
+services:
+  emby:
+    image: emby/embyserver
+    container_name: embyserver
+    environment:
+      - UID=1000
+      - GID=1000
+      - GIDLIST=1000
+      
+    volumes:
+     - /home/docker/volumes/emby:/config
+     - /home/docker/volumes/emby/share1:/mnt/partage
+    ports:
+      - 8080:8096 
+      
