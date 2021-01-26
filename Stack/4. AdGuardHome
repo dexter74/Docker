@@ -7,6 +7,7 @@ services:      #
 # Endpoint        : AdGuardHome
 # Config Réseau   : Host
 # Port applicatif : 3000,80
+# Port suppls.    : 53, 5353, 5355, 853, 67, 784, 5443
 # Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
   AdGuardHome:
