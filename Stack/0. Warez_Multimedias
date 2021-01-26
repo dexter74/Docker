@@ -26,8 +26,7 @@ services:      #
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
-#      - Video:/mnt/Video
-#      - Films:/mnt/Films
+      - Films:/mnt/Films
 
     ports:
       - 32400:32400
@@ -50,6 +49,7 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Radarr:/config
+      - Films:/mnt/Films
 
     ports:
       - 81:7878
@@ -71,7 +71,8 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
-      
+      - Films:/mnt/Films
+
     ports:
       - 82:8989
 ##################################################################################################################
@@ -94,6 +95,7 @@ services:      #
       DEBUG: 'no'
     volumes:
      - /home/docker/volumes/Jackett:/config
+     - Films:/mnt/Films
 
     ports:
       - 83:9117
@@ -128,8 +130,8 @@ services:      #
     volumes:
       - /home/docker/volumes/QBitTorrent/:/config
       - /home/docker/volumes/QBitTorrent/downloads:/downloads
-#      - Films:/mnt/Films
-#      - Video:/mnt/Video
+      - Films:/mnt/Films
+
 
     ports:
       - 84:8081
