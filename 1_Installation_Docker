@@ -50,6 +50,7 @@ systemctl daemon-reload ;
 # Appartenenance du socket (Défaut: root:systemd-coredump)
 sudo chown docker:docker /var/run/docker.sock ;
 
+
 ##################################
 # Vérification du fonctionnement #
 ##################################
