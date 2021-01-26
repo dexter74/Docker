@@ -1,0 +1,27 @@
+###############
+version: '2'  #
+services:     #
+###############
+
+##################################################################################################################
+# Endpoint        : MariaDB
+# Port applicatif : 3306
+# Host            : https://teste74.ddns.net:XXXX
+##################################################################################################################
+
+  MariaDB:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: MariaDB
+    restart: unless-stopped
+    volumes:
+      - /home/docker/volumes/MariaDB:/config
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - MYSQL_ROOT_PASSWORD=root
+      - TZ=Europe/Paris
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+      
+##################################################################################################################
