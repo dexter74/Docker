@@ -4,6 +4,7 @@ services:      #
 ################
 
 # Port 32400, 81:84
+# Sonarr et Radarr ne supporte pas le https dans l'indexeur, utilise l'url local
 
 ##################################################################################################################
 # Endpoint        : Plex
