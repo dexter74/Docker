@@ -22,7 +22,7 @@
       - /home/docker/volumes/Wordpress:/var/www/html
       
     external_links:
-      - mysql
+      - MariaDB:mysql
             
     labels:
       - "traefik.enable=true" 
@@ -37,4 +37,3 @@
     ports:
       - 27017:80
 ##################################################################################################################
-
