@@ -31,6 +31,28 @@ services:     #
       - 32400:32400
 ##################################################################################################################
 
+
+##################################################################################################################
+# Endpoint        : Radarr
+# Port applicatif : 7878
+# Host            : https://teste74.ddns.net:XXXXX
+##################################################################################################################
+  Radarr:
+    container_name: Radarr
+    image: 'hotio/radarr'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      UMASK: '002'
+      ARGS: ''
+      DEBUG: 'no'
+    volumes:
+      - /home/docker/volumes/Radarr:/config
+
+    ports:
+      - 81:7878
+##################################################################################################################
+
 ##################################################################################################################
 # Endpoint        : Sonarr
 # Port applicatif : 8989
@@ -52,23 +74,42 @@ services:     #
       - 82:8989
 ##################################################################################################################
 
+
+
+
+
+
 ##################################################################################################################
-# Endpoint        : Radarr
-# Port applicatif : 7878
+# Endpoint        : QBitTorrent
+# Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
+# Download        : /mnt/Films/qbitorrent
+# Incomplet       : /mnt/Films/qbitorrent/incomplete/
+# Port Download   : 6881
 ##################################################################################################################
-  Radarr:
-    container_name: Radarr
-    image: 'hotio/radarr'
+
+# docker stop QBitTorrent; 
+# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/Films/qbitorrent/" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# docker start QBitTorrent ; 
+
+  QBitTorrent:
+    container_name: QBitTorrent
+    image: 'linuxserver/qbittorrent'
     environment:
+      TZ: 'Europe/Paris'
       PUID: '1001'
       PGID: '74240'
-      UMASK: '002'
-      ARGS: ''
-      DEBUG: 'no'
+      UMASK_SET: '022'
+      WEBUI_PORT: '8081'
     volumes:
-      - /home/docker/volumes/Radarr:/config
+      - /home/docker/volumes/QBitTorrent/:/config
+      - /home/docker/volumes/QBitTorrent/downloads:/downloads
+#      - Films:/mnt/Films
+#      - Video:/mnt/Video
+
 
     ports:
-      - 83:7878
+      - 84:8081
 ##################################################################################################################
