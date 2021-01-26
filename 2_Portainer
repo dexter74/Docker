@@ -6,7 +6,7 @@ systemctl restart docker.* ;
 docker kill portainer ;
 docker rm portainer ;
 
-# Désactivation de la Protection Anti-suppression du volume
+# Desactivation de la Protection Anti-suppression du volume
 chattr -i /home/docker/volumes/portainer_data ;
 
 # Purge de portainer (volume, conteneur et image)
@@ -19,13 +19,13 @@ docker image rm portainer/portainer-ce -f ;
 # Installation de Portainer #
 #############################
 
-# Créer le volume
+# Creer le volume
 docker volume create portainer_data ;
 
-# Télécharger l'image
+# Telecharger l'image
 docker pull portainer/portainer-ce ;
 
-# Créé le conteneur Portainer (--no-auth)
+# Cree le conteneur Portainer (--no-auth)
 docker run -d -p 8000:8000 -p 9000:9000 --label container="portainer" --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce ;
 
 # Activation de la Protection Anti-suppression du volume
