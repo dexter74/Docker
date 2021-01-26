@@ -19,11 +19,11 @@
       PMA_PASSWORD: 'admin'
       PMA_PMADB: 'phpmyadmin'
       PMA_ABSOLUTE_URI: http://drthrax74.ddns.net:81
-    networks:
-      - traefik_network
     links:
       - MariaDB
-    
+      
+    networks:
+      - traefik_network
     labels:
       - "traefik.enable=true" 
       - "traefik.docker.network=traefik_network"
@@ -34,6 +34,8 @@
       - "traefik.http.routers.phpmyadmin.entrypoints=phpmyadmin"          # Endpoint XXXXXXXX
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"    # Port interne de l'application (XXXX)
 
+    ports:
+      - 80:80
 # Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".     
 ##################################################################################################################
 
