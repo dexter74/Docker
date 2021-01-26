@@ -1,8 +1,10 @@
 ########################################
 # Nettoyage / Suppression de Portainer #
 ########################################
+# Relance de Docker
 systemctl restart docker.* ;
-# Arrêt et suppression du conteneur Portainer
+
+# Arret et suppression du conteneur Portainer
 docker kill portainer ;
 docker rm portainer ;
 
