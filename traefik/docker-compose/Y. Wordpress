@@ -21,7 +21,15 @@
     volumes:
       - /home/docker/volumes/Wordpress:/var/www/html
       
-
+##################################################################################################################
+# Wordpress et MariaDB dans deux stack séparer: 
+#    external_links:
+#      - MariaDB:mysql
+# 
+# Wordpress et MariaDB dans le même stack
+#    links:
+#      - MariaDB:mysql
+##################################################################################################################
             
     labels:
       - "traefik.enable=true" 
@@ -35,13 +43,4 @@
       
     ports:
       - 86:80
-      
-##################################################################################################################
-# Wordpress et MariaDB dans deux stack séparer: 
-#    external_links:
-#      - MariaDB:mysql
-# 
-# Wordpress et MariaDB dans le même stack
-#    links:
-#      - MariaDB:mysql
 ##################################################################################################################
