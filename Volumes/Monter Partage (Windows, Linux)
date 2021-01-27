@@ -34,6 +34,6 @@ docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/V
 #
 #  ...
 #  volumes:
-#    - Films:/mnt/Video
-#    - Video:/mnt/DL
+#    - Video:/mnt/Video
+#    - DL:/mnt/DL
 #   ...
