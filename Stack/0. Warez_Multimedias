@@ -28,8 +28,7 @@ services:      #
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Video:/mnt/Video
-      - DL:/mnt/DL
-
+      
     ports:
       - 32400:32400
 ##################################################################################################################
@@ -51,9 +50,6 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Radarr:/config
-      - Video:/mnt/Video
-      - DL:/mnt/DL
-
     ports:
       - 81:7878
 ##################################################################################################################
@@ -74,10 +70,6 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
-      - Video:/mnt/Video
-      - DL:/mnt/DL
-
-
     ports:
       - 82:8989
 ##################################################################################################################
@@ -100,10 +92,6 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Jackett:/config
-      - Video:/mnt/Video
-      - DL:/mnt/DL
-
-
     ports:
       - 83:9117
 ##################################################################################################################
@@ -114,15 +102,14 @@ services:      #
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
-# Download        : /mnt/DL
-# Terminé         : /mnt/Video (Droit restreint dans le squelette)
+# Download        : /mnt/DL/Complet
 # Port Download   : 6881
 ##################################################################################################################
 
 # docker stop QBitTorrent; 
 # echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/Films/qbitorrent/" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
 # echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/Complet" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
 # docker start QBitTorrent ; 
 
   QBitTorrent:
@@ -137,9 +124,8 @@ services:      #
     volumes:
       - /home/docker/volumes/QBitTorrent/:/config
       - /home/docker/volumes/QBitTorrent/downloads:/downloads
-      - Video:/mnt/Video
       - DL:/mnt/DL
-      
+
     ports:
       - 84:8081
 ##################################################################################################################
