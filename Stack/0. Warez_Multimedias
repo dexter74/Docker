@@ -13,9 +13,9 @@ services:      #
 # Plex Claim      : https://www.plex.tv/claim/
 ##################################################################################################################
   plex:
+    container_name: Plex
     hostname: plex
     domainname: lan
-    container_name: Plex
     image: plexinc/pms-docker
     environment:
       PUID: '1001'
