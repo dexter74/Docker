@@ -1,6 +1,13 @@
-###############################################
-# Partage Samba monte dans les volumes Docker #
-###############################################
+##############################################
+# Volume pour le montage dans les conteneurs #
+##############################################
+
+USER_DL=Qbitorrent
+PASS_DL=Admindu74@
+
+USER_VIDEO=Medias
+PASS_VIDEO=Azertydu74@
+
 
 # Protection Anti-suppression OFF
 chattr -i /home/docker/volumes/Video ;
@@ -11,14 +18,22 @@ docker volume rm Video ;
 docker volume rm DL ;
 
 # Dossier DL et Video
-docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/dl --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 --name DL
-docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/Video --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
+docker volume create --driver local \
+        --opt type=cifs \
+        --opt device=//192.168.1.2/dl \
+        --opt o=username=$USER_DL,password=$PASS_DL,vers=3.0,file_mode=0777,dir_mode=0777 \
+        --name DL
+
+docker volume create --driver local \
+        --opt type=cifs \
+        --opt device=//192.168.1.2/Video \
+        --opt o=username=$USER_VIDEO,password=$PASS_VIDEO,vers=3.0,file_mode=0777,dir_mode=0777 \
+        --name Video
 
 
 # Protection Anti-suppression ON
 chattr +i /home/docker/volumes/Video ;
 chattr +i /home/docker/volumes/DL ;
-
 
 
 
