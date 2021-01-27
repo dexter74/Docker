@@ -1,6 +1,6 @@
-##############################################
-# Volume pour le montage dans les conteneurs #
-##############################################
+###############################################
+# Partage Samba monte dans les volumes Docker #
+###############################################
 
 # Protection Anti-suppression OFF
 chattr -i /home/docker/volumes/Video ;
