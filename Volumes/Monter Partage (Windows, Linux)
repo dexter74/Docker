@@ -27,12 +27,15 @@ docker volume create --driver local --opt type=cifs \
 # Creation d_un volume (Partage Samba)
 docker volume create --driver local --opt type=cifs \
      --opt device=//192.168.1.2/Video \
-     --opt o=username=Drthrax74,password=XXXXXXXXXXXX,vers=3.0,file_mode=0777,dir_mode=0777 \
+     --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 \
      --name Video
 
 # Protection Anti-suppression: ON
-chattr +i /home/docker/volumes/Video ;
-chattr +i /home/docker/volumes/Films ;
+#chattr +i /home/docker/volumes/Video ;
+#chattr +i /home/docker/volumes/Films ;
+
+
+#
 
 ...
   volumes:
