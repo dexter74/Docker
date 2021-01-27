@@ -12,7 +12,6 @@ services:      #
 ##################################################################################################################
 # Endpoint        : Plex
 # Port applicatif : 32400
-# Host            : https://teste74.ddns.net:32400
 # Plex Claim      : https://www.plex.tv/claim/
 ##################################################################################################################
   plex:
@@ -40,7 +39,7 @@ services:      #
 ##################################################################################################################
 # Endpoint        : Radarr
 # Port applicatif : 7878
-# Host            : https://teste74.ddns.net:XXXXX
+# Download        : /mnt/Video/<categorie> (Le dossier Video est en lecture seul)
 ##################################################################################################################
   Radarr:
     container_name: Radarr
@@ -53,7 +52,7 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Radarr:/config
-      - DL:/mnt/DL
+      - Video:/mnt/Video
     ports:
       - 81:7878
 ##################################################################################################################
@@ -61,7 +60,7 @@ services:      #
 ##################################################################################################################
 # Endpoint        : Sonarr
 # Port applicatif : 8989
-# Host            : https://teste74.ddns.net:XXXXX
+# Download        : /mnt/Video/<categorie> (Le dossier Video est en lecture seul)
 ##################################################################################################################
   Sonarr:
     container_name: Sonarr
@@ -74,7 +73,7 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
-      - DL:/mnt/DL
+      - Video:/mnt/Video
     ports:
       - 82:8989
 ##################################################################################################################
@@ -83,7 +82,6 @@ services:      #
 ##################################################################################################################
 # Endpoint        : Jackett
 # Port applicatif : 9117
-# Host            : https://teste74.ddns.net:XXXXX
 ##################################################################################################################
   Jackett:
     container_name: Jackett
@@ -104,10 +102,9 @@ services:      #
 ##################################################################################################################
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
-# Host            : https://teste74.ddns.net:XXXXX
+# Port Download   : 6881
 # Download        : /mnt/DL/Complet 
 #                 : /mnt/DL/Incomplet
-# Port Download   : 6881
 ##################################################################################################################
 
 # docker stop QBitTorrent; 
