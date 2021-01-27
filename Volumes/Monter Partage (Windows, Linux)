@@ -1,20 +1,23 @@
-##########################################
-# Protection anti-suppression Desactiver #
-##########################################
+##############################################
+# Volume pour le montage dans les conteneurs #
+##############################################
+
+# Protection Anti-suppression OFF
 chattr -i /home/docker/volumes/Video ;
 chattr -i /home/docker/volumes/DL ;
 
 # Supprimer Volume:
-docker volume rm Video
+docker volume rm Video ;
+docker volume rm DL ;
 
 # Dossier DL et Video
 docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/dl --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 --name DL
 docker volume create --driver local --opt type=cifs --opt device=//192.168.1.2/Video --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 --name Video
 
 
-# Protection Anti-suppression: ON
-# chattr +i /home/docker/volumes/Video ;
-# chattr +i /home/docker/volumes/DL ;
+# Protection Anti-suppression ON
+chattr +i /home/docker/volumes/Video ;
+chattr +i /home/docker/volumes/DL ;
 
 
 
