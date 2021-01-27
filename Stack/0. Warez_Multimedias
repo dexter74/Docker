@@ -50,6 +50,7 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Radarr:/config
+      - DL:/mnt/DL
     ports:
       - 81:7878
 ##################################################################################################################
@@ -70,6 +71,7 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
+      - DL:/mnt/DL
     ports:
       - 82:8989
 ##################################################################################################################
@@ -100,8 +102,7 @@ services:      #
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
-# Download        : /mnt/DL/Complet 
-#                 : /mnt/DL/Incomplet
+# Download        : /mnt/DL/Complet
 # Port Download   : 6881
 ##################################################################################################################
 
@@ -124,7 +125,6 @@ services:      #
       - /home/docker/volumes/QBitTorrent/:/config
       - /home/docker/volumes/QBitTorrent/downloads:/downloads
       - DL:/mnt/DL
-
     ports:
       - 84:8081
 ##################################################################################################################
