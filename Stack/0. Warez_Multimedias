@@ -3,8 +3,11 @@ version: '2.4' #
 services:      #
 ################
 
-# Port 32400, 81:84
-# Sonarr et Radarr ne supporte pas le https dans l'indexeur, utiliser des urls en HTTP (local)
+##################################################################################################################
+# Presentation du Stack:
+# Deux partages avec leur propre acces
+# Creation de 2 volumes (1 volume / Partage)
+# Création de conteneur avec montage des volumes
 
 ##################################################################################################################
 # Endpoint        : Plex
