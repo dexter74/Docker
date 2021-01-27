@@ -1,10 +1,3 @@
-##############################################
-# Monter un partage Windows sur un conteneur #
-##############################################
-# Pour pouvoir monter un partage Windows dans un conteneur, il suffit de créer un volume qui monte le partage.
-# Puis il suffit d'ajouter le volumes puis donner un chemin d'accès
-
-
 ##########################################
 # Protection anti-suppression Desactiver #
 ##########################################
