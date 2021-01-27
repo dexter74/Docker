@@ -28,6 +28,7 @@ services:      #
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Video:/mnt/Video
+      - DL:/mnt/DL
 
     ports:
       - 32400:32400
@@ -50,7 +51,8 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Radarr:/config
-      - Films:/mnt/Films
+      - Video:/mnt/Video
+      - DL:/mnt/DL
 
     ports:
       - 81:7878
@@ -72,7 +74,9 @@ services:      #
       DEBUG: 'no'
     volumes:
       - /home/docker/volumes/Sonarr:/config
-      - Films:/mnt/Films
+      - Video:/mnt/Video
+      - DL:/mnt/DL
+
 
     ports:
       - 82:8989
@@ -96,7 +100,9 @@ services:      #
       DEBUG: 'no'
     volumes:
      - /home/docker/volumes/Jackett:/config
-     - Films:/mnt/Films
+      - Video:/mnt/Video
+      - DL:/mnt/DL
+
 
     ports:
       - 83:9117
@@ -108,8 +114,8 @@ services:      #
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
-# Download        : /mnt/Films/qbitorrent
-# Incomplet       : /mnt/Films/qbitorrent/incomplete/
+# Download        : /mnt/DL
+# Terminé         : /mnt/Video (Droit restreint dans le squelette)
 # Port Download   : 6881
 ##################################################################################################################
 
@@ -131,9 +137,9 @@ services:      #
     volumes:
       - /home/docker/volumes/QBitTorrent/:/config
       - /home/docker/volumes/QBitTorrent/downloads:/downloads
-      - Films:/mnt/Films
-
-
+      - Video:/mnt/Video
+      - DL:/mnt/DL
+      
     ports:
       - 84:8081
 ##################################################################################################################
