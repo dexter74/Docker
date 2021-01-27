@@ -2,6 +2,10 @@
 # Volume pour le montage dans les conteneurs #
 ##############################################
 
+# Permission:
+# Qbitorrent peux écrire dans DL     (Racine = Squelette = Verrouillé)
+# Medias     peux écrire dans Videos (Racine = Squelette = Verrouillé)
+
 USER_DL=Qbitorrent
 PASS_DL=Admindu74@
 
