@@ -27,7 +27,7 @@ services:      #
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
-      - Films:/mnt/Films
+      - Video:/mnt/Video
 
     ports:
       - 32400:32400
