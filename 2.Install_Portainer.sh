@@ -1,6 +1,7 @@
 ########################################
 # Nettoyage / Suppression de Portainer #
 ########################################
+clear ; 
 # Relance de Docker
 systemctl restart docker.* ;
 
@@ -9,7 +10,7 @@ docker kill portainer ;
 docker rm portainer ;
 
 # Desactivation de la Protection Anti-suppression du volume
-chattr -i /home/docker/volumes/portainer_data ;
+# chattr -i /home/docker/volumes/portainer_data ;
 
 # Purge de portainer (volume, conteneur et image)
 docker volume rm portainer_data ;
@@ -31,4 +32,4 @@ docker pull portainer/portainer-ce ;
 docker run -d -p 8000:8000 -p 9000:9000 --label container="portainer" --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce ;
 
 # Activation de la Protection Anti-suppression du volume
-chattr +i /home/docker/volumes/portainer_data ;
+# chattr +i /home/docker/volumes/portainer_data ;
