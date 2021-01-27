@@ -9,22 +9,18 @@
 # Protection anti-suppression Desactiver #
 ##########################################
 chattr -i /home/docker/volumes/Video ;
-chattr -i /home/docker/volumes/Films ;
 
 # Supprimer Volume:
 docker volume rm Video
-docker volume rm Films
 
-
-
-# Creation d'un volume (Partage Windows 10)
+# Dossier DL
 docker volume create --driver local --opt type=cifs \
-     --opt device=//192.168.1.10/Films \
-     --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777 \
-     --name Films
+     --opt device=//192.168.1.2/dl \
+     --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 \
+     --name DL
 
 
-# Creation d_un volume (Partage Samba)
+# Dossier Video 
 docker volume create --driver local --opt type=cifs \
      --opt device=//192.168.1.2/Video \
      --opt o=username=Partage,password=Partage74,vers=3.0,file_mode=0777,dir_mode=0777 \
@@ -32,8 +28,14 @@ docker volume create --driver local --opt type=cifs \
 
 # Protection Anti-suppression: ON
 #chattr +i /home/docker/volumes/Video ;
-#chattr +i /home/docker/volumes/Films ;
 
+
+
+
+
+
+# Creation d'un volume (Partage Windows 10)
+# docker volume create --driver local --opt type=cifs --opt device=//192.168.1.10/Films  --opt o=username=Partage,password=Partage74,vers=2.0,file_mode=0777,dir_mode=0777  --name Films
 
 #
 
