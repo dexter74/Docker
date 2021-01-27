@@ -102,7 +102,8 @@ services:      #
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Host            : https://teste74.ddns.net:XXXXX
-# Download        : /mnt/DL/Complet
+# Download        : /mnt/DL/Complet 
+#                 : /mnt/DL/Incomplet
 # Port Download   : 6881
 ##################################################################################################################
 
