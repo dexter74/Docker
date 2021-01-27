@@ -99,7 +99,7 @@ services:      #
       ARGS: ''
       DEBUG: 'no'
     volumes:
-     - /home/docker/volumes/Jackett:/config
+      - /home/docker/volumes/Jackett:/config
       - Video:/mnt/Video
       - DL:/mnt/DL
 
