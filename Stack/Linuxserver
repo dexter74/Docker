@@ -31,8 +31,8 @@ services: #
       - PUID=1001                   #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
-      - USER=username               #
-      - PASS=password               #
+      - USER=admin                  #
+      - PASS=admin                  #
     ports:                          #
       - 97:9091                     #
     volumes:                        #
@@ -57,7 +57,6 @@ services: #
       - deluge:/config              #
       - deluge:/downloads           #
 #####################################
-
 
 
 #####################################
