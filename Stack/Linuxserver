@@ -9,7 +9,7 @@ services: #
 #####################################
 # Streamer Musique                  #
   Airsonic:                         #
-    container_name: airsonic        #
+    container_name: Airsonic        #
     image: linuxserver/airsonic     #
     environment:                    #
       - PUID=1001                   #
@@ -30,7 +30,7 @@ services: #
 #####################################
 # Telecharge les sous-titres        #
   Bazarr:                           #
-    container_name: bazarr          #
+    container_name: Bazarr          #
     image: linuxserver/bazarr       #
     environment:                    #
       - PUID=1001                   #
@@ -48,7 +48,7 @@ services: #
 #####################################
 # Centralisé Music                  # A voir si sa marche
   Beets:                            #
-    container_name: beets           #
+    container_name: Beets           #
     image: linuxserver/beets        #
     environment:                    #
       - PUID=1001                   #
@@ -66,7 +66,7 @@ services: #
 #####################################
 # Application de calcul Recherche   #
   Boinc:                            #
-    container_name: boinc           #
+    container_name: Boinc           #
     image: linuxserver/boinc        #
     environment:                    #
       - PUID=1001                   #
@@ -84,7 +84,7 @@ services: #
 #####################################
 # Proxy pour Sonarr et cie          #
   Cardigann:                        #
-    container_name: cardigann       #
+    container_name: Cardigann       #
     image: linuxserver/cardigann    #
     environment:                    #
       - PUID=1001                   #
@@ -99,8 +99,8 @@ services: #
 
 #####################################
 # Hebergement Image (DB2 Requise)   #
-  chevereto:                        #
-    container_name: chevereto       #
+  Chevereto:                        #
+    container_name: Chevereto       #
     image: linuxserver/chevereto    #
     environment:                    #
       - PUID=1001                   #
@@ -112,13 +112,18 @@ services: #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
+    links:                          #
+      - MariaDB:mysql               #
+    depends_on:                     #
+     - MariaDB                      #
+# Database host : mysql             #
 #####################################
 
 
-####################################
+#####################################
  # info, warning, error             #
   Deluge:                           #
-    container_name: deluge          #
+    container_name: Deluge          #
     image: linuxserver/deluge       #
     environment:                    #
       - PUID=1001                   #
@@ -132,7 +137,22 @@ services: #
       - deluge:/downloads           #
 #####################################
 
-
+#####################################
+  MariaDB:                          #
+    image: linuxserver/mariadb      #
+    container_name: MariaDB         #
+    restart: unless-stopped         #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - MYSQL_ROOT_PASSWORD=root    #
+      - MYSQL_DATABASE=database     #
+      - MYSQL_USER=admin            #
+      - MYSQL_PASSWORD=admin        #
+    volumes:                        #
+      - MariaDB:/config             #
+#####################################
 
 #####################################
   RuTorrent:                        #
