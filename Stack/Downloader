@@ -27,6 +27,9 @@ services:       #
       - TZ=Europe/Paris
     ports:
       - 98:9091
+      - 51413:51413
+      - 51413:51413/udp
+      
     volumes:
       - transmission:/config
       - transmission:/downloads
@@ -45,4 +48,3 @@ services:       #
       - deluge:/config
       - deluge:/downloads
 ###################################
-
