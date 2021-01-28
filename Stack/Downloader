@@ -25,14 +25,14 @@ services:       #
       - PUID=1001
       - PGID=74240
       - TZ=Europe/Paris
+      - USER=username
+      - PASS=password
     ports:
       - 98:9091
-      - 51413:51413
-      - 51413:51413/udp
-      
     volumes:
       - transmission:/config
       - transmission:/downloads
+      - transmission:/watch
 ###################################
   deluge:
     container_name: deluge
@@ -48,3 +48,4 @@ services:       #
       - deluge:/config
       - deluge:/downloads
 ###################################
+
