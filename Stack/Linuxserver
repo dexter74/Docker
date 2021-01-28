@@ -7,6 +7,7 @@ services: #
 # https://fleet.linuxserver.io/
 
 #####################################
+# Streamer Musique                  #
   Airsonic:                         #
     container_name: airsonic        #
     image: linuxserver/airsonic     #
@@ -17,17 +18,17 @@ services: #
     ports:                          #
       - 4040:4040                   #
     volumes:                        #
-      - appz:/config                # Config 
-      - appz:/music                 # Location of music.
-      - appz:/media                 # Location of other media.
-      - appz:/playlists             # Location for playlists to be saved to.
-      - appz:/podcasts              # Poadcasts
-      - appz:/dev/snd               # Only needed to pass your host sound device to Airsonic's Java jukebox player.
+      - appz:/config                #
+      - appz:/music                 #
+      - appz:/media                 #
+      - appz:/playlists             #
+      - appz:/podcasts              #
 #####################################
 
 
 
 #####################################
+# Telecharge les sous-titres        #
   Bazarr:                           #
     container_name: bazarr          #
     image: linuxserver/bazarr       #
