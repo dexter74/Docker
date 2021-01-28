@@ -45,6 +45,22 @@ services: #
 #####################################
 
 
+#####################################
+# Centralisé Music                  # A voir si sa marche
+  beets:                            #
+    container_name: beets           #
+    image: linuxserver/beets        #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 99:8337                     #
+    volumes:                        #
+      - appz:/config                #
+      - appz:/music                 #
+      - appz:/downloads             #
+#####################################
 
 
 
