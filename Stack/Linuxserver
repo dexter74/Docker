@@ -97,6 +97,7 @@ services: #
 #####################################
 
 
+
 #####################################
 # Hebergement Image (DB2 Requise)   #
   Chevereto:                        #
@@ -117,6 +118,31 @@ services: #
     depends_on:                     #
      - MariaDB                      #
 # Database host : mysql             #
+#####################################
+
+#####################################
+# Dashboard enregistrer Carburant   #
+  Clarkson:                         #
+    container_name: Clarkson        #
+    image: linuxserver/clarkson     #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - MYSQL_HOST=mysql            #
+      - MYSQL_USERNAME=root         #
+      - MYSQL_PASSWORD=root         #
+      - ENABLE_REGISTRATIONS=true   #
+    ports:                          #
+      - 80:3000                     #
+    links:                          #
+      - MariaDB:mysql               #
+    depends_on:                     #
+     - MariaDB                      #
+# Note:                             #
+# - Cree a la main la DB 'clarkson' #
+# - Cree acces a la DB              #
+# - Modifier la configuration       #
 #####################################
 
 
