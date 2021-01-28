@@ -81,7 +81,6 @@ services: #
 #####################################
 
 
-
 #####################################
 # Proxy pour Sonarr et cie          #
   Cardigann:                        #
@@ -96,6 +95,25 @@ services: #
     volumes:                        #
       - cardigann:/config           #
 #####################################
+
+
+#####################################
+# Hebergement Image (DB2 Requise)   #
+  chevereto:                        #
+    container_name: chevereto       #
+    image: linuxserver/chevereto    #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 80:80                       #
+      - 443:443                     #
+    volumes:                        #
+      - chevereto:/config           #
+      - chevereto:/data             #
+#####################################
+
 
 ####################################
  # info, warning, error             #
