@@ -1,54 +1,80 @@
 #################
 version: '2.4'  #
-services:       #
 #################
+services: #
+###########
 
-###################################
-  rutorrent:
-    container_name: rutorrent
-    image: linuxserver/rutorrent
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-    ports:
-      - 99:80
-    volumes:
-      - rutorrent:/config
-      - rutorrent:/downloads
-###################################
+# https://fleet.linuxserver.io/
 
-###################################
-  transmission:
-    container_name: transmission
-    image: linuxserver/transmission
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - USER=username
-      - PASS=password
-    ports:
-      - 98:9091
-    volumes:
-      - transmission:/config
-      - transmission:/downloads
-      - transmission:/watch
-###################################
 
-###################################
-  deluge:
-    container_name: deluge
-    image: linuxserver/deluge
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - DELUGE_LOGLEVEL=warning # info, warning, error
-    ports:
-      - 97:8112
-    volumes:
-      - deluge:/config
-      - deluge:/downloads
-###################################
 
+#####################################
+  RuTorrent:                        #
+    container_name: rutorrent       #
+    image: linuxserver/rutorrent    #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 96:80                       #
+    volumes:                        #
+      - rutorrent:/config           #
+      - rutorrent:/downloads        #
+#####################################
+
+#####################################
+  Transmission:                     #
+    container_name: transmission    #
+    image: linuxserver/transmission #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - USER=username               #
+      - PASS=password               #
+    ports:                          #
+      - 97:9091                     #
+    volumes:                        #
+      - transmission:/config        #
+      - transmission:/downloads     #
+      - transmission:/watch         #
+#####################################
+
+#####################################
+ # info, warning, error             #
+  Deluge:                           #
+    container_name: deluge          #
+    image: linuxserver/deluge       #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - DELUGE_LOGLEVEL=warning     #
+    ports:                          #
+      - 98:8112                     #
+    volumes:                        #
+      - deluge:/config              #
+      - deluge:/downloads           #
+#####################################
+
+
+
+#####################################
+  Airsonic:                         #
+    container_name: airsonic        #
+    image: linuxserver/airsonic     #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 99:4040                     #
+    volumes:                        #
+      - appz:/config                # Config 
+      - appz:/music                 # Location of music.
+      - appz:/media                 # Location of other media.
+      - appz:/playlists             # Location for playlists to be saved to.
+      - appz:/podcasts              # Poadcasts
+      - appz:/dev/snd               # Only needed to pass your host sound device to Airsonic's Java jukebox player.
+#####################################
