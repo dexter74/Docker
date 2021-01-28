@@ -63,6 +63,22 @@ services: #
 #####################################
 
 
+#####################################
+# Application de calcul Recherche   #
+  boinc:                            #
+    container_name: boinc           #
+    image: linuxserver/boinc        #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - GUAC_USER=admin             #
+      - GUAC_PASS=<md5>             #
+    ports:                          #
+      - 8080:8080                   #
+    volumes:                        #
+      - appz:/config                #
+#####################################
 
 
 
