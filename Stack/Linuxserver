@@ -166,7 +166,7 @@ services: #
 
 
 #####################################
- # info, warning, error             #
+# info, warning, error              #
   Deluge:                           #
     container_name: Deluge          #
     image: linuxserver/deluge       #
