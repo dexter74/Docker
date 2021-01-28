@@ -10,6 +10,9 @@ https://hub.docker.com/r/bitwardenrs/server
 https://github.com/dani-garcia/bitwarden_rs/wiki
 https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-HTTPS
 https://github.com/dani-garcia/bitwarden_rs/wiki/Using-Docker-Compose
+# A voir : https://fr.bonitasoft.com/ 
+
+
 
 #################
 version: '2.4'  #
@@ -18,17 +21,13 @@ version: '2.4'  #
 ############
 services:  #
 ############
-  APPZX:
-    container_name: test
-    image:
-    
+
+###################################
+  Appz:
+    container_name: 
+    image: 
     environment:
-      PUID: '1001'
-      PGID: '74240'
-
     ports:
-
     volumes:
+###################################
 
-##################################################################
-# A voir : https://fr.bonitasoft.com/ 
