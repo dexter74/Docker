@@ -18,15 +18,17 @@ version: '2.4'  #
 ############
 services:  #
 ############
-  test:
+  APPZX:
     container_name: test
     image:
+    
     environment:
-      PUID: '1001'  # User  : Processus lancer avec le compte Docker
-      PGID: '74240' # Group : Processus lancer avec le groupe Docker
+      PUID: '1001'
+      PGID: '74240'
+
     ports:
+
     volumes:
-  
 
 ##################################################################
 # A voir : https://fr.bonitasoft.com/ 
