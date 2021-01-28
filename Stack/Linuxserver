@@ -159,7 +159,7 @@ services: #
       - USERNAME=admin              #
       - PASSWORD=admin              #
     ports:                          #
-      - 80:8000                     # 
+      - 80:8000                     #
     volumes:                        #
       - Cloud9:/code                #
 #####################################
