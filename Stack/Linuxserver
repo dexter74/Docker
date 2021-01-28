@@ -55,7 +55,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 99:8337                     #
+      - 8337:8337                   #
     volumes:                        #
       - appz:/config                #
       - appz:/music                 #
