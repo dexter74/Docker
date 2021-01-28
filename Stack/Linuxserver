@@ -145,6 +145,22 @@ services: #
 # - Modifier la configuration       #
 #####################################
 
+#####################################
+# Interface de Développement WebUi  #
+  Cloud9:                           #
+    container_name: Cloud9          #
+    image: linuxserver/cloud9       #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - USERNAME=admin              #
+      - PASSWORD=admin              #
+    ports:                          #
+      - 80:8000                     # 
+    volumes:                        #
+      - Cloud9:/code                #
+#####################################
+
 
 #####################################
  # info, warning, error             #
