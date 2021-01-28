@@ -3,7 +3,6 @@ version: '2.4'  #
 services:       #
 #################
 
-
 ###################################
   rutorrent:
     container_name: rutorrent
@@ -17,6 +16,8 @@ services:       #
     volumes:
       - rutorrent:/config
       - rutorrent:/downloads
+###################################
+
 ###################################
   transmission:
     container_name: transmission
@@ -33,6 +34,8 @@ services:       #
       - transmission:/config
       - transmission:/downloads
       - transmission:/watch
+###################################
+
 ###################################
   deluge:
     container_name: deluge
