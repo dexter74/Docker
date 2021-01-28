@@ -1,0 +1,52 @@
+#################
+version: '2.4'  #
+services:       #
+#################
+
+# linuxserver/rutorrent
+# linuxserver/deluge
+# linuxserver/transmission
+
+###################################
+  APPZ_0:
+    container_name: rutorrent
+    image: linuxserver/rutorrent
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 99:80
+    volumes:
+      - rutorrent:/config
+      - rutorrent:/downloads
+###################################
+  APPZ_1:
+    container_name: transmission
+    image: linuxserver/transmission
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 98:9091
+    volumes:
+      - transmission:/config
+      - transmission:/downloads
+###################################
+
+
+###################################
+  APPZ_:
+    container_name: 
+    image: linuxserver/
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 99:80
+    volumes:
+      - :/config
+      - :/downloads
+###################################
