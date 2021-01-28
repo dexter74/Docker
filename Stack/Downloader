@@ -3,12 +3,9 @@ version: '2.4'  #
 services:       #
 #################
 
-# linuxserver/rutorrent
-# linuxserver/deluge
-# linuxserver/transmission
 
 ###################################
-  APPZ_0:
+  rutorrent:
     container_name: rutorrent
     image: linuxserver/rutorrent
     environment:
@@ -21,7 +18,7 @@ services:       #
       - rutorrent:/config
       - rutorrent:/downloads
 ###################################
-  APPZ_1:
+  transmission:
     container_name: transmission
     image: linuxserver/transmission
     environment:
@@ -34,19 +31,18 @@ services:       #
       - transmission:/config
       - transmission:/downloads
 ###################################
-
-
-###################################
-  APPZ_:
-    container_name: 
-    image: linuxserver/
+  deluge:
+    container_name: deluge
+    image: linuxserver/deluge
     environment:
       - PUID=1001
       - PGID=74240
       - TZ=Europe/Paris
+      - DELUGE_LOGLEVEL=warning # info, warning, error
     ports:
-      - 99:80
+      - 97:8112
     volumes:
-      - :/config
-      - :/downloads
+      - deluge:/config
+      - deluge:/downloads
 ###################################
+
