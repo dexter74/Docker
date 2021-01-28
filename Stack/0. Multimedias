@@ -103,14 +103,15 @@ services:      #
 # Endpoint        : QBitTorrent
 # Port applicatif : 8081
 # Port Download   : 6881
-# Download        : /mnt/DL/Complet 
-#                 : /mnt/DL/Incomplet
+# Download        : /mnt/DL/Qbitorrent/Incomplet | /mnt/DL/Qbitorrent/Termine 
+#                 : /mnt/DL/Sonarr
+#                 : /mnt/DL/Radarr
 ##################################################################################################################
 
 # docker stop QBitTorrent; 
 # echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
 # echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/DL/Complet" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
 # docker start QBitTorrent ; 
 
   QBitTorrent:
