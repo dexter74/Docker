@@ -18,11 +18,11 @@ services: #
     ports:                          #
       - 4040:4040                   #
     volumes:                        #
-      - appz:/config                #
-      - appz:/music                 #
-      - appz:/media                 #
-      - appz:/playlists             #
-      - appz:/podcasts              #
+      - Airsonic:/config            #
+      - Airsonic:/music             #
+      - Airsonic:/media             #
+      - Airsonic:/playlists         #
+      - Airsonic:/podcasts          #
 #####################################
 
 
@@ -39,15 +39,15 @@ services: #
     ports:                          #
       - 6767:6767                   #
     volumes:                        #
-      - appz:/config                #
-      - appz:/movies                #
-      - appz:/tv                    #
+      - Bazarr:/config              #
+      - Bazarr:/movies              #
+      - Bazarr:/tv                  #
 #####################################
 
 
 #####################################
 # Centralisé Music                  # A voir si sa marche
-  beets:                            #
+  Beets:                            #
     container_name: beets           #
     image: linuxserver/beets        #
     environment:                    #
@@ -57,15 +57,15 @@ services: #
     ports:                          #
       - 8337:8337                   #
     volumes:                        #
-      - appz:/config                #
-      - appz:/music                 #
-      - appz:/downloads             #
+      - beets:/config               #
+      - beets:/music                #
+      - beets:/downloads            #
 #####################################
 
 
 #####################################
 # Application de calcul Recherche   #
-  boinc:                            #
+  Boinc:                            #
     container_name: boinc           #
     image: linuxserver/boinc        #
     environment:                    #
@@ -77,12 +77,42 @@ services: #
     ports:                          #
       - 8080:8080                   #
     volumes:                        #
-      - appz:/config                #
+      - boinc:/config               #
 #####################################
 
 
 
+#####################################
+# Proxy pour Sonarr et cie          #
+  Cardigann:                        #
+    container_name: cardigann       #
+    image: linuxserver/cardigann    #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 5060:5060                   #
+    volumes:                        #
+      - cardigann:/config           #
+#####################################
 
+####################################
+ # info, warning, error             #
+  Deluge:                           #
+    container_name: deluge          #
+    image: linuxserver/deluge       #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - DELUGE_LOGLEVEL=warning     #
+    ports:                          #
+      - 8112:8112                   #
+    volumes:                        #
+      - deluge:/config              #
+      - deluge:/downloads           #
+#####################################
 
 
 
@@ -118,22 +148,3 @@ services: #
       - transmission:/downloads     #
       - transmission:/watch         #
 #####################################
-
-#####################################
- # info, warning, error             #
-  Deluge:                           #
-    container_name: deluge          #
-    image: linuxserver/deluge       #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-      - DELUGE_LOGLEVEL=warning     #
-    ports:                          #
-      - 8112:8112                   #
-    volumes:                        #
-      - deluge:/config              #
-      - deluge:/downloads           #
-#####################################
-
-
