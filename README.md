@@ -145,18 +145,19 @@ service wsdd status ;
 **Projet:** [WSDD][LIEN_WSDD]
 ________________________________________________________________________________________________________________________________________________________________
 ##  :test_tube:   7. **Installation de Docker**
+
 ````
-Commande:
+https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :gear:        6. **Création du conteneur Portainer.**
 ````
-Commande:
+https://github.com/dexter74/Docker/blob/main/2.Install_Portainer.sh:
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :magnet:      7. **Création des volumes contenant les accès aux partages.**
 ````
-Commande:
+https://github.com/dexter74/Docker/blob/main/3.Volumes.sh
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :chains:      8. **Ajout des Endpoints dans Portainer.**
