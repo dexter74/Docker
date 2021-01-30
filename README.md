@@ -5,8 +5,7 @@
 **Mise en place de l'environnement**
 
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS
-  
-    `L'utilisateur sera mis dans le groupe.`
+  `L'utilisateur sera mis dans le groupe.`
   
   
   
