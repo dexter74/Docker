@@ -8,14 +8,13 @@ ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 ````console
-root@host:~$ 
-deluser docker     ; 
-rm -r /home/docker ;
-delgroup docker    ;
+root@host:~$ deluser docker     ; 
+             rm -r /home/docker ;
+             delgroup docker    ;
 
-addgroup docker --gid 2000 ;
-useradd docker --uid 2000 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
-echo "docker:admin" | chpasswd ;
+root@host:~$ addgroup docker --gid 2000 ;
+             useradd docker --uid 2000 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
+             echo "docker:admin" | chpasswd ;
 ````
 
 
