@@ -246,12 +246,17 @@ https://github.com/dexter74/Docker/blob/main/3.Volumes.sh
 ________________________________________________________________________________________________________________________________________________________________
 ##  :chains:      8. **Ajout des Endpoints dans Portainer.**
 ````
-Commande:
+Un endpoint est l'URL de sortie du conteneur. (Exemple.com)
+Si un conteneur a comme port 80 en sortie, l'URL http://Exemple.com:80
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :shield:      9. **Création du stack applicatif.**  
 ````
-Commande:
+Aller dans Endpoints désirer puis aller dans Stack.
+Une fois dans le Stack Coller le code docker-compose
+Puis cliquer Déployer.
+Les images seront télécharger et le conteneur créer avec les paramètres.
+Le docker-hub est le site de référence.
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :axe:       10. **Reverse Proxy via Pfsense.**
