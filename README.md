@@ -19,6 +19,7 @@ ____
 ____
 
 ##  :test_tube:   5. **Installation de Docker.**
+### Etape 1: Création du groupe et du compte Docker. ###
 
 ````console
 root@host:~$ 
@@ -26,8 +27,8 @@ deluser docker     ;
 rm -r /home/docker ;
 delgroup docker    ;
 
-addgroup docker --gid 74240 ;
-useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
+addgroup docker --gid 2000 ;
+useradd docker --uid 2000 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 echo "docker:admin" | chpasswd ;
 ````
 
