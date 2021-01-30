@@ -1,6 +1,8 @@
 ****
 ![alt text][LOGO]
-[LOGO](https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png)
+[LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
+
+
 ### Mise en place de l'environnement ###
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
