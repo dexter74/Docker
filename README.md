@@ -53,7 +53,7 @@ root@host:~$ systemctl enable wsdd ;
 root@host:~$ service wsdd status ;
 ````
 
-**Projet WSDD:** ['ici'][WSDD]
+**Projet:** [WSDD][LIEN_WSDD]
 
 ____
 
@@ -83,5 +83,5 @@ Liens: [ICI][LINES_1]
 
 
 [LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
-[WSDD]: #
-[LINES_1]: #
+[LIEN_WSDD]:https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/ 
+[LIEN_1]: # 
