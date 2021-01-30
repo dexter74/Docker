@@ -3,11 +3,13 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________________________________________________________________________
 # **<p align=center>Mise en place de l'environnement</align>** #
 Se connecter en root :
+
 ````console
 root@host:$ sudo -i
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     X. Déclaration des variables pour la suite
+
 ````console
 RELEASE_DEBIAN=buster
 
@@ -25,12 +27,15 @@ SAMBA_PASS=admin
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
+
 ````console
 deluser $USERS ; 
 rm -r $USER_HOME ;
 delgroup $GROUP_ID ;
 ````
+
 #### 2.Création du Groupe, Utilisateur
+
 ````console
 addgroup $GROUP --gid $GROUP_ID ;
 useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
@@ -39,20 +44,25 @@ echo "$USERS:$PASSWORD" | chpasswd ;
 ________________________________________________________________________________________________________________________________________________________________
 ##  :microscope:  X.**Installation Samba**
 #### 1. Installation de Samba
+
 ````console
 echo "deb http://ftp.de.debian.org/debian $RELEASE_DEBIAN  main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
+
 #### 2. Création du compte de partage Samba
+
 ````console
 (echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
 ````
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
+
 ````console
 apt install -y unzip ;
 rm -r /tmp/* ;
@@ -68,6 +78,7 @@ systemctl start wsdd ;
 systemctl enable wsdd ;
 service wsdd status ;
 ````
+
 **Projet:** [WSDD][LIEN_WSDD]
 ________________________________________________________________________________________________________________________________________________________________
 ##  :test_tube:   7. **Installation de Docker**
