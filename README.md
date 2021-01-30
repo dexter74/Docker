@@ -73,7 +73,7 @@ Information    : Le compte docker utilise les droits du compte root pour ce part
 Descriptif     : Dossier Racine de l'utilisateur
 ````
 
-##### **smb.conf**
+##### **/etc/samba/smb.conf** (C'est une commande)
 ````console
 echo "#======================= Global Settings =======================
 [global]
@@ -90,7 +90,7 @@ echo "#======================= Global Settings =======================
    pam password change = yes
    map to guest = bad user
    usershare allow guests = yes
-#======================= Share Definitions =======================
+#====================== Partage home ========================
 [homes]
 comment = Dossier Utilisateurs
 browseable = no
@@ -99,6 +99,8 @@ writable = yes
 create mask = 0700
 directory mask = 0700
 guest ok = no
+#
+#====================== Partage Volumes =====================
 [Volumes]
 comment = Utilisateur docker qui prend les droits root
 path = /home/docker/volumes
@@ -107,6 +109,8 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
+#
+#====================== Partage System ======================
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
 path = /
@@ -115,11 +119,16 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
+#
+#============================================================
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
 #===================================================================" > /etc/samba/smb.conf ;
 
+systemctl restart smbd ;
+systemctl status smbd ;
 ````
+
 
 ________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
