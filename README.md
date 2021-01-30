@@ -129,8 +129,7 @@ systemctl status smbd ;
 ________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   3. **Prise en charge de la découverte réseau pour Windows**
 ````console
-root@host:$ 
-
+root@host:$
 apt install -y unzip ;
 rm -r /tmp/* ;
 wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
@@ -156,6 +155,7 @@ https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
 
 #### A.Nettoyage du système:
 ````console
+root@host:$
 apt autoremove --purge -y docker-ce docker-ce-cli containerd.io ;
 rm -rf /var/lib/docker ;
 rm -rf /var/lib/containerd ;
@@ -165,11 +165,13 @@ clear ;
 
 #### B. Installation des dépendances:
 ````console
+root@host:$
 apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
 ````
 
 ####  C. Ajout de la clé
 ````console
+root@host:$
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - ;
 ````
 #### D. Ajout du dépôt Docker pour Debian
@@ -179,27 +181,32 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 
 #### E. Installation de Docker-Engine
 ````console
+root@host:$
 apt update ;
 apt install -y docker-ce docker-ce-cli containerd.io ;
 ````
 #### F. Modifier l'utilisateur qui lancer le service Docker
 ````console
+root@host:$
 sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
 sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket ;
 systemctl daemon-reload ;
 ````
 #### G. Modification des permissions:
 ````console
+root@host:$
 sudo chown docker:docker /var/run/docker.sock ;
 
 ````
 #### H. Vérification du lancement:
 ````console
+root@host:$
 docker run hello-world ;
 
 ````
 #### I. Installation de Docker-compose (En date du 30-01-2021 : La version est 1.27.4)
 ````console
+root@host:$
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ;
 chmod +x /usr/local/bin/docker-compose ;
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose ;
@@ -207,12 +214,14 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose ;
 
 #### J. Vérification des versions
 ````console
+root@host:$
 docker --version ;
 docker-compose --version ;
 ````
 
 #### K. nettoyage des conteneurs
 ````console
+root@host:$
 docker kill $(docker ps -q) ;
 docker rm $(docker ps -a -q) ;
 docker rmi $(docker images -q) ;
@@ -220,6 +229,7 @@ docker rmi $(docker images -q) ;
 
 #### L. Connexion au Docker-hub
 ````console
+root@host:$
 docker login -u <user> <password> ;
 ````
 
