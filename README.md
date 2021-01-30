@@ -30,10 +30,7 @@ drthrax74@Debian:~$ /usr/adduser marc \
 :axe:         10. Reverse Proxy via Pfsense.
   
 
-<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
-<span style="color:red">some **This is Red Bold.** text</span>
-<span style="color:blue">some *This is Blue italic.* text</span>
-
+- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#test`
 
 
 ****
