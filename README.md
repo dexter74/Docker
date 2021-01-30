@@ -3,15 +3,15 @@
 ****
 # **<p align=center>Mise en place de l'environnement</align>** #
 
-  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
+:satellite:	  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 
-  2. Création du partage avec prise en charge ACL.
+:microscope:	2. Création du partage avec prise en charge ACL.
   
-  3. Modification des permissions sur le partage.
+:petri_dish:	3. Modification des permissions sur le partage.
   
-  4. Vérification des Permissions.
+:alembic:	    4. Vérification des Permissions.
   
-  5. Installation de Docker.
+:link:	5. Installation de Docker.
   
   6. Création du conteneur Portainer.
   
