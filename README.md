@@ -5,18 +5,26 @@
 
 
 ### Mise en place de l'environnement ###
-[ICI][LINES_1]
+  1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS
+    [ICI][LINES_1]
+    
+  2. Création de partage
+  3. Modification des permissions sur le partage 
+  4. Vérification des Permissions
+  
+  
 
-#### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
+
+
 
 __________
 
-##### Etape 2: Création de partage #####
+##### Etape 2:  #####
 
-##### Etape 3: Modification des permissions sur le partage  #####
+##### Etape 3: M #####
 ````Activer le mode ACL````
 
-##### Etape 4: Vérification des Permissions #####
+##### Etape 4:  #####
 ````Depuis un poste Windows, aller dans le partage avec les compte utilisateurs associciés. (Création, Suppression, Déplacement)````
 
 ##### Etape 5: Installation de Docker, Docker-compose #####
