@@ -11,7 +11,7 @@
   
 :alembic:	    4. Vérification des Permissions.
   
-:alembic:	  #### Installation de Docker.
+:test_tube:	  5. Installation de Docker.
   
   6. Création du conteneur Portainer.
   
