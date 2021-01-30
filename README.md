@@ -1,10 +1,11 @@
 ****
 ![alt text][LOGO]
-[ICI][Liens_1]
+
+
 
 
 ### Mise en place de l'environnement ###
-[ICI]
+[ICI][LINES_1]
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
 
