@@ -20,7 +20,7 @@ ____
 
 ##  :test_tube:   5. **Installation de Docker.**
 
-###### Etape 1: Création du groupe et du compte Docker. ######
+##### Etape 1: Création du groupe et du compte Docker. #####
 ````console
 root@host:~$ 
 deluser docker     ; 
