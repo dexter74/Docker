@@ -13,7 +13,7 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 + /usr/adduser marc
 ! /usr/adduser marc
 # /usr/adduser marc
-aa@ /usr/adduser marc
+aa@bb /usr/adduser marc
 $ /usr/adduser marc
 : /usr/adduser marc
 :$ /usr/adduser marc
