@@ -16,14 +16,14 @@ RELEASE_DEBIAN=buster
 
 USERS=docker
 PASSWORD=admin
+USERS_ID=2000
+USER_HOME=/home/docker
 
 GROUP=docker
 GROUP_ID=5000
 
 SAMBA_USER=docker
 SAMBA_PASS=admin
-USERS_ID=2000
-USER_HOME=/home/docker
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
