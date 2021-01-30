@@ -1,7 +1,6 @@
 ****
 ![alt text][LOGO]
 
-[LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
 
 
 ### Mise en place de l'environnement ###
@@ -38,3 +37,9 @@ Pour le conteneur Qbitorrent, c'est le partage DL qui est monté.
 ````
 
 ##### Etape 10: Reverse Proxy via Pfsense  #####
+
+
+
+
+
+[LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
