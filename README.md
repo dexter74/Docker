@@ -11,8 +11,6 @@ root@hostname:~$
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     X. Déclaration des variables pour la suite
-`Tout les variables seront utilisées pour la suite`
-
 ````console
 USERS=docker
 PASSWORD=admin
