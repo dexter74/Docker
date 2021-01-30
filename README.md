@@ -198,7 +198,7 @@ sudo chown docker:docker /var/run/docker.sock ;
 docker run hello-world ;
 
 ````
-#### I. Installation de Docker-compose
+#### I. Installation de Docker-compose (En date du 30-01-2021 : La version est 1.27.4)
 ````console
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ;
 chmod +x /usr/local/bin/docker-compose ;
