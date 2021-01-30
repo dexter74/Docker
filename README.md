@@ -12,23 +12,23 @@ drthrax74@Debian:~$ /usr/adduser marc \
                     addgroup marc
 ````
 
-:microscope:	2. Création du partage avec prise en charge ACL.
+:microscope:  2. Création du partage avec prise en charge ACL.
   
 :petri_dish:	3. Modification des permissions sur le partage.
   
-:alembic:	    4. Vérification des Permissions.
+:alembic:     4. Vérification des Permissions.
   
-:test_tube:	  5. Installation de Docker.
+:test_tube:   5. Installation de Docker.
   
-  6. Création du conteneur Portainer.
+:gear:        6. Création du conteneur Portainer.
   
-  7. Création des volumes contenant les accès aux partages.
+:magnet:	    7. Création des volumes contenant les accès aux partages.
+
+:chains:      8. Ajout des Endpoints dans Portainer.
   
-  8. Ajout des Endpoints dans Portainer.
+:shield:      9. Création du stack applicatif.
   
-  9. Création du stack applicatif.
-  
-  10. Reverse Proxy via Pfsense.
+:axe:         10. Reverse Proxy via Pfsense.
   
 
 ****
