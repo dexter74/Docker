@@ -1,4 +1,6 @@
 ****
+![alt text](https://cdn.iconscout.com/icon/free/png-512/docker-226091.png)
+
 ### Mise en place de l'environnement ###
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
