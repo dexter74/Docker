@@ -8,7 +8,8 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 
 :satellite:	  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 ````console
-$ test
+$ adduser 
+$ addgroup
 ````
 :microscope:	2. Création du partage avec prise en charge ACL.
   
