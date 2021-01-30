@@ -10,10 +10,11 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 ````console
 user@host:~$ ls /home/
 ````
+
 :microscope:  2.**Création du partage avec prise en charge ACL.**
   
 :petri_dish:	3. **Modification des permissions sur le partage.**
-  
+
 :alembic:     4. **Vérification des Permissions.**
   
 :test_tube:   5. **Installation de Docker.**
@@ -35,7 +36,10 @@ Liens: [ICI][LINES_1]
 ****
 
 
-
+----
+****
+____
+####
 
 
 [LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
