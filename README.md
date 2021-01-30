@@ -14,6 +14,8 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 ! /usr/adduser marc
 # /usr/adduser marc
 @ /usr/adduser marc
+$ /usr/adduser marc
+
 drthrax74@Debian:~$ addgroup marc
 ````
 :microscope:  2.Création du partage avec prise en charge ACL.
