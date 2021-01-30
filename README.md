@@ -25,7 +25,7 @@ USER_HOME=/home/docker
 GROUP=docker
 GROUP_ID=5000
 SAMBA_USER=docker
-SAMBA_PASS=admin
+SAMBA_PASS=Azerty74@
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
