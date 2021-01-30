@@ -89,16 +89,14 @@ create mask = 0700
 directory mask = 0700
 guest ok = no
 
-
 [Docker]
 comment = Utilisateur docker qui prend les droits root
-path = /home/docker/
+path = /home/docker/volumes
 browseable = yes
 writable = yes
 read only = no
 valid users = docker
 force user = root
-
 
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
@@ -108,6 +106,8 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
+
+
 
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
