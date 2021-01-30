@@ -6,12 +6,14 @@ ________________________________________________________________________________
 # **<p align=center>Mise en place de l'environnement</align>** #
 
 Toutes les commandes doivent être taper en root ou avec le paramètre sudo <macommande>
-```console
+````console
 root@hostname:~$
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     X. Déclaration des variables pour la suite
 ````console
+RELEASE_DEBIAN=buster
+
 USERS=docker
 PASSWORD=admin
 
@@ -20,11 +22,8 @@ GROUP_ID=5000
 
 SAMBA_USER=docker
 SAMBA_PASS=admin
-
 USERS_ID=2000
 USER_HOME=/home/docker
-RELEASE_DEBIAN=buster
-
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
