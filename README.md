@@ -6,7 +6,11 @@
 
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS
   
-> L'utilisateur sera mis dans le groupe.
+  > L'utilisateur sera mis dans le groupe.
+  
+  
+  
+  
 
   2. Création de partage avec prise en charge ACL
   
