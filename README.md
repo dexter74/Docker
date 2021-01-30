@@ -31,9 +31,9 @@ ________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
-deluser $USERS; 
+deluser $USERS ; 
 rm -r $HOME ;
-delgroup $GROUP_ID    ;
+delgroup $GROUP_ID ;
 ````
 #### 2.Création du Groupe, Utilisateur
 ````console
