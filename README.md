@@ -6,21 +6,7 @@ ____
 La mise en place de l'environnement ce fait en plusieurs étapes.
 ____
 
-##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
-
-____
-##  :microscope:  2.**Création du partage avec prise en charge ACL.**
-____
-
-##  :petri_dish:  3. **Modification des permissions sur le partage.**
-____
-
-##  :alembic:     4. **Vérification des Permissions.**
-____
-
-##  :test_tube:   5. **Installation de Docker.**
-
-##### Etape 1: Création du groupe et du compte Docker. #####
+##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 ````console
 root@host:~$ 
 deluser docker     ; 
@@ -31,6 +17,24 @@ addgroup docker --gid 2000 ;
 useradd docker --uid 2000 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 echo "docker:admin" | chpasswd ;
 ````
+
+
+____
+##  :microscope:  2.**Installation de Samba**
+#### Ajout d'un dépôt :
+echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
+apt update ;
+apt install -y samba ;
+____
+
+##  :petri_dish:  3. **Création du Partage.**
+
+____
+
+##  :alembic:     4. **Création du compte de partage Samba.**
+____
+
+##  :test_tube:   5. **Installation de Docker, Samba.**
 
 
 
