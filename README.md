@@ -8,16 +8,7 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 
 :satellite:	  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 ````console
-/usr/adduser marc
-- /usr/adduser marc
-+ /usr/adduser marc
-! /usr/adduser marc
-# /usr/adduser marc
-aa@bb:$ /usr/adduser marc
-$ /usr/adduser marc
-: /usr/adduser marc
-:$ /usr/adduser marc
-drthrax74@Debian:~$ addgroup marc
+user@host:~$ ls /home/
 ````
 :microscope:  2.Création du partage avec prise en charge ACL.
   
