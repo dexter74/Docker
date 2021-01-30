@@ -153,6 +153,37 @@ ________________________________________________________________________________
 ````
 https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
 ````
+
+#### A.Nettoyage du système:
+````console
+apt autoremove --purge -y docker-ce docker-ce-cli containerd.io ;
+rm -rf /var/lib/docker ;
+rm -rf /var/lib/containerd ;
+rm -rf /etc/docker ;
+clear ;
+````
+
+#### B. Installation des dépendances:
+````console
+apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
+````
+
+####  C. Ajout de la clé
+````console
+curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - ;
+````
+#### D. Ajout du dépôt Docker pour Debian
+````console
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" ;
+````
+
+#### E. Installation de Docker-Engine
+````console
+apt update ;
+apt install -y docker-ce docker-ce-cli containerd.io ;
+````
+
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :gear:        5. **Création du conteneur Portainer.**
 ````
