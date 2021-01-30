@@ -4,11 +4,12 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________________________________________________________________________
 
 # **<p align=center>Mise en place de l'environnement</align>** #
+Tout les commandes doivent être taper en root :
 
-Toutes les commandes doivent être taper en root ou avec le paramètre sudo <macommande>
 ````console
-root@hostname:~$
+root@host:$
 ````
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     X. Déclaration des variables pour la suite
 ````console
@@ -28,6 +29,7 @@ SAMBA_PASS=admin
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
+
 ````console
 deluser $USERS ; 
 rm -r $USER_HOME ;
