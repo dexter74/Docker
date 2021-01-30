@@ -1,10 +1,9 @@
 ****
 ![alt text][LOGO]
+****
 
+**Mise en place de l'environnement**
 
-
-
-### Mise en place de l'environnement ###
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS
     [ICI][LINES_1]
     
