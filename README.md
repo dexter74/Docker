@@ -6,27 +6,27 @@
 La mise en place de l'environnement ce fait en plusieurs étapes.
 
 
-:satellite:	  1. **Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
+:satellite:	  1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
 ````console
 user@host:~$ ls /home/
 ````
-:microscope:  2. **Création du partage avec prise en charge ACL.**
+:microscope:  2.**Création du partage avec prise en charge ACL.**
   
-:petri_dish:	3. Modification des permissions sur le partage.
+:petri_dish:	3. **Modification des permissions sur le partage.**
   
-:alembic:     4. Vérification des Permissions.
+:alembic:     4. **Vérification des Permissions.**
   
-:test_tube:   5. Installation de Docker.
+:test_tube:   5. **Installation de Docker.**
   
-:gear:        6. Création du conteneur Portainer.
+:gear:        6. **Création du conteneur Portainer.**
   
-:magnet:	    7. Création des volumes contenant les accès aux partages.
+:magnet:	    7. **Création des volumes contenant les accès aux partages.**
 
-:chains:      8. Ajout des Endpoints dans Portainer.
+:chains:      8. **Ajout des Endpoints dans Portainer.**
   
-:shield:      9. Création du stack applicatif.
+:shield:      9. **Création du stack applicatif.**
   
-:axe:         10. Reverse Proxy via Pfsense.
+:axe:         10. **Reverse Proxy via Pfsense.**
   
 
 
