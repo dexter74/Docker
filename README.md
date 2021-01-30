@@ -1,8 +1,8 @@
 ****
 ![alt text][LOGO]
 ****
+#**<p align=center>Mise en place de l'environnement</align>**#
 
-  <p align=center>**Mise en place de l'environnement**</align>
 
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS. 
 
