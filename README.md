@@ -1,23 +1,22 @@
-____
+________________________________________________________________________________________________________________________________________________________________
 ![alt text][LOGO]
-____
+________________________________________________________________________________________________________________________________________________________________
 # **<p align=center>Mise en place de l'environnement</align>** #
 La mise en place de l'environnement ce fait en plusieurs étapes.
 Toute les commandes doivent être en :
 ```console
 root@hostname:~$
 ````
-
-____
+________________________________________________________________________________________________________________________________________________________________
 
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
-#### Purge (User, Home, Group)
+#### 1.Purge (User, Home, Group)
 ````console
 deluser docker     ; 
 rm -r /home/docker ;
 delgroup docker    ;
 ````
-#### Création du Groupe, utilisateur
+#### 2.Création du Groupe, utilisateur
 ````console
 ADD_GROUP=docker
 ADD_USER=docker
@@ -29,16 +28,21 @@ addgroup $ADD_GROUP --gid $ID_GROUP ;
 useradd $ADD_USER --uid $ID_USER --home /home/docker/ --create-home --groups root,sudo,$ADD_GROUP --gid root --shell /bin/bash ;
 echo "ADD_USER:$USER_PASS" | chpasswd ;
 ````
-____
-##  :microscope:  X.**Installation de Samba**
+________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+##  :microscope:  X.**Installation Samba**
+#### 1. Installation de Samba
 ````console
 echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
-____
-##  :petri_dish:  X. **Création du compte de partage Samba**
+
+#### 2. Création du compte de partage Samba
 ````console
 SAMBA_USER=docker
 SAMBA_PASS=admin
@@ -47,11 +51,18 @@ SAMBA_PASS=admin
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
 ````
+
+
+
+
+____
+##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
+
 ____
 
 
 
-##  :alembic:     X. **Prise en charge de la découverte réseau pour Windows**
+##  :alembic:     X. 
 ````console
 apt install -y unzip ;
 rm -r /tmp/* ;
