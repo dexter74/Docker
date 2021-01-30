@@ -8,8 +8,8 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 
 :satellite:	  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 ````console
-+ drthrax74@Debian:~$ /usr/adduser marc \
-                    addgroup marc
++ /usr/adduser marc \
+drthrax74@Debian:~$ addgroup marc
 ````
 :microscope:  2.Création du partage avec prise en charge ACL.
   
@@ -29,8 +29,6 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
   
 :axe:         10. Reverse Proxy via Pfsense.
   
-
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#test`
 
 
 ****
