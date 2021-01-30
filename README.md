@@ -6,7 +6,7 @@
 
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS.
   
-  `L'utilisateur sera mis dans le groupe.`
+ <p aligne=center> `L'utilisateur sera mis dans le groupe.` </align>
   
   
   
