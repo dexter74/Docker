@@ -11,6 +11,12 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 $ adduser 
 $ addgroup
 ````
+
+```console
+foo@bar:~$ whoami
+foo
+```
+
 :microscope:	2. Création du partage avec prise en charge ACL.
   
 :petri_dish:	3. Modification des permissions sur le partage.
