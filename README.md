@@ -10,7 +10,13 @@ ____
 
 **Ligne de commande:**
 ````console
-user@host:~$ ls /home/
+user@host:~$ deluser docker ;
+user@host:~$ rm -r /home/docker ;
+user@host:~$ delgroup docker ;
+
+
+
+
 ````
 
 ____
