@@ -14,7 +14,7 @@ ____
 :microscope:  2.**Création du partage avec prise en charge ACL.**
 ____
 
-:petri_dish:	3. **Modification des permissions sur le partage.**
+#  :petri_dish:	3. **Modification des permissions sur le partage.**
 ____
 
 :alembic:     4. **Vérification des Permissions.**
