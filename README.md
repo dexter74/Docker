@@ -8,14 +8,24 @@ ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
 
-**Ligne de commande:**
+**Nettoyage:**
 ````console
 root@host:~$ 
-deluser docker ; rm -r /home/docker ;delgroup docker ;
+deluser docker ; 
+rm -r /home/docker ;
+delgroup docker ;
+````
+**Création du compte:**
+````console
+root@host:~$ 
 addgroup docker --gid 74240 ;
+````
+**Création du Groupe Supervsion**
+````
 useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 echo "docker:admin" | chpasswd ; # Changement de mot de passe
 ````
+
 
 ____
 ##  :microscope:  2.**Création du partage avec prise en charge ACL.**
