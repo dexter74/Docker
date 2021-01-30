@@ -62,16 +62,10 @@ root@host:$
 smbpasswd -d $SAMBA_USER ;
 smbpasswd -x $SAMBA_USER ;
 
-(echo '$SAMBA_PASS'; echo '$SAMBA_PASS') | smbpasswd -a $SAMBA_USER 
-smbpasswd -x marc
-
-
-
+(echo '$SAMBA_PASS'; echo '$SAMBA_PASS') | smbpasswd -a $SAMBA_USER ;
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
-
-
-
+pdbedit -L ;
 ````
 
 #### C. Configuration des partages Samba
