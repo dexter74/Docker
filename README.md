@@ -3,15 +3,9 @@
 ****
 # **<p align=center>Mise en place de l'environnement</align>** #
 
+  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 
-
-
-
-
-
-  1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS. 
-
-  2. Création de partage avec prise en charge ACL.
+  2. Création du partage avec prise en charge ACL.
   
   3. Modification des permissions sur le partage.
   
