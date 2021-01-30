@@ -99,7 +99,6 @@ writable = yes
 create mask = 0700
 directory mask = 0700
 guest ok = no
-#
 #====================== Partage Volumes =====================
 [Volumes]
 comment = Utilisateur docker qui prend les droits root
@@ -109,7 +108,6 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
-#
 #====================== Partage System ======================
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
@@ -119,17 +117,13 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
-#
 #============================================================
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
 #===================================================================" > /etc/samba/smb.conf ;
-
 systemctl restart smbd ;
 systemctl status smbd ;
 ````
-
-
 ________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
 
