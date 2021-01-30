@@ -10,20 +10,21 @@ ____
 
 **Nettoyage:**
 ````console
-root@host:~$ deluser docker ; 
+root@host:~$ deluser docker     ; 
 root@host:~$ rm -r /home/docker ;
-root@host:~$ delgroup docker ;
+root@host:~$ delgroup docker    ;
 ````
-**Création du compte:**
+
+**Création du Groupe Supervsion**
 ````console
 root@host:~$ addgroup docker --gid 74240 ;
 ````
-**Création du Groupe Supervsion**
-````
+**Création du compte:** (Changement de mot de passe)
+````console
 root@host:~$ useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
-root@host:~$ echo "docker:admin" | chpasswd ; # Changement de mot de passe
-````
+root@host:~$ echo "docker:admin" | chpasswd
 
+````
 
 ____
 ##  :microscope:  2.**Création du partage avec prise en charge ACL.**
