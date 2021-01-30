@@ -10,7 +10,8 @@ ____
 
 **Ligne de commande:**
 ````console
-user@host:~$ deluser docker ; rm -r /home/docker ;delgroup docker ;
+root@host:~$ 
++ deluser docker ; rm -r /home/docker ;delgroup docker ;
 user@host:~$ addgroup docker --gid 74240 ;
 user@host:~$ useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 user@host:~$ echo "docker:admin" | chpasswd ; # Changement de mot de passe
