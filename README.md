@@ -4,19 +4,24 @@ ____
 # **<p align=center>Mise en place de l'environnement</align>** #
 
 La mise en place de l'environnement ce fait en plusieurs étapes.
+
+
+Toute les commandes doivent être en :
+```console
+root@hostname:~$
+````
+
 ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### Purge (User, Home, Group)
 ````console
-root@host:~$
 deluser docker     ; 
 rm -r /home/docker ;
 delgroup docker    ;
 ````
 #### Création du Groupe, utilisateur
 ````console
-root@host:~$ 
 ADD_GROUP=docker
 ADD_USER=docker
 ID_GROUP=5000
@@ -31,7 +36,6 @@ echo "ADD_USER:$USER_PASS" | chpasswd ;
 ____
 ##  :microscope:  2.**Installation de Samba**
 ````console
-root@host:~$ 
 echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
@@ -40,7 +44,6 @@ rm /etc/apt/sources.list.d/Buster.list ;
 ____
 ##  :petri_dish:  3. **Création du compte de partage Samba**
 ````console
-root@host:~$
 SAMBA_USER=docker
 SAMBA_PASS=admin
 
@@ -52,7 +55,6 @@ ____
 
 ##  :alembic:     4. **Prise en charge de la découverte réseau pour Windows**
 ````console
-root@host:~$ 
 apt install -y unzip ;
 rm -r /tmp/* ;
 wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
