@@ -81,6 +81,7 @@ services: #
       - 8080:8080                   #
     volumes:                        #
       - boinc:/config               #
+# echo -n test  | md5sum            #
 #####################################
 
 
