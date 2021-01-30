@@ -7,7 +7,7 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
-### Purge (User, Home, Group)
+#### Purge (User, Home, Group)
 ````console
 root@host:~$ deluser docker     ; 
 root@host:~$ rm -r /home/docker ;
