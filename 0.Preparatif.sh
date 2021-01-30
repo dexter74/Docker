@@ -78,8 +78,8 @@ echo "#======================= Global Settings =======================
    map to guest = bad user
    usershare allow guests = yes
 
-#======================= Share Definitions =======================
 
+#====================== Partage home ========================
 [homes]
 comment = Dossier Utilisateurs
 browseable = no
@@ -88,7 +88,8 @@ writable = yes
 create mask = 0700
 directory mask = 0700
 guest ok = no
-
+#
+#====================== Partage Volumes =====================
 [Volumes]
 comment = Utilisateur docker qui prend les droits root
 path = /home/docker/volumes
@@ -97,7 +98,8 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
-
+#
+#====================== Partage System ======================
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
 path = /
@@ -106,8 +108,8 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
-
-
+#
+#============================================================
 
 #======================= No Delete Line Next =======================
 ;   write list = root, @lpadmin
