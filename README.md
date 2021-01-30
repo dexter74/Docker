@@ -8,6 +8,18 @@ ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
 
+____
+##  :microscope:  2.**Création du partage avec prise en charge ACL.**
+____
+
+##  :petri_dish:  3. **Modification des permissions sur le partage.**
+____
+
+##  :alembic:     4. **Vérification des Permissions.**
+____
+
+##  :test_tube:   5. **Installation de Docker.**
+
 **Nettoyage:**
 ````console
 root@host:~$ deluser docker     ; 
@@ -23,20 +35,10 @@ root@host:~$ addgroup docker --gid 74240 ;
 ````console
 root@host:~$ useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
 root@host:~$ echo "docker:admin" | chpasswd
-
 ````
 
-____
-##  :microscope:  2.**Création du partage avec prise en charge ACL.**
-____
 
-##  :petri_dish:  3. **Modification des permissions sur le partage.**
-____
 
-##  :alembic:     4. **Vérification des Permissions.**
-____
-
-##  :test_tube:   5. **Installation de Docker.**
 ____
 
 ##  :gear:        6. **Création du conteneur Portainer.**
