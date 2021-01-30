@@ -182,7 +182,40 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 apt update ;
 apt install -y docker-ce docker-ce-cli containerd.io ;
 ````
+#### F. Modifier l'utilisateur qui lancer le service Docker
+````console
+sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
+sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket ;
+systemctl daemon-reload ;
+````
+#### G. Modification des permissions:
+````console
+sudo chown docker:docker /var/run/docker.sock ;
 
+````
+#### H. Vérification du lancement:
+````console
+docker run hello-world ;
+````
+#### 
+````console
+
+````
+
+#### 
+````console
+
+````
+
+#### 
+````console
+
+````
+
+#### 
+````console
+
+````
 
 ________________________________________________________________________________________________________________________________________________________________
 ##  :gear:        5. **Création du conteneur Portainer.**
