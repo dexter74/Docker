@@ -1,5 +1,4 @@
 ****
-![alt text](https://cdn.iconscout.com/icon/free/png-512/docker-226091.png)
 
 ![alt text](https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png)
 ### Mise en place de l'environnement ###
