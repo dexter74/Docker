@@ -168,7 +168,7 @@ services: #
 # Préférence 
 # > Code Editor 
 # > Cocher "Wrap Selection with bracket, Quotes. (Permet lors d'une sélection de texte de pouvoir mettre des quotations au début et à la fin de la sélection)
-# > Décocher Show Print Marge
+# > Décocher Show Print Margin
 
 
 #####################################
