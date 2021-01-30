@@ -21,10 +21,15 @@ echo "docker:admin" | chpasswd ;
 
 ____
 ##  :microscope:  2.**Installation de Samba**
-#### Ajout d'un dépôt :
+
+**Terminale:**
+````console
+root@host:~$ 
 echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
+rm /etc/apt/sources.list.d/Buster.list ;
+````
 ____
 
 ##  :petri_dish:  3. **Création du Partage.**
