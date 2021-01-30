@@ -12,9 +12,6 @@ drthrax74@Debian:~$ /usr/adduser marc \
                     addgroup marc
 ````
 :microscope:  2.Création du partage avec prise en charge ACL.
-
-<span style="color:blue">some *blue* text</span>.
-
   
 :petri_dish:	3. Modification des permissions sur le partage.
   
@@ -32,6 +29,10 @@ drthrax74@Debian:~$ /usr/adduser marc \
   
 :axe:         10. Reverse Proxy via Pfsense.
   
+
+<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
+
+
 
 ****
 Liens: [ICI][LINES_1]
