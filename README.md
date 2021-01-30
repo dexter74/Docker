@@ -11,7 +11,8 @@ La mise en place de l'environnement ce fait en plusieurs étapes.
 drthrax74@Debian:~$ /usr/adduser marc \
                     addgroup marc
 ````
-:microscope:  2. Création du partage avec prise en charge ACL.
+:microscope:  2.<span style="color:blue">some *blue* Création du partage avec prise en charge ACL.</span>.
+
   
 :petri_dish:	3. Modification des permissions sur le partage.
   
