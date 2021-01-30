@@ -4,21 +4,23 @@ ________________________________________________________________________________
 # **<p align=center>Mise en place de l'environnement</align>** #
 ________________________________________________________________________________________________________________________________________________________________
 
-La mise en place de l'environnement ce fait en plusieurs étapes.
-Toute les commandes doivent être en :
+Toutes les commandes doivent être taper en root ou avec le paramètre sudo <macommande>
 ```console
 root@hostname:~$
 ````
 ________________________________________________________________________________________________________________________________________________________________
+##  :alembic:     X. Déclaration des variables pour la suite
+`Tout les variables seront utilisées pour la suite`
+
 
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
-#### 1.Purge (User, Home, Group)
+#### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 deluser docker     ; 
 rm -r /home/docker ;
 delgroup docker    ;
 ````
-#### 2.Création du Groupe, utilisateur
+#### 2.Création du Groupe, Utilisateur
 ````console
 ADD_GROUP=docker
 ADD_USER=docker
@@ -58,13 +60,12 @@ systemctl restart smbd ;
 
 
 ____
-##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
 
 ____
 
+##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
 
 
-##  :alembic:     X. 
 ````console
 apt install -y unzip ;
 rm -r /tmp/* ;
