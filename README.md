@@ -3,6 +3,9 @@
 ****
 # **<p align=center>Mise en place de l'environnement</align>** #
 
+La mise en place de l'environnement ce fait en plusieurs étapes.
+
+
 :satellite:	  1. Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.
 
 :microscope:	2. Création du partage avec prise en charge ACL.
