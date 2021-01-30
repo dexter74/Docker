@@ -5,7 +5,6 @@ ________________________________________________________________________________
 
 # **<p align=center>Mise en place de l'environnement</align>** #
 
-________________________________________________________________________________________________________________________________________________________________
 Toutes les commandes doivent être taper en root ou avec le paramètre sudo <macommande>
 ```console
 root@hostname:~$
