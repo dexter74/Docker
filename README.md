@@ -1,6 +1,8 @@
 ****
 ![alt text](https://cdn.iconscout.com/icon/free/png-512/docker-226091.png)
 
+![alt text](https://cdn.1min30.com/wp-content/uploads/2018/04/Couleur-logo-Docker-500x281.jpg)
+
 ### Mise en place de l'environnement ###
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
