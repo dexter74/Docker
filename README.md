@@ -3,7 +3,7 @@
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
 
-----
+__________
 
 ##### Etape 2: Création de partage #####
 
