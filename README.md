@@ -2,10 +2,7 @@ ____
 ![alt text][LOGO]
 ____
 # **<p align=center>Mise en place de l'environnement</align>** #
-
 La mise en place de l'environnement ce fait en plusieurs étapes.
-
-
 Toute les commandes doivent être en :
 ```console
 root@hostname:~$
@@ -13,7 +10,7 @@ root@hostname:~$
 
 ____
 
-##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
+##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### Purge (User, Home, Group)
 ````console
 deluser docker     ; 
@@ -32,9 +29,8 @@ addgroup $ADD_GROUP --gid $ID_GROUP ;
 useradd $ADD_USER --uid $ID_USER --home /home/docker/ --create-home --groups root,sudo,$ADD_GROUP --gid root --shell /bin/bash ;
 echo "ADD_USER:$USER_PASS" | chpasswd ;
 ````
-
 ____
-##  :microscope:  2.**Installation de Samba**
+##  :microscope:  X.**Installation de Samba**
 ````console
 echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
@@ -42,7 +38,7 @@ apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
 ____
-##  :petri_dish:  3. **Création du compte de partage Samba**
+##  :petri_dish:  X. **Création du compte de partage Samba**
 ````console
 SAMBA_USER=docker
 SAMBA_PASS=admin
@@ -53,7 +49,9 @@ systemctl restart smbd ;
 ````
 ____
 
-##  :alembic:     4. **Prise en charge de la découverte réseau pour Windows**
+
+
+##  :alembic:     X. **Prise en charge de la découverte réseau pour Windows**
 ````console
 apt install -y unzip ;
 rm -r /tmp/* ;
@@ -74,7 +72,7 @@ service wsdd status ;
 
 ____
 
-##  :test_tube:   5. **Installation de Docker, Samba.**
+##  :test_tube:   7. **Installation de Docker**
 
 ____
 
