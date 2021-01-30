@@ -63,11 +63,17 @@ systemctl restart smbd ;
 ````
 
 #### 3. Configuration des partages Samba
-Nom des partages:
-   > homes
-   > Docker 
-   > System
-   
+**Explication :**
+````
+Nom du partage : homes
+Descriptif     : Dossier de l'utilisateur (/home/XXXX)
+
+Nom du partage : SYSTEm
+Information    : Le compte docker utilise les droits du compte root pour ce partage
+Descriptif     : Dossier Racine de l'utilisateur
+````
+
+##### **smb.conf**
 ````console
 echo "#======================= Global Settings =======================
 [global]
@@ -84,7 +90,6 @@ echo "#======================= Global Settings =======================
    pam password change = yes
    map to guest = bad user
    usershare allow guests = yes
-
 #======================= Share Definitions =======================
 [homes]
 comment = Dossier Utilisateurs
@@ -94,16 +99,14 @@ writable = yes
 create mask = 0700
 directory mask = 0700
 guest ok = no
-[Docker]
+[Volumes]
 comment = Utilisateur docker qui prend les droits root
-path = /home/docker/
+path = /home/docker/volumes
 browseable = yes
 writable = yes
 read only = no
 valid users = docker
 force user = root
-
-
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
 path = /
@@ -116,8 +119,6 @@ force user = root
 ;   write list = root, @lpadmin
 #===================================================================" > /etc/samba/smb.conf ;
 
-systemctl restart smbd ;
-systemctl status smbd ;
 ````
 
 ________________________________________________________________________________________________________________________________________________________________
