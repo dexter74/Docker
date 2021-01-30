@@ -9,49 +9,63 @@ ____
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### Purge (User, Home, Group)
 ````console
-root@host:~$ deluser docker     ; 
-root@host:~$ rm -r /home/docker ;
-root@host:~$ delgroup docker    ;
-
-root@host:~$ addgroup docker --gid 2000 ;
-root@host:~$ useradd docker --uid 2000 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
-root@host:~$ echo "docker:admin" | chpasswd ;
+root@host:~$
+deluser docker     ; 
+rm -r /home/docker ;
+delgroup docker    ;
 ````
+#### Création du Groupe, utilisateur
+````console
+root@host:~$ 
+ADD_GROUP=docker
+ADD_USER=docker
+ID_GROUP=5000
+ID_USER=2000
+USER_PASS=admin
+
+addgroup $ADD_GROUP --gid $ID_GROUP ;
+useradd $ADD_USER --uid $ID_USER --home /home/docker/ --create-home --groups root,sudo,$ADD_GROUP --gid root --shell /bin/bash ;
+echo "ADD_USER:$USER_PASS" | chpasswd ;
+````
+
 ____
 ##  :microscope:  2.**Installation de Samba**
 ````console
 root@host:~$ 
-root@host:~$ echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
-root@host:~$ apt update ;
-root@host:~$ apt install -y samba ;
-root@host:~$ rm /etc/apt/sources.list.d/Buster.list ;
+echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
+apt update ;
+apt install -y samba ;
+rm /etc/apt/sources.list.d/Buster.list ;
 ````
 ____
 ##  :petri_dish:  3. **Création du compte de partage Samba**
 ````console
-root@host:~$ SAMBA_USER=docker
-root@host:~$ SAMBA_PASS=admin
-root@host:~$ (echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
-root@host:~$ smbpasswd -e $SAMBA_USER ;
-root@host:~$ systemctl restart smbd ;
+root@host:~$
+SAMBA_USER=docker
+SAMBA_PASS=admin
+
+(echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
+smbpasswd -e $SAMBA_USER ;
+systemctl restart smbd ;
 ````
 ____
 
 ##  :alembic:     4. **Prise en charge de la découverte réseau pour Windows**
 ````console
-root@host:~$ apt install -y unzip ;
-root@host:~$ rm -r /tmp/* ;
-root@host:~$ wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
-root@host:~$ unzip /tmp/master.zip -d /tmp ;
-root@host:~$ mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd ;
-root@host:~$ cp /tmp/wsdd-master/src/wsdd /usr/bin ;
-root@host:~$ cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
-root@host:~$ sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ;
-root@host:~$ sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
-root@host:~$ systemctl daemon-reload ;
-root@host:~$ systemctl start wsdd ;
-root@host:~$ systemctl enable wsdd ;
-root@host:~$ service wsdd status ;
+root@host:~$ 
+apt install -y unzip ;
+rm -r /tmp/* ;
+wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
+unzip /tmp/master.zip -d /tmp ;
+mv /tmp/wsdd-master/src/wsdd.py /tmp/wsdd-master/src/wsdd ;
+cp /tmp/wsdd-master/src/wsdd /usr/bin ;
+cp /tmp/wsdd-master/etc/systemd/wsdd.service /etc/systemd/system ;
+sed -i 's/User=nobody/User=root/g' /etc/systemd/system/wsdd.service ;
+sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
+systemctl daemon-reload ;
+systemctl start wsdd ;
+systemctl enable wsdd ;
+service wsdd status ;
 ````
 
 **Projet:** [WSDD][LIEN_WSDD]
