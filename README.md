@@ -20,21 +20,15 @@ ____
 
 ##  :test_tube:   5. **Installation de Docker.**
 
-**Nettoyage:**
 ````console
-root@host:~$ deluser docker     ; 
-root@host:~$ rm -r /home/docker ;
-root@host:~$ delgroup docker    ;
-````
+root@host:~$ 
+deluser docker     ; 
+rm -r /home/docker ;
+delgroup docker    ;
 
-**Création du Groupe Supervsion**
-````console
-root@host:~$ addgroup docker --gid 74240 ;
-````
-**Création du compte:** (Changement de mot de passe)
-````console
-root@host:~$ useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
-root@host:~$ echo "docker:admin" | chpasswd
+addgroup docker --gid 74240 ;
+useradd docker --uid 1001 --home /home/docker/ --create-home --groups root,sudo,docker --gid root --shell /bin/bash ;
+echo "docker:admin" | chpasswd ;
 ````
 
 
