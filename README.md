@@ -8,6 +8,7 @@ ____
 
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
 
+**Ligne de commande:**
 ````console
 user@host:~$ ls /home/
 ````
