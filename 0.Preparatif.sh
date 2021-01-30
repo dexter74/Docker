@@ -89,7 +89,7 @@ create mask = 0700
 directory mask = 0700
 guest ok = no
 
-[Docker]
+[Volumes]
 comment = Utilisateur docker qui prend les droits root
 path = /home/docker/volumes
 browseable = yes
