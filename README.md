@@ -21,8 +21,6 @@ echo "docker:admin" | chpasswd ;
 
 ____
 ##  :microscope:  2.**Installation de Samba**
-
-**Terminale:**
 ````console
 root@host:~$ 
 echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
@@ -31,17 +29,19 @@ apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
 ____
-
 ##  :petri_dish:  3. **Création du Partage.**
-
+````console
+root@host:~$ 
+(echo docker; echo docker; echo ) | smbpasswd -a docker ;
+smbpasswd -e docker ;
+systemctl restart smbd ;
+````
 ____
 
 ##  :alembic:     4. **Création du compte de partage Samba.**
 ____
 
 ##  :test_tube:   5. **Installation de Docker, Samba.**
-
-
 
 ____
 
