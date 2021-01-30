@@ -185,3 +185,6 @@ ________________________________________________________________________________
 
 [LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
 [LIEN_WSDD]:https://devanswers.co/discover-ubuntu-machines-samba-shares-windows-10-network/ 
+[Markdown]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables
+[EMOTICONE]: https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#science
+[COLOR]: https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file
