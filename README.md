@@ -6,10 +6,12 @@ ____
 La mise en place de l'environnement ce fait en plusieurs étapes.
 ____
 
-##  :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
+##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée pour le partage.**
+
 ````console
 user@host:~$ ls /home/
 ````
+
 ____
 ##  :microscope:  2.**Création du partage avec prise en charge ACL.**
 ____
