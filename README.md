@@ -196,25 +196,31 @@ sudo chown docker:docker /var/run/docker.sock ;
 #### H. Vérification du lancement:
 ````console
 docker run hello-world ;
-````
-#### 
-````console
 
 ````
-
-#### 
+#### I. Installation de Docker-compose
 ````console
-
+curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ;
+chmod +x /usr/local/bin/docker-compose ;
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose ;
 ````
 
-#### 
+#### J. Vérification des versions
 ````console
-
+docker --version ;
+docker-compose --version ;
 ````
 
-#### 
+#### K. nettoyage des conteneurs
 ````console
+docker kill $(docker ps -q) ;
+docker rm $(docker ps -a -q) ;
+docker rmi $(docker images -q) ;
+````
 
+#### L. Connexion au Docker-hub
+````console
+docker login -u <user> <password> ;
 ````
 
 ________________________________________________________________________________________________________________________________________________________________
