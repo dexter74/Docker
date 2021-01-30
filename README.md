@@ -135,6 +135,16 @@ ________________________________________________________________________________
 ````console
 root@host:$
 apt install -y unzip ;
+
+# Purger le service:
+rm -r /tmp/*
+systemctl stop wsdd ;
+systemctl disable wsdd ;
+rm /etc/systemd/system/wsdd.service ;
+rm /usr/bin/wsdd ;
+systemctl daemon-reload ;
+
+
 rm -r /tmp/* ;
 wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
 unzip /tmp/master.zip -d /tmp ;
@@ -147,6 +157,9 @@ systemctl daemon-reload ;
 systemctl start wsdd ;
 systemctl enable wsdd ;
 service wsdd status ;
+
+
+
 ````
 
 **Projet:** [WSDD][LIEN_WSDD]
