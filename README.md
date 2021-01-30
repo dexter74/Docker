@@ -3,7 +3,6 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________________________________________________________________________
 # **<p align=center>Mise en place de l'environnement</align>** #
 ________________________________________________________________________________________________________________________________________________________________
-
 Toutes les commandes doivent être taper en root ou avec le paramètre sudo <macommande>
 ```console
 root@hostname:~$
@@ -12,59 +11,54 @@ ________________________________________________________________________________
 ##  :alembic:     X. Déclaration des variables pour la suite
 `Tout les variables seront utilisées pour la suite`
 
+````console
+USERS=docker
+PASSWORD=admin
 
+GROUP=docker
+GROUP_ID=5000
+
+SAMBA_USER=docker
+SAMBA_PASS=admin
+
+USERS_ID=2000
+HOME=/home/docker
+
+RELEASE_DEBIAN=buster
+
+````
+________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   X.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
-deluser docker     ; 
-rm -r /home/docker ;
-delgroup docker    ;
+deluser $USERS; 
+rm -r $HOME ;
+delgroup $GROUP_ID    ;
 ````
 #### 2.Création du Groupe, Utilisateur
 ````console
-ADD_GROUP=docker
-ADD_USER=docker
-ID_GROUP=5000
-ID_USER=2000
-USER_PASS=admin
-
-addgroup $ADD_GROUP --gid $ID_GROUP ;
-useradd $ADD_USER --uid $ID_USER --home /home/docker/ --create-home --groups root,sudo,$ADD_GROUP --gid root --shell /bin/bash ;
-echo "ADD_USER:$USER_PASS" | chpasswd ;
+addgroup $GROUP --gid $GROUP_ID ;
+useradd $USERS --uid $USERS_ID --home $HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
+echo "$USERS:$PASSWORD" | chpasswd ;
 ````
+
 ________________________________________________________________________________________________________________________________________________________________
-
-
-
-
 ##  :microscope:  X.**Installation Samba**
 #### 1. Installation de Samba
 ````console
-echo "deb http://ftp.de.debian.org/debian buster main" > /etc/apt/sources.list.d/Buster.list ;
+echo "deb http://ftp.de.debian.org/debian $RELEASE_DEBIAN  main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
-
 #### 2. Création du compte de partage Samba
 ````console
-SAMBA_USER=docker
-SAMBA_PASS=admin
-
 (echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
 ````
-
-
-
-
-____
-
-____
-
+________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
-
 
 ````console
 apt install -y unzip ;
@@ -81,29 +75,24 @@ systemctl start wsdd ;
 systemctl enable wsdd ;
 service wsdd status ;
 ````
-
 **Projet:** [WSDD][LIEN_WSDD]
-
-____
+________________________________________________________________________________________________________________________________________________________________
 
 ##  :test_tube:   7. **Installation de Docker**
-
-____
+________________________________________________________________________________________________________________________________________________________________
 
 ##  :gear:        6. **Création du conteneur Portainer.**
-____
-
+________________________________________________________________________________________________________________________________________________________________
 ##  :magnet:      7. **Création des volumes contenant les accès aux partages.**
-____
-
+________________________________________________________________________________________________________________________________________________________________
 ##  :chains:      8. **Ajout des Endpoints dans Portainer.**
-____
+________________________________________________________________________________________________________________________________________________________________
 
 ##  :shield:      9. **Création du stack applicatif.**  
-____
-
+________________________________________________________________________________________________________________________________________________________________
 ##  :axe:       10. **Reverse Proxy via Pfsense.**
-____
+________________________________________________________________________________________________________________________________________________________________
+
 ***
 Liens: [ICI][LINES_1]
 ****
