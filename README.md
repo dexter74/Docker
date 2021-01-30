@@ -24,8 +24,8 @@ USERS_ID=2000
 USER_HOME=/home/docker
 GROUP=docker
 GROUP_ID=5000
-SAMBA_USER=Drthrax74
-SAMBA_PASS=Azerty74@
+SAMBA_USER=marc
+SAMBA_PASS=Admindu74
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
@@ -62,9 +62,16 @@ root@host:$
 smbpasswd -d $SAMBA_USER ;
 smbpasswd -x $SAMBA_USER ;
 
-(echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
+(echo '$SAMBA_PASS'; echo '$SAMBA_PASS') | smbpasswd -a $SAMBA_USER 
+smbpasswd -x marc
+
+
+
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
+
+
+
 ````
 
 #### C. Configuration des partages Samba
