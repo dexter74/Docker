@@ -11,7 +11,7 @@
   
 :alembic:	    4. Vérification des Permissions.
   
-:link:	5. Installation de Docker.
+:link:	      # 5. Installation de Docker.
   
   6. Création du conteneur Portainer.
   
