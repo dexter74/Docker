@@ -6,8 +6,8 @@
 
   1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS.
   
- <p aligne=center> `L'utilisateur sera mis dans le groupe.` </align>
-  
+  <p align=center> `L'utilisateur sera mis dans le groupe.` </align>
+
   
   
   
