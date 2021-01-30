@@ -63,6 +63,11 @@ systemctl restart smbd ;
 ````
 
 #### 3. Configuration des partages Samba
+Nom des partages:
+   > homes
+   > Docker 
+   > System
+   
 ````console
 echo "#======================= Global Settings =======================
 [global]
@@ -79,6 +84,7 @@ echo "#======================= Global Settings =======================
    pam password change = yes
    map to guest = bad user
    usershare allow guests = yes
+
 #======================= Share Definitions =======================
 [homes]
 comment = Dossier Utilisateurs
@@ -96,6 +102,8 @@ writable = yes
 read only = no
 valid users = docker
 force user = root
+
+
 [SYSTEM]
 comment = Utilisateur docker qui prend les droits root
 path = /
