@@ -1,4 +1,0 @@
-language: console
-rvm:
- - 2.2
- - jruby
