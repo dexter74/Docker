@@ -22,8 +22,7 @@ SAMBA_USER=docker
 SAMBA_PASS=admin
 
 USERS_ID=2000
-HOME=/home/docker
-
+USER_HOME=/home/docker
 RELEASE_DEBIAN=buster
 
 ````
@@ -32,13 +31,13 @@ ________________________________________________________________________________
 #### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 deluser $USERS ; 
-rm -r $HOME ;
+rm -r $USER_HOME ;
 delgroup $GROUP_ID ;
 ````
 #### 2.Création du Groupe, Utilisateur
 ````console
 addgroup $GROUP --gid $GROUP_ID ;
-useradd $USERS --uid $USERS_ID --home $HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
+useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
 echo "$USERS:$PASSWORD" | chpasswd ;
 ````
 
