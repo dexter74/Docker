@@ -2,15 +2,9 @@
 ![alt text][LOGO]
 ****
 
-**Mise en place de l'environnement**
+  <p align=center>**Mise en place de l'environnement**</align>
 
-  1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS.
-  
-  <p align=center> `L'utilisateur sera mis dans le groupe.` </align>
-
-  
-  
-  
+  1. Création d'un groupe d'utilisateur et de son utilisateur sous le NAS. 
 
   2. Création de partage avec prise en charge ACL.
   
