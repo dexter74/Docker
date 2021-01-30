@@ -31,6 +31,8 @@ drthrax74@Debian:~$ /usr/adduser marc \
   
 
 <p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
+<span style="color:red">some **This is Red Bold.** text</span>
+<span style="color:blue">some *This is Blue italic.* text</span>
 
 
 
