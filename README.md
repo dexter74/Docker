@@ -53,7 +53,7 @@ root@host:~$ systemctl enable wsdd ;
 root@host:~$ service wsdd status ;
 ````
 
-Projet WSDD: [ici][WSDD]
+**Projet WSDD:** ['ici'][WSDD]
 
 ____
 
