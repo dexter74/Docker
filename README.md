@@ -9,68 +9,63 @@ ________________________________________________________________________________
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     0. Déclaration des variables pour la suite
 
-Se connecter en root :
+#### A. Se connecter en root:
 ````console
 root@host:$ sudo -i
 ````
 
+#### B. Insertion des varables:
 ````console
-root@host:$ 
-
+root@host:$
 RELEASE_DEBIAN=buster
 USERS=docker
 PASSWORD=admin
 USERS_ID=2000
 USER_HOME=/home/docker
-
 GROUP=docker
 GROUP_ID=5000
-
 SAMBA_USER=docker
 SAMBA_PASS=admin
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##   :satellite:   .**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
-#### 1.Purge de l'utilisateur, de son dossier propre et du Groupe
+##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
+#### A.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 root@host:$ 
-
 deluser $USERS ; 
 rm -r $USER_HOME ;
 delgroup $GROUP_ID ;
 ````
-
-#### 2.Création du Groupe, Utilisateur
+#### B.Création du Groupe, Utilisateur
 ````console
 root@host:$ 
-
 addgroup $GROUP --gid $GROUP_ID ;
 useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
 echo "$USERS:$PASSWORD" | chpasswd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :microscope:  X.**Installation Samba**
-#### 1. Installation de Samba
+##  :microscope:  2.**Installation Samba**
+#### A. Installation de Samba
 
 ````console
+root@host:$
 echo "deb http://ftp.de.debian.org/debian $RELEASE_DEBIAN  main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
 
-#### 2. Création du compte de partage Samba
+#### B. Création du compte de partage Samba
 
 ````console
-root@host:$ 
-
+root@host:$
 (echo $SAMBA_PASS; echo $SAMBA_PASS; echo ) | smbpasswd -a $SAMBA_USER ;
 smbpasswd -e $SAMBA_USER ;
 systemctl restart smbd ;
 ````
 
-#### 3. Configuration des partages Samba
-**Explication :**
+#### C. Configuration des partages Samba
+**Note d'information:**
 ````
 Nom du partage : homes
 Descriptif     : Dossier de l'utilisateur (/home/XXXX)
@@ -79,11 +74,9 @@ Nom du partage : SYSTEm
 Information    : Le compte docker utilise les droits du compte root pour ce partage
 Descriptif     : Dossier Racine de l'utilisateur
 ````
-
-##### **/etc/samba/smb.conf** (C'est une commande)
+***Commandes Terminal:**
 ````console
-root@host:$ 
-
+root@host:$
 echo "#======================= Global Settings =======================
 [global]
    workgroup = WORKGROUP
@@ -134,7 +127,7 @@ systemctl restart smbd ;
 systemctl status smbd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :petri_dish:   X. **Prise en charge de la découverte réseau pour Windows**
+##  :petri_dish:   3. **Prise en charge de la découverte réseau pour Windows**
 ````console
 root@host:$ 
 
@@ -155,18 +148,18 @@ service wsdd status ;
 
 **Projet:** [WSDD][LIEN_WSDD]
 ________________________________________________________________________________________________________________________________________________________________
-##  :test_tube:   7. **Installation de Docker**
+##  :test_tube:   4. **Installation de Docker**
 
 ````
 https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :gear:        6. **Création du conteneur Portainer.**
+##  :gear:        5. **Création du conteneur Portainer.**
 ````
 https://github.com/dexter74/Docker/blob/main/2.Install_Portainer.sh:
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :magnet:      7. **Création des volumes contenant les accès aux partages.**
+##  :magnet:      6. **Création des volumes contenant les accès aux partages.**
 ````
 https://github.com/dexter74/Docker/blob/main/3.Volumes.sh
 ````
