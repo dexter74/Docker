@@ -1,9 +1,10 @@
 ****
 ![alt text][LOGO]
-
+[ICI][Liens_1]
 
 
 ### Mise en place de l'environnement ###
+[ICI]
 
 #### Etape 1: Création d'un groupe d'utilisateur et de son utilisateur sous le NAS ####
 
@@ -43,3 +44,4 @@ Pour le conteneur Qbitorrent, c'est le partage DL qui est monté.
 
 
 [LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
+[LINES_1]: #
