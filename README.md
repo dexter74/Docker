@@ -302,6 +302,17 @@ WantedBy=multi-user.target' > /lib/systemd/system/docker.service ; systemctl dae
 ````
 
 
+**Erreur**
+````console
+systemctl status docker.* | grep docker
+````
+
+````
+Your kernel does not support swap memory limit
+Your kernel does not support CPU realtime schedule
+````
+
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :gear:        5. **Création du conteneur Portainer.**
 
