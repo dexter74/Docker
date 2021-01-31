@@ -307,7 +307,9 @@ WantedBy=multi-user.target' > /lib/systemd/system/docker.service ; systemctl dae
 root@hostname:$
 systemctl status docker.* | grep docker ;
 Your kernel does not support swap memory limit
-Your kernel does not support CPU realtime schedule
+level=warning msg="Your kernel does not support CPU realtime scheduler"
+level=warning msg="Your kernel does not support cgroup blkio weight"
+level=warning msg="Your kernel does not support cgroup blkio weight_device"
 ````
 
 **Information Système**
