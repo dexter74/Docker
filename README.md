@@ -168,6 +168,7 @@ systemctl disable wsdd ;
 rm /etc/systemd/system/wsdd.service ;
 rm /usr/bin/wsdd ;
 systemctl daemon-reload ;
+clear ;
 
 wget https://github.com/christgau/wsdd/archive/master.zip -O /tmp/master.zip ;
 unzip /tmp/master.zip -d /tmp ;
