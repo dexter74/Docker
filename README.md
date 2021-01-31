@@ -47,7 +47,7 @@ rm -r $USER_HOME ;
 root@host:$
 /usr/sbin/addgroup $GROUP --gid $GROUP_ID ;
 /usr/sbin/useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
-echo "$USERS:$PASSWORD" | chpasswd ;
+echo "$USERS:$PASSWORD" |  /usr/sbin/chpasswd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :microscope:  2.**Installation Samba**
