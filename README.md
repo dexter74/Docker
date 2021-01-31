@@ -31,14 +31,14 @@ ________________________________________________________________________________
 ##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### A.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
-root@host:$ 
-deluser $USERS ; 
+root@host:$
+deluser $USERS ;
 rm -r $USER_HOME ;
 delgroup $GROUP_ID ;
 ````
 #### B.Création du Groupe, Utilisateur
 ````console
-root@host:$ 
+root@host:$
 addgroup $GROUP --gid $GROUP_ID ;
 useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
 echo "$USERS:$PASSWORD" | chpasswd ;
