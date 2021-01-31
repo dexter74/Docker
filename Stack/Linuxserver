@@ -52,7 +52,7 @@ services: #
 #####################################
 # Centralisé Music                  # A voir si sa marche
   Beets:                            #
-    container_name: Beets           #l
+    container_name: Beets           #
     image: linuxserver/beets        #
     environment:                    #
       - PUID=1001                   #
@@ -151,7 +151,7 @@ services: #
 #####################################
 
 #####################################
-# Interface de Développement WebUi  # 
+# Interface de Développement WebUi  #
   Cloud9:                           #
     container_name: Cloud9          #
     image: linuxserver/cloud9       #
