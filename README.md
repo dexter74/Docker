@@ -267,6 +267,7 @@ docker volume rm Portainer_Data ;
 docker container rm portainer ;
 docker image rm portainer/portainer -f ;
 docker image rm portainer/portainer-ce -f ;
+clear ;
 ````
 
 #### C. Création du Volume Portainer_Data
