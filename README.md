@@ -205,20 +205,22 @@ root@host:$
 sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
 sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket ;
 systemctl daemon-reload ;
-systemctl restart docker.s* ;
 ````
 #### G. Modification des permissions:
 ````console
 root@host:$
 sudo chown docker:docker /var/run/docker.sock ;
-
+systemctl restart docker.s* ;
+systemctl | grep "docker.service\|docker.socket" | grep running ;
 ````
+
 #### H. Vérification du lancement:
 ````console
 root@host:$
 docker run hello-world ;
-
 ````
+
+
 #### I. Installation de Docker-compose (En date du 30-01-2021 : La version est 1.27.4)
 ````console
 root@host:$
