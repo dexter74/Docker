@@ -417,27 +417,26 @@ chattr +i /home/docker/volumes/Portainer_Data ;
 ````
 
 #### G. Cacher un conteneur dans le panel de supervsion Portainer
+Pour cacher automatiquement Portainer dans le panel de supervision, il suffit de définir un `--Label Portainer="hide"` puis d'utiliser le paarmètre `--hide-label Portainer="hide"` (Le nom Portainer et hide est un exemple de nom=valeur)
 ````console
-Un conteneur doit être lancer avec label (XXXX=YYYY) puis il suffit d'aller dans settings >  Hidden containers
-Name  : XXXX
-value : YYYY
-
-Portainer:
-   - Name  : container
-   - value : portainer
+   --name=Portainer-CE \
+   --restart=always \
+   --label Portainer="hide" \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v Portainer_Data:/data portainer/portainer-ce \
+   --hide-label Portainer="hide" 
 ````
 
-En ligne de commande :
-````console
-root@hostname:$
---label XXXX="YYYY"
-````
-
-Sous Docker-compose:
+**Sous Docker-compose:**
+Il suffit de créer un conteneur avec un label puis d'ajouter ce label dans le panel portainer section settings.
 ````
     labels:
       XXXX: 'YYYY'
 ````
+
+
+
+
 
 
 #### H. Supprimer la Protection du volume de Portainer (Option)
