@@ -161,7 +161,7 @@ services: #
       - USERNAME=admin              #
       - PASSWORD=admin              #
     ports:                          #
-      - 1000:8000                   #
+      - 1002:8000                   #
     volumes:                        #
       - Cloud9:/code                #
 #####################################
