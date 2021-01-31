@@ -96,6 +96,9 @@ Information    : Le compte docker utilise les droits du compte root pour ce part
 Descriptif     : Dossier Racine de l'utilisateur
 ````
 
+
+[Partage Samba: Se connecter à différent compte en même temps](https://qastack.fr/superuser/95872/sambawindows-allow-multiple-connections-by-different-users)
+
 **Commandes Terminal:**
 ````console
 root@host:$
