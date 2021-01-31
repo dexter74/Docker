@@ -21,7 +21,7 @@ services:      #
 # Port applicatif : 32400
 # Plex Claim      : https://www.plex.tv/claim/
 ##################################################################################################################
-  plex:
+  Plex:
     container_name: Plex
     hostname: plex
     domainname: lan
@@ -141,7 +141,7 @@ services:      #
 
 ##################################################################################################################
 # API pour Jacket : http://192.168.10.5:8191
-  flaresolverr:
+  Flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     container_name: flaresolverr
     environment:
