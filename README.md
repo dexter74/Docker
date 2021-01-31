@@ -180,7 +180,7 @@ clear ;
 #### B. Installation des dépendances
 ````console
 root@host:$
-apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
+apt install -y -qq apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
 ````
 
 ####  C. Ajout de la clé
