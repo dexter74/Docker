@@ -325,8 +325,8 @@ systemctl reboot ; # En général sa suffit
 
 echo deb http://deb.debian.org/debian buster-backports main contrib non-free | sudo tee /etc/apt/sources.list.d/buster-backports.list ;
 sudo apt update ;
-sudo apt install -t buster-backports linux-image-amd64 ;
-sudo apt install -t buster-backports firmware-linux firmware-linux-nonfree ;
+sudo apt install -y -t buster-backports linux-image-amd64 ;
+sudo apt install -y -t buster-backports firmware-linux firmware-linux-nonfree ;
 sudo rm /etc/apt/sources.list.d/buster-backports.list ;
 systemctl reboot ;
 ````
