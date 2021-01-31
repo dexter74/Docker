@@ -80,10 +80,11 @@ pdbedit -L ;
 Nom du partage : homes
 Descriptif     : Dossier de l'utilisateur (/home/XXXX)
 
-Nom du partage : SYSTEm
+Nom du partage : SYSTEM
 Information    : Le compte docker utilise les droits du compte root pour ce partage
 Descriptif     : Dossier Racine de l'utilisateur
 ````
+
 **Commandes Terminal:**
 ````console
 root@host:$
