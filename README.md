@@ -419,7 +419,7 @@ ________________________________________________________________________________
 ````console
 root@host:$
 USER_DL=Qbitorrent
-PASS_DL=Ad...74@
+PASS_DL=Ad.du74@
 
 USER_VIDEO=Medias
 PASS_VIDEO=Az..du74@
