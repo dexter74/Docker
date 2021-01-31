@@ -36,6 +36,7 @@ services:      #
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Video:/mnt/Video
+      - Musique:/mnt/Musique
     ports:
       - 32400:32400
     labels:
