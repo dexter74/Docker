@@ -419,10 +419,14 @@ ________________________________________________________________________________
 ````console
 root@host:$
 USER_DL=Qbitorrent
-PASS_DL=Admindu74@
+PASS_DL=Ad...74@
 
 USER_VIDEO=Medias
-PASS_VIDEO=Azertydu74@
+PASS_VIDEO=Az..du74@
+NAS=192.168.1.2
+Partage_1=DL
+Partage_2=Video
+
 
 # Protection Anti-suppression OFF
 chattr -i /home/docker/volumes/Video ;
@@ -435,13 +439,13 @@ docker volume rm DL ;
 # Dossier DL et Video
 docker volume create --driver local \
         --opt type=cifs \
-        --opt device=//192.168.1.2/dl \
+        --opt device=//$NAS/$Partage_1 \
         --opt o=username=$USER_DL,password=$PASS_DL,vers=3.0,file_mode=0777,dir_mode=0777 \
         --name DL
 
 docker volume create --driver local \
         --opt type=cifs \
-        --opt device=//192.168.1.2/Video \
+        --opt device=//$NAS/$Partage_2 \
         --opt o=username=$USER_VIDEO,password=$PASS_VIDEO,vers=3.0,file_mode=0777,dir_mode=0777 \
         --name Video
 
