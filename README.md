@@ -167,10 +167,6 @@ systemctl status wsdd ;
 ________________________________________________________________________________________________________________________________________________________________
 ##  :test_tube:   4. **Installation de Docker.**
 
-````
-https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
-````
-
 #### A. Nettoyage du système
 ````console
 root@host:$
@@ -253,9 +249,59 @@ docker login -u <user> <password> ;
 
 ________________________________________________________________________________________________________________________________________________________________
 ##  :gear:        5. **Création du conteneur Portainer.**
+
+#### A. Arret de Portainer (Securite)
+````console
+root@host:$
+docker kill portainer ;
+docker rm portainer ;
 ````
-https://github.com/dexter74/Docker/blob/main/2.Install_Portainer.sh:
+
+#### B. Nettoyage de Portainer (Securité)
+````console
+root@host:$
+docker volume rm Portainer_Data ;
+docker container rm portainer ;
+docker image rm portainer/portainer -f ;
+docker image rm portainer/portainer-ce -f ;
 ````
+
+#### C. Création du Volume Portainer_Data
+````console
+root@host:$
+docker volume create Portainer_Data ;
+````
+
+#### D. Téléchargement de l'image de Portainer
+````console
+root@host:$
+docker pull portainer/portainer-ce ;
+````
+
+#### E. Création du Conteneur Portainer
+````console
+root@host:$
+docker run -d -p 8000:8000 -p 9000:9000 \
+      --label container="portainer" \
+      --name=Portainer-CE \
+      --restart=always \
+      -v /var/run/docker.sock:/var/run/docker.sock \
+      -v Portainer_Data:/data portainer/portainer-ce ;
+````
+
+#### F. Protéger le Volume Portainer contre la suppression accidentel
+````console
+root@host:$
+chattr +i /home/docker/volumes/Portainer_Data ;
+````
+
+
+#### G. Supprimer la Protection du volume de Portainer (Option)
+````console
+root@host:$
+chattr -i /home/docker/volumes/Portainer_Data ;
+````
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :magnet:      6. **Création des volumes contenant les accès aux partages.**
 ````
