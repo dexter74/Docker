@@ -70,7 +70,6 @@ sed -i -- 's/deb cdrom/#deb cdrom/g' /etc/apt/sources.list ;
 echo "deb http://ftp.de.debian.org/debian $RELEASE_DEBIAN  main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
 apt install -y -qq samba ;
-rm /etc/apt/sources.list.d/Buster.list ;
 ````
 
 #### B. Création du compte de partage Samba
@@ -181,6 +180,8 @@ systemctl daemon-reload ;
 systemctl start wsdd ;
 systemctl enable wsdd ;
 systemctl status wsdd ;
+
+rm /etc/apt/sources.list.d/Buster.list ;
 ````
 
 **Projet:** [WSDD][LIEN_WSDD]
