@@ -403,18 +403,18 @@ chattr -i /home/docker/volumes/Portainer_Data ;
 ````
 
 ________________________________________________________________________________________________________________________________________________________________
-##  :magnet:      VII. **Création des volumes contenant les accès aux partages.**
+##  :magnet:      VIII. **Création des volumes contenant les accès aux partages.**
 ````
 https://github.com/dexter74/Docker/blob/main/3.Volumes.sh
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :chains:      IIX. **Ajout des Endpoints dans Portainer.**
+##  :chains:      IX. **Ajout des Endpoints dans Portainer.**
 ````
 Un endpoint est l'URL de sortie du conteneur. (Exemple.com)
 Si un conteneur a comme port 80 en sortie, l'accès au service se fera sur l'URL suivante : http://Exemple.com:80
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :shield:      IX. **Création du stack applicatif.**  
+##  :shield:      X. **Création du stack applicatif.**  
 ````
 Aller dans Endpoints désirer puis aller dans Stack.
 Une fois dans le Stack Coller le code docker-compose
@@ -423,12 +423,12 @@ Les images seront télécharger et le conteneur créer avec les paramètres.
 Le docker-hub est le site de référence.
 ````
 ________________________________________________________________________________________________________________________________________________________________
-:octocat:        X. ** Pfsense - Acme
+:octocat:        XI. ** Pfsense - Acme
 ````
 Aller dans Pfsense > Général > Paquet > Acme.
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :axe:        XI. **Pfsense - Reverse Proxy**
+##  :axe:        XII. **Pfsense - Reverse Proxy**
 
 ````
 Aller dans Pfsense > Général > Paquet  > Ha-proxy
