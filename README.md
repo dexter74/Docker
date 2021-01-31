@@ -376,10 +376,11 @@ docker rm portainer ;
 #### B. Nettoyage de Portainer (Securité)
 ````console
 root@host:$
-docker volume rm Portainer_Data ;
-docker container rm portainer ;
-docker image rm portainer/portainer -f ;
+
+chattr -i /home/docker/volumes/Portainer_Data ;
+docker container rm Portainer-CE -f ;
 docker image rm portainer/portainer-ce -f ;
+docker volume rm Portainer_Data ;
 clear ;
 ````
 
