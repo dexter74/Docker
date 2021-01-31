@@ -307,7 +307,20 @@ WantedBy=multi-user.target' > /lib/systemd/system/docker.service ; systemctl dae
 systemctl status docker.* | grep docker
 ````
 
+**Information Système**
+````console
+root@hostname:$ uname -r 
+                4.19.0-13-amd64
+
+root@hostname:$ lsb_release -a
+               No LSB modules  are available.
+               Distributor ID: Debian
+               Description:    Debian GNU/Linux 10 (buster)
+               Release:        10
+               Codename:       buster
 ````
+
+
 Your kernel does not support swap memory limit
   echo deb http://deb.debian.org/debian buster-backports main contrib non-free | sudo tee /etc/apt/sources.list.d/buster-backports.list
   sudo apt update ;
