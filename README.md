@@ -160,10 +160,7 @@ sed -i 's/Group=nobody/Group=root/g' /etc/systemd/system/wsdd.service ;
 systemctl daemon-reload ;
 systemctl start wsdd ;
 systemctl enable wsdd ;
-service wsdd status ;
-
-
-
+systemctl status wsdd ;
 ````
 
 **Projet:** [WSDD][LIEN_WSDD]
