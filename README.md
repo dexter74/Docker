@@ -396,7 +396,7 @@ root@host:$
 docker volume create Portainer_Data ;
 ````
 
-#### E. Création du Conteneur Portainer
+#### E.A  Création du Conteneur Portainer (Mode Afficher)
 ````console
 root@host:$
 docker run -d -p 8000:8000 -p 9000:9000 \
@@ -407,18 +407,11 @@ docker run -d -p 8000:8000 -p 9000:9000 \
       -v Portainer_Data:/data portainer/portainer-ce ;
 ````
 
-#### `http://192.168.10.5:9000`
-
-
-#### F. Protéger le Volume Portainer contre la suppression accidentel
-````console
-root@host:$
-chattr +i /home/docker/volumes/Portainer_Data ;
-````
-
-#### G. Cacher un conteneur dans le panel de supervsion Portainer
+#### E.B  Création du Conteneur Portainer (Mode Hide)
 Pour cacher automatiquement Portainer dans le panel de supervision, il suffit de définir un `--Label Portainer="hide"` puis d'utiliser le paarmètre `--hide-label Portainer="hide"` (Le nom Portainer et hide est un exemple de nom=valeur)
 ````console
+root@host:$
+docker run -d -p 8000:8000 -p 9000:9000 \
    --name=Portainer-CE \
    --restart=always \
    --label Portainer="hide" \
@@ -427,6 +420,9 @@ Pour cacher automatiquement Portainer dans le panel de supervision, il suffit de
    --hide-label Portainer="hide" 
 ````
 
+#### `http://192.168.10.5:9000`
+
+
 **Sous Docker-compose:**
 Il suffit de créer un conteneur avec un label puis d'ajouter ce label dans le panel portainer section settings.
 ````
@@ -434,9 +430,11 @@ Il suffit de créer un conteneur avec un label puis d'ajouter ce label dans le p
       XXXX: 'YYYY'
 ````
 
-
-
-
+#### F. Protéger le Volume Portainer contre la suppression accidentel
+````console
+root@host:$
+chattr +i /home/docker/volumes/Portainer_Data ;
+````
 
 
 #### H. Supprimer la Protection du volume de Portainer (Option)
