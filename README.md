@@ -51,6 +51,13 @@ root@host:$
 /usr/sbin/useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
 echo "$USERS:$PASSWORD" |  /usr/sbin/chpasswd ;
 ````
+
+#### C. Changer les permissions du dossier Docker
+````console
+root@host:$
+chmod 777 /home/docker ;
+````
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :microscope:  III. **Installation Samba.**
 
