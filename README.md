@@ -406,8 +406,8 @@ docker run -d -p 8000:8000 -p 9000:9000 \
       -v /var/run/docker.sock:/var/run/docker.sock \
       -v Portainer_Data:/data portainer/portainer-ce ;
 ````
-#### `http://192.168.10.5:9000`
 
+#### `http://192.168.10.5:9000`
 
 
 #### F. Protéger le Volume Portainer contre la suppression accidentel
@@ -416,8 +416,15 @@ root@host:$
 chattr +i /home/docker/volumes/Portainer_Data ;
 ````
 
+#### G. Cacher Portainer dans le panel de supervision
+````console
+Le conteneur a été lancer avec le label  container="portainer", il suffit d'aller dans settings >  Hidden containers
+Name  : container
+value : portainer
+````
 
-#### G. Supprimer la Protection du volume de Portainer (Option)
+
+#### H. Supprimer la Protection du volume de Portainer (Option)
 ````console
 root@host:$
 chattr -i /home/docker/volumes/Portainer_Data ;
