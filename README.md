@@ -114,6 +114,7 @@ echo "#======================= Global Settings =======================
    pam password change = yes
    map to guest = bad user
    usershare allow guests = yes
+   netbios aliases = sldebian02 sldebian02b
 #====================== Partage home ========================
 [homes]
    comment = Dossier Utilisateurs
