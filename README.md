@@ -320,6 +320,9 @@ uname -r ;
 **Correctif:**
 ````console
 root@hostname:$
+systemctl reboot ; # En général sa suffit
+
+
 echo deb http://deb.debian.org/debian buster-backports main contrib non-free | sudo tee /etc/apt/sources.list.d/buster-backports.list ;
 sudo apt update ;
 sudo apt install -t buster-backports linux-image-amd64 ;
@@ -332,7 +335,7 @@ systemctl reboot ;
 La mise à niveau du kernel à corriger le problème.
 ````console
 root@hostname:$
-uname -r ; ;
+uname -r ;
 5.9.0-0.bpo.5-amd64
 ````
 
