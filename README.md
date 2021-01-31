@@ -5,7 +5,6 @@ ________________________________________________________________________________
 
 # **<p align=center>Mise en place de l'environnement</align>** #
 
-
 ________________________________________________________________________________________________________________________________________________________________
 ##  :alembic:     I. **Déclaration des variables pour la suite.**
 
@@ -35,6 +34,7 @@ SAMBA_PASS=Admindu74
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##   :satellite:   II. **Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
+
 #### A.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 root@host:$
@@ -51,6 +51,7 @@ echo "$USERS:$PASSWORD" |  /usr/sbin/chpasswd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :microscope:  III. **Installation Samba.**
+
 #### A. Installation de Samba
 
 ````console
@@ -140,6 +141,7 @@ systemctl status smbd ;
 
 ________________________________________________________________________________________________________________________________________________________________
 ##  :petri_dish:   IV. **Prise en charge de la découverte réseau pour Windows.**
+
 ````console
 root@host:$
 apt install -y -qq unzip ;
@@ -222,8 +224,8 @@ root@host:$
 docker run hello-world ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
+## VI. Installation de Docker-compose (En date du 30-01-2021 : La version est 1.27.4)
 
-#### VI. Installation de Docker-compose (En date du 30-01-2021 : La version est 1.27.4)
 ````console
 root@host:$
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose ;
