@@ -483,6 +483,15 @@ Aller dans Pfsense > Général > Paquet  > Ha-proxy
 ________________________________________________________________________________________________________________________________________________________________
 
 
+````
+RELEASE='buster'
+echo "deb http://ftp.de.debian.org/debian $RELEASE main" > /etc/apt/sources.list.d/cloud_init.list ;
+apt update ;
+apt install -y -qq cloud-init ;
+apt install -y qemu-guest-agent ;
+rm /etc/apt/sources.list.d/cloud_init.list ;
+````
+
 
 
 [LOGO]: https://www.clipartmax.com/png/full/146-1469802_logo-logo-docker.png
