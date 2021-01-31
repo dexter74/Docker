@@ -304,15 +304,16 @@ WantedBy=multi-user.target' > /lib/systemd/system/docker.service ; systemctl dae
 
 **Erreur**
 ````console
+root@hostname:$
 systemctl status docker.* | grep docker ;
-
 Your kernel does not support swap memory limit
 Your kernel does not support CPU realtime schedule
 ````
 
 **Information Système**
 ````console
-root@hostname:$ uname -r
+root@hostname:$
+uname -r ;
 4.19.0-13-amd64
 ````
 
