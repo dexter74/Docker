@@ -331,7 +331,8 @@ systemctl reboot ;
 **Information Système**
 La mise à niveau du kernel à corriger le problème.
 ````console
-root@hostname:$ uname -r ;
+root@hostname:$
+uname -r ; ;
 5.9.0-0.bpo.5-amd64
 ````
 
