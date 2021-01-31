@@ -247,7 +247,7 @@ docker rmi $(docker images -q) ;
 #### L. Connexion au Docker-hub
 ````console
 root@host:$
-docker login -u <user> <password> ;
+docker login -u <user> -p <password> ;
 ````
 
 ________________________________________________________________________________________________________________________________________________________________
