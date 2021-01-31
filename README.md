@@ -447,10 +447,10 @@ ________________________________________________________________________________
 ````console
 root@host:$
 USER_DL=Qbitorrent
-PASS_DL=Ad.du74@
+PASS_DL=Admindu74@
 
 USER_VIDEO=Medias
-PASS_VIDEO=Az..du74@
+PASS_VIDEO=Azertydu74@
 NAS=192.168.1.2
 Partage_1=DL
 Partage_2=Video
