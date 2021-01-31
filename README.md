@@ -409,7 +409,7 @@ ________________________________________________________________________________
 ##  :chains:      8. **Ajout des Endpoints dans Portainer.**
 ````
 Un endpoint est l'URL de sortie du conteneur. (Exemple.com)
-Si un conteneur a comme port 80 en sortie, l'URL http://Exemple.com:80
+Si un conteneur a comme port 80 en sortie, l'accès au service se fera sur l'URL suivante : http://Exemple.com:80
 ````
 ________________________________________________________________________________________________________________________________________________________________
 ##  :shield:      9. **Création du stack applicatif.**  
