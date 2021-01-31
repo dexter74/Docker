@@ -484,12 +484,15 @@ ________________________________________________________________________________
 
 
 ````
+echo "net.ipv6.conf.all.disable_ipv6 = 1" > /etc/sysctl.d/70-disable-ipv6.conf
 RELEASE='buster'
 echo "deb http://ftp.de.debian.org/debian $RELEASE main" > /etc/apt/sources.list.d/cloud_init.list ;
 apt update ;
 apt install -y -qq cloud-init ;
 apt install -y qemu-guest-agent ;
 rm /etc/apt/sources.list.d/cloud_init.list ;
+systemctl enable qemu-guest-agent
+
 ````
 
 
