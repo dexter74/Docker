@@ -383,16 +383,16 @@ docker image rm portainer/portainer-ce -f ;
 clear ;
 ````
 
-#### C. Création du Volume Portainer_Data
-````console
-root@host:$
-docker volume create Portainer_Data ;
-````
-
-#### D. Téléchargement de l'image de Portainer
+#### C. Téléchargement de l'image de Portainer
 ````console
 root@host:$
 docker pull portainer/portainer-ce ;
+````
+
+#### D. Création du Volume Portainer_Data
+````console
+root@host:$
+docker volume create Portainer_Data ;
 ````
 
 #### E. Création du Conteneur Portainer
