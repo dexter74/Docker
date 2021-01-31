@@ -416,11 +416,15 @@ root@host:$
 chattr +i /home/docker/volumes/Portainer_Data ;
 ````
 
-#### G. Cacher Portainer dans le panel de supervision
+#### G. Cacher un conteneur dans le panel de supervsion Portainer
 ````console
-Le conteneur a été lancer avec le label  container="portainer", il suffit d'aller dans settings >  Hidden containers
-Name  : container
-value : portainer
+Un conteneur doit être lancer avec label (XXXX=YYYY) puis il suffit d'aller dans settings >  Hidden containers
+Name  : XXXX
+value : YYYY
+
+Portainer:
+   - Name  : container
+   - value : portainer
 ````
 
 
