@@ -7,7 +7,7 @@ ________________________________________________________________________________
 
 
 ________________________________________________________________________________________________________________________________________________________________
-##  :alembic:     0. Déclaration des variables pour la suite
+##  :alembic:     0. **Déclaration des variables pour la suite.**
 
 #### A. Se connecter en root:
 ````console
@@ -34,7 +34,7 @@ SAMBA_USER=$USERS
 SAMBA_PASS=Admindu74
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##   :satellite:   1.**Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
+##   :satellite:   1. **Création d'un groupe d'utilisateur avec son utilisateur dédiée.**
 #### A.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 root@host:$
@@ -50,7 +50,7 @@ root@host:$
 echo "$USERS:$PASSWORD" |  /usr/sbin/chpasswd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :microscope:  2.**Installation Samba**
+##  :microscope:  2. **Installation Samba.**
 #### A. Installation de Samba
 
 ````console
@@ -84,7 +84,7 @@ Nom du partage : SYSTEm
 Information    : Le compte docker utilise les droits du compte root pour ce partage
 Descriptif     : Dossier Racine de l'utilisateur
 ````
-***Commandes Terminal:**
+**Commandes Terminal:**
 ````console
 root@host:$
 echo "#======================= Global Settings =======================
@@ -137,7 +137,7 @@ systemctl restart smbd ;
 systemctl status smbd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
-##  :petri_dish:   3. **Prise en charge de la découverte réseau pour Windows**
+##  :petri_dish:   3. **Prise en charge de la découverte réseau pour Windows.**
 ````console
 root@host:$
 apt install -y unzip ;
@@ -165,13 +165,13 @@ systemctl status wsdd ;
 
 **Projet:** [WSDD][LIEN_WSDD]
 ________________________________________________________________________________________________________________________________________________________________
-##  :test_tube:   4. **Installation de Docker**
+##  :test_tube:   4. **Installation de Docker.**
 
 ````
 https://github.com/dexter74/Docker/blob/main/1.Installation_Docker.sh
 ````
 
-#### A.Nettoyage du système:
+#### A. Nettoyage du système
 ````console
 root@host:$
 apt autoremove --purge -y docker-ce docker-ce-cli containerd.io ;
@@ -181,7 +181,7 @@ rm -rf /etc/docker ;
 clear ;
 ````
 
-#### B. Installation des dépendances:
+#### B. Installation des dépendances
 ````console
 root@host:$
 apt install -y apt-transport-https ca-certificates gnupg-agent gnupg2 software-properties-common sudo curl ;
