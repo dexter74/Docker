@@ -220,7 +220,7 @@ root@host:$
 apt update ;
 apt install -y -qq docker-ce docker-ce-cli containerd.io ;
 ````
-#### F. Modifier l'utilisateur qui lancer le service Docker
+#### F. Modifier l'utilisateur qui lance le service Docker
 ````console
 root@host:$
 sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
