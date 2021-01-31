@@ -14,7 +14,13 @@ ________________________________________________________________________________
 root@host:$ sudo -i
 ````
 
-#### B. Insertion des varables:
+#### B. Installation de paquet indispensable
+````console
+root@host:$ 
+apt install 
+
+````
+#### C. Insertion des varables:
 ````console
 root@host:$
 RELEASE_DEBIAN=buster
