@@ -24,15 +24,45 @@ services:      #
       PGID: '74240'
       TZ: 'Europe\Paris'
       PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXX'
-
     volumes:
       - /home/docker/volumes/Plex/config:/config
       - /home/docker/volumes/Plex/transcode:/transcode
       - /home/docker/volumes/Plex/data:/data
       - Video:/mnt/Video
-      
     ports:
       - 32400:32400
+##################################################################################################################
+
+##################################################################################################################
+# Endpoint        : QBitTorrent
+# Port applicatif : 8081
+# Port Download   : 6881
+# Download        : /mnt/DL/Qbitorrent/Incomplet | /mnt/DL/Qbitorrent/Termine 
+#                 : /mnt/DL/Sonarr
+#                 : /mnt/DL/Radarr
+##################################################################################################################
+
+# docker stop QBitTorrent; 
+# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# docker start QBitTorrent ; 
+
+  QBitTorrent:
+    container_name: QBitTorrent
+    image: 'linuxserver/qbittorrent'
+    environment:
+      TZ: 'Europe/Paris'
+      PUID: '1001'
+      PGID: '74240'
+      UMASK_SET: '022'
+      WEBUI_PORT: '8081'
+    volumes:
+      - /home/docker/volumes/QBitTorrent/:/config
+      - /home/docker/volumes/QBitTorrent/downloads:/downloads
+      - DL:/mnt/DL
+    ports:
+      - 84:8081
 ##################################################################################################################
 
 
@@ -78,7 +108,6 @@ services:      #
       - 82:8989
 ##################################################################################################################
 
-
 ##################################################################################################################
 # Endpoint        : Jackett
 # Port applicatif : 9117
@@ -100,39 +129,6 @@ services:      #
 ##################################################################################################################
 
 ##################################################################################################################
-# Endpoint        : QBitTorrent
-# Port applicatif : 8081
-# Port Download   : 6881
-# Download        : /mnt/DL/Qbitorrent/Incomplet | /mnt/DL/Qbitorrent/Termine 
-#                 : /mnt/DL/Sonarr
-#                 : /mnt/DL/Radarr
-##################################################################################################################
-
-# docker stop QBitTorrent; 
-# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# docker start QBitTorrent ; 
-
-  QBitTorrent:
-    container_name: QBitTorrent
-    image: 'linuxserver/qbittorrent'
-    environment:
-      TZ: 'Europe/Paris'
-      PUID: '1001'
-      PGID: '74240'
-      UMASK_SET: '022'
-      WEBUI_PORT: '8081'
-    volumes:
-      - /home/docker/volumes/QBitTorrent/:/config
-      - /home/docker/volumes/QBitTorrent/downloads:/downloads
-      - DL:/mnt/DL
-    ports:
-      - 84:8081
-##################################################################################################################
-
-
-##################################################################################################################
 # API pour Jacket : http://192.168.10.5:8191
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
@@ -144,5 +140,4 @@ services:      #
     ports:
       - "${PORT:-8191}:8191"
     restart: unless-stopped 
-    
 ##################################################################################################################
