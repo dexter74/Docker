@@ -17,7 +17,7 @@ root@host:$ sudo -i
 #### B. Installation de paquet indispensable
 ````console
 root@host:$ 
-apt install 
+apt install -y -qq 
 
 ````
 #### C. Insertion des varables:
@@ -57,7 +57,7 @@ ________________________________________________________________________________
 root@host:$
 echo "deb http://ftp.de.debian.org/debian $RELEASE_DEBIAN  main" > /etc/apt/sources.list.d/Buster.list ;
 apt update ;
-apt install -y samba ;
+apt install -y qq samba ;
 rm /etc/apt/sources.list.d/Buster.list ;
 ````
 
@@ -140,7 +140,7 @@ ________________________________________________________________________________
 ##  :petri_dish:   3. **Prise en charge de la découverte réseau pour Windows.**
 ````console
 root@host:$
-apt install -y unzip ;
+apt install -y -qq unzip ;
 
 # Purger le service:
 rm -r /tmp/* ;
@@ -197,7 +197,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debi
 ````console
 root@host:$
 apt update ;
-apt install -y docker-ce docker-ce-cli containerd.io ;
+apt install -y -qq docker-ce docker-ce-cli containerd.io ;
 ````
 #### F. Modifier l'utilisateur qui lancer le service Docker
 ````console
