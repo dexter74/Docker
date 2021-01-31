@@ -430,15 +430,19 @@ PASS_VIDEO=Az..du74@
 NAS=192.168.1.2
 Partage_1=DL
 Partage_2=Video
+Partage_3=Musique
 
 
 # Protection Anti-suppression OFF
 chattr -i /home/docker/volumes/Video ;
 chattr -i /home/docker/volumes/DL ;
+chattr -i /home/docker/volumes/Musique ; 
 
 # Supprimer Volume:
 docker volume rm Video ;
 docker volume rm DL ;
+docker volume rm Musique ;
+
 
 # Dossier DL et Video
 docker volume create --driver local \
@@ -454,10 +458,19 @@ docker volume create --driver local \
         --name Video
 
 
+docker volume create --driver local \
+        --opt type=cifs \
+        --opt device=//$NAS/$Partage_3 \
+        --opt o=username=$USER_VIDEO,password=$PASS_VIDEO,vers=3.0,file_mode=0777,dir_mode=0777 \
+        --name Musique
+
+
 # Protection Anti-suppression
 chattr +i /home/docker/volumes/Video ;
 chattr +i /home/docker/volumes/DL ;
+chattr +i /home/docker/volumes/Musique ;
 ````
+
 ________________________________________________________________________________________________________________________________________________________________
 ##  :chains:      IX. **Ajout des Endpoints dans Portainer.**
 ````
