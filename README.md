@@ -385,6 +385,8 @@ docker run -d -p 8000:8000 -p 9000:9000 \
       -v Portainer_Data:/data portainer/portainer-ce ;
 ````
 
+`http://192.168.1.X:9000`
+
 #### F. Protéger le Volume Portainer contre la suppression accidentel
 ````console
 root@host:$
