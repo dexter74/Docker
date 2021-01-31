@@ -427,6 +427,18 @@ Portainer:
    - value : portainer
 ````
 
+En ligne de commande :
+````console
+root@hostname:$
+--label XXXX="YYYY"
+````
+
+Sous Docker-compose:
+````
+    labels:
+      XXXX: 'YYYY'
+````
+
 
 #### H. Supprimer la Protection du volume de Portainer (Option)
 ````console
