@@ -205,6 +205,7 @@ root@host:$
 sed -i 's/SocketUser=root/User=docker/g' /lib/systemd/system/docker.socket ;
 sed -i 's/SocketGroup=docker/SocketGroup=docker/g' /lib/systemd/system/docker.socket ;
 systemctl daemon-reload ;
+systemctl restart docker.s*
 ````
 #### G. Modification des permissions:
 ````console
