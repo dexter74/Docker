@@ -38,15 +38,15 @@ ________________________________________________________________________________
 #### A.Purge de l'utilisateur, de son dossier propre et du Groupe
 ````console
 root@host:$
-deluser $USERS ;
+/usr/sbin/deluser $USERS ;
 rm -r $USER_HOME ;
-delgroup $GROUP_ID ;
+/usr/sbin/delgroup $GROUP_ID ;
 ````
 #### B.Création du Groupe, Utilisateur
 ````console
 root@host:$
-addgroup $GROUP --gid $GROUP_ID ;
-useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
+/usr/sbin/addgroup $GROUP --gid $GROUP_ID ;
+/usr/sbin/useradd $USERS --uid $USERS_ID --home $USER_HOME --create-home --groups root,sudo,$GROUP --gid root --shell /bin/bash ;
 echo "$USERS:$PASSWORD" | chpasswd ;
 ````
 ________________________________________________________________________________________________________________________________________________________________
