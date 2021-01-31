@@ -4,10 +4,16 @@ services:      #
 ################
 
 ##################################################################################################################
-# Presentation du Stack:
-# Deux partages avec leur propre acces
-# Creation de 2 volumes (1 volume / Partage)
-# Création de conteneur avec montage des volumes
+# docker stop QBitTorrent; 
+# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
+# docker start QBitTorrent ; 
+##################################################################################################################
+
+
+
+
 
 ##################################################################################################################
 # Endpoint        : Plex
@@ -31,6 +37,7 @@ services:      #
       - Video:/mnt/Video
     ports:
       - 32400:32400
+    
 ##################################################################################################################
 
 ##################################################################################################################
@@ -41,13 +48,6 @@ services:      #
 #                 : /mnt/DL/Sonarr
 #                 : /mnt/DL/Radarr
 ##################################################################################################################
-
-# docker stop QBitTorrent; 
-# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/qBittorrent/qBittorrent.conf ;
-# docker start QBitTorrent ; 
-
   QBitTorrent:
     container_name: QBitTorrent
     image: 'linuxserver/qbittorrent'
