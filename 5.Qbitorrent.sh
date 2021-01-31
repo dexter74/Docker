@@ -6,7 +6,7 @@ clear ;
 ########################
 # Deblocage Qbitorrent #
 ########################
-FOLDER_DL=/mnt/DL/Qbitorrent
+FOLDER_DL=mnt/DL/Qbitorrent
 
 
 # Arreter le conteneur
