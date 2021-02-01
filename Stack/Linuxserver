@@ -245,7 +245,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - XXXX:80                     #
+      - 1010:80                     #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
@@ -264,7 +264,7 @@ services: #
       - USER=admin                  #
       - PASS=admin                  #
     ports:                          #
-      - XXXX:9091                   #
+      - 1011:9091                   #
     volumes:                        #
       - transmission:/config        #
       - transmission:/downloads     #
