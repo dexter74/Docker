@@ -123,6 +123,73 @@ services: #
 
 
 
+#####################################
+# Media Downloader (Sonarr, Radarr) #
+  Couchpotato:                      #
+    container_name: CN_Couchpotato  #
+    image: linuxserver/couchpotato  #
+    restart: 'no'                   #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 1004:5050                   #
+    volumes:                        #
+      - Couchpotato:/config         #
+      - Couchpotato:/downloads      #
+      - Couchpotato:/movies         #
+    labels:                         #
+       cacher: 'oui'                #
+#####################################
+
+
+
+#####################################
+# Streamer Musique (Mac, Unix, Win) #
+# Pas réussis à tester              #
+  Daapd:                            #
+    container_name: CN_Daapd        #
+    image: linuxserver/daapd        #
+    restart: 'no'                   #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 1005:3689/tcp               #
+      - 3688:3688                   #
+    volumes:                        #
+      - Daapd:/config               #
+      - Musique:/music              #
+      - Daapd:/Podcasts             #
+      - Daapd:/Audiobooks           #  
+      - Daapd:/Compilations         #  
+    labels:                         #
+       cacher: 'non'                #
+#####################################
+
+#####################################
+# Automatisation Téléchargement     # 
+# Protocole: SFTP, FTP, FTPS        #
+  Davos:                            #
+    container_name: CN_Davos        #
+    image: linuxserver/davos        #
+    restart: 'no'                   #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 1006:8080/tcp               #
+    volumes:                        #
+      - Davos:/config               #
+      - Davos:/download             #
+    labels:                         #
+       cacher: 'non'                #
+#####################################
+
+
 
 
 
