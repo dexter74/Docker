@@ -11,9 +11,15 @@ ________________________________________________________________________________
 ##  :alembic:     I. **Déclaration des variables pour la suite.**
 
 #### A. Se connecter en root:
-````sh
+````console
 root@host:$ sudo -i
 ````
+
+```sh
+$ cd dillinger
+$ npm install -d
+$ node app
+```
 
 #### B. Installation de paquet indispensable
 ````console
