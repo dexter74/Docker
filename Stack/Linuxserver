@@ -75,6 +75,7 @@ services: #
 
 #####################################
 # Application de calcul Recherche   #
+# 21232f297a57a5a743894a0e4a801fc3  #
   Boinc:                            #
     container_name: CN_Boinc        #
     image: linuxserver/boinc        #
@@ -83,7 +84,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
       - GUAC_USER=admin             #
-      - GUAC_PASS=<md5>             #
+      - GUAC_PASS=md5_password      #
     ports:                          #
       - 1004:8080                   #
     volumes:                        #
@@ -129,8 +130,9 @@ services: #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
-    links:                          #
+    external_links:                 #
       - CN_MariaDB:mysql            #
+  
     depends_on:                     #
      - CN_MariaDB                   #
     labels:                         #
