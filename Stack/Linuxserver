@@ -184,11 +184,11 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Mettre à jour NO-IP (Doc: http://climato.free.fr/upload/ddclient.pdf)
+# Mettre à jour DynDNS (Doc: http://climato.free.fr/upload/ddclient.pdf)
   DDClient:
     image: linuxserver/ddclient
     container_name: CN_DDClient
-    restart: unless-stopped
+    restart: 'no'
     environment:
       - PUID=1001
       - PGID=74240
@@ -224,7 +224,7 @@ services: #
   Dokuwiki:
     image: linuxserver/dokuwiki
     container_name: CN_Dokuwiki
-    restart: unless-stopped
+    restart: 'no'
     environment:
       - PUID=1001
       - PGID=74240
@@ -243,7 +243,7 @@ services: #
   Doublecommander:
     image: linuxserver/doublecommander
     container_name: CN_Doublecommander
-    restart: unless-stopped
+    restart: 'no'
     environment:
       - PUID=1001
       - PGID=74240
