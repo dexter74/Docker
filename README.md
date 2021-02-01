@@ -400,9 +400,9 @@ docker volume create Portainer_Data ;
 ````console
 root@host:$
 docker run -d -p 8000:8000 -p 9000:9000 \
-      --label container="portainer" \
       --name=Portainer-CE \
       --restart=always \
+      --label Portainer="hide" \
       -v /var/run/docker.sock:/var/run/docker.sock \
       -v Portainer_Data:/data portainer/portainer-ce ;
 ````
