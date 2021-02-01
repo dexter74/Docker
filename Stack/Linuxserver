@@ -13,7 +13,7 @@ services: #
 #####################################
 # Streamer Musique                  #
   Airsonic:                         #
-    container_name: Airsonic        #
+    container_name: CN_Airsonic     #
     image: linuxserver/airsonic     #
     environment:                    #
       - PUID=1001                   #
@@ -34,7 +34,7 @@ services: #
 #####################################
 # Telecharge les sous-titres        #
   Bazarr:                           #
-    container_name: Bazarr          #
+    container_name: CN_Bazarr       #
     image: linuxserver/bazarr       #
     environment:                    #
       - PUID=1001                   #
@@ -52,7 +52,7 @@ services: #
 #####################################
 # Centralisé Music                  # A voir si sa marche
   Beets:                            #
-    container_name: Beets           #
+    container_name: CN_Beets        #
     image: linuxserver/beets        #
     environment:                    #
       - PUID=1001                   #
@@ -70,7 +70,7 @@ services: #
 #####################################
 # Application de calcul Recherche   #
   Boinc:                            #
-    container_name: Boinc           #
+    container_name: CN_Boinc        #
     image: linuxserver/boinc        #
     environment:                    #
       - PUID=1001                   #
@@ -89,7 +89,7 @@ services: #
 #####################################
 # Proxy pour Sonarr et cie          #
   Cardigann:                        #
-    container_name: Cardigann       #
+    container_name: CN_Cardigann    #
     image: linuxserver/cardigann    #
     environment:                    #
       - PUID=1001                   #
@@ -106,7 +106,7 @@ services: #
 #####################################
 # Hebergement Image (DB2 Requise)   #
   Chevereto:                        #
-    container_name: Chevereto       #
+    container_name: CN_Chevereto    #
     image: linuxserver/chevereto    #
     environment:                    #
       - PUID=1001                   #
@@ -128,7 +128,7 @@ services: #
 #####################################
 # Dashboard enregistrer Carburant   #
   Clarkson:                         #
-    container_name: Clarkson        #
+    container_name: CN_Clarkson     #
     image: linuxserver/clarkson     #
     environment:                    #
       - PUID=1001                   #
@@ -153,7 +153,7 @@ services: #
 #####################################
 # Interface de Développement WebUi  #
   Cloud9:                           #
-    container_name: Cloud9          #
+    container_name: CN_Cloud9       #
     image: linuxserver/cloud9       #
     environment:                    #
       - PUID=1001                   #
@@ -175,7 +175,7 @@ services: #
 #####################################
 # info, warning, error              #
   Deluge:                           #
-    container_name: Deluge          #
+    container_name: CN_Deluge       #
     image: linuxserver/deluge       #
     environment:                    #
       - PUID=1001                   #
@@ -192,7 +192,7 @@ services: #
 #####################################
   MariaDB:                          #
     image: linuxserver/mariadb      #
-    container_name: MariaDB         #
+    container_name: CN_MariaDB      #
     restart: unless-stopped         #
     environment:                    #
       - PUID=1001                   #
@@ -208,7 +208,7 @@ services: #
 
 #####################################
   RuTorrent:                        #
-    container_name: rutorrent       #
+    container_name: CN_Rutorrent    #
     image: linuxserver/rutorrent    #
     environment:                    #
       - PUID=1001                   #
@@ -223,7 +223,7 @@ services: #
 
 #####################################
   Transmission:                     #
-    container_name: transmission    #
+    container_name: CN_Transmission #
     image: linuxserver/transmission #
     environment:                    #
       - PUID=1001                   #
