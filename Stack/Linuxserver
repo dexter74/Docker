@@ -26,7 +26,7 @@ services: #
     volumes:                        #
       - MariaDB:/config             #
     labels:                         #
-       cacher: 'oui'                #
+       cacher: 'non'                #
 #####################################
 
 #####################################
@@ -137,7 +137,7 @@ services: #
       - Couchpotato:/downloads      #
       - Couchpotato:/movies         #
     labels:                         #
-       cacher: 'oui'                #
+       cacher: 'non'                #
 #####################################
 
 #####################################
