@@ -35,41 +35,41 @@ services: #
   MariaDB:
     image: linuxserver/mariadb
     container_name: CN_MariaDB#
-    restart: unless-stopped         #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-      - MYSQL_ROOT_PASSWORD=root    #
-      - MYSQL_DATABASE=database     #
-      - MYSQL_USER=admin            #
-      - MYSQL_PASSWORD=admin        #
-    volumes:                        #
-      - MariaDB:/config             #
-    labels:                         #
-       cacher: 'non'                #
+    restart: unless-stopped
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    volumes:
+      - MariaDB:/config
+    labels:
+       cacher: 'non'
 ##################################################################################
 
 ##################################################################################
-# Streamer Musique                  #
-  Airsonic:                         #
-    container_name: CN_Airsonic     #
-    image: linuxserver/airsonic     #
-    restart: 'no'                   #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-    ports:                          #
-      - 1000:4040                   #
-    volumes:                        #
-      - Airsonic:/config            #
-      - Musique:/music              #
-      - Airsonic:/media             #
-      - Airsonic:/playlists         #
-      - Airsonic:/podcasts          #
-    labels:                         #
-       cacher: 'non'                #
+# Streamer Musique
+  Airsonic:
+    container_name: CN_Airsonic
+    image: linuxserver/airsonic
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1000:4040
+    volumes:
+      - Airsonic:/config
+      - Musique:/music
+      - Airsonic:/media
+      - Airsonic:/playlists
+      - Airsonic:/podcasts
+    labels:
+       cacher: 'non'
 ##################################################################################
 
 ##################################################################################
@@ -312,22 +312,22 @@ services: #
 ##################################################################################
 
 ##################################################################################
-  Transmission:                     #
-    container_name: CN_Transmission #
-    image: linuxserver/transmission #
-    restart: 'no'                   #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-      - USER=admin                  #
-      - PASS=admin                  #
-    ports:                          #
-      - 1007:9091                   #
-    volumes:                        #
-      - transmission:/config        #
-      - DL:/downloads               #
-      - transmission:/watch         #
-    labels:                         #
-       cacher: 'non'                #
+  Transmission:
+    container_name: CN_Transmission
+    image: linuxserver/transmission
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - USER=admin
+      - PASS=admin
+    ports:
+      - 1007:9091
+    volumes:
+      - transmission:/config
+      - DL:/downloads
+      - transmission:/watch
+    labels:
+       cacher: 'non'
 ##################################################################################
