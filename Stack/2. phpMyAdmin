@@ -20,5 +20,7 @@
       - MariaDB:mysql
     ports:
       - 85:80
+    labels:
+      cacher: 'non'
 # Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".     
 ##################################################################################################################
