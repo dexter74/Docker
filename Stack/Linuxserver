@@ -250,7 +250,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
     ports:
-      - 1008:3000
+      - 1009:3000
     volumes:
       - Doublecommander:/config
       - Doublecommander:/data
