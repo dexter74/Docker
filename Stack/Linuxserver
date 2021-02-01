@@ -10,6 +10,30 @@ services: #
 #
 # external_links
 
+
+########################################################################################
+
+#####################################
+#                                   #
+  XXXXX:                            #
+    image: linuxserver/XXXXX        #
+    container_name: CN_             #
+    restart: unless-stopped         #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 1020:80                     #
+    volumes:                        #
+      - XXXXX:/config               #
+    labels:                         #
+       cacher: 'non'                #
+#####################################
+
+########################################################################################
+
+
 #####################################
   MariaDB:                          #
     image: linuxserver/mariadb      #
@@ -223,9 +247,24 @@ services: #
        cacher: 'non'                #
 #####################################
 
-
-
-
+#####################################
+  Dokuwiki:                         #
+    image: linuxserver/dokuwiki     #
+    container_name: CN_Dokuwiki     #
+    restart: unless-stopped         #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    ports:                          #
+      - 1020:80                     #
+    volumes:                        #
+      - Dokuwiki:/config            #
+    labels:                         #
+       cacher: 'non'                #
+                                    #
+# http://IP:PORT/install.php        #
+#####################################
 
 
 
