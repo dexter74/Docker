@@ -15,12 +15,6 @@ ________________________________________________________________________________
 root@host:$ sudo -i
 ````
 
-```sh
-$ cd dillinger
-$ npm install -d
-$ node app
-```
-
 #### B. Installation de paquet indispensable
 ````console
 root@host:$ 
