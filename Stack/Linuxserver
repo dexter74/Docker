@@ -11,24 +11,6 @@ services: #
 # external_links
 
 
-##################################################################################
-  XXXXX:
-    image: linuxserver/XXXXX
-    container_name: CN_
-    restart: unless-stopped
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-    ports:
-      - 1020:80
-    volumes:
-      - XXXXX:/config
-    labels:
-       cacher: 'non'
-##################################################################################
-
-
 
 
 ##################################################################################
@@ -329,3 +311,25 @@ services: #
     labels:
        cacher: 'non'
 ##################################################################################
+
+
+
+
+
+##################################################################################
+  XXXXX:
+    image: linuxserver/XXXXX
+    container_name: CN_
+    restart: unless-stopped
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1020:80
+    volumes:
+      - XXXXX:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
