@@ -42,10 +42,10 @@ services: #
       - 1000:4040
     volumes:
       - Airsonic:/config
-      - Musique:/music
       - Airsonic:/media
       - Airsonic:/playlists
       - Airsonic:/podcasts
+      - Musique:/music
     labels:
        cacher: 'non'
 ##################################################################################
@@ -72,7 +72,6 @@ services: #
 
 ##################################################################################
 # Hebergement Image (Requis : MariaDB)
-
   Chevereto:
     container_name: CN_Chevereto
     image: linuxserver/chevereto
@@ -214,16 +213,16 @@ services: #
     ports:
       - 1007:8112
     volumes:
-      - deluge:/config
-      - deluge:/downloads
+      - Deluge:/config
+      - Deluge:/downloads
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
-  Dokuwiki:
+  DokuWiki:
     image: linuxserver/dokuwiki
-    container_name: CN_Dokuwiki
+    container_name: CN_DokuWiki
     restart: 'no'
     environment:
       - PUID=1001
@@ -232,7 +231,7 @@ services: #
     ports:
       - 1008:80
     volumes:
-      - Dokuwiki:/config
+      - DokuWiki:/config
     labels:
        cacher: 'non'
 # http://IP:PORT/install.php
@@ -240,9 +239,9 @@ services: #
 
 ##################################################################################
 # Gestionnaire de Fichier TOP
-  Doublecommander:
+  DoubleCommander:
     image: linuxserver/doublecommander
-    container_name: CN_Doublecommander
+    container_name: CN_DoubleCommander
     restart: 'no'
     environment:
       - PUID=1001
@@ -251,8 +250,8 @@ services: #
     ports:
       - 1009:3000
     volumes:
-      - Doublecommander:/config
-      - Doublecommander:/data
+      - DoubleCommander:/config
+      - DoubleCommander:/data
       - Video:/mnt/Video:ro
     labels:
        cacher: 'non'
@@ -281,11 +280,10 @@ services: #
 
 
 
-
 ##################################################################################
-  duplicati:
+  Duplicati:
     image: linuxserver/duplicati
-    container_name: CN_duplicati
+    container_name: CN_Duplicati
     restart: 'no'
     environment:
       - PUID=0
@@ -294,13 +292,13 @@ services: #
     ports:
       - 1011:8200
     volumes:
-      - /root:/config
-      - /root:/backups
-      - /root:/source
-      - /home/docker:/mnt/docker
+      - /root/Duplicati:/config
+      - /root/Duplicati:/backups
+      - /root/Duplicati:/source
     labels:
        cacher: 'non'
 ##################################################################################
+
 
 
 
