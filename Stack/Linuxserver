@@ -197,8 +197,44 @@ services: #
       - DDClient:/config
     labels:
        cacher: 'non'
-       
 ##################################################################################
+
+##################################################################################
+# Editeur de Retouche Photo
+  Digikam:
+    image: linuxserver/digikam
+    container_name: CN_Digikam
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1007:3000
+    volumes:
+      - Digikam:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
+##################################################################################
+# Editeur Markdown
+  Dillinger:
+    image: linuxserver/dillinger
+    container_name: CN_Dillinger
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1008:8080
+    volumes:
+      - Dillinger:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
 
 ##################################################################################
 # info, warning, error
@@ -212,7 +248,7 @@ services: #
       - TZ=Europe/Paris
       - DELUGE_LOGLEVEL=warning
     ports:
-      - 1007:8112
+      - 1009:8112
     volumes:
       - Deluge:/config
       - Deluge:/downloads
@@ -230,7 +266,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
     ports:
-      - 1008:80
+      - 1010:80
     volumes:
       - DokuWiki:/config
     labels:
@@ -249,7 +285,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
     ports:
-      - 1009:3000
+      - 1011:3000
     volumes:
       - DoubleCommander:/config
       - DoubleCommander:/data
@@ -271,7 +307,7 @@ services: #
       - TOKEN=XXXXXX
       - LOG_FILE=true
     ports:
-      - 1010:80
+      - 1012:80
     volumes:
       - DuckDNS:/config
     labels:
@@ -289,7 +325,7 @@ services: #
       - PGID=0
       - TZ=Europe/Paris
     ports:
-      - 1011:8200
+      - 1013:8200
     volumes:
       - /root/Duplicati:/config
       - /root/Duplicati:/backups
@@ -308,7 +344,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
     ports:
-      - 1012:8096
+      - 1014:8096
       - 8920:8920
     volumes:
       - Emby:/config
