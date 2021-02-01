@@ -34,7 +34,7 @@ services: #
 ##################################################################################
   MariaDB:
     image: linuxserver/mariadb
-    container_name: CN_MariaDB#
+    container_name: CN_MariaDB
     restart: unless-stopped
     environment:
       - PUID=1001
@@ -206,7 +206,7 @@ services: #
 ##################################################################################
 # Mettre à jour NO-IP
 # ddclient.conf
-  DDClient:#
+  DDClient:
     image: linuxserver/ddclient
     container_name: CN_DDClient
     restart: unless-stopped
