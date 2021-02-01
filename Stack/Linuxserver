@@ -139,8 +139,9 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Streamer Musique (Mac, Unix, Win)
+# Streamer Musique (Mac, Unix, Windows)
 # Pas réussis à tester
+# Consommation: 500 Mo
   Daapd:
     container_name: CN_Daapd
     image: linuxserver/daapd
