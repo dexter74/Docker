@@ -23,7 +23,7 @@ services: #
       - 1000:4040                   #
     volumes:                        #
       - Airsonic:/config            #
-      - Airsonic:/music             #
+      - Musique:/music              #
       - Airsonic:/media             #
       - Airsonic:/playlists         #
       - Airsonic:/podcasts          #
@@ -66,8 +66,8 @@ services: #
       - 1003:8337                   #
     volumes:                        #
       - beets:/config               #
-      - beets:/music                #
-      - beets:/downloads            #
+      - Musqiue:/music              #
+      - DL:/downloads               #
     labels:                         #
        cacher: 'non'                #
 #####################################
@@ -267,7 +267,7 @@ services: #
       - 1011:9091                   #
     volumes:                        #
       - transmission:/config        #
-      - transmission:/downloads     #
+      - DL:/downloads               #
       - transmission:/watch         #
     labels:                         #
        cacher: 'non'                #
