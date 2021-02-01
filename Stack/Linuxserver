@@ -27,6 +27,8 @@ services: #
       - Airsonic:/media             #
       - Airsonic:/playlists         #
       - Airsonic:/podcasts          #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 
@@ -46,6 +48,8 @@ services: #
       - Bazarr:/config              #
       - Bazarr:/movies              #
       - Bazarr:/tv                  #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 
@@ -64,6 +68,8 @@ services: #
       - beets:/config               #
       - beets:/music                #
       - beets:/downloads            #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 
@@ -82,6 +88,9 @@ services: #
       - 1004:8080                   #
     volumes:                        #
       - boinc:/config               #
+    labels:                         #
+       cacher: 'non'                #
+                                    #
 # echo -n test  | md5sum            #
 #####################################
 
@@ -99,6 +108,8 @@ services: #
       - 1005:5060                   #
     volumes:                        #
       - cardigann:/config           #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 
@@ -122,6 +133,9 @@ services: #
       - MariaDB:mysql               #
     depends_on:                     #
      - MariaDB                      #
+    labels:                         #
+       cacher: 'non'                #
+                                    #
 # Database host : mysql             #
 #####################################
 
@@ -144,11 +158,16 @@ services: #
       - MariaDB:mysql               #
     depends_on:                     #
      - MariaDB                      #
+    labels:                         #
+       cacher: 'non'                #
+                                    #
 # Note:                             #
 # - Cree a la main la DB 'clarkson' #
 # - Cree acces a la DB              #
 # - Modifier la configuration       #
 #####################################
+
+
 
 #####################################
 # Interface de Développement WebUi  #
@@ -164,6 +183,8 @@ services: #
       - 1008:8000                   #
     volumes:                        #
       - Cloud9:/code                #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 # Préférence 
@@ -187,6 +208,8 @@ services: #
     volumes:                        #
       - deluge:/config              #
       - deluge:/downloads           #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 
@@ -209,6 +232,8 @@ services: #
       - MYSQL_PASSWORD=admin        #
     volumes:                        #
       - MariaDB:/config             #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 #####################################
@@ -224,6 +249,8 @@ services: #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
 
 #####################################
@@ -242,4 +269,6 @@ services: #
       - transmission:/config        #
       - transmission:/downloads     #
       - transmission:/watch         #
+    labels:                         #
+       cacher: 'non'                #
 #####################################
