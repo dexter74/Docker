@@ -4,11 +4,10 @@ version: '2.4'  #
 services: #
 ###########
 
-# https://fleet.linuxserver.io/
 
-# Important : Certains conteneur mette du temps à démarrer. Patience et regarder la log dans le conteneur .
-#
-# external_links
+# external_links ou links : Selon si le conteneur MariaDB est dans le stack ou pas
+# Base de donnée des images : https://fleet.linuxserver.io/
+# Certains conteneur mettent du temps à démarrer. (Voir log)
 
 ##################################################################################
   MariaDB:
@@ -72,7 +71,8 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Hebergement Image (DB2 Requise)
+# Hebergement Image (Requis : MariaDB)
+
   Chevereto:
     container_name: CN_Chevereto
     image: linuxserver/chevereto
@@ -92,11 +92,15 @@ services: #
      - MariaDB
     labels:
        cacher: 'non'
-# Database host : mysql
+
 ##################################################################################
 
 ##################################################################################
 # Interface de Développement WebUi 
+# Préférences
+# > Code Editor 
+# > Cocher "Wrap Selection with bracket, Quotes.
+# > Décocher Show Print Margin
   Cloud9:
     container_name: CN_Cloud9
     image: linuxserver/cloud9
@@ -112,10 +116,6 @@ services: #
       - Cloud9:/code
     labels:
        cacher: 'non'
-# Préférence 
-# > Code Editor 
-# > Cocher "Wrap Selection with bracket, Quotes. (Permet lors d'une sélection de texte de pouvoir mettre des quotations au début et à la fin de la sélection)
-# > Décocher Show Print Margin
 ##################################################################################
 
 ##################################################################################
@@ -183,8 +183,7 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Mettre à jour NO-IP
-# ddclient.conf
+# Mettre à jour NO-IP (Doc: http://climato.free.fr/upload/ddclient.pdf)
   DDClient:
     image: linuxserver/ddclient
     container_name: CN_DDClient
@@ -198,7 +197,6 @@ services: #
     labels:
        cacher: 'non'
        
-# Doc: http://climato.free.fr/upload/ddclient.pdf
 ##################################################################################
 
 ##################################################################################
@@ -258,6 +256,14 @@ services: #
     labels:
        cacher: 'non'
 ##################################################################################
+
+
+
+
+
+
+
+
 
 
 
