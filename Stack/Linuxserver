@@ -91,9 +91,9 @@ services: #
       - chevereto:/config           #
       - chevereto:/data             #
     links:                          #
-      - CN_MariaDB:mysql            #
+      - MariaDB:mysql               #
     depends_on:                     #
-     - CN_MariaDB                   #
+     - MariaDB                      #
     labels:                         #
        cacher: 'non'                #
                                     #
@@ -145,11 +145,6 @@ services: #
     labels:                         #
        cacher: 'non'                #
 #####################################
-
-
-
-
-
 
 #####################################
   MariaDB:                          #
