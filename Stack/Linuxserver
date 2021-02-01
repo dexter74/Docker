@@ -11,10 +11,11 @@ services: #
 # external_links
 
 #####################################
-# Streamer Musique (Bof)            #
+# Streamer Musique                  #
   Airsonic:                         #
     container_name: CN_Airsonic     #
     image: linuxserver/airsonic     #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
@@ -23,19 +24,22 @@ services: #
       - 1000:4040                   #
     volumes:                        #
       - Airsonic:/config            #
+      - Musique:/music              #
       - Airsonic:/media             #
       - Airsonic:/playlists         #
       - Airsonic:/podcasts          #
-      - Musique:/music              #
     labels:                         #
        cacher: 'non'                #
 #####################################
 
+
+
 #####################################
-# Telecharge les sous-titres        #
+# Telecharger les sous-titres       #
   Bazarr:                           #
     container_name: CN_Bazarr       #
     image: linuxserver/bazarr       #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
@@ -56,12 +60,13 @@ services: #
   Cardigann:                        #
     container_name: CN_Cardigann    #
     image: linuxserver/cardigann    #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1005:5060                   #
+      - 1001:5060                   #
     volumes:                        #
       - cardigann:/config           #
     labels:                         #
@@ -69,23 +74,23 @@ services: #
 #####################################
 
 
-
 #####################################
 # Hebergement Image (DB2 Requise)   #
   Chevereto:                        #
     container_name: CN_Chevereto    #
     image: linuxserver/chevereto    #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1006:80                     #
+      - 1002:80                     #
       - 443:443                     #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
-    links:                          #
+    external_links:                 #
       - CN_MariaDB:mysql            #
     depends_on:                     #
      - CN_MariaDB                   #
@@ -95,41 +100,13 @@ services: #
 # Database host : mysql             #
 #####################################
 
-#####################################
-# Dashboard enregistrer Carburant   #
-  Clarkson:                         #
-    container_name: CN_Clarkson     #
-    image: linuxserver/clarkson     #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-      - MYSQL_HOST=mysql            #
-      - MYSQL_USERNAME=root         #
-      - MYSQL_PASSWORD=root         #
-      - ENABLE_REGISTRATIONS=true   #
-    ports:                          #
-      - 1007:3000                   #
-    links:                          #
-      - CN_MariaDB:mysql            #
-    depends_on:                     #
-     - CN_MariaDB                   #
-    labels:                         #
-       cacher: 'non'                #
-                                    #
-# Note:                             #
-# - Cree a la main la DB 'clarkson' #
-# - Cree acces a la DB              #
-# - Modifier la configuration       #
-#####################################
-
-
 
 #####################################
 # Interface de Développement WebUi  #
   Cloud9:                           #
     container_name: CN_Cloud9       #
     image: linuxserver/cloud9       #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
@@ -154,6 +131,7 @@ services: #
   Deluge:                           #
     container_name: CN_Deluge       #
     image: linuxserver/deluge       #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
@@ -167,6 +145,10 @@ services: #
     labels:                         #
        cacher: 'non'                #
 #####################################
+
+
+
+
 
 
 #####################################
@@ -192,6 +174,7 @@ services: #
   RuTorrent:                        #
     container_name: CN_Rutorrent    #
     image: linuxserver/rutorrent    #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
@@ -209,6 +192,7 @@ services: #
   Transmission:                     #
     container_name: CN_Transmission #
     image: linuxserver/transmission #
+    restart: 'no'                   #
     environment:                    #
       - PUID=1001                   #
       - PGID=74240                  #
