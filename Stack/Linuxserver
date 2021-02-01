@@ -345,7 +345,6 @@ services: #
       - TZ=Europe/Paris
     ports:
       - 1014:8096
-      - 8920:8920
     volumes:
       - Emby:/config
       - Emby:/data/tvshows
@@ -356,10 +355,26 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
-
-
-
+##################################################################################
+# Télécharger de la Musique 
+  Headphones:
+    image: linuxserver/headphones
+    container_name: CN_Headphones
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1015:8181
+    volumes:
+      - Headphones:/config
+      - Headphones:/downloads
+      - Headphones:/music
+      - DL:/data/DL:ro
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
