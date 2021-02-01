@@ -83,7 +83,6 @@ services: #
       - TZ=Europe/Paris             #
     ports:                          #
       - 1002:80                     #
-      - 1443:443                    #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
