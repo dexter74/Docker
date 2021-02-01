@@ -4,6 +4,8 @@ version: '2.4'  #
 services: #
 ###########
 
+##################################################################################
+
 # external_links ou links : Selon si le conteneur MariaDB est dans le stack ou pas
 # Base de donnée des images : https://fleet.linuxserver.io/
 # Certains conteneur mettent du temps à démarrer. (Voir log)
@@ -276,10 +278,8 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
-
-
 ##################################################################################
+# Applications de Backup (A peaufiner)
   Duplicati:
     image: linuxserver/duplicati
     container_name: CN_Duplicati
