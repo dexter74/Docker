@@ -72,25 +72,6 @@ services: #
 #####################################
 
 #####################################
-# Proxy pour Sonarr et cie          #
-  Cardigann:                        #
-    container_name: CN_Cardigann    #
-    image: linuxserver/cardigann    #
-    restart: 'no'                   #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-    ports:                          #
-      - 1002:5060                   #
-    volumes:                        #
-      - cardigann:/config           #
-    labels:                         #
-       cacher: 'non'                #
-#####################################
-
-
-#####################################
 # Hebergement Image (DB2 Requise)   #
   Chevereto:                        #
     container_name: CN_Chevereto    #
@@ -101,7 +82,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1003:80                     #
+      - 1002:80                     #
       - 1443:443                    #
     volumes:                        #
       - chevereto:/config           #
@@ -129,7 +110,7 @@ services: #
       - USERNAME=admin              #
       - PASSWORD=admin              #
     ports:                          #
-      - 1004:8000                   #
+      - 1003:8000                   #
     volumes:                        #
       - Cloud9:/code                #
     labels:                         #
