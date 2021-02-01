@@ -96,7 +96,6 @@ services: #
 # Database host : mysql             #
 #####################################
 
-
 #####################################
 # Interface de Développement WebUi  #
   Cloud9:                           #
@@ -121,8 +120,6 @@ services: #
 # > Cocher "Wrap Selection with bracket, Quotes. (Permet lors d'une sélection de texte de pouvoir mettre des quotations au début et à la fin de la sélection)
 # > Décocher Show Print Margin
 
-
-
 #####################################
 # Media Downloader (Sonarr, Radarr) #
   Couchpotato:                      #
@@ -142,8 +139,6 @@ services: #
     labels:                         #
        cacher: 'oui'                #
 #####################################
-
-
 
 #####################################
 # Streamer Musique (Mac, Unix, Win) #
@@ -208,22 +203,6 @@ services: #
 
 # Doc: http://climato.free.fr/upload/ddclient.pdf
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #####################################
 # info, warning, error              #
   Deluge:                           #
@@ -236,13 +215,29 @@ services: #
       - TZ=Europe/Paris             #
       - DELUGE_LOGLEVEL=warning     #
     ports:                          #
-      - XXXX:8112                   #
+      - 1007:8112                   #
     volumes:                        #
       - deluge:/config              #
       - deluge:/downloads           #
     labels:                         #
        cacher: 'non'                #
 #####################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #####################################
@@ -255,7 +250,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - XXXX:80                     #
+      - 10XX:80                     #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
