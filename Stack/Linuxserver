@@ -26,7 +26,7 @@ services: #
     volumes:                        #
       - MariaDB:/config             #
     labels:                         #
-       cacher: 'non'                #
+       cacher: 'oui'                #
 #####################################
 
 #####################################
