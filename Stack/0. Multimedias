@@ -26,7 +26,8 @@ services:      #
     image: plexinc/pms-docker
     hostname: Multimedias
     domainname: lan
-    restart: on-failure
+    
+    restart: 'no'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -55,7 +56,8 @@ services:      #
   QBitTorrent:
     container_name: CN_QBitTorrent
     image: 'linuxserver/qbittorrent'
-    restart: on-failure
+    
+    restart: 'no'
     environment:
       TZ: 'Europe/Paris'
       PUID: '1001'
@@ -82,7 +84,8 @@ services:      #
   Radarr:
     container_name: CN_Radarr
     image: 'hotio/radarr'
-    restart: on-failure
+    
+    restart: 'no'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -106,7 +109,8 @@ services:      #
   Sonarr:
     container_name: CN_Sonarr
     image: 'hotio/sonarr'
-    restart: on-failure
+    
+    restart: 'no'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -129,7 +133,7 @@ services:      #
   Jackett:
     container_name: CN_Jackett
     image: 'hotio/jackett'
-    restart: on-failure
+    restart: 'no'
     environment:
       TZ: 'Europe/Paris'
       PUID: '1001'
@@ -150,7 +154,8 @@ services:      #
   Flaresolverr:
     container_name: CN_Flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
-    restart: on-failure
+    restart: 'no'
+
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-info}
       - LOG_HTML=${LOG_HTML:-false}
