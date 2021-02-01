@@ -157,7 +157,6 @@ services:      #
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
     ports:
       - "${PORT:-8191}:8191"
-    restart: unless-stopped 
     labels:
       cacher: 'non'
 ##################################################################################################################
