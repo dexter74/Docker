@@ -257,7 +257,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1020:80                     #
+      - 1008:80                     #
     volumes:                        #
       - Dokuwiki:/config            #
     labels:                         #
