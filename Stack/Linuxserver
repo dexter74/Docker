@@ -11,6 +11,28 @@ services: #
 # external_links
 
 #####################################
+  MariaDB:                          #
+    image: linuxserver/mariadb      #
+    container_name: CN_MariaDB      #
+    restart: unless-stopped         #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+      - MYSQL_ROOT_PASSWORD=root    #
+      - MYSQL_DATABASE=database     #
+      - MYSQL_USER=admin            #
+      - MYSQL_PASSWORD=admin        #
+    volumes:                        #
+      - MariaDB:/config             #
+    labels:                         #
+       cacher: 'non'                #
+#####################################
+
+
+
+
+#####################################
 # Streamer Musique                  #
   Airsonic:                         #
     container_name: CN_Airsonic     #
@@ -51,7 +73,6 @@ services: #
     labels:                         #
        cacher: 'non'                #
 #####################################
-
 
 #####################################
 # Proxy pour Sonarr et cie          #
@@ -124,6 +145,24 @@ services: #
 # > Décocher Show Print Margin
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #####################################
 # info, warning, error              #
   Deluge:                           #
@@ -136,7 +175,7 @@ services: #
       - TZ=Europe/Paris             #
       - DELUGE_LOGLEVEL=warning     #
     ports:                          #
-      - 1005:8112                   #
+      - XXXX:8112                   #
     volumes:                        #
       - deluge:/config              #
       - deluge:/downloads           #
@@ -144,24 +183,6 @@ services: #
        cacher: 'non'                #
 #####################################
 
-#####################################
-  MariaDB:                          #
-    image: linuxserver/mariadb      #
-    container_name: CN_MariaDB      #
-    restart: unless-stopped         #
-    environment:                    #
-      - PUID=1001                   #
-      - PGID=74240                  #
-      - TZ=Europe/Paris             #
-      - MYSQL_ROOT_PASSWORD=root    #
-      - MYSQL_DATABASE=database     #
-      - MYSQL_USER=admin            #
-      - MYSQL_PASSWORD=admin        #
-    volumes:                        #
-      - MariaDB:/config             #
-    labels:                         #
-       cacher: 'non'                #
-#####################################
 
 #####################################
   RuTorrent:                        #
@@ -173,7 +194,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1006:80                     #
+      - XXXX:80                     #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
