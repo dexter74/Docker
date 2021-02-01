@@ -32,8 +32,6 @@ services: #
        cacher: 'non'                #
 #####################################
 
-
-
 #####################################
 # Telecharger les sous-titres       #
   Bazarr:                           #
@@ -45,7 +43,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1002:6767                   #
+      - 1001:6767                   #
     volumes:                        #
       - Bazarr:/config              #
       - Bazarr:/movies              #
@@ -66,7 +64,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1001:5060                   #
+      - 1002:5060                   #
     volumes:                        #
       - cardigann:/config           #
     labels:                         #
@@ -85,8 +83,8 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1002:80                     #
-      - 443:443                     #
+      - 1003:80                     #
+      - 1443:443                    #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
@@ -113,7 +111,7 @@ services: #
       - USERNAME=admin              #
       - PASSWORD=admin              #
     ports:                          #
-      - 1008:8000                   #
+      - 1004:8000                   #
     volumes:                        #
       - Cloud9:/code                #
     labels:                         #
@@ -138,7 +136,7 @@ services: #
       - TZ=Europe/Paris             #
       - DELUGE_LOGLEVEL=warning     #
     ports:                          #
-      - 1009:8112                   #
+      - 1005:8112                   #
     volumes:                        #
       - deluge:/config              #
       - deluge:/downloads           #
@@ -175,7 +173,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 1010:80                     #
+      - 1006:80                     #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
@@ -195,7 +193,7 @@ services: #
       - USER=admin                  #
       - PASS=admin                  #
     ports:                          #
-      - 1011:9091                   #
+      - 1007:9091                   #
     volumes:                        #
       - transmission:/config        #
       - DL:/downloads               #
