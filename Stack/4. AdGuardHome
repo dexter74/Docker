@@ -2,7 +2,6 @@
 version: '2.4' #
 services:      #
 ################
-
 ##################################################################################################################
 # Endpoint        : AdGuardHome
 # Config Réseau   : Host (Indispensable)
@@ -11,7 +10,7 @@ services:      #
 ##################################################################################################################
   AdGuardHome:
     network_mode: bridge
-    container_name: AdGuardHome
+    container_name: CN_AdGuardHome
     image: adguard/adguardhome
     restart: always
     volumes:
