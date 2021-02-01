@@ -130,9 +130,9 @@ services: #
       - chevereto:/config           #
       - chevereto:/data             #
     links:                          #
-      - MariaDB:mysql               #
+      - CN_MariaDB:mysql            #
     depends_on:                     #
-     - MariaDB                      #
+     - CN_MariaDB                   #
     labels:                         #
        cacher: 'non'                #
                                     #
@@ -155,9 +155,9 @@ services: #
     ports:                          #
       - 1007:3000                   #
     links:                          #
-      - MariaDB:mysql               #
+      - CN_MariaDB:mysql            #
     depends_on:                     #
-     - MariaDB                      #
+     - CN_MariaDB                   #
     labels:                         #
        cacher: 'non'                #
                                     #
