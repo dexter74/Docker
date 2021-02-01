@@ -189,7 +189,24 @@ services: #
        cacher: 'non'                #
 #####################################
 
+#####################################
+# Mettre à jour NO-IP               # 
+# ddclient.conf                     #
+  DDClient:                         #
+    image: linuxserver/ddclient     #
+    container_name: CN_DDClient     #
+    restart: unless-stopped         #
+    environment:                    #
+      - PUID=1001                   #
+      - PGID=74240                  #
+      - TZ=Europe/Paris             #
+    volumes:                        #
+      - DDClient:/config            #
+    labels:                         #
+       cacher: 'non'                #
+#####################################
 
+# Doc: http://climato.free.fr/upload/ddclient.pdf
 
 
 
