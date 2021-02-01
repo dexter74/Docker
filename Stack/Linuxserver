@@ -90,7 +90,7 @@ services: #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
-    external_links:                 #
+    links:                          #
       - CN_MariaDB:mysql            #
     depends_on:                     #
      - CN_MariaDB                   #
