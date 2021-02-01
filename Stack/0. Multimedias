@@ -22,7 +22,7 @@ services:      #
 # Code            :
 ##################################################################################################################
   Plex:
-    container_name: Plex
+    container_name: CN_Plex
     image: plexinc/pms-docker
     hostname: Multimedias
     domainname: lan
@@ -52,7 +52,7 @@ services:      #
 #                 : /mnt/DL/Radarr
 ##################################################################################################################
   QBitTorrent:
-    container_name: QBitTorrent
+    container_name: CN_QBitTorrent
     image: 'linuxserver/qbittorrent'
     environment:
       TZ: 'Europe/Paris'
@@ -78,7 +78,7 @@ services:      #
 # Download        : /mnt/Video/<categorie> (Le dossier Video est en lecture seul)
 ##################################################################################################################
   Radarr:
-    container_name: Radarr
+    container_name: CN_Radarr
     image: 'hotio/radarr'
     environment:
       PUID: '1001'
@@ -96,7 +96,7 @@ services:      #
 ##################################################################################################################
 
 ##################################################################################################################
-# Endpoint        : Sonarr
+# Endpoint        : CN_Sonarr
 # Port applicatif : 8989
 # Download        : /mnt/Video/<categorie> (Le dossier Video est en lecture seul)
 ##################################################################################################################
@@ -119,7 +119,7 @@ services:      #
 ##################################################################################################################
 
 ##################################################################################################################
-# Endpoint        : Jackett
+# Endpoint        : CN_Jackett
 # Port applicatif : 9117
 ##################################################################################################################
   Jackett:
@@ -143,7 +143,7 @@ services:      #
 ##################################################################################################################
 # API pour Jacket : http://192.168.10.5:8191
   Flaresolverr:
-    container_name: Flaresolverr
+    container_name: CN_Flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
     environment:
       - LOG_LEVEL=${LOG_LEVEL:-info}
