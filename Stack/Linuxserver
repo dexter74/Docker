@@ -384,6 +384,52 @@ services: #
 
 
 
+##################################################################################
+  HedgeDoc:
+    image: linuxserver/hedgedoc
+    container_name: CN_HedgeDoc
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - DB_HOST=mysql
+      - DB_USER=admin
+      - DB_PASS=admin
+      - DB_NAME=database
+      - DB_PORT=3306
+    ports:
+      - 1016:3000
+    volumes:
+      - HedgeDoc:/config
+    links:
+      - MariaDB:mysql
+    depends_on:
+      - MariaDB:mysql
+    labels:
+       cacher: 'non'
+##################################################################################
+
+##################################################################################
+  Heimdall:
+    image: linuxserver/heimdall
+    container_name: CN_Heimdall
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1017:80
+    volumes:
+      - Heimdall:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
+
+
 
 
 
