@@ -280,6 +280,8 @@ services: #
 
 
 
+
+
 ##################################################################################
   duplicati:
     image: linuxserver/duplicati
@@ -295,7 +297,7 @@ services: #
       - /root:/config
       - /root:/backups
       - /root:/source
-      - /home/docker:/:/mnt/docker
+      - /home/docker:/mnt/docker
     labels:
        cacher: 'non'
 ##################################################################################
