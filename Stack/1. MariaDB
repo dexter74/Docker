@@ -9,9 +9,9 @@ services:      #
 # Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
 
-  CN_MariaDB:
+  MariaDB:
     image: ghcr.io/linuxserver/mariadb
-    container_name: MariaDB
+    container_name: CN_MariaDB
     restart: unless-stopped
     volumes:
       - /home/docker/volumes/MariaDB:/config
