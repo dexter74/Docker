@@ -298,6 +298,28 @@ services: #
        cacher: 'non'
 ##################################################################################
 
+##################################################################################
+  Emby:
+    image: linuxserver/emby
+    container_name: CN_Emby
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1012:8096
+      - 8920:8920
+    volumes:
+      - Emby:/config
+      - Emby:/data/tvshows
+      - Video:/data/movies:ro
+      - Musique:/data/music:ro
+      - DL:/data/DL:ro
+    labels:
+       cacher: 'non'
+##################################################################################
+
 
 
 
