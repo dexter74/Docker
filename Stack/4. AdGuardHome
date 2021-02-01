@@ -8,14 +8,21 @@ services:      #
 # Config Réseau   : Host (Indispensable)
 # Port applicatif : 3000,80
 # Port suppls.    : 53, 5353, 5355, 853, 67, 784, 5443
-# Host            : https://teste74.ddns.net:XXXX
 ##################################################################################################################
   AdGuardHome:
-    network_mode: host
+    network_mode: bridge
     container_name: AdGuardHome
     image: adguard/adguardhome
     restart: always
     volumes:
-      - /home/docker/volumes/adguardhome:/work
-      - /home/docker/volumes/adguardhome:/conf
+      - /home/docker/volumes/adguardhome:/opt/adguardhome/work
+      - /home/docker/volumes/adguardhome:/opt/adguardhome/conf
+    ports:
+      - 3000:3000
+      - 1443:443
+      - 53:53
+      - 67:67
+      - 68:68
+      - 80:80
+      - 853:853
 ##################################################################################################################
