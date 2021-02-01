@@ -85,12 +85,10 @@ services: #
     volumes:                        #
       - chevereto:/config           #
       - chevereto:/data             #
-                                    #
-    external_links:                 #
+    links:                          #
       - CN_MariaDB:mysql            #
     depends_on:                     #
      - CN_MariaDB                   #
-                                    #
     labels:                         #
        cacher: 'non'                #
                                     #
@@ -112,12 +110,10 @@ services: #
       - ENABLE_REGISTRATIONS=true   #
     ports:                          #
       - 1007:3000                   #
-                                    #
-    external_links:                 #
+    links:                          #
       - CN_MariaDB:mysql            #
     depends_on:                     #
      - CN_MariaDB                   #
-                                    #
     labels:                         #
        cacher: 'non'                #
                                     #
@@ -171,10 +167,6 @@ services: #
     labels:                         #
        cacher: 'non'                #
 #####################################
-
-
-
-
 
 
 #####################################
