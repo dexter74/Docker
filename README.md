@@ -11,7 +11,7 @@ ________________________________________________________________________________
 ##  :alembic:     I. **Déclaration des variables pour la suite.**
 
 #### A. Se connecter en root:
-````console
+````sh
 root@host:$ sudo -i
 ````
 
