@@ -11,7 +11,7 @@ services: #
 # external_links
 
 #####################################
-# Streamer Musique                  #
+# Streamer Musique (Bof)            #
   Airsonic:                         #
     container_name: CN_Airsonic     #
     image: linuxserver/airsonic     #
@@ -23,15 +23,13 @@ services: #
       - 1000:4040                   #
     volumes:                        #
       - Airsonic:/config            #
-      - Musique:/music              #
       - Airsonic:/media             #
       - Airsonic:/playlists         #
       - Airsonic:/podcasts          #
+      - Musique:/music              #
     labels:                         #
        cacher: 'non'                #
 #####################################
-
-
 
 #####################################
 # Telecharge les sous-titres        #
