@@ -258,7 +258,25 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
+##################################################################################
+  DuckDNS:
+    image: linuxserver/duckdns
+    container_name: CN_DuckDNS
+    restart: unless-stopped
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - SUBDOMAINS=domain1,domain2
+      - TOKEN=XXXXXX
+      - LOG_FILE=true
+    ports:
+      - 1010:80
+    volumes:
+      - DuckDNS:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
