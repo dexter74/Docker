@@ -280,8 +280,25 @@ services: #
 
 
 
-
-
+##################################################################################
+  duplicati:
+    image: linuxserver/duplicati
+    container_name: CN_duplicati
+    restart: 'no'
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Paris
+    ports:
+      - 1011:8200
+    volumes:
+      - /root:/config
+      - /root:/backups
+      - /root:/source
+      - /home/docker:/:/mnt/docker
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
