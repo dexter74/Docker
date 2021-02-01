@@ -262,12 +262,12 @@ services: #
   DuckDNS:
     image: linuxserver/duckdns
     container_name: CN_DuckDNS
-    restart: unless-stopped
+    restart: 'no'
     environment:
       - PUID=1001
       - PGID=74240
       - TZ=Europe/Paris
-      - SUBDOMAINS=domain1,domain2
+      - SUBDOMAINS=domain1.com,domain2.fr
       - TOKEN=XXXXXX
       - LOG_FILE=true
     ports:
