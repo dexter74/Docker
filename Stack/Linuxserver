@@ -20,7 +20,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 4040:4040                   #
+      - 1000:4040                   #
     volumes:                        #
       - Airsonic:/config            #
       - Airsonic:/music             #
@@ -41,7 +41,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 6767:6767                   #
+      - 1002:6767                   #
     volumes:                        #
       - Bazarr:/config              #
       - Bazarr:/movies              #
@@ -59,7 +59,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 8337:8337                   #
+      - 1003:8337                   #
     volumes:                        #
       - beets:/config               #
       - beets:/music                #
@@ -79,7 +79,7 @@ services: #
       - GUAC_USER=admin             #
       - GUAC_PASS=<md5>             #
     ports:                          #
-      - 8080:8080                   #
+      - 1004:8080                   #
     volumes:                        #
       - boinc:/config               #
 # echo -n test  | md5sum            #
@@ -96,7 +96,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 5060:5060                   #
+      - 1005:5060                   #
     volumes:                        #
       - cardigann:/config           #
 #####################################
@@ -113,7 +113,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 80:80                       #
+      - 1006:80                     #
       - 443:443                     #
     volumes:                        #
       - chevereto:/config           #
@@ -139,7 +139,7 @@ services: #
       - MYSQL_PASSWORD=root         #
       - ENABLE_REGISTRATIONS=true   #
     ports:                          #
-      - 80:3000                     #
+      - 1007:3000                   #
     links:                          #
       - MariaDB:mysql               #
     depends_on:                     #
@@ -161,7 +161,7 @@ services: #
       - USERNAME=admin              #
       - PASSWORD=admin              #
     ports:                          #
-      - 1002:8000                   #
+      - 1008:8000                   #
     volumes:                        #
       - Cloud9:/code                #
 #####################################
@@ -183,11 +183,16 @@ services: #
       - TZ=Europe/Paris             #
       - DELUGE_LOGLEVEL=warning     #
     ports:                          #
-      - 8112:8112                   #
+      - 1009:8112                   #
     volumes:                        #
       - deluge:/config              #
       - deluge:/downloads           #
 #####################################
+
+
+
+
+
 
 #####################################
   MariaDB:                          #
@@ -215,7 +220,7 @@ services: #
       - PGID=74240                  #
       - TZ=Europe/Paris             #
     ports:                          #
-      - 80:80                       #
+      - XXXX:80                     #
     volumes:                        #
       - rutorrent:/config           #
       - rutorrent:/downloads        #
@@ -232,7 +237,7 @@ services: #
       - USER=admin                  #
       - PASS=admin                  #
     ports:                          #
-      - 9091:9091                   #
+      - XXXX:9091                   #
     volumes:                        #
       - transmission:/config        #
       - transmission:/downloads     #
