@@ -23,5 +23,6 @@ services:      #
       - MYSQL_DATABASE=database
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
-      
+    labels:
+      cacher: 'oui'
 ##################################################################################################################
