@@ -14,8 +14,8 @@ services:      #
     image: adguard/adguardhome
     restart: always
     volumes:
-      - /home/docker/volumes/adguardhome:/opt/adguardhome/work
-      - /home/docker/volumes/adguardhome:/opt/adguardhome/conf
+      - adguardhome:/opt/adguardhome/work
+      - adguardhome:/opt/adguardhome/conf
     ports:
       - 3000:3000
       - 1443:443
