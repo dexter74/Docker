@@ -1,5 +1,5 @@
 #################
-version: '2.4'  #
+version: '3.9'  #
 #################
 services: #
 ###########
@@ -155,10 +155,10 @@ services: #
       - 3689:3688
     volumes:
       - Daapd:/config
-      - Musique:/music
       - Daapd:/Podcasts
       - Daapd:/Audiobooks  
       - Daapd:/Compilations
+      - Musique:/music
     labels:
        cacher: 'non'
 ##################################################################################
@@ -327,9 +327,9 @@ services: #
     ports:
       - 1013:8200
     volumes:
-      - /root/Duplicati:/config
-      - /root/Duplicati:/backups
-      - /root/Duplicati:/source
+      - Duplicati:/config
+      - Duplicati:/backups
+      - Duplicati:/source
     labels:
        cacher: 'non'
 ##################################################################################
@@ -348,9 +348,9 @@ services: #
     volumes:
       - Emby:/config
       - Emby:/data/tvshows
-      - Video:/data/movies:ro
-      - Musique:/data/music:ro
       - DL:/data/DL:ro
+      - Musique:/data/music:ro
+      - Video:/data/movies:ro
     labels:
        cacher: 'non'
 ##################################################################################
@@ -405,7 +405,7 @@ services: #
     links:
       - MariaDB:mysql
     depends_on:
-      - MariaDB:mysql
+      - MariaDB
     labels:
        cacher: 'non'
 ##################################################################################
@@ -499,9 +499,9 @@ services: #
       - 1021:8096
     volumes:
       - Jellyfin:/config
-      - Video:/mnt/Video:ro
       - DL:/mnt/DL:ro
       - Musique:/mnt/Musique:ro
+      - Video:/mnt/Video:ro
     devices:
       - '/dev/dri:/dev/dri'
       
@@ -528,7 +528,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
     ports:
-      - 10XX:80
+      - 1040:80
     volumes:
       - rutorrent:/config
       - rutorrent:/downloads
@@ -548,7 +548,7 @@ services: #
       - USER=admin
       - PASS=admin
     ports:
-      - 10XX:9091
+      - 1041:9091
     volumes:
       - transmission:/config
       - DL:/downloads
@@ -558,28 +558,33 @@ services: #
 ##################################################################################
 
 
-
-
-
-
-
-
-####################################################################################################################################################################
-
-
-##################################################################################
-  XXXXX:
-    image: linuxserver/XXXXX
-    container_name: CN_
-    restart: 'no'
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-    ports:
-      - XXXX:80
-    volumes:
-      - XXXXX:/config
-    labels:
-       cacher: 'non'
-##################################################################################
+volumes:
+  Airsonic:
+  Bazarr:
+  MariaDB:
+  Chevereto:
+  Cloud9:
+  Couchpotato:
+  Daapd:
+  Davos:
+  DDClient:
+  Digikam:
+  Deluge:
+  Dillinger:
+  DokuWiki:
+  DoubleCommander:
+  DuckDNS:
+  Duplicati:
+  Emby:
+  Headphones:
+  HedgeDoc:
+  Heimdall:
+  HomeAssistant:
+  HTPCManager:  
+  IPFS:
+  Jellyfin:
+  rutorrent:
+  transmission:
+  Musique:
+  Video:
+  DL:
