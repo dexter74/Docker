@@ -427,7 +427,6 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
 ##################################################################################
   HomeAssistant:
     image: linuxserver/homeassistant
@@ -445,9 +444,71 @@ services: #
        cacher: 'non'
 ##################################################################################
 
+##################################################################################
+# https://hub.docker.com/r/linuxserver/htpcmanager
+# https://github.com/HTPC-Manager/HTPC-Manager
+  HTPC-Manager:
+    image: linuxserver/htpcmanager
+    container_name: CN_HTPC-Manager
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1019:8085
+    volumes:
+      - HTPCManager:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
+##################################################################################
+  IPFS:
+    image: linuxserver/ipfs
+    container_name: CN_IPFS
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1020:80
+      - 4001:4001
+      - 5001:5001
+      - 8080:8080
+    volumes:
+      - IPFS:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 
+##################################################################################
+# https://hub.docker.com/r/linuxserver/jellyfin
+#Nvidia : https://github.com/NVIDIA/nvidia-docker
+  Jellyfin:
+    image: linuxserver/jellyfin
+    container_name: CN_Jellyfin
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1021:8096
+    volumes:
+      - Jellyfin:/config
+      - Video:/mnt/Video:ro
+      - DL:/mnt/DL:ro
+      - Musique:/mnt/Musique:ro
+    devices:
+      - '/dev/dri:/dev/dri'
+      
+      
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -495,6 +556,12 @@ services: #
     labels:
        cacher: 'non'
 ##################################################################################
+
+
+
+
+
+
 
 
 ####################################################################################################################################################################
