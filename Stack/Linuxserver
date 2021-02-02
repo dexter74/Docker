@@ -428,6 +428,26 @@ services: #
 ##################################################################################
 
 
+##################################################################################
+  HomeAssistant:
+    image: linuxserver/homeassistant
+    container_name: CN_HomeAssistant
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1018:8123
+    volumes:
+      - HomeAssistant:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
+
+
 
 
 
@@ -467,7 +487,7 @@ services: #
       - USER=admin
       - PASS=admin
     ports:
-      - 1007:9091
+      - 10XX:9091
     volumes:
       - transmission:/config
       - DL:/downloads
