@@ -12,6 +12,7 @@ services: #
 
 ##################################################################################
 # Streamer Musique
+# Consommation de RAM : 800 Mo
   Airsonic:
     container_name: CN_Airsonic
     image: linuxserver/airsonic
