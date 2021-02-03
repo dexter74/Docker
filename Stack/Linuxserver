@@ -620,7 +620,6 @@ services: #
       - DB_PASSWORD=admin
     links:
       - MariaDB:mysql
-      
     ports:
       - 1026:80
     volumes:
@@ -628,6 +627,46 @@ services: #
     labels:
        cacher: 'non'
 ##################################################################################
+
+##################################################################################
+# Télécharger de la Musique
+# https://hub.docker.com/r/linuxserver/lidarr
+  Lidarr:
+    image: linuxserver/lidarr
+    container_name: CN_Lidarr
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1027:8686
+    volumes:
+      - Lidarr:/config
+      - Musique:/Music
+      - DL:/downloads
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
@@ -723,6 +762,7 @@ volumes:
   Kodi-HeadLess:
   LetsEncrypt:
   LibreSpeed:
+  Lidarr
   
   
   
