@@ -522,6 +522,26 @@ services: #
 ##################################################################################
 
 
+##################################################################################
+# https://docplayer.fr/113904123-Controler-kodi-a-la-voix-installation-de-la-skill-kanzi-pour-alexa.html
+  Kanzi:
+    image: linuxserver/kanzi
+    container_name: CN_Kanzi
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - INVOCATION_NAME=kanzi
+      - URL_ENDPOINT=http://192.168.10.5:1022/
+    ports:
+      - 1022:8000
+    volumes:
+      - Kanzi:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+
 
 
 
@@ -617,9 +637,19 @@ volumes:
   HTPCManager:  
   IPFS:
   Jellyfin:
+  Kanzi:
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   RuTorrent:
   Transmission:
-
 ##################################################################################
 # https://hub.docker.com/r/linuxserver/healthchecks
 ##################################################################################
