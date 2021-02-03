@@ -10,29 +10,6 @@ services: #
 # https://fleet.linuxserver.io/
 # https://mods.linuxserver.io/
 
-
-
-
-##################################################################################
-  MariaDB:
-    image: linuxserver/mariadb
-    container_name: CN_MariaDB
-    network_mode: bridge
-    restart: unless-stopped
-    environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
-    volumes:
-      - MariaDB:/config
-    labels:
-       cacher: 'non'
-##################################################################################
-
 ##################################################################################
 # Streamer Musique
   Airsonic:
@@ -655,9 +632,25 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
-
-
+##################################################################################
+  MariaDB:
+    image: linuxserver/mariadb
+    container_name: CN_MariaDB
+    network_mode: bridge
+    restart: unless-stopped
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    volumes:
+      - MariaDB:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
