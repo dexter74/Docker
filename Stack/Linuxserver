@@ -702,6 +702,7 @@ services: #
 ##################################################################################   
 # Mods : KO (Port: 1030)
 ##################################################################################
+# 
   Mstream:
     image: linuxserver/mstream
     container_name: CN_Mstream
@@ -712,7 +713,7 @@ services: #
       - PGID=74240
       - TZ=Europe/Paris
       - USER=admin
-      - PASSWORD=password
+      - PASSWORD=admin
       - USE_JSON=true
     ports:
       - 1031:3000
@@ -760,7 +761,7 @@ services: #
 ##################################################################################
   MYSQL-WorkBench:
     image: linuxserver/mysql-workbench
-    container_name: CN_
+    container_name: CN_MYSQL-WorkBench
     network_mode: bridge
     restart: 'no'
     environment:
