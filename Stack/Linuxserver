@@ -829,7 +829,27 @@ services: #
 
 
 
-
+##################################################################################
+  NetBootXYZ:
+    image: linuxserver/netbootxyz
+    container_name: CN_NetBootXYZ
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - PORT_RANGE=30000:30010
+    ports:
+      - 1036:3000
+      - 69:69
+      - 80:80
+    volumes:
+      - NetBootXYZ:/config
+      - NetBootXYZ:/assets
+labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -940,7 +960,7 @@ volumes:
   MYSQL-WorkBench:
   Nano:
   Nano-Wallet:
-  
+  NetBootXYZ:
   
   
   RuTorrent:
