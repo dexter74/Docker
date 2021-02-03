@@ -557,7 +557,7 @@ services: #
     ports:
       - 1023:8080
       - 9090:9090
-      - 9000:9000 
+      - 9001:9000 # Portainer : 9000
       
     volumes:
       - Kodi-HeadLess:/config/.kodi
