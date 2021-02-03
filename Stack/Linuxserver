@@ -530,8 +530,8 @@ services: #
     ports:
       - 1040:80
     volumes:
-      - rutorrent:/config
-      - rutorrent:/downloads
+      - RuTorrent:/config
+      - RuTorrent:/downloads
     labels:
        cacher: 'non'
 ##################################################################################
@@ -550,9 +550,11 @@ services: #
     ports:
       - 1041:9091
     volumes:
-      - transmission:/config
+      - Transmission:/config
+      - Transmission:/watch
       - DL:/downloads
-      - transmission:/watch
+      - Musique:/mnt/Musique
+      - Video:/mnt/Video
     labels:
        cacher: 'non'
 ##################################################################################
@@ -583,8 +585,28 @@ volumes:
   HTPCManager:  
   IPFS:
   Jellyfin:
-  rutorrent:
-  transmission:
-  Musique:
-  Video:
+  RuTorrent:
+  Transmission:
+  
   DL:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Qbitorrent,password=Admindu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/DL"
+
+  Musique:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/Musique"
+
+  Video:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/Video"
+
+  
