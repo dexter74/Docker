@@ -3,12 +3,9 @@ version: '3.9'  #
 #################
 services: #
 ###########
-
 ##################################################################################
-
-# external_links ou links : Selon si le conteneur MariaDB est dans le stack ou pas
-# Base de donnée des images : https://fleet.linuxserver.io/
-# Certains conteneur mettent du temps à démarrer. (Voir log)
+# Récuperer le code Volumes en bas .
+##################################################################################
 
 ##################################################################################
   MariaDB:
@@ -561,6 +558,29 @@ services: #
 
 
 volumes:
+  
+  DL:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Qbitorrent,password=Admindu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/DL"
+
+  Musique:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/Musique"
+
+  Video:
+    driver: local
+    driver_opts:
+      type: cifs
+      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
+      device: "//192.168.1.2/Video"
+
+
   Airsonic:
   Bazarr:
   MariaDB:
@@ -587,26 +607,4 @@ volumes:
   Jellyfin:
   RuTorrent:
   Transmission:
-  
-  DL:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: username=Qbitorrent,password=Admindu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/DL"
-
-  Musique:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/Musique"
-
-  Video:
-    driver: local
-    driver_opts:
-      type: cifs
-      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/Video"
-
   
