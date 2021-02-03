@@ -772,6 +772,10 @@ services: #
       - 1034:3000
     volumes:
       - MYSQL-WorkBench:/config
+    depends_on:
+      - MariaDB
+    links:
+      - MariaDB:mysql
     cap_add:
       - IPC_LOCK
     labels:
