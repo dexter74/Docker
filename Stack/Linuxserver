@@ -542,6 +542,27 @@ services: #
        cacher: 'non'
 ##################################################################################
 
+##################################################################################
+# Username / Password : kodi
+  Kodi-HeadLess:
+    image: linuxserver/kodi-headless
+    container_name: CN_Kodi-HeadLess
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1023:8080
+      - 9090:9090
+      - 9000:9000 
+      
+    volumes:
+      - Kodi-HeadLess:/config/.kodi
+    labels:
+       cacher: 'non'
+##################################################################################
+
 
 
 
@@ -638,6 +659,7 @@ volumes:
   IPFS:
   Jellyfin:
   Kanzi:
+  Kodi-HeadLess:
   
   
   
