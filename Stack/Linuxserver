@@ -561,17 +561,21 @@ services: #
     labels:
        cacher: 'non'
 ##################################################################################
-
-
-
-
-
-
-
-
-
-
-
+  LDAP-Auth:
+    image: linuxserver/ldap-auth
+    container_name: CN_LDAP-Auth
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1024:8888
+      - 1025:9000
+    labels:
+       cacher: 'non'       
+##################################################################################
 
 
 
