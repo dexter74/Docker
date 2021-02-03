@@ -387,7 +387,7 @@ clear ;
 #### C. Téléchargement de l'image de Portainer
 ````console
 root@host:$
-docker pull portainer/portainer-ce ;
+docker pull portainer/portainer-ce:2.0.1 ;
 ````
 
 #### D. Création du Volume Portainer_Data
@@ -396,7 +396,7 @@ root@host:$
 docker volume create Portainer_Data ;
 ````
 
-#### E  Création du Conteneur Portainer (Mode Afficher)
+#### E  Création du Conteneur Portainer 2.0.1 (Mode Afficher) 
 ````console
 root@host:$
 docker run -d -p 8000:8000 -p 9000:9000 \
@@ -404,7 +404,7 @@ docker run -d -p 8000:8000 -p 9000:9000 \
       --restart=always \
       --label Portainer="hide" \
       -v /var/run/docker.sock:/var/run/docker.sock \
-      -v Portainer_Data:/data portainer/portainer-ce ;
+      -v Portainer_Data:/data portainer/portainer-ce:2.0.1 ;
 ````
 
 #### F  Création du Conteneur Portainer (Mode Hide)
@@ -416,7 +416,7 @@ docker run -d -p 8000:8000 -p 9000:9000 \
    --restart=always \
    --label Portainer="hide" \
    -v /var/run/docker.sock:/var/run/docker.sock \
-   -v Portainer_Data:/data portainer/portainer-ce \
+   -v Portainer_Data:/data portainer/portainer-ce:2.0.1 ;
    --hide-label Portainer="hide" 
 ````
 
