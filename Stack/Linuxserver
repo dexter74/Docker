@@ -633,7 +633,6 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
@@ -658,8 +657,49 @@ services: #
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+##################################################################################
+  Medusa:
+    image: linuxserver/medusa
+    container_name: CN_Medusa
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1028:8081
+    volumes:
+      - Medusa:/config
+      - Medusa:/downloads
+      - Medusa:/tv
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
+##################################################################################
+# Serveur de jeu Minitest (Fork Minecraft)
+# Arguments : https://wiki.minetest.net/Command_line
+  MiniTest:
+    image: linuxserver/minetest
+    container_name: CN_MiniTest
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+#      - CLI_ARGS="--gameid minetest"
+    ports:
+      - '1029:30000/udp'
+    volumes:
+      - MiniTest:/config
+      - MiniTest:/config/.minetest
+
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -765,8 +805,13 @@ volumes:
   LibreSpeed:
   Lidarr:
   MariaDB:
-
- 
+  Medusa:
+  MiniTest:
+  
+  
+  
+  
+  
   RuTorrent:
   Transmission:
 ##################################################################################
