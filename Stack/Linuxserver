@@ -577,9 +577,30 @@ services: #
        cacher: 'non'       
 ##################################################################################
 
-
-
-
+##################################################################################
+# https://github.com/linuxserver/docker-letsencrypt/blob/master/README.md
+  LetsEncrypt:
+    image: linuxserver/letsencrypt
+    container_name: CN_LetsEncrypt
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - URL=teste74.ddns.net
+      - SUBDOMAINS=www,ftp,cloud
+      - VALIDATION=http
+      - EMAIL=teste74@hotmail.fr
+    ports:
+      - 1025:80
+      - 443:443
+    volumes:
+      - LetsEncrypt:/config
+    labels:
+       cacher: 'non'
+       
+##################################################################################
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -675,7 +696,7 @@ volumes:
   Jellyfin:
   Kanzi:
   Kodi-HeadLess:
-  
+  LetsEncrypt:
   
   
   
