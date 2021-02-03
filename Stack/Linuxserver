@@ -699,7 +699,94 @@ services: #
 
     labels:
        cacher: 'non'
+##################################################################################   
+# Mods : KO (Port: 1030)
 ##################################################################################
+  Mstream:
+    image: linuxserver/mstream
+    container_name: CN_Mstream
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - USER=admin
+      - PASSWORD=password
+      - USE_JSON=true
+    ports:
+      - 1031:3000
+    volumes:
+      - Mstream:/config
+      - Mstream:/music
+    labels:
+       cacher: 'non'
+
+##################################################################################
+  MusicBrainz:
+    image: linuxserver/musicbrainz
+    container_name: CN_MusicBrainz
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - BRAINZCODE=
+      - WEBADDRESS=192.168.10.5
+    ports:
+      - 1032:5000
+    volumes:
+      - MusicBrainz:/config
+      - MusicBrainz:/data
+    labels:
+       cacher: 'non'
+##################################################################################
+  MuxiMux:
+    image: linuxserver/muximux
+    container_name: CN_MuxiMux
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1033:80
+    volumes:
+      - MuxiMux:/config
+    labels:
+       cacher: 'non'
+##################################################################################
+  MYSQL-WorkBench:
+    image: linuxserver/mysql-workbench
+    container_name: CN_
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1034:3000
+    volumes:
+      - MYSQL-WorkBench:/config
+    cap_add:
+      - IPC_LOCK
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -807,7 +894,11 @@ volumes:
   MariaDB:
   Medusa:
   MiniTest:
-  
+  Mods:
+  Mstream:
+  MusicBrainz:
+  MuxiMux:
+  MYSQL-WorkBench:
   
   
   
