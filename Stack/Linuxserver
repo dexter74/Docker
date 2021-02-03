@@ -782,16 +782,50 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-# # docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
-# Nano et nano-wallet (Port: 1035:80)
+
+
+
 
 ##################################################################################
+# docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
+  Nano:
+    image: linuxserver/nano
+    container_name: CN_Nano
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - CLI_OPTIONS='--config node.enable_voting=true'
+      - PEER_HOST='127.0.0.1'
+    ports:
+      - 3000:3000
+    volumes:
+      - Nano:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 
-
-
-
-
-
+##################################################################################
+  Nano-Wallet:
+    image: linuxserver/nano-wallet
+    container_name: CN_Nano-Wallet
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+    ports:
+      - 1035:80
+    volumes:
+      - nano-wallet:/config
+    links:
+      - Nano-Wallet:marc
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -904,7 +938,8 @@ volumes:
   MusicBrainz:
   MuxiMux:
   MYSQL-WorkBench:
-  
+  Nano:
+  Nano-Wallet:
   
   
   
