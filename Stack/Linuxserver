@@ -602,7 +602,32 @@ services: #
        
 ##################################################################################
 
-
+# Speedtest : http://192.168.10.5:1026/results/stats.php
+  LibreSpeed:
+    image: linuxserver/librespeed
+    container_name: CN_LibreSpeed
+    network_mode: bridge
+    restart: 'no'
+    environment:
+      - PUID=1001
+      - PGID=74240
+      - TZ=Europe/Paris
+      - CUSTOM_RESULTS=true
+      - DB_TYPE=mysql
+      - DB_HOSTNAME=mysql
+      - DB_NAME=database
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin
+    links:
+      - MariaDB:mysql
+      
+    ports:
+      - 1026:80
+    volumes:
+      - LibreSpeed:/config
+    labels:
+       cacher: 'non'
+##################################################################################
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
@@ -697,7 +722,7 @@ volumes:
   Kanzi:
   Kodi-HeadLess:
   LetsEncrypt:
-  
+  LibreSpeed:
   
   
   
