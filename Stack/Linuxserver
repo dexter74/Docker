@@ -11,6 +11,7 @@ services: #
   MariaDB:
     image: linuxserver/mariadb
     container_name: CN_MariaDB
+    network_mode: bridge
     restart: unless-stopped
     environment:
       - PUID=1001
@@ -32,6 +33,7 @@ services: #
   Airsonic:
     container_name: CN_Airsonic
     image: linuxserver/airsonic
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -54,6 +56,7 @@ services: #
   Bazarr:
     container_name: CN_Bazarr
     image: linuxserver/bazarr
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -74,6 +77,7 @@ services: #
   Chevereto:
     container_name: CN_Chevereto
     image: linuxserver/chevereto
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -102,6 +106,7 @@ services: #
   Cloud9:
     container_name: CN_Cloud9
     image: linuxserver/cloud9
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -121,6 +126,7 @@ services: #
   Couchpotato:
     container_name: CN_Couchpotato
     image: linuxserver/couchpotato
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -143,6 +149,7 @@ services: #
   Daapd:
     container_name: CN_Daapd
     image: linuxserver/daapd
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -167,6 +174,7 @@ services: #
   Davos:
     container_name: CN_Davos
     image: linuxserver/davos
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -186,6 +194,7 @@ services: #
   DDClient:
     image: linuxserver/ddclient
     container_name: CN_DDClient
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -202,6 +211,7 @@ services: #
   Digikam:
     image: linuxserver/digikam
     container_name: CN_Digikam
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -220,6 +230,7 @@ services: #
   Dillinger:
     image: linuxserver/dillinger
     container_name: CN_Dillinger
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -239,6 +250,7 @@ services: #
   Deluge:
     container_name: CN_Deluge
     image: linuxserver/deluge
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -258,6 +270,7 @@ services: #
   DokuWiki:
     image: linuxserver/dokuwiki
     container_name: CN_DokuWiki
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -277,6 +290,7 @@ services: #
   DoubleCommander:
     image: linuxserver/doublecommander
     container_name: CN_DoubleCommander
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -296,6 +310,7 @@ services: #
   DuckDNS:
     image: linuxserver/duckdns
     container_name: CN_DuckDNS
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -317,6 +332,7 @@ services: #
   Duplicati:
     image: linuxserver/duplicati
     container_name: CN_Duplicati
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=0
@@ -336,6 +352,7 @@ services: #
   Emby:
     image: linuxserver/emby
     container_name: CN_Emby
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -358,6 +375,7 @@ services: #
   Headphones:
     image: linuxserver/headphones
     container_name: CN_Headphones
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -386,6 +404,7 @@ services: #
   HedgeDoc:
     image: linuxserver/hedgedoc
     container_name: CN_HedgeDoc
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -412,6 +431,7 @@ services: #
   Heimdall:
     image: linuxserver/heimdall
     container_name: CN_Heimdall
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -429,6 +449,7 @@ services: #
   HomeAssistant:
     image: linuxserver/homeassistant
     container_name: CN_HomeAssistant
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -448,6 +469,7 @@ services: #
   HTPC-Manager:
     image: linuxserver/htpcmanager
     container_name: CN_HTPC-Manager
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -466,6 +488,7 @@ services: #
   IPFS:
     image: linuxserver/ipfs
     container_name: CN_IPFS
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -488,6 +511,7 @@ services: #
   Jellyfin:
     image: linuxserver/jellyfin
     container_name: CN_Jellyfin
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -520,6 +544,7 @@ services: #
   RuTorrent:
     container_name: CN_Rutorrent
     image: linuxserver/rutorrent
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -538,6 +563,7 @@ services: #
   Transmission:
     container_name: CN_Transmission
     image: linuxserver/transmission
+    network_mode: bridge
     restart: 'no'
     environment:
       - PUID=1001
@@ -557,9 +583,7 @@ services: #
        cacher: 'non'
 ##################################################################################
 
-
 volumes:
-  
   DL:
     driver: local
     driver_opts:
@@ -580,8 +604,7 @@ volumes:
       type: cifs
       o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
       device: "//192.168.1.2/Video"
-
-
+      
   Airsonic:
   Bazarr:
   MariaDB:
@@ -608,4 +631,3 @@ volumes:
   Jellyfin:
   RuTorrent:
   Transmission:
-  
