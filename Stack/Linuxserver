@@ -81,10 +81,6 @@ services: #
 
 ##################################################################################
 # Interface de Développement WebUi 
-# Préférences
-# > Code Editor 
-# > Cocher "Wrap Selection with bracket, Quotes.
-# > Décocher Show Print Margin
   Cloud9:
     container_name: CN_Cloud9
     image: linuxserver/cloud9
@@ -101,6 +97,10 @@ services: #
       - Cloud9:/code
     labels:
        cacher: 'non'
+#
+# Préférences > Code Editor 
+# > Cocher "Wrap Selection with bracket, Quotes.
+# > Décocher Show Print Margin
 ##################################################################################
 
 ##################################################################################
