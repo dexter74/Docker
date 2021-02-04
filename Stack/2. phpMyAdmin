@@ -17,7 +17,7 @@
       PMA_PASSWORD: 'root'
       PMA_PMADB: 'phpmyadmin'
     external_links:
-      - 'MariaDB:mysql'
+      - 'CN_MariaDB:mysql'
     ports:
       - '85:80'
     labels:
