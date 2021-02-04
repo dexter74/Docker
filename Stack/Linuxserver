@@ -12,24 +12,23 @@ services: #
 
 ##################################################################################
 # Streamer Musique
-# Consommation de RAM : 800 Mo
   Airsonic:
-    container_name: CN_Airsonic
-    image: linuxserver/airsonic
-    network_mode: bridge
+    container_name: 'CN_Airsonic'
+    image: 'linuxserver/airsonic'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1000:4040
+      - '1000:4040'
     volumes:
-      - Airsonic:/config
-      - Airsonic:/media
-      - Airsonic:/playlists
-      - Airsonic:/podcasts
-      - Musique:/music
+      - 'Airsonic:/config'
+      - 'Airsonic:/media'
+      - 'Airsonic:/playlists'
+      - 'Airsonic:/podcasts'
+      - 'Musique:/music'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -37,20 +36,20 @@ services: #
 ##################################################################################
 # Telecharger les sous-titres
   Bazarr:
-    container_name: CN_Bazarr
-    image: linuxserver/bazarr
-    network_mode: bridge
+    container_name: 'CN_Bazarr'
+    image: 'linuxserver/bazarr'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1001:6767
+      - '1001:6767'
     volumes:
-      - Bazarr:/config
-      - Bazarr:/movies
-      - Bazarr:/tv
+      - 'Bazarr:/config'
+      - 'Bazarr:/movies'
+      - 'Bazarr:/tv'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -58,23 +57,23 @@ services: #
 ##################################################################################
 # Hebergement Image (Requis : MariaDB)
   Chevereto:
-    container_name: CN_Chevereto
-    image: linuxserver/chevereto
-    network_mode: bridge
+    container_name: 'CN_Chevereto'
+    image: 'linuxserver/chevereto'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1002:80
+      - '1002:80'
     volumes:
-      - Chevereto:/config
-      - Chevereto:/data
+      - 'Chevereto:/config'
+      - 'Chevereto:/data'
     links:
-      - MariaDB:mysql
+      - 'MariaDB:mysql'
     depends_on:
-     - MariaDB
+     - 'MariaDB'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -82,22 +81,23 @@ services: #
 ##################################################################################
 # Interface de Développement WebUi 
   Cloud9:
-    container_name: CN_Cloud9
-    image: linuxserver/cloud9
-    network_mode: bridge
+    container_name: 'CN_Cloud9'
+    image: 'linuxserver/cloud9'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - USERNAME=admin
-      - PASSWORD=admin
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      USERNAME: 'admin'
+      PASSWORD: 'admin'
     ports:
-      - 1003:8000
+      - '1003:8000'
     volumes:
-      - Cloud9:/code
+      - 'Cloud9:/code'
     labels:
        cacher: 'non'
-#
+
 # Préférences > Code Editor 
 # > Cocher "Wrap Selection with bracket, Quotes.
 # > Décocher Show Print Margin
@@ -129,23 +129,23 @@ services: #
 # Pas réussis à tester
 # Consommation: 500 Mo
   Daapd:
-    container_name: CN_Daapd
-    image: linuxserver/daapd
+    container_name: 'CN_Daapd'
+    image: 'linuxserver/daapd'
     network_mode: bridge
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1005:3689/tcp
-      - 3689:3688
+      - '1005:3689/tcp'
+      - '3689:3688'
     volumes:
-      - Daapd:/config
-      - Daapd:/Podcasts
-      - Daapd:/Audiobooks  
-      - Daapd:/Compilations
-      - Musique:/music
+      - 'Daapd:/config'
+      - 'Daapd:/Podcasts'
+      - 'Daapd:/Audiobooks'
+      - 'Daapd:/Compilations'
+      - 'Musique:/music'
     labels:
        cacher: 'non'
 ##################################################################################
