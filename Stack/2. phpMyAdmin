@@ -5,23 +5,24 @@
 ##################################################################################################################
 # Hub   : https://hub.docker.com/r/phpmyadmin/phpmyadmin/
   PhpMyAdmin:
-    container_name: CN_PhpMyAdmin
-    image: phpmyadmin/phpmyadmin
-    restart: always
+    container_name: 'CN_PhpMyAdmin'
+    image: 'phpmyadmin/phpmyadmin'
+    restart: 'always'
     environment:
       PUID: '1001'
       PGID: '74240'
       PMA_HOST: 'mysql'
       PMA_PORT: '3306'
-#      PMA_USER: 'admin'
-#      PMA_PASSWORD: 'admin'
+      PMA_USER: 'root'
+      PMA_PASSWORD: 'root'
       PMA_PMADB: 'phpmyadmin'
     external_links:
-      - MariaDB:mysql
+      - 'MariaDB:mysql'
     ports:
-      - 85:80
+      - '85:80'
     labels:
       cacher: 'non'
+      
 # Note: phpMyAdmin : Uilise sa propre BDD via la variable "PMA_PMADB".     
 ##################################################################################################################
 
