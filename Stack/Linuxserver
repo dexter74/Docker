@@ -79,7 +79,7 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Interface de Développement WebUi 
+# Interface de Développement WebUi
   Cloud9:
     container_name: 'CN_Cloud9'
     image: 'linuxserver/cloud9'
@@ -98,7 +98,7 @@ services: #
     labels:
        cacher: 'non'
 
-# Préférences > Code Editor 
+# Préférences > Code Editor
 # > Cocher "Wrap Selection with bracket, Quotes.
 # > Décocher Show Print Margin
 ##################################################################################
@@ -106,20 +106,20 @@ services: #
 ##################################################################################
 # Media Downloader (Sonarr, Radarr)
   Couchpotato:
-    container_name: CN_Couchpotato
-    image: linuxserver/couchpotato
-    network_mode: bridge
+    container_name: 'CN_Couchpotato'
+    image: 'linuxserver/couchpotato'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1004:5050
+      - '1004:5050'
     volumes:
-      - Couchpotato:/config
-      - Couchpotato:/downloads
-      - Couchpotato:/movies
+      - 'Couchpotato:/config'
+      - 'Couchpotato:/downloads'
+      - 'Couchpotato:/movies'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -131,7 +131,7 @@ services: #
   Daapd:
     container_name: 'CN_Daapd'
     image: 'linuxserver/daapd'
-    network_mode: bridge
+    network_mode: 'bridge'
     restart: 'no'
     environment:
       PUID: '1001'
@@ -151,22 +151,22 @@ services: #
 ##################################################################################
 
 ##################################################################################
-# Automatisation Téléchargement 
+# Automatisation Téléchargement
 # Protocole: SFTP, FTP, FTPS
   Davos:
-    container_name: CN_Davos
-    image: linuxserver/davos
-    network_mode: bridge
+    container_name: 'CN_Davos'
+    image: 'linuxserver/davos'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1006:8080/tcp
+      - '1006:8080/tcp'
     volumes:
-      - Davos:/config
-      - Davos:/download
+      - 'Davos:/config'
+      - 'Davos:/downloads'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -174,16 +174,16 @@ services: #
 ##################################################################################
 # Mettre à jour DynDNS (Doc: http://climato.free.fr/upload/ddclient.pdf)
   DDClient:
-    image: linuxserver/ddclient
-    container_name: CN_DDClient
-    network_mode: bridge
+    image: 'linuxserver/ddclient'
+    container_name: 'CN_DDClient'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     volumes:
-      - DDClient:/config
+      - 'DDClient:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -191,18 +191,18 @@ services: #
 ##################################################################################
 # Editeur de Retouche Photo
   Digikam:
-    image: linuxserver/digikam
-    container_name: CN_Digikam
-    network_mode: bridge
+    image: 'linuxserver/digikam'
+    container_name: 'CN_Digikam'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1007:3000
+      - '1007:3000'
     volumes:
-      - Digikam:/config
+      - 'Digikam:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -210,18 +210,18 @@ services: #
 ##################################################################################
 # Editeur Markdown
   Dillinger:
-    image: linuxserver/dillinger
-    container_name: CN_Dillinger
-    network_mode: bridge
+    image: 'linuxserver/dillinger'
+    container_name: 'CN_Dillinger'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1008:8080
+      - '1008:8080'
     volumes:
-      - Dillinger:/config
+      - 'Dillinger:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -229,38 +229,38 @@ services: #
 ##################################################################################
 # info, warning, error
   Deluge:
-    container_name: CN_Deluge
-    image: linuxserver/deluge
-    network_mode: bridge
+    container_name: 'CN_Deluge'
+    image: 'linuxserver/deluge'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - DELUGE_LOGLEVEL=warning
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      DELUGE_LOGLEVEL: 'warning'
     ports:
-      - 1009:8112
+      - '1009:8112'
     volumes:
-      - Deluge:/config
-      - Deluge:/downloads
+      - 'Deluge:/config'
+      - 'Deluge:/downloads'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   DokuWiki:
-    image: linuxserver/dokuwiki
-    container_name: CN_DokuWiki
-    network_mode: bridge
+    image: 'linuxserver/dokuwiki'
+    container_name: 'CN_DokuWiki'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1010:80
+      - '1010:80'
     volumes:
-      - DokuWiki:/config
+      - 'DokuWiki:/config'
     labels:
        cacher: 'non'
 # http://IP:PORT/install.php
@@ -269,41 +269,41 @@ services: #
 ##################################################################################
 # Gestionnaire de Fichier TOP
   DoubleCommander:
-    image: linuxserver/doublecommander
-    container_name: CN_DoubleCommander
-    network_mode: bridge
+    image: 'linuxserver/doublecommander'
+    container_name: 'CN_DoubleCommander'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1011:3000
+      - '1011:3000'
     volumes:
-      - DoubleCommander:/config
-      - DoubleCommander:/data
-      - Video:/mnt/Video:ro
+      - 'DoubleCommander:/config'
+      - 'DoubleCommander:/data'
+      - 'Video:/mnt/Video:ro'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   DuckDNS:
-    image: linuxserver/duckdns
-    container_name: CN_DuckDNS
-    network_mode: bridge
+    image: 'linuxserver/duckdns'
+    container_name: 'CN_DuckDNS'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - SUBDOMAINS=domain1.com,domain2.fr
-      - TOKEN=XXXXXX
-      - LOG_FILE=true
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      SUBDOMAINS: 'domain1.com,domain2.fr'
+      TOKEN: 'XXXXXX'
+      LOG_FILE: 'true'
     ports:
-      - 1012:80
+      - '1012:80'
     volumes:
-      - DuckDNS:/config
+      - 'DuckDNS:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -311,127 +311,127 @@ services: #
 ##################################################################################
 # Applications de Backup (A peaufiner)
   Duplicati:
-    image: linuxserver/duplicati
-    container_name: CN_Duplicati
-    network_mode: bridge
+    image: 'linuxserver/duplicati'
+    container_name: 'CN_Duplicati'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=0
-      - PGID=0
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1013:8200
+      - '1013:8200'
     volumes:
-      - Duplicati:/config
-      - Duplicati:/backups
-      - Duplicati:/source
+      - 'Duplicati:/config'
+      - 'Duplicati:/backup'
+      - 'Duplicati:/source'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   Emby:
-    image: linuxserver/emby
-    container_name: CN_Emby
-    network_mode: bridge
+    image: 'linuxserver/emby'
+    container_name: 'CN_Emby'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1014:8096
+      - '1014:8096'
     volumes:
-      - Emby:/config
-      - Emby:/data/tvshows
-      - DL:/data/DL:ro
-      - Musique:/data/music:ro
-      - Video:/data/movies:ro
+      - 'Emby:/config'
+      - 'Emby:/data/tvshows'
+      - 'DL:/data/DL:ro'
+      - 'Musique:/data/music:ro'
+      - 'Video:/data/movies:ro'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
-# Télécharger de la Musique 
+# Télécharger de la Musique
   Headphones:
-    image: linuxserver/headphones
-    container_name: CN_Headphones
-    network_mode: bridge
+    image: 'linuxserver/headphones'
+    container_name: 'CN_Headphones'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1015:8181
+      - '1015:8181'
     volumes:
-      - Headphones:/config
-      - Headphones:/downloads
-      - Headphones:/music
-      - DL:/data/DL:ro
+      - 'Headphones:/config'
+      - 'Headphones:/downloads'
+      - 'Headphones:/music'
+      - 'DL:/mnt/DL:ro'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   HedgeDoc:
-    image: linuxserver/hedgedoc
-    container_name: CN_HedgeDoc
-    network_mode: bridge
+    image: 'linuxserver/hedgedoc'
+    container_name: 'CN_HedgeDoc'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - DB_HOST=mysql
-      - DB_USER=admin
-      - DB_PASS=admin
-      - DB_NAME=database
-      - DB_PORT=3306
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      DB_HOST: 'mysql'
+      DB_USER: 'admin'
+      DB_PASS: 'admin'
+      DB_NAME: 'database'
+      DB_PORT: '3306'
     ports:
-      - 1016:3000
+      - '1016:3000'
     volumes:
-      - HedgeDoc:/config
+      - 'HedgeDoc:/config'
     links:
-      - MariaDB:mysql
+      - 'MariaDB:mysql'
     depends_on:
-      - MariaDB
+      - 'MariaDB'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   Heimdall:
-    image: linuxserver/heimdall
-    container_name: CN_Heimdall
-    network_mode: bridge
+    image: 'linuxserver/heimdall'
+    container_name: 'CN_Heimdall'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1017:80
+      - '1017:80'
     volumes:
-      - Heimdall:/config
+      - 'Heimdall:/config'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   HomeAssistant:
-    image: linuxserver/homeassistant
-    container_name: CN_HomeAssistant
-    network_mode: bridge
+    image: 'linuxserver/homeassistant'
+    container_name: 'CN_HomeAssistant'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1018:8123
+      - '1018:8123'
     volumes:
-      - HomeAssistant:/config
+      - 'HomeAssistant:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -440,39 +440,39 @@ services: #
 # https://hub.docker.com/r/linuxserver/htpcmanager
 # https://github.com/HTPC-Manager/HTPC-Manager
   HTPC-Manager:
-    image: linuxserver/htpcmanager
-    container_name: CN_HTPC-Manager
-    network_mode: bridge
+    image: 'linuxserver/htpcmanager'
+    container_name: 'CN_HTPC-Manager'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1019:8085
+      - '1019:8085'
     volumes:
-      - HTPCManager:/config
+      - 'HTPCManager:/config'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   IPFS:
-    image: linuxserver/ipfs
-    container_name: CN_IPFS
-    network_mode: bridge
+    image: 'linuxserver/ipfs'
+    container_name: 'CN_IPFS'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1020:80
-      - 4001:4001
-      - 5001:5001
-      - 8080:8080
+      - '1020:80'
+      - '4001:4001'
+      - '5001:5001'
+      - '8080:8080'
     volumes:
-      - IPFS:/config
+      - 'IPFS:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -481,21 +481,21 @@ services: #
 # https://hub.docker.com/r/linuxserver/jellyfin
 #Nvidia : https://github.com/NVIDIA/nvidia-docker
   Jellyfin:
-    image: linuxserver/jellyfin
-    container_name: CN_Jellyfin
-    network_mode: bridge
+    image: 'linuxserver/jellyfin'
+    container_name: 'CN_Jellyfin'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1021:8096
+      - '1021:8096'
     volumes:
-      - Jellyfin:/config
-      - DL:/mnt/DL:ro
-      - Musique:/mnt/Musique:ro
-      - Video:/mnt/Video:ro
+      - 'Jellyfin:/config'
+      - 'DL:/mnt/DL:ro'
+      - 'Musique:/mnt/Musique:ro'
+      - 'Video:/mnt/Video:ro'
     devices:
       - '/dev/dri:/dev/dri'
     labels:
@@ -505,20 +505,20 @@ services: #
 ##################################################################################
 # https://docplayer.fr/113904123-Controler-kodi-a-la-voix-installation-de-la-skill-kanzi-pour-alexa.html
   Kanzi:
-    image: linuxserver/kanzi
-    container_name: CN_Kanzi
-    network_mode: bridge
+    image: 'linuxserver/kanzi'
+    container_name: 'CN_Kanzi'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - INVOCATION_NAME=kanzi
-      - URL_ENDPOINT=http://192.168.10.5:1022/
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      INVOCATION_NAME: 'kanzi'
+      URL_ENDPOINT: 'http://192.168.10.5:1022'
     ports:
-      - 1022:8000
+      - '1022:8000'
     volumes:
-      - Kanzi:/config
+      - 'Kanzi:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -526,87 +526,91 @@ services: #
 ##################################################################################
 # Username / Password : kodi
   Kodi-HeadLess:
-    image: linuxserver/kodi-headless
-    container_name: CN_Kodi-HeadLess
-    network_mode: bridge
+    image: 'linuxserver/kodi-headless'
+    container_name: 'CN_Kodi-HeadLess'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1023:8080
-      - 9090:9090
-      - 9001:9000 # Portainer : 9000
-      
+      - '1023:8080'
+      - '9090:9090'
+      - '9001:9000'
+
     volumes:
-      - Kodi-HeadLess:/config/.kodi
+      - 'Kodi-HeadLess:/config/.kodi'
     labels:
        cacher: 'non'
+
+##################################################################################
+
 ##################################################################################
   LDAP-Auth:
-    image: linuxserver/ldap-auth
-    container_name: CN_LDAP-Auth
-    network_mode: bridge
+    image: 'linuxserver/ldap-auth'
+    container_name: 'CN_LDAP-Auth'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1024:8888
-      - 9002:9000
+      - '1024:8888'
+      - '9002:9000'
     labels:
-       cacher: 'non'       
+       cacher: 'non'
 ##################################################################################
 
 ##################################################################################
 # https://github.com/linuxserver/docker-letsencrypt/blob/master/README.md
   LetsEncrypt:
-    image: linuxserver/letsencrypt
-    container_name: CN_LetsEncrypt
-    network_mode: bridge
+    image: 'linuxserver/letsencrypt'
+    container_name: 'CN_LetsEncrypt'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - URL=teste74.ddns.net
-      - SUBDOMAINS=www,ftp,cloud
-      - VALIDATION=http
-      - EMAIL=teste74@hotmail.fr
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      URL: 'teste74.ddns.net'
+      SUBDOMAINS: 'www,ftp,cloud'
+      VALIDATION: 'http'
+      EMAIL: 'teste74@hotmail.fr'
     ports:
-      - 1025:80
-      - 443:443
+      - '1025:80'
+      - '443:443'
     volumes:
-      - LetsEncrypt:/config
+      - 'LetsEncrypt:/config'
     labels:
        cacher: 'non'
-       
+
 ##################################################################################
 
+##################################################################################
 # Speedtest : http://192.168.10.5:1026/results/stats.php
   LibreSpeed:
-    image: linuxserver/librespeed
-    container_name: CN_LibreSpeed
-    network_mode: bridge
+    image: 'linuxserver/librespeed'
+    container_name: 'CN_LibreSpeed'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - CUSTOM_RESULTS=true
-      - DB_TYPE=mysql
-      - DB_HOSTNAME=mysql
-      - DB_NAME=database
-      - DB_USERNAME=admin
-      - DB_PASSWORD=admin
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      CUSTOM_RESULTS: 'true'
+      DB_TYPE: 'mysql'
+      DB_HOSTNAME: 'mysql'
+      DB_NAME: 'database'
+      DB_USERNAME: 'admin'
+      DB_PASSWORD: 'admin'
     links:
-      - MariaDB:mysql
+      - 'MariaDB:mysql'
     ports:
-      - 1026:80
+      - '1026:80'
     volumes:
-      - LibreSpeed:/config
+      - 'LibreSpeed:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -615,214 +619,211 @@ services: #
 # Télécharger de la Musique
 # https://hub.docker.com/r/linuxserver/lidarr
   Lidarr:
-    image: linuxserver/lidarr
-    container_name: CN_Lidarr
-    network_mode: bridge
+    image: 'linuxserver/lidarr'
+    container_name: 'CN_Lidarr'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1027:8686
+      - '1027:8686'
     volumes:
-      - Lidarr:/config
-      - Musique:/Music
-      - DL:/downloads
+      - 'Lidarr:/config'
+      - 'Musique:/Music'
+      - 'DL:/downloads'
     labels:
        cacher: 'non'
 ##################################################################################
-
---------------------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
   MariaDB:
-    image: linuxserver/mariadb
-    container_name: CN_MariaDB
-    network_mode: bridge
-    restart: unless-stopped
+    image: 'linuxserver/mariadb'
+    container_name: 'CN_MariaDB'
+    network_mode: 'bridge'
+    restart: 'unless-stopped'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=database
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_DATABASE: 'database'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
     volumes:
-      - MariaDB:/config
+      - 'MariaDB:/config'
     labels:
        cacher: 'non'
 ##################################################################################
-
---------------------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
   Medusa:
-    image: linuxserver/medusa
-    container_name: CN_Medusa
-    network_mode: bridge
+    image: 'linuxserver/medusa'
+    container_name: 'CN_Medusa'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1028:8081
+      - '1028:8081'
     volumes:
-      - Medusa:/config
-      - Medusa:/downloads
-      - Medusa:/tv
+      - 'Medusa:/config'
+      - 'Medusa:/downloads'
+      - 'Medusa:/tv'
     labels:
        cacher: 'non'
 ##################################################################################
-
 
 ##################################################################################
 # Serveur de jeu Minitest (Fork Minecraft)
 # Arguments : https://wiki.minetest.net/Command_line
   MiniTest:
-    image: linuxserver/minetest
-    container_name: CN_MiniTest
-    network_mode: bridge
+    image: 'linuxserver/minetest'
+    container_name: 'CN_MiniTest'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-#      - CLI_ARGS="--gameid minetest"
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+#      CLI_ARGS: '--gameid minetest'
     ports:
       - '1029:30000/udp'
     volumes:
-      - MiniTest:/config
-      - MiniTest:/config/.minetest
+      - 'MiniTest:/config'
+      - 'MiniTest:/config/.minetest'
 
     labels:
        cacher: 'non'
-##################################################################################   
+##################################################################################
 # Mods : KO (Port: 1030)
 ##################################################################################
-# 
+#
   Mstream:
-    image: linuxserver/mstream
-    container_name: CN_Mstream
-    network_mode: bridge
+    image: 'linuxserver/mstream'
+    container_name: 'CN_Mstream'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - USER=admin
-      - PASSWORD=admin
-      - USE_JSON=true
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      USER: 'admin'
+      PASSWORD: 'admin'
+      USE_JSON: 'true'
     ports:
-      - 1031:3000
+      - '1031:3000'
     volumes:
-      - Mstream:/config
-      - Mstream:/music
+      - 'Mstream:/config'
+      - 'Mstream:/music'
     labels:
        cacher: 'non'
+
+##################################################################################
 
 ##################################################################################
   MusicBrainz:
-    image: linuxserver/musicbrainz
-    container_name: CN_MusicBrainz
-    network_mode: bridge
+    image: 'linuxserver/musicbrainz'
+    container_name: 'CN_MusicBrainz'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - BRAINZCODE=
-      - WEBADDRESS=192.168.10.5
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      BRAINZCODE: ''
+      WEBADDRESS: '192.168.10.5'
     ports:
-      - 1032:5000
+      - '1032:5000'
     volumes:
-      - MusicBrainz:/config
-      - MusicBrainz:/data
+      - 'MusicBrainz:/config'
+      - 'MusicBrainz:/data'
     labels:
        cacher: 'non'
+##################################################################################
+
 ##################################################################################
   MuxiMux:
-    image: linuxserver/muximux
-    container_name: CN_MuxiMux
-    network_mode: bridge
+    image: 'linuxserver/muximux'
+    container_name: 'CN_MuxiMux'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1033:80
+      - '1033:80'
     volumes:
-      - MuxiMux:/config
+      - 'MuxiMux:/config'
     labels:
        cacher: 'non'
+##################################################################################
+
 ##################################################################################
   MYSQL-WorkBench:
-    image: linuxserver/mysql-workbench
-    container_name: CN_MYSQL-WorkBench
-    network_mode: bridge
+    image: 'linuxserver/mysql-workbench'
+    container_name: 'CN_MYSQL-WorkBench'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1034:3000
+      - '1034:3000'
     volumes:
-      - MYSQL-WorkBench:/config
+      - 'MYSQL-WorkBench:/config'
     depends_on:
-      - MariaDB
+      - 'MariaDB'
     links:
-      - MariaDB:mysql
+      - 'MariaDB:mysql'
     cap_add:
-      - IPC_LOCK
+      - 'IPC_LOCK'
     labels:
        cacher: 'non'
 ##################################################################################
-
-
-
-
 
 ##################################################################################
 # docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
   Nano:
-    image: linuxserver/nano
-    container_name: CN_Nano
-    network_mode: bridge
+    image: 'linuxserver/nano'
+    container_name: 'CN_Nano'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - CLI_OPTIONS='--config node.enable_voting=true'
-      - PEER_HOST='127.0.0.1'
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      CLI_OPTIONS: '--config node.enable_voting: true'
+      PEER_HOST: '127.0.0.1'
     ports:
-      - 3000:3000
+      - '3000:3000'
     volumes:
-      - Nano:/config
+      - 'Nano:/config'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   Nano-Wallet:
-    image: linuxserver/nano-wallet
-    container_name: CN_Nano-Wallet
-    network_mode: bridge
+    image: 'linuxserver/nano-wallet'
+    container_name: 'CN_Nano-Wallet'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1035:80
+      - '1035:80'
     volumes:
-      - nano-wallet:/config
+      - 'nano-wallet:/config'
     links:
-      - Nano-Wallet:marc
+      - 'Nano-Wallet'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -831,54 +832,153 @@ services: #
 
 ##################################################################################
   NetBootXYZ:
-    image: linuxserver/netbootxyz
-    container_name: CN_NetBootXYZ
-    network_mode: bridge
+    image: 'linuxserver/netbootxyz'
+    container_name: 'CN_NetBootXYZ'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - PORT_RANGE=30000:30010
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      PORT_RANGE: '30000:30010'
     ports:
-      - 1036:3000
-      - 69:69
-      - 80:80
+      - '1036:3000'
+      - '69:69'
+      - '80:80'
+      - '30000:30010'
     volumes:
-      - NetBootXYZ:/config
-      - NetBootXYZ:/assets
+      - 'NetBootXYZ:/config'
+      - 'NetBootXYZ:/assets'
 labels:
        cacher: 'non'
 ##################################################################################
 
+
 ##################################################################################
-netbox : Port 1037
+# netbox : Port 1037
 ##################################################################################
 
 
 ##################################################################################
 # https://192.168.10.5:1038
   NextCloud:
-    image: linuxserver/nextcloud
-    container_name: CN_NextCloud
-    network_mode: bridge
+    image: 'linuxserver/nextcloud'
+    container_name: 'CN_NextCloud'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1038:443
+      - '1038:443'
     volumes:
-      - NextCloud:/config
-      - NextCloud:/data
+      - 'NextCloud:/config'
+      - 'NextCloud:/data'
     labels:
        cacher: 'non'
+##################################################################################
+
+##################################################################################
+  Nginx:
+    image: 'linuxserver/nginx'
+    container_name: 'CN_Nginx'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1038:80'
+      - '443:443'
+    volumes:
+      - 'Nginx:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
+
+##################################################################################
+  NZBGet:
+    image: 'linuxserver/nzbget'
+    container_name: 'CN_NZBGet'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1039:6789'
+    volumes:
+      - 'NZBGet:/config'
+      - 'NZBGet:/dowloads'
+    labels:
+       cacher: 'non'
+##################################################################################
+
+##################################################################################
+version: '2.4'
+services:
+  NZBHydra2:
+    image: 'linuxserver/nzbhydra2'
+    container_name: 'CN_NZBHydra2'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1040:5076'
+    volumes:
+      - 'NZBHydra2:/config'
+      - 'NZBHydra2:/downloads'
+    labels:
+       cacher: 'non'
+##################################################################################
+##################################################################################
+version: '2.4'
+services:
+  XXXXX:
+    image: 'linuxserver/'
+    container_name: 'CN_'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1041:80'
+    volumes:
+      - 'XXXXX:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ##################################################################################
 
 
 
 
+
+##################################################################################
+  XXXXX:
+    image: 'linuxserver/'
+    container_name: 'CN_'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1038:80'
+    volumes:
+      - 'XXXXX:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -888,68 +988,68 @@ netbox : Port 1037
 
 ##################################################################################
   RuTorrent:
-    container_name: CN_Rutorrent
-    image: linuxserver/rutorrent
-    network_mode: bridge
+    container_name: 'CN_Rutorrent'
+    image: 'linuxserver/rutorrent'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
     ports:
-      - 1040:80
+      - '1040:80'
     volumes:
-      - RuTorrent:/config
-      - RuTorrent:/downloads
+      - 'RuTorrent:/config'
+      - 'RuTorrent:/downloads'
     labels:
        cacher: 'non'
 ##################################################################################
 
 ##################################################################################
   Transmission:
-    container_name: CN_Transmission
-    image: linuxserver/transmission
-    network_mode: bridge
+    container_name: 'CN_Transmission'
+    image: 'linuxserver/transmission'
+    network_mode: 'bridge'
     restart: 'no'
     environment:
-      - PUID=1001
-      - PGID=74240
-      - TZ=Europe/Paris
-      - USER=admin
-      - PASS=admin
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      USER: 'admin'
+      PASS: 'admin'
     ports:
-      - 1041:9091
+      - '1041:9091'
     volumes:
-      - Transmission:/config
-      - Transmission:/watch
-      - DL:/downloads
-      - Musique:/mnt/Musique
-      - Video:/mnt/Video
+      - 'Transmission:/config'
+      - 'Transmission:/watch'
+      - 'DL:/downloads'
+      - 'Musique:/mnt/Musique'
+      - 'Video:/mnt/Video'
     labels:
        cacher: 'non'
 ##################################################################################
 
 volumes:
   DL:
-    driver: local
+    driver: 'local'
     driver_opts:
-      type: cifs
-      o: username=Qbitorrent,password=Admindu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/DL"
+      type: 'cifs'
+      o: 'username: Qbitorrent,password: Admindu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
+      device: '//192.168.1.2/DL'
 
   Musique:
-    driver: local
+    driver: 'local'
     driver_opts:
-      type: cifs
-      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/Musique"
+      type: 'cifs'
+      o: 'username: Medias,password: Azertydu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
+      device: '//192.168.1.2/Musique'
 
   Video:
-    driver: local
+    driver: 'local'
     driver_opts:
-      type: cifs
-      o: username=Medias,password=Azertydu74@,vers=3.0,file_mode=0777,dir_mode=0777
-      device: "//192.168.1.2/Video"
+      type: 'cifs'
+      o: 'username: Medias,password: Azertydu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
+      device: '//192.168.1.2/Video'
 
   Airsonic:
   Bazarr:
@@ -971,7 +1071,7 @@ volumes:
   HedgeDoc:
   Heimdall:
   HomeAssistant:
-  HTPCManager:  
+  HTPCManager:
   IPFS:
   Jellyfin:
   Kanzi:
@@ -990,8 +1090,13 @@ volumes:
   Nano:
   Nano-Wallet:
   NetBootXYZ:
-  
-  
+  NextCloud:
+  Nginx:
+  NZBGet:
+  NZBHydra2:
+
+
+
   RuTorrent:
   Transmission:
 ##################################################################################
