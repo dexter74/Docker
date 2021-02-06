@@ -793,7 +793,7 @@ services:       #
       CLI_OPTIONS: '--config node.enable_voting: true'
       PEER_HOST: '127.0.0.1'
     ports:
-      - '3000:3000'
+      - '1035:3000'
     volumes:
       - 'Nano:/config'
     labels:
@@ -811,7 +811,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1035:80'
+      - '1036:80'
     volumes:
       - 'nano-wallet:/config'
     links:
@@ -830,12 +830,12 @@ services:       #
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe/Paris'
-      PORT_RANGE: '30000:30010'
+#      PORT_RANGE: '30000:30010'
     ports:
-      - '1036:3000'
-      - '69:69'
-      - '80:80'
-      - '30000:30010'
+      - '1037:3000'
+#      - '69:69'
+#      - '80:80'
+#      - '30000:30010'
     volumes:
       - 'NetBootXYZ:/config'
       - 'NetBootXYZ:/assets'
@@ -872,7 +872,7 @@ services:       #
       - 'CN_MariaDB:mysql'
     ports:
       - '1037:8000'
-      - '1002:6379'
+#      - '1002:6379'
     volumes:
       - 'NetBox:/config'
     labels:
@@ -910,8 +910,8 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1038:80'
-      - '443:443'
+      - '1039:80'
+ #     - '443:443'
     volumes:
       - 'Nginx:/config'
     labels:
@@ -929,7 +929,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1039:6789'
+      - '1040:6789'
     volumes:
       - 'NZBGet:/config'
       - 'NZBGet:/dowloads'
@@ -948,7 +948,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1040:5076'
+      - '1041:5076'
     volumes:
       - 'NZBHydra2:/config'
       - 'NZBHydra2:/downloads'
@@ -956,8 +956,7 @@ services:       #
        cacher: 'non'
 ##################################################################################
 
---
-
+----------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
 version: '2.4'
@@ -979,31 +978,7 @@ services:
        cacher: 'non'
 ##################################################################################
 
-##################################################################################
-  XXXXX:
-    image: 'linuxserver/'
-    container_name: 'CN_'
-    network_mode: 'bridge'
-    restart: 'no'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe/Paris'
-    ports:
-      - '1038:80'
-    volumes:
-      - 'XXXXX:/config'
-    labels:
-       cacher: 'non'
-##################################################################################
-
-
-
-
-
-
-
-
+----------------------------------------------------------------------------------------------------------------------------------
 
 ##################################################################################
   RuTorrent:
@@ -1047,7 +1022,6 @@ services:
     labels:
        cacher: 'non'
 ##################################################################################
-
 volumes:
   DL:
     driver: 'local'
