@@ -168,6 +168,29 @@ services:       #
        cacher: 'non'
 ##################################################################################
 
+
+##################################################################################
+# info, warning, error
+  Deluge:
+    container_name: 'CN_Deluge'
+    image: 'linuxserver/deluge'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      DELUGE_LOGLEVEL: 'warning'
+    ports:
+      - '1007:8112'
+    volumes:
+      - 'Deluge:/config'
+      - 'Deluge:/downloads'
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
 ##################################################################################
 # Mettre à jour DynDNS (Doc: http://climato.free.fr/upload/ddclient.pdf)
   DDClient:
@@ -197,7 +220,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1007:3000'
+      - '1008:3000'
     volumes:
       - 'Digikam:/config'
     labels:
@@ -216,30 +239,9 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1008:8080'
+      - '1009:8080'
     volumes:
       - 'Dillinger:/config'
-    labels:
-       cacher: 'non'
-##################################################################################
-
-##################################################################################
-# info, warning, error
-  Deluge:
-    container_name: 'CN_Deluge'
-    image: 'linuxserver/deluge'
-    network_mode: 'bridge'
-    restart: 'no'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe/Paris'
-      DELUGE_LOGLEVEL: 'warning'
-    ports:
-      - '1009:8112'
-    volumes:
-      - 'Deluge:/config'
-      - 'Deluge:/downloads'
     labels:
        cacher: 'non'
 ##################################################################################
