@@ -71,8 +71,6 @@ services:       #
       - 'Chevereto:/data'
     links:
       - 'MariaDB:mysql'
-    depends_on:
-     - 'MariaDB'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -393,8 +391,6 @@ services:       #
       - 'HedgeDoc:/config'
     links:
       - 'MariaDB:mysql'
-    depends_on:
-      - 'MariaDB'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -776,8 +772,6 @@ services:       #
       - '1034:3000'
     volumes:
       - 'MYSQL-WorkBench:/config'
-    depends_on:
-      - 'MariaDB'
     links:
       - 'MariaDB:mysql'
     cap_add:
