@@ -408,7 +408,8 @@ docker run -d -p 8000:8000 -p 9000:9000 \
 ````
 
 #### F  Création du Conteneur Portainer (Mode Hide)
-Pour cacher automatiquement Portainer dans le panel de supervision, il suffit de définir un `--Label Portainer="hide"` puis d'utiliser le paarmètre `--hide-label Portainer="hide"` (Le nom Portainer et hide est un exemple de nom=valeur)
+Pour cacher automatiquement Portainer dans le panel de supervision, il suffit de définir un `--Label Portainer="hide"` puis d'utiliser le paramètre `--hide-label Portainer="hide"` (Portainer=hide est un exemple) .
+
 ````console
 root@host:$
 docker run -d -p 8000:8000 -p 9000:9000 \
@@ -423,7 +424,7 @@ docker run -d -p 8000:8000 -p 9000:9000 \
 #### `http://192.168.10.5:9000`
 
 #### G Cacher un conteneur dans Portainer
-Il suffit de créer un conteneur avec un label. Puis dans settings d'ajouter le nom et la valeur
+Il suffit de créer un conteneur avec un label. Puis dans settings d'ajouter le nom et la valeur. (Portainer = hide)
 ````
     labels:
       XXXX: 'YYYY'
