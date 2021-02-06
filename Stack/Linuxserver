@@ -846,7 +846,7 @@ services:       #
     volumes:
       - 'NetBootXYZ:/config'
       - 'NetBootXYZ:/assets'
-labels:
+    labels:
        cacher: 'non'
 ##################################################################################
 
@@ -875,7 +875,7 @@ labels:
       REDIS_PORT: '6379'
       REDIS_PASSWORD: 'admin'
       VERSION: 'v2.2.1'
-    external_links:
+    links:
       - 'CN_MariaDB:mysql'
     ports:
       - '1037:8000'
