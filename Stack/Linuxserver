@@ -1,7 +1,6 @@
 #################
 version: '2.1'  #
-#################
-services: #
+services: #######
 ###########
 
 ##################################################################################
@@ -850,13 +849,8 @@ services: #
 labels:
        cacher: 'non'
 ##################################################################################
-
-version: '2.4'
-services:
-
 # https://fleet.linuxserver.io/
 # https://mods.linuxserver.io/
-
   NetBox:
     image: 'linuxserver/netbox'
     container_name: 'CN_NetBox'
@@ -953,8 +947,6 @@ services:
 ##################################################################################
 
 ##################################################################################
-version: '2.4'
-services:
   NZBHydra2:
     image: 'linuxserver/nzbhydra2'
     container_name: 'CN_NZBHydra2'
