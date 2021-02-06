@@ -163,7 +163,7 @@ services:       #
       - '1006:8080/tcp'
     volumes:
       - 'Davos:/config'
-      - 'Davos:/downloads'
+      - 'Davos:/download'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -320,7 +320,7 @@ services:       #
       - '1013:8200'
     volumes:
       - 'Duplicati:/config'
-      - 'Duplicati:/backup'
+      - 'Duplicati:/backups'
       - 'Duplicati:/source'
     labels:
        cacher: 'non'
