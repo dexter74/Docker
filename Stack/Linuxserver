@@ -853,11 +853,48 @@ labels:
        cacher: 'non'
 ##################################################################################
 
+version: '2.4'
+services:
 
-##################################################################################
-# netbox : Port 1037
-##################################################################################
+# https://fleet.linuxserver.io/
+# https://mods.linuxserver.io/
 
+  NetBox:
+    image: 'linuxserver/netbox'
+    container_name: 'CN_NetBox'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'NetBox'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      SUPERUSER_EMAIL: 'teste74@hotmail.fr'
+      SUPERUSER_PASSWORD: 'biohazard74'
+      BASE_PATH: 'none'
+      DB_HOST: 'mysql'
+      DB_PORT: '3306'
+      DB_NAME: 'database'
+      DB_USER: 'admin'
+      DB_PASSWORD: 'admin'
+      REDIS_HOST: 'NetBox'
+      REDIS_PORT: '6379'
+      REDIS_PASSWORD: 'admin'
+      VERSION: 'v2.2.1'
+    external_links:
+      - 'CN_MariaDB:mysql'
+    ports:
+      - '1037:8000'
+      - '1002:6379'
+    volumes:
+      - 'NetBox:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
+       
+       
+       
+       
 
 ##################################################################################
 # https://192.168.10.5:1038
