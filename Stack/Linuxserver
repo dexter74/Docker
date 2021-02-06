@@ -351,6 +351,28 @@ services:       #
 ##################################################################################
 
 ##################################################################################
+# https://hub.docker.com/r/linuxserver/htpcmanager
+# https://github.com/HTPC-Manager/HTPC-Manager
+  HTPC-Manager:
+    image: 'linuxserver/htpcmanager'
+    container_name: 'CN_HTPC-Manager'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1015:8085'
+    volumes:
+      - 'HTPCManager:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
+
+##################################################################################
 # Télécharger de la Musique
   Headphones:
     image: 'linuxserver/headphones'
@@ -362,7 +384,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1015:8181'
+      - '1016:8181'
     volumes:
       - 'Headphones:/config'
       - 'Headphones:/downloads'
@@ -388,7 +410,7 @@ services:       #
       DB_NAME: 'database'
       DB_PORT: '3306'
     ports:
-      - '1016:3000'
+      - '1017:3000'
     volumes:
       - 'HedgeDoc:/config'
     links:
@@ -408,7 +430,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1017:80'
+      - '1018:80'
     volumes:
       - 'Heimdall:/config'
     labels:
@@ -426,32 +448,13 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1018:8123'
+      - '1019:8123'
     volumes:
       - 'HomeAssistant:/config'
     labels:
        cacher: 'non'
 ##################################################################################
 
-##################################################################################
-# https://hub.docker.com/r/linuxserver/htpcmanager
-# https://github.com/HTPC-Manager/HTPC-Manager
-  HTPC-Manager:
-    image: 'linuxserver/htpcmanager'
-    container_name: 'CN_HTPC-Manager'
-    network_mode: 'bridge'
-    restart: 'no'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe/Paris'
-    ports:
-      - '1019:8085'
-    volumes:
-      - 'HTPCManager:/config'
-    labels:
-       cacher: 'non'
-##################################################################################
 
 ##################################################################################
   IPFS:
@@ -762,7 +765,7 @@ services:       #
 ##################################################################################
   MYSQL-WorkBench:
     image: 'linuxserver/mysql-workbench'
-    container_name: 'CN_MYSQL-WorkBench'
+    container_name: 'CN_Mysql-WorkBench'
     network_mode: 'bridge'
     restart: 'no'
     environment:
@@ -780,6 +783,7 @@ services:       #
     labels:
        cacher: 'non'
 ##################################################################################
+
 
 ##################################################################################
 # docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
