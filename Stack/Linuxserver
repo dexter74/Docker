@@ -137,15 +137,15 @@ services: #
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe/Paris'
-    ports:
-      - '1005:3689/tcp'
-      - '3689:3688'
     volumes:
       - 'Daapd:/config'
       - 'Daapd:/Podcasts'
       - 'Daapd:/Audiobooks'
       - 'Daapd:/Compilations'
       - 'Musique:/music'
+    ports:
+      - '1005:3689/tcp'
+      - '3689:3688'
     labels:
        cacher: 'non'
 ##################################################################################
