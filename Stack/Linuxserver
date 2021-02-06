@@ -93,7 +93,7 @@ services:       #
     volumes:
       - 'Chevereto:/config'
       - 'Chevereto:/data'
-    links:
+    external_links:
       - 'MariaDB:mysql'
     labels:
        cacher: 'non'
@@ -433,7 +433,7 @@ services:       #
       - '1017:3000'
     volumes:
       - 'HedgeDoc:/config'
-    links:
+    external_links:
       - 'MariaDB:mysql'
     labels:
        cacher: 'non'
@@ -623,7 +623,7 @@ services:       #
       DB_NAME: 'database'
       DB_USERNAME: 'admin'
       DB_PASSWORD: 'admin'
-    links:
+    external_links:
       - 'MariaDB:mysql'
     ports:
       - '1026:80'
@@ -775,7 +775,7 @@ services:       #
       - '1034:3000'
     volumes:
       - 'MYSQL-WorkBench:/config'
-    links:
+    external_links:
       - 'MariaDB:mysql'
     cap_add:
       - 'IPC_LOCK'
@@ -819,7 +819,7 @@ services:       #
       - '1036:80'
     volumes:
       - 'nano-wallet:/config'
-    links:
+    external_links:
       - 'Nano'
     labels:
        cacher: 'non'
@@ -873,7 +873,7 @@ services:       #
       REDIS_PORT: '6379'
       REDIS_PASSWORD: 'admin'
       VERSION: 'v2.2.1'
-    links:
+    external_links:
       - 'CN_MariaDB:mysql'
     ports:
       - '1037:8000'
