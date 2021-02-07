@@ -924,25 +924,6 @@ services:       #
 ##################################################################################
 
 ##################################################################################
-  NZBHydra2:
-    image: 'linuxserver/nzbhydra2'
-    container_name: 'CN_NzbHydra2'
-    network_mode: 'bridge'
-    restart: 'no'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe/Paris'
-    ports:
-      - '1041:5076'
-    volumes:
-      - 'NZBHydra2:/config'
-      - 'NZBHydra2:/downloads'
-    labels:
-       cacher: 'non'
-##################################################################################
-
-##################################################################################
   NZBGet:
     image: 'linuxserver/nzbget'
     container_name: 'CN_Nzbget'
@@ -953,13 +934,34 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1042:6789'
+      - '1041:6789'
     volumes:
       - 'NZBGet:/config'
       - 'NZBGet:/dowloads'
     labels:
        cacher: 'non'
 ##################################################################################
+
+##################################################################################
+  NZBHydra2:
+    image: 'linuxserver/nzbhydra2'
+    container_name: 'CN_Nzbhydra2'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1042:5076'
+    volumes:
+      - 'NZBHydra2:/config'
+      - 'NZBHydra2:/downloads'
+    labels:
+       cacher: 'non'
+##################################################################################
+
+
 
 
 
