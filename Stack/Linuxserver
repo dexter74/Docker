@@ -627,12 +627,12 @@ services:       #
       DB_NAME: 'database'
       DB_USERNAME: 'admin'
       DB_PASSWORD: 'admin'
-    external_links:
-      - 'CN_MariaDB:mysql'
     ports:
       - '1026:80'
     volumes:
       - 'LibreSpeed:/config'
+    external_links:
+      - 'CN_MariaDB:mysql'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -723,7 +723,6 @@ services:       #
       - 'Mstream:/music'
     labels:
        cacher: 'non'
-
 ##################################################################################
 
 ##################################################################################
@@ -786,9 +785,6 @@ services:       #
     labels:
        cacher: 'non'
 ##################################################################################
-
-
-
 
 ##################################################################################
 # docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
