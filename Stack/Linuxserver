@@ -832,7 +832,7 @@ services:       #
     volumes:
       - 'nano-wallet:/config'
     external_links:
-      - 'Nano'
+      - 'CN_Nano'
     labels:
        cacher: 'non'
 ##################################################################################
