@@ -821,8 +821,8 @@ services:       #
       - '1036:80'
     volumes:
       - 'nano-wallet:/config'
-    external_links:
-      - 'CN_Nano'
+    links:
+      - 'Nano'
     labels:
        cacher: 'non'
 ##################################################################################
