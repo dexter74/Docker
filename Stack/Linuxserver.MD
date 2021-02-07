@@ -1623,10 +1623,12 @@ services:       #
 ##########################################################################################################################
 ````````
 
-# Non-fonctionnel:
+
 ````yaml
 ##########################################################################################################################
+# Conteneur non fonctionnel en état
 # Requiert SQLite Ou PostgreSQL
+
   Quassel-Core:
     image: 'linuxserver/quassel-core'
     container_name: 'CN_Quassel-Core'
@@ -1648,7 +1650,7 @@ services:       #
     external_links:
       - 'CN_MariaDB:mysql'
     ports:
-      - '1080:4242'
+      - '1059:4242'
       - '113:10113'
     volumes:
       - 'Quassel-Core:/config'
@@ -1670,7 +1672,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
       QUASSEL_CORE: '192.168.10.5'
-      QUASSEL_PORT: '1080'
+      QUASSEL_PORT: '1059'
       URL_BASE: '/quassel'
     ports:
       - '1060:64080'
