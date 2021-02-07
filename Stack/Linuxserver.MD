@@ -20,9 +20,11 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 ### 3. **Developpement**
 ````yaml
+#################
+version: '2.1'  #
+services:       #
+#################
 ##################################################################################
-version: '2.4'
-services:
   XXXXX:
     image: 'linuxserver/'
     container_name: 'CN_'
