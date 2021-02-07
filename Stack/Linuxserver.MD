@@ -13,7 +13,7 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### **Image de la Base de donnée MariaDB**
+#### **1. Image de la Base de donnée MariaDB**
 
 ````yaml
 #################
