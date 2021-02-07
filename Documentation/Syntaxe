@@ -55,7 +55,7 @@ services:
       - 'nomdeserveur:adresse'
       - 'localhost:192.168.1.20'
     
-    group_add:
+    group-add:
       - 'xXXX'
     
     healthcheck:
