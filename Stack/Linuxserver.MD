@@ -1517,15 +1517,80 @@ services:       #
 ````````
 
 ````yaml
-Conteneur
+##################################################################################
+# Pydio: Plateforme  pour le partage de fichiers et la synchronisation
+  Pydio:
+    image: 'linuxserver/pydio'
+    container_name: 'CN_Pydio'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Pydio'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1055:443' # HTTPS
+    volumes:
+      - 'Pydio:/config'
+    external_links:
+      - 'CN_MariaDB:mysql'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````````
 
 ````yaml
-Conteneur
+##################################################################################
+# Pyload est un gestionnaire de téléchargement DDL
+# Username: admin
+# Password: password
+  Pyload:
+    image: 'linuxserver/pyload'
+    container_name: 'CN_Pyload'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Pyload'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1056:8000' # HTTP
+#      - '7227:7227'
+    volumes:
+      - 'Pyload:/config'
+      - 'Pyload:/downloads'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````````
 
 ````yaml
-Conteneur
+##################################################################################
+  Pylon:
+    image: 'linuxserver/pylon'
+    container_name: 'CN_Pylon'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Pylon'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      GITURL: 'https://github.com/linuxserver/docker-pylon.git'
+      PYUSER: 'admin'
+      PYPASS: 'admin'
+    ports:
+      - '1057:3131'
+    volumes:
+      - 'Pylon:/code'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````````
 
 ````yaml
