@@ -31,8 +31,6 @@ services:       #
 ----------------------------------------------------------------------------------
 
 
-
-
 #################
 version: '2.1'  #
 services:       #
@@ -926,25 +924,6 @@ services:       #
 ##################################################################################
 
 ##################################################################################
-  NZBGet:
-    image: 'linuxserver/nzbget'
-    container_name: 'CN_Nzbget'
-    network_mode: 'bridge'
-    restart: 'no'
-    environment:
-      PUID: '1001'
-      PGID: '74240'
-      TZ: 'Europe/Paris'
-    ports:
-      - '1041:6789'
-    volumes:
-      - 'NZBGet:/config'
-      - 'NZBGet:/dowloads'
-    labels:
-       cacher: 'non'
-##################################################################################
-
-##################################################################################
   NZBHydra2:
     image: 'linuxserver/nzbhydra2'
     container_name: 'CN_NzbHydra2'
@@ -955,7 +934,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1042:5076'
+      - '1041:5076'
     volumes:
       - 'NZBHydra2:/config'
       - 'NZBHydra2:/downloads'
@@ -963,16 +942,24 @@ services:       #
        cacher: 'non'
 ##################################################################################
 
-
-
-
-
-
-
-
-
-
-
+##################################################################################
+  NZBGet:
+    image: 'linuxserver/nzbget'
+    container_name: 'CN_Nzbget'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1042:6789'
+    volumes:
+      - 'NZBGet:/config'
+      - 'NZBGet:/dowloads'
+    labels:
+       cacher: 'non'
+##################################################################################
 
 
 
@@ -992,7 +979,7 @@ services:
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1041:80'
+      - '1043:80'
     volumes:
       - 'XXXXX:/config'
     labels:
