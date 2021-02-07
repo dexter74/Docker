@@ -1462,7 +1462,31 @@ services:       #
 ````
 
 ````yaml
-Conteneur 
+##################################################################################
+# Projectsend est une application pour l'hébergement de fichier
+# Download, Upload, Share Link
+  ProjectSend:
+    image: 'linuxserver/projectsend'
+    container_name: 'CN_ProjectSend'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'ProjectSend'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      MAX_UPLOAD: '50' # 50 MO
+    ports:
+      - '1051:80'
+    volumes:
+      - 'ProjectSend:/config'
+      - 'ProjectSend:/data'
+    external_links:
+      - 'CN_MariaDB:mysql'
+    labels:
+       cacher: 'non'
+################################################################################## 
 ````
 
 ````yaml
