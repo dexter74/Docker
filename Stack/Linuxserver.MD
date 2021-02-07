@@ -11,6 +11,8 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 [Mode](https://mods.linuxserver.io/)
 
+[Volumes 3.0](https://github.com/dexter74/Docker/blob/main/Volumes/Stack)
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -1099,6 +1101,13 @@ services:       #
 
 ----
 
+
+
+
+
+
+
+
 ````yaml
 ##################################################################################
   RuTorrent:
@@ -1143,84 +1152,5 @@ services:       #
       - 'Video:/mnt/Video'
     labels:
        cacher: 'non'
-##################################################################################
-````
-
-
-
-
-
-
-````yaml
-# Pour la version 3.X
-volumes:
-  DL:
-    driver: 'local'
-    driver_opts:
-      type: 'cifs'
-      o: 'username: Qbitorrent,password: Admindu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
-      device: '//192.168.1.2/DL'
-
-  Musique:
-    driver: 'local'
-    driver_opts:
-      type: 'cifs'
-      o: 'username: Medias,password: Azertydu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
-      device: '//192.168.1.2/Musique'
-
-  Video:
-    driver: 'local'
-    driver_opts:
-      type: 'cifs'
-      o: 'username: Medias,password: Azertydu74@,vers: 3.0,file_mode: 0777,dir_mode: 0777'
-      device: '//192.168.1.2/Video'
-
-  Airsonic:
-  Bazarr:
-  Chevereto:
-  Cloud9:
-  Couchpotato:
-  Daapd:
-  Davos:
-  DDClient:
-  Digikam:
-  Deluge:
-  Dillinger:
-  DokuWiki:
-  DoubleCommander:
-  DuckDNS:
-  Duplicati:
-  Emby:
-  Headphones:
-  HedgeDoc:
-  Heimdall:
-  HomeAssistant:
-  HTPCManager:
-  IPFS:
-  Jellyfin:
-  Kanzi:
-  Kodi-HeadLess:
-  LetsEncrypt:
-  LibreSpeed:
-  Lidarr:
-  MariaDB:
-  Medusa:
-  MiniTest:
-  Mods:
-  Mstream:
-  MusicBrainz:
-  MuxiMux:
-  MYSQL-WorkBench:
-  Nano:
-  Nano-Wallet:
-  NetBootXYZ:
-  NextCloud:
-  Nginx:
-  NZBGet:
-  NZBHydra2:
-  RuTorrent:
-  Transmission:
-##################################################################################
-# https://hub.docker.com/r/linuxserver/healthchecks
 ##################################################################################
 ````
