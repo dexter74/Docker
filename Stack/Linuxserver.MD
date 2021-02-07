@@ -1362,8 +1362,29 @@ services:       #
 ````
 
 ````yaml
-Conteneur 
-````
+##################################################################################
+# Pixapop: Affiher les photos sur une seule page (Basique)
+  PixaPOP:
+    image: 'linuxserver/pixapop'
+    container_name: 'CN_PixaPOP'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'PixaPOP'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      APP_USERNAME: 'admin'
+      APP_PASSWORD: 'admin'
+    ports:
+      - '1050:80'
+    volumes:
+      - 'PixaPOP:/config'
+      - 'PixaPOP:/photos'
+    labels:
+       cacher: 'non'
+##################################################################################````
 
 ````yaml
 Conteneur 
