@@ -98,7 +98,7 @@ services:       #
       - 'Chevereto:/config'
       - 'Chevereto:/data'
     external_links:
-      - 'MariaDB:mysql'
+      - 'CN_MariaDB:mysql'
     labels:
        cacher: 'non'
 ##################################################################################
