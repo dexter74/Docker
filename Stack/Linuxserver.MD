@@ -6,11 +6,11 @@
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 1. **Sécurisation du serveur:**
+### 1. **Sécurisation du serveur:**
 ```` 
 https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 ````
-## 2. **Liens Utiles pour LinuxServer**
+### 2. **Liens Utiles pour LinuxServer**
 [Fleet](https://fleet.linuxserver.io/) (Liste des images)
 [Mode](https://mods.linuxserver.io/)
 [Volumes 3.0](https://github.com/dexter74/Docker/blob/main/Volumes/Stack)
@@ -18,7 +18,7 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3. **Developpement**
+### 3. **Developpement**
 ````yaml
 ##################################################################################
 version: '2.4'
@@ -44,7 +44,7 @@ services:
 ----------------------------------------------------------------------------------------------------------------------------------
 
 
-#### **1. Image de la Base de donnée MariaDB**
+### 5. **Image de la Base de donnée MariaDB**
 ````yaml
 #################
 version: '2.1'  #
@@ -70,7 +70,7 @@ services:       #
 ````
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### Docker-compose : Divers
+### 6. **Docker-compose : Divers**
 ````yaml
 ##################################################################################
 # Streamer Musique
