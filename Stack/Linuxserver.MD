@@ -1414,7 +1414,11 @@ services:       #
 
 ````yaml
 ##################################################################################
-# Plex Claim      : https://www.plex.tv/claim/
+# Plex Claim       : https://www.plex.tv/claim/
+# Docker Version   : docker, latest, public, 
+# Docker-Hub Plex  : https://hub.docker.com/r/linuxserver/plex
+# Docker Nvidia    : https://github.com/NVIDIA/nvidia-docker
+
   Plex:
     image: 'linuxserver/plex'
     container_name: 'CN_Plex'
@@ -1426,10 +1430,11 @@ services:       #
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe/Paris'
-      PLEX_CLAIM=: 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      PLEX_CLAIM: 'XXXXXXXXXXXXXXXXXXXXXXXXXX'
+      VERSION: 'docker'
     ports:
       # WebUI
-      - '32400:32400'
+      - '1052:32400'
       # DLNA
 #      - '1900:1900/udp'
 #      - '32469:32469'
@@ -1443,14 +1448,14 @@ services:       #
 #      - '32410:32410/udp'
 #      - '32412:32412/udp'
 #      - '32413:32413/udp'
-#      - '32414:32414/udp'    
+#      - '32414:32414/udp'
     volumes:
       - 'Plex:/config'
       - 'Plex:/tv'
-      - 'Plex:/movies'
+      - 'Video:/movies'
+      - 'Music:/Music'
     devices:
-      - "/dev/dri:/dev/dri"
-    
+      - "/dev/dri:/dev/dri" # Materiels
     labels:
        cacher: 'non'
 ##################################################################################
