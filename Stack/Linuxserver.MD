@@ -10,7 +10,7 @@
 ```` 
 https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 ````
-## **Liens Utiles pour LinuxServer**
+## 2. **Liens Utiles pour LinuxServer**
 [Fleet](https://fleet.linuxserver.io/) (Liste des images)
 [Mode](https://mods.linuxserver.io/)
 [Volumes 3.0](https://github.com/dexter74/Docker/blob/main/Volumes/Stack)
@@ -18,7 +18,7 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# 0. Developpement
+# 3. Developpement
 ````yaml
 ##################################################################################
 version: '2.4'
