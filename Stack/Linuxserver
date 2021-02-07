@@ -878,7 +878,7 @@ services:       #
     external_links:
       - 'CN_MariaDB:mysql'
     ports:
-      - '1037:8000'
+      - '1038:8000'
 #      - '1002:6379'
     volumes:
       - 'NetBox:/config'
@@ -898,7 +898,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1038:443'
+      - '1039:443'
     volumes:
       - 'NextCloud:/config'
       - 'NextCloud:/data'
@@ -917,7 +917,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1039:80'
+      - '1040:80'
  #     - '443:443'
     volumes:
       - 'Nginx:/config'
@@ -936,7 +936,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1040:6789'
+      - '1041:6789'
     volumes:
       - 'NZBGet:/config'
       - 'NZBGet:/dowloads'
@@ -955,7 +955,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1041:5076'
+      - '1042:5076'
     volumes:
       - 'NZBHydra2:/config'
       - 'NZBHydra2:/downloads'
