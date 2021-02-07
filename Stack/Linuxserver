@@ -438,7 +438,7 @@ services:       #
     volumes:
       - 'HedgeDoc:/config'
     external_links:
-      - 'MariaDB:mysql'
+      - 'CN_MariaDB:mysql'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -628,7 +628,7 @@ services:       #
       DB_USERNAME: 'admin'
       DB_PASSWORD: 'admin'
     external_links:
-      - 'MariaDB:mysql'
+      - 'CN_MariaDB:mysql'
     ports:
       - '1026:80'
     volumes:
@@ -780,7 +780,7 @@ services:       #
     volumes:
       - 'MYSQL-WorkBench:/config'
     external_links:
-      - 'MariaDB:mysql'
+      - 'CN_MariaDB:mysql'
     cap_add:
       - 'IPC_LOCK'
     labels:
