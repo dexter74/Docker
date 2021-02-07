@@ -1363,6 +1363,30 @@ services:       #
 
 ````yaml
 ##################################################################################
+  PiwiGO:
+    image: 'linuxserver/piwigo'
+    container_name: 'CN_PiwiGO'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'PiwiGO'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1050:80'
+    volumes:
+      - 'PiwiGO:/config'
+    labels:
+       cacher: 'non'
+################################################################################## 
+````
+
+
+
+````yaml
+##################################################################################
 # Pixapop: Affiher les photos sur une seule page (Basique)
   PixaPOP:
     image: 'linuxserver/pixapop'
@@ -1378,7 +1402,7 @@ services:       #
       APP_USERNAME: 'admin'
       APP_PASSWORD: 'admin'
     ports:
-      - '1050:80'
+      - '1051:80'
     volumes:
       - 'PixaPOP:/config'
       - 'PixaPOP:/photos'
@@ -1386,9 +1410,6 @@ services:       #
        cacher: 'non'
 ##################################################################################````
 
-````yaml
-Conteneur 
-````
 
 ````yaml
 Conteneur 
