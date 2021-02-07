@@ -1626,7 +1626,6 @@ services:       #
 ##########################################################################################################################
 # Conteneur non fonctionnel en état
 # Requiert SQLite Ou PostgreSQL
-
   Quassel-Core:
     image: 'linuxserver/quassel-core'
     container_name: 'CN_Quassel-Core'
