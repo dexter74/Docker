@@ -1088,6 +1088,87 @@ services:       #
 ##################################################################################
 ````
 
+````yaml
+##################################################################################
+  Ombi:
+    image: 'linuxserver/ombi'
+    container_name: 'CN_Ombi'
+    network_mode: 'bridge'
+    restart: 'no'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      BASE_URL: '/ombi'
+    ports:
+      - '1043:3579'
+    volumes:
+      - 'Ombi:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
+````
+
+````yaml
+##################################################################################
+# Alpine Distribution
+# docker run --rm -it --entrypoint /keygen.sh linuxserver/openssh-server
+  openssh-server:
+    image: 'linuxserver/openssh-server'
+    container_name: 'CN_OpenSSH-Server'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'openssh'
+    domainname: 'labs'
+    dns: 
+      - '8.8.8.8'
+      - '192.168.1.1'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      PUBLIC_KEY: 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAs+2hvOiFJvMh7Tdmle+bAYLwEyErLFYE74ljUny/2D2zl6XTZmBw7JEdD3H9mXqeJTk/BGEa2Sn4G0OkwrYH6xnXlwsLRB1Wosa2Q2vX1vG1MxU6e/t7ngsQ74wHGj6Nq5hNZP7EfTfTA6Jo26k9BU5+qj1C4Oq9uvurZuwVl9MYVX59CQb5jKIqgB/obllICqNaGk+msxDSEKh2gFzcEHLa0Kf8R6t+z1m79M+X5I0SLosQluc4edfj77Y3OqPNBooDt5i3MqAJWvzagGStQN2RSs3LUPaMSMleew2qKZEHRzl9u75MaAtKIpH7qe4xHPprDXAF1bKIa2PTNRv9HQ== teste74@hotmail.fr'
+#      PUBLIC_KEY_FILE: '/path/to/pubkeys'
+#      PUBLIC_KEY_DIR: ''
+#      USER_PASSWORD_FILE: '/..../'
+      USER_NAME: 'drthrax74'
+      USER_PASSWORD: 'admin'
+      PASSWORD_ACCESS: 'true'
+      SUDO_ACCESS: 'true'
+    ports:
+      - '1044:2222'
+    volumes:
+      - 'CN_OpenSSH-Server:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+
 
 
 
