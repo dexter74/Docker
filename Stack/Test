@@ -12,16 +12,12 @@ https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-HTTPS
 https://github.com/dani-garcia/bitwarden_rs/wiki/Using-Docker-Compose
 # A voir : https://fr.bonitasoft.com/ 
 
-
-
 #################
 version: '2.4'  #
 #################
-
 ############
 services:  #
 ############
-
 ###################################
   Appz:
     container_name: 
@@ -30,4 +26,3 @@ services:  #
     ports:
     volumes:
 ###################################
-
