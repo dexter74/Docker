@@ -1,4 +1,4 @@
-[alttext](aaa)
+![alttext](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png?v=4&s=4000)
 # <p align=center> **.:| [Image Docker provenant de DockerLinux] |:.** </center>
 
 **Sécurisation du serveur:**
