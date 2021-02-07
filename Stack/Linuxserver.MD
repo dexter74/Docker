@@ -1623,12 +1623,69 @@ services:       #
 ##########################################################################################################################
 ````````
 
+# Non-fonctionnel:
 ````yaml
-Conteneur
+##########################################################################################################################
+# Requiert SQLite Ou PostgreSQL
+  Quassel-Core:
+    image: 'linuxserver/quassel-core'
+    container_name: 'CN_Quassel-Core'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: ''
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      RUN_OPTS: '--config-from-environment'
+      DB_BACKEND: 'SQLite'             # SQLite Ou PostgreSQL
+      DB_PGSQL_HOSTNAME: 'mysql'       # Hôte PostgreSQL
+      DB_PGSQL_PORT: '3306'            # PostgreSQL Port
+      DB_PGSQL_USERNAME: 'admin'       # Utilisateur de PostgreSQL
+      DB_PGSQL_PASSWORD: 'admin'       # Mot de passe PostgreSQL
+      AUTH_AUTHENTICATOR: 'Database'   # Database Ou LDAP
+    external_links:
+      - 'CN_MariaDB:mysql'
+    ports:
+      - '1080:4242'
+      - '113:10113'
+    volumes:
+      - 'Quassel-Core:/config'
+    labels:
+       cacher: 'non'
+##########################################################################################################################
+
+##########################################################################################################################
+# http://192.168.10.5:1059/quassel/
+  quassel-web:
+    image: 'linuxserver/quassel-web'
+    container_name: 'CN_quassel-web'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'quassel-web'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      QUASSEL_CORE: '192.168.10.5'
+      QUASSEL_PORT: '1080'
+      URL_BASE: '/quassel'
+    ports:
+      - '1060:64080'
+    volumes:
+      - 'quassel-web:/config'
+    links:
+      - Quassel-Core
+    labels:
+       cacher: 'non'
+##########################################################################################################################
 ````````
 
 ````yaml
-Conteneur
+
+
 ````
 
 
