@@ -39,24 +39,24 @@ services:
       - ./a.env
       - ./b.env
     
-    environment:          #TrueF et alse doivent mis entre guillemets)
+    environment:
       - XXXX=YYYY
       ou 
-      XXXX: YYYY
+      XXXX: 'YYYY'
     
     
     expose: Ces ports DOIVENT être accessibles aux services liés et NE DEVRAIENT PAS être publiés sur la machine hôte.
-      - "XXXX"
+      - 'XXXX'
     
     external_links: 
-      - XXXX
+      - 'XXXX'
       
     extra_hosts:
-      - "nomdeserveur:adresse"
-      - "localhost:192.168.1.20"
+      - 'nomdeserveur:adresse'
+      - 'localhost:192.168.1.20'
     
-    group_ad:
-      - xXXX
+    group_add:
+      - 'xXXX'
     
     healthcheck:
       disable: true    
