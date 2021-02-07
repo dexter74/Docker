@@ -1216,8 +1216,6 @@ services:       #
     restart: 'no'
     hostname: 'OpenSSH'
     domainname: 'labs'
-    hostname: 'openssh'
-    domainname: 'labs'
     dns: 
       - '8.8.8.8'
       - '192.168.1.1'
