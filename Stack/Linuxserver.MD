@@ -28,6 +28,8 @@ services:
     container_name: 'CN_'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: ''
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -55,6 +57,8 @@ services:       #
     container_name: 'CN_MariaDB'
     network_mode: 'bridge'
     restart: 'unless-stopped'
+    hostname: 'MariaDB'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
