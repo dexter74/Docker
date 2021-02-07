@@ -13,7 +13,7 @@ https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### **Docker-Compose**
+#### **Image de la Base de donnée MariaDB**
 
 ````yaml
 #################
@@ -40,6 +40,10 @@ services:       #
 ````
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#### Docker-compose : Multimédia
+#### Docker-compose : Gestion de fichier
+#### Docker-compose : Serveur de jeu
+#### Docker-compose : Applicatif
 
 #################
 version: '2.1'  #
