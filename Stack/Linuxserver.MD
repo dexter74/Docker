@@ -1337,41 +1337,53 @@ services:       #
 ````
 
 ````yaml
-
+##################################################################################
+# Photoshow est un logiciel de galerie à son plus facile.
+  PhotoShow:
+    image: 'linuxserver/photoshow'
+    container_name: 'CN_PhotoShow'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'PhotoShow'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1049:80'
+    volumes:
+      - 'PhotoShow:/config'
+      - 'PhotoShow:/Pictures:ro'
+      - 'PhotoShow:/Thumbs'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````
 
 ````yaml
-
+Conteneur 
 ````
 
 ````yaml
-
+Conteneur 
 ````
 
 ````yaml
-
+Conteneur 
 ````
 
 ````yaml
-
+Conteneur 
 ````
 
 ````yaml
-
+Conteneur 
 ````
 
 ````yaml
-
+Conteneur 
 ````
-
-````yaml
-
-````
-
-````yaml
-
-````
-
 
 
 
