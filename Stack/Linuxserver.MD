@@ -74,11 +74,13 @@ services:       #
 ````yaml
 ##################################################################################
 # Streamer Musique
-  Airsonic:
-    container_name: 'CN_Airsonic'
+  AirSonic:
+    container_name: 'CN_AirSonic'
     image: 'linuxserver/airsonic'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'AirSonic'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -86,10 +88,10 @@ services:       #
     ports:
       - '1000:4040'
     volumes:
-      - 'Airsonic:/config'
-      - 'Airsonic:/media'
-      - 'Airsonic:/playlists'
-      - 'Airsonic:/podcasts'
+      - 'AirSonic:/config'
+      - 'AirSonic:/media'
+      - 'AirSonic:/playlists'
+      - 'AirSonic:/podcasts'
       - 'Musique:/music'
     labels:
        cacher: 'non'
@@ -104,6 +106,8 @@ services:       #
     image: 'linuxserver/bazarr'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Bazarr'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -127,6 +131,8 @@ services:       #
     image: 'linuxserver/chevereto'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Chevreto'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -151,6 +157,8 @@ services:       #
     image: 'linuxserver/cloud9'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Cloud9'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -173,11 +181,13 @@ services:       #
 ````yaml
 ##################################################################################
 # Media Downloader (Sonarr, Radarr)
-  Couchpotato:
-    container_name: 'CN_Couchpotato'
+  CouchPotato:
+    container_name: 'CN_CouchPotato'
     image: 'linuxserver/couchpotato'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'CouchPotato'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -185,9 +195,9 @@ services:       #
     ports:
       - '1004:5050'
     volumes:
-      - 'Couchpotato:/config'
-      - 'Couchpotato:/downloads'
-      - 'Couchpotato:/movies'
+      - 'CouchPotato:/config'
+      - 'CouchPotato:/downloads'
+      - 'CouchPotato:/movies'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -203,6 +213,8 @@ services:       #
     image: 'linuxserver/daapd'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Daapd'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -230,6 +242,8 @@ services:       #
     image: 'linuxserver/davos'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Davos'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -252,6 +266,8 @@ services:       #
     image: 'linuxserver/deluge'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Deluge'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -275,6 +291,8 @@ services:       #
     container_name: 'CN_DDClient'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DDClient'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -289,11 +307,13 @@ services:       #
 ````yaml
 ##################################################################################
 # Editeur de Retouche Photo
-  Digikam:
+  DigiKam:
     image: 'linuxserver/digikam'
-    container_name: 'CN_Digikam'
+    container_name: 'CN_DigiKam'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DigiKam'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -301,7 +321,7 @@ services:       #
     ports:
       - '1008:3000'
     volumes:
-      - 'Digikam:/config'
+      - 'DigiKam:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -310,11 +330,13 @@ services:       #
 ````yaml
 ##################################################################################
 # Editeur Markdown
-  Dillinger:
+  DillinGer:
     image: 'linuxserver/dillinger'
-    container_name: 'CN_Dillinger'
+    container_name: 'CN_DillinGer'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DillinGer'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -322,7 +344,7 @@ services:       #
     ports:
       - '1009:8080'
     volumes:
-      - 'Dillinger:/config'
+      - 'DillinGer:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -335,6 +357,8 @@ services:       #
     container_name: 'CN_DokuWiki'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DokuWiki'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -357,6 +381,8 @@ services:       #
     container_name: 'CN_DoubleCommander'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DoubleCommander'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -379,6 +405,8 @@ services:       #
     container_name: 'CN_DuckDNS'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'DuckDNS'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -403,6 +431,8 @@ services:       #
     container_name: 'CN_Duplicati'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Duplicati'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -425,6 +455,8 @@ services:       #
     container_name: 'CN_Emby'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Emby'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -451,6 +483,8 @@ services:       #
     container_name: 'CN_HTPC-Manager'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'HTPC-Manager'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -467,11 +501,13 @@ services:       #
 ````yaml
 ##################################################################################
 # Télécharger de la Musique
-  Headphones:
+  HeadPhones:
     image: 'linuxserver/headphones'
-    container_name: 'CN_Headphones'
+    container_name: 'CN_HeadPhones'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'HeadPhones'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -479,9 +515,9 @@ services:       #
     ports:
       - '1016:8181'
     volumes:
-      - 'Headphones:/config'
-      - 'Headphones:/downloads'
-      - 'Headphones:/music'
+      - 'HeadPhones:/config'
+      - 'HeadPhones:/downloads'
+      - 'HeadPhones:/music'
       - 'DL:/mnt/DL:ro'
     labels:
        cacher: 'non'
@@ -495,6 +531,8 @@ services:       #
     container_name: 'CN_HedgeDoc'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'HedgeDoc'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -517,11 +555,13 @@ services:       #
 
 ````yaml
 ##################################################################################
-  Heimdall:
+  HeimDall:
     image: 'linuxserver/heimdall'
-    container_name: 'CN_Heimdall'
+    container_name: 'CN_HeimDall'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'HeimDall'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -529,7 +569,7 @@ services:       #
     ports:
       - '1018:80'
     volumes:
-      - 'Heimdall:/config'
+      - 'HeimDall:/config'
     labels:
        cacher: 'non'
 ##################################################################################
@@ -542,6 +582,8 @@ services:       #
     container_name: 'CN_HomeAssistant'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'HomeAssistant'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -562,6 +604,8 @@ services:       #
     container_name: 'CN_IPFS'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'IPFS'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -582,11 +626,13 @@ services:       #
 ##################################################################################
 # https://hub.docker.com/r/linuxserver/jellyfin
 #Nvidia : https://github.com/NVIDIA/nvidia-docker
-  Jellyfin:
+  JellyFin:
     image: 'linuxserver/jellyfin'
-    container_name: 'CN_Jellyfin'
+    container_name: 'CN_JellyFin'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'JellyFin'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -594,7 +640,7 @@ services:       #
     ports:
       - '1021:8096'
     volumes:
-      - 'Jellyfin:/config'
+      - 'JellyFin:/config'
       - 'DL:/mnt/DL:ro'
       - 'Musique:/mnt/Musique:ro'
       - 'Video:/mnt/Video:ro'
@@ -613,6 +659,8 @@ services:       #
     container_name: 'CN_Kanzi'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Kanzi'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -636,6 +684,8 @@ services:       #
     container_name: 'CN_Kodi-HeadLess'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Kodi-HeadLess'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -659,6 +709,8 @@ services:       #
     container_name: 'CN_LDAP-Auth'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'LDAP-Auth'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -679,6 +731,8 @@ services:       #
     container_name: 'CN_LetsEncrypt'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'LetsEncrypt'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -706,6 +760,8 @@ services:       #
     container_name: 'CN_LibreSpeed'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'LibreSpeed'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -736,6 +792,8 @@ services:       #
     container_name: 'CN_Lidarr'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Lidarr'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -758,6 +816,8 @@ services:       #
     container_name: 'CN_Medusa'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Medusa'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -782,6 +842,8 @@ services:       #
     container_name: 'CN_MiniTest'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Minitest'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -811,6 +873,8 @@ services:       #
     container_name: 'CN_Mstream'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Mstream'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -835,6 +899,8 @@ services:       #
     container_name: 'CN_MusicBrainz'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'MusciBrainz'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -858,6 +924,8 @@ services:       #
     container_name: 'CN_MuxiMux'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'MuxiMux'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -878,6 +946,8 @@ services:       #
     container_name: 'CN_Mysql-WorkBench'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'MYSQL-WorkBench'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -903,6 +973,8 @@ services:       #
     container_name: 'CN_Nano'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Nano'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -925,6 +997,8 @@ services:       #
     container_name: 'CN_Nano-Wallet'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Nano-Wallet'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -947,6 +1021,8 @@ services:       #
     container_name: 'CN_NetBootXYZ'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'NetBootXYZ'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -975,6 +1051,7 @@ services:       #
     network_mode: 'bridge'
     restart: 'no'
     hostname: 'NetBox'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1011,6 +1088,8 @@ services:       #
     container_name: 'CN_NextCloud'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'NextCloud'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1032,6 +1111,8 @@ services:       #
     container_name: 'CN_Nginx'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Nginx'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1053,6 +1134,8 @@ services:       #
     container_name: 'CN_Nzbget'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'NZBGet'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1074,6 +1157,8 @@ services:       #
     container_name: 'CN_Nzbhydra2'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'NBZHydra2'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1095,6 +1180,8 @@ services:       #
     container_name: 'CN_Ombi'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'Ombi'
+    domainname: 'labs'
     environment:
       PUID: '1001'
       PGID: '74240'
@@ -1118,6 +1205,8 @@ services:       #
     container_name: 'CN_OpenSSH-Server'
     network_mode: 'bridge'
     restart: 'no'
+    hostname: 'OpenSSH'
+    domainname: 'labs'
     hostname: 'openssh'
     domainname: 'labs'
     dns: 
@@ -1145,19 +1234,96 @@ services:       #
 ````
 
 ````yaml
-
+##################################################################################
+  OpenVPN-AS:
+    image: 'linuxserver/openvpn-as'
+    container_name: 'OpenVPN'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'OpenVPN-AS'
+    domainname: 'labs'
+    cap_add:
+      - 'NET_ADMIN'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      INTERFACE: 'ens18'
+    ports:
+      - '1045:943'       # GUI
+ #     - '9443:9443'      # TCP port
+ #     - '1194:1194/udp'  # UDP port
+    volumes:
+      - 'OpenVPN-AS:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````
 
 ````yaml
-
+##################################################################################
+  Organizr:
+    image: 'linuxserver/organizr'
+    container_name: 'CN_Organizr'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Organizr'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1046:80'
+    volumes:
+      - 'Organizr:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````
 
 ````yaml
-
+##################################################################################
+  Oscam:
+    image: 'linuxserver/oscam'
+    container_name: 'CN_Oscam'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Oscam'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1047:8888'
+    volumes:
+      - 'Oscam:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````
 
 ````yaml
-
+##################################################################################
+  PaperMerge:
+    image: 'linuxserver/papermerge'
+    container_name: 'CN_PaperMerge'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Papermerge'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1048:80'
+    volumes:
+      - 'PaperMerge:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````
 
 ````yaml
