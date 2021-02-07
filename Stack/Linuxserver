@@ -765,15 +765,6 @@ services:       #
 ##################################################################################
 
 
-
-
-
-
-
-
-
-
-
 ##################################################################################
   MYSQL-WorkBench:
     image: 'linuxserver/mysql-workbench'
@@ -938,7 +929,7 @@ services:       #
 ##################################################################################
   NZBGet:
     image: 'linuxserver/nzbget'
-    container_name: 'CN_NZBGet'
+    container_name: 'CN_Nzbget'
     network_mode: 'bridge'
     restart: 'no'
     environment:
@@ -957,7 +948,7 @@ services:       #
 ##################################################################################
   NZBHydra2:
     image: 'linuxserver/nzbhydra2'
-    container_name: 'CN_NZBHydra2'
+    container_name: 'CN_NzbHydra2'
     network_mode: 'bridge'
     restart: 'no'
     environment:
