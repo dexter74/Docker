@@ -1421,7 +1421,6 @@ services:       #
 # Docker Version   : docker, latest, public, 
 # Docker-Hub Plex  : https://hub.docker.com/r/linuxserver/plex
 # Docker Nvidia    : https://github.com/NVIDIA/nvidia-docker
-
   Plex:
     image: 'linuxserver/plex'
     container_name: 'CN_Plex'
@@ -1491,85 +1490,34 @@ services:       #
        cacher: 'non'
 ################################################################################## 
 ````
-
-````yaml
-Conteneur 
 ````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
+Conteneur
+````````
 
 ````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
-````
-
-````yaml
-Conteneur 
+Conteneur
 ````
 
 
