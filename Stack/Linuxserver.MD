@@ -1492,7 +1492,28 @@ services:       #
 ````
 
 ````yaml
-Conteneur
+##################################################################################
+# http://192.168.10.5:1054/Hack
+# https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/demo1.gif
+  PwnDrop:
+    image: 'linuxserver/pwndrop'
+    container_name: 'CN_PwnDrop'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: ''
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+      SECRET_PATH: '/Hack' # http://XXX.XXX.XXX.XXX:1054/Hack
+    ports:
+      - '1054:8080'
+    volumes:
+      - 'PwnDrop:/config'
+    labels:
+       cacher: 'non'
+##################################################################################
 ````````
 
 ````yaml
