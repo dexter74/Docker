@@ -151,6 +151,7 @@ services:
     user: <défini l'utilisateur qui lance le conteneur>
     
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Permet de pouvoir interagir avec Docker Hôte (Gestion conteneur, commande vers l'hôte) 
       - <nomduvolume>:<Path de montage dans le conteneur>
       - /path_du_volume:<Path de montage dans le conteneur>
       - /path_du_volume/maconfig.conf:<Path de montage dans le conteneur>/maconfig.conf
