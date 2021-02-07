@@ -1,14 +1,17 @@
-##############################################################################################
-# Securiation du Host: https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD #
-##############################################################################################
+# **Image Docker provenant de DockerLinux**
 
+**Sécurisation du serveur:**
+```` 
+https://github.com/dexter74/Linux/blob/main/Securisation/Debian_10.MD
+````
 
-###########################################################################################
-# Guide LinuxServer: 
+#### **Liens Utiles pour LinuxServer**
 #  https://fleet.linuxserver.io/
 #  https://mods.linuxserver.io/
 
-----------------------------------------------------------------------------------
+#### **Docker-Compose**
+
+````yaml
 #################
 version: '2.1'  #
 services:       #
@@ -30,6 +33,7 @@ services:       #
       - 'MariaDB:/config'
     labels:
        cacher: 'non'
+````
 ----------------------------------------------------------------------------------
 
 
