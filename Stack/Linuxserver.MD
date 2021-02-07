@@ -1312,6 +1312,8 @@ services:       #
 
 ````yaml
 ##################################################################################
+# Papermerge est un système de gestion de documents open source principalement   #
+# conçu pour l’archivage et la récupération de vos documents numériques.         #
   PaperMerge:
     image: 'linuxserver/papermerge'
     container_name: 'CN_PaperMerge'
@@ -1323,13 +1325,43 @@ services:       #
       PUID: '1001'
       PGID: '74240'
       TZ: 'Europe/Paris'
+      REDIS_URL: 'Papermerge.labs:6379'
     ports:
-      - '1048:80'
+      - '1048:8000'
     volumes:
       - 'PaperMerge:/config'
+      - 'PaperMerge:/data'
     labels:
        cacher: 'non'
 ##################################################################################
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
 ````
 
 ````yaml
