@@ -162,7 +162,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Editeur - Interface de Développement WebUi
+# Editeur - Interface de Développement WebUi (Version 3.1.5)
   Cloud9:
     container_name: 'CN_Cloud9'
     image: 'linuxserver/cloud9'
@@ -1590,7 +1590,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Editeur - Variante de Cloud9 (Meilleur que Cloud9)
+# Editeur - Interface de Développement WebUi (Version: 2.6.0)
   Pylon:
     image: 'linuxserver/pylon'
     container_name: 'CN_Pylon'
