@@ -1718,7 +1718,7 @@ services:       #
       PGID: '74240'
       TZ: 'Europe/Paris'
     ports:
-      - '1040:80'
+      - '1090:80'
     volumes:
       - 'RuTorrent:/config'
       - 'RuTorrent:/downloads'
@@ -1741,7 +1741,7 @@ services:       #
       USER: 'admin'
       PASS: 'admin'
     ports:
-      - '1041:9091'
+      - '1091:9091'
     volumes:
       - 'Transmission:/config'
       - 'Transmission:/watch'
