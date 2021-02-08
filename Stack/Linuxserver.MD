@@ -1205,7 +1205,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Supervision - 
+# Requete - Fichier Warez 
   Ombi:
     image: 'linuxserver/ombi'
     container_name: 'CN_Ombi'
