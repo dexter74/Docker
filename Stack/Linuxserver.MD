@@ -84,7 +84,7 @@ services:       #
 ### 6. **Docker-compose : Divers**
 ````yaml
 ##########################################################################################################################
-# Streamer Musique
+# Multimedia - Streamer Musique
   AirSonic:
     container_name: 'CN_AirSonic'
     image: 'linuxserver/airsonic'
@@ -111,7 +111,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Telecharger les sous-titres
+# Warez - Telecharger les sous-titres
   Bazarr:
     container_name: 'CN_Bazarr'
     image: 'linuxserver/bazarr'
@@ -136,7 +136,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Hebergement Image (Requis : MariaDB)
+# Hebergement - Image (Requis : MariaDB)
   Chevereto:
     container_name: 'CN_Chevereto'
     image: 'linuxserver/chevereto'
@@ -162,7 +162,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Interface de Développement WebUi
+# Editeur - Interface de Développement WebUi
   Cloud9:
     container_name: 'CN_Cloud9'
     image: 'linuxserver/cloud9'
@@ -191,7 +191,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Media Downloader (Sonarr, Radarr)
+# Warez - Media Downloader (Sonarr, Radarr)
   CouchPotato:
     container_name: 'CN_CouchPotato'
     image: 'linuxserver/couchpotato'
@@ -216,9 +216,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Streamer Musique (Mac, Unix, Windows)
-# Pas réussis à tester
-# Consommation: 500 Mo
+# Multimedia - Streamer Musique (Mac, Unix, Windows)
   Daapd:
     container_name: 'CN_Daapd'
     image: 'linuxserver/daapd'
@@ -271,7 +269,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# info, warning, error
+# Torrent - Client Torrent (Info, Warning, Error)
   Deluge:
     container_name: 'CN_Deluge'
     image: 'linuxserver/deluge'
@@ -296,7 +294,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Mettre à jour DynDNS (Doc: http://climato.free.fr/upload/ddclient.pdf)
+# DNS - Doc: http://climato.free.fr/upload/ddclient.pdf
   DDClient:
     image: 'linuxserver/ddclient'
     container_name: 'CN_DDClient'
@@ -317,7 +315,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Editeur de Retouche Photo
+# Editeur - Retouche Photo
   DigiKam:
     image: 'linuxserver/digikam'
     container_name: 'CN_DigiKam'
@@ -340,7 +338,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Editeur Markdown
+# Editeur - Markdown
   DillinGer:
     image: 'linuxserver/dillinger'
     container_name: 'CN_DillinGer'
@@ -363,6 +361,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Wikipedia
   DokuWiki:
     image: 'linuxserver/dokuwiki'
     container_name: 'CN_DokuWiki'
@@ -386,7 +385,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Gestionnaire de Fichier TOP
+# Explorateur - Gestionnaire de Fichier TOP
   DoubleCommander:
     image: 'linuxserver/doublecommander'
     container_name: 'CN_DoubleCommander'
@@ -411,6 +410,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# DNS
   DuckDNS:
     image: 'linuxserver/duckdns'
     container_name: 'CN_DuckDNS'
@@ -436,7 +436,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Applications de Backup (A peaufiner)
+# Sauvegarde - Duplicati
   Duplicati:
     image: 'linuxserver/duplicati'
     container_name: 'CN_Duplicati'
@@ -461,6 +461,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Multimedia - Lecteur Multimédia
   Emby:
     image: 'linuxserver/emby'
     container_name: 'CN_Emby'
@@ -487,8 +488,8 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# https://hub.docker.com/r/linuxserver/htpcmanager
-# https://github.com/HTPC-Manager/HTPC-Manager
+# https://hub.docker.com/r/linuxserver/htpcmanager | https://github.com/HTPC-Manager/HTPC-Manager
+# ?????
   HTPC-Manager:
     image: 'linuxserver/htpcmanager'
     container_name: 'CN_HTPC-Manager'
@@ -511,7 +512,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Télécharger de la Musique
+# Warez - Télécharger de la Musique
   HeadPhones:
     image: 'linuxserver/headphones'
     container_name: 'CN_HeadPhones'
@@ -537,6 +538,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Editeur - 
   HedgeDoc:
     image: 'linuxserver/hedgedoc'
     container_name: 'CN_HedgeDoc'
@@ -566,6 +568,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Supervision - Espace de Bureau
   HeimDall:
     image: 'linuxserver/heimdall'
     container_name: 'CN_HeimDall'
@@ -588,6 +591,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Domotique - Gestion d'appareil
   HomeAssistant:
     image: 'linuxserver/homeassistant'
     container_name: 'CN_HomeAssistant'
@@ -610,6 +614,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# ??????
   IPFS:
     image: 'linuxserver/ipfs'
     container_name: 'CN_IPFS'
@@ -635,8 +640,8 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# https://hub.docker.com/r/linuxserver/jellyfin
-#Nvidia : https://github.com/NVIDIA/nvidia-docker
+# https://hub.docker.com/r/linuxserver/jellyfin | Nvidia : https://github.com/NVIDIA/nvidia-docker
+# Multimedia - Lecteur Video
   JellyFin:
     image: 'linuxserver/jellyfin'
     container_name: 'CN_JellyFin'
@@ -665,6 +670,7 @@ services:       #
 ````yaml
 ##########################################################################################################################
 # https://docplayer.fr/113904123-Controler-kodi-a-la-voix-installation-de-la-skill-kanzi-pour-alexa.html
+# Vocal - Contrôler appareil avec la voix
   Kanzi:
     image: 'linuxserver/kanzi'
     container_name: 'CN_Kanzi'
@@ -690,6 +696,7 @@ services:       #
 ````yaml
 ##########################################################################################################################
 # Username / Password : kodi
+# Multimedia - Requiert des pré-requis
   Kodi-HeadLess:
     image: 'linuxserver/kodi-headless'
     container_name: 'CN_Kodi-HeadLess'
@@ -715,6 +722,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# ??????
   LDAP-Auth:
     image: 'linuxserver/ldap-auth'
     container_name: 'CN_LDAP-Auth'
@@ -737,6 +745,7 @@ services:       #
 ````yaml
 ##########################################################################################################################
 # https://github.com/linuxserver/docker-letsencrypt/blob/master/README.md
+# DNS -
   LetsEncrypt:
     image: 'linuxserver/letsencrypt'
     container_name: 'CN_LetsEncrypt'
@@ -766,6 +775,7 @@ services:       #
 ````yaml
 ##########################################################################################################################
 # Speedtest : http://192.168.10.5:1026/results/stats.php
+# ADSLTEST
   LibreSpeed:
     image: 'linuxserver/librespeed'
     container_name: 'CN_LibreSpeed'
@@ -796,8 +806,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Télécharger de la Musique
-# https://hub.docker.com/r/linuxserver/lidarr
+# Warez - Télécharger de la Musique (https://hub.docker.com/r/linuxserver/lidarr)
   Lidarr:
     image: 'linuxserver/lidarr'
     container_name: 'CN_Lidarr'
@@ -822,6 +831,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Warez - Torrent, Newsgroups
   Medusa:
     image: 'linuxserver/medusa'
     container_name: 'CN_Medusa'
@@ -846,8 +856,8 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Serveur de jeu Minitest (Fork Minecraft)
-# Arguments : https://wiki.minetest.net/Command_line
+# Doc: https://wiki.minetest.net/Command_line
+# Gaming - Serveur de jeu Minitest
   MiniTest:
     image: 'linuxserver/minetest'
     container_name: 'CN_MiniTest'
@@ -878,6 +888,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Multimedia - Lecteur de Musique, Vidéos
   Mstream:
     image: 'linuxserver/mstream'
     container_name: 'CN_Mstream'
@@ -904,6 +915,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# ???? - A tester
   MusicBrainz:
     image: 'linuxserver/musicbrainz'
     container_name: 'CN_MusicBrainz'
@@ -929,6 +941,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Supervision -
   MuxiMux:
     image: 'linuxserver/muximux'
     container_name: 'CN_MuxiMux'
@@ -951,6 +964,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Supervision - MYSQL
   MYSQL-WorkBench:
     image: 'linuxserver/mysql-workbench'
     container_name: 'CN_Mysql-WorkBench'
@@ -978,6 +992,7 @@ services:       #
 ````yaml
 ##########################################################################################################################
 # docker run --rm --entrypoint /genesis.sh linuxserver/nano > /root/nano_key
+# Cryptomonnaie - Core
   Nano:
     image: 'linuxserver/nano'
     container_name: 'CN_Nano'
@@ -1002,6 +1017,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Cryptomonnaie - Porte-feuille
   Nano-Wallet:
     image: 'linuxserver/nano-wallet'
     container_name: 'CN_Nano-Wallet'
@@ -1026,6 +1042,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# PXE - Serveur PXE
   NetBootXYZ:
     image: 'linuxserver/netbootxyz'
     container_name: 'CN_NetBootXYZ'
@@ -1053,8 +1070,8 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# https://fleet.linuxserver.io/
-# https://mods.linuxserver.io/
+# https://fleet.linuxserver.io/ | https://mods.linuxserver.io/
+# ?????
   NetBox:
     image: 'linuxserver/netbox'
     container_name: 'CN_NetBox'
@@ -1092,7 +1109,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# https://192.168.10.5:1038
+# CLOUD - Stockage de fichier en ligne
   NextCloud:
     image: 'linuxserver/nextcloud'
     container_name: 'CN_NextCloud'
@@ -1116,6 +1133,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Web - Serveur Web
   Nginx:
     image: 'linuxserver/nginx'
     container_name: 'CN_Nginx'
@@ -1139,6 +1157,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Warez - 
   NZBGet:
     image: 'linuxserver/nzbget'
     container_name: 'CN_Nzbget'
@@ -1162,6 +1181,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Warez - 
   NZBHydra2:
     image: 'linuxserver/nzbhydra2'
     container_name: 'CN_Nzbhydra2'
@@ -1185,6 +1205,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Supervision - 
   Ombi:
     image: 'linuxserver/ombi'
     container_name: 'CN_Ombi'
@@ -1210,6 +1231,7 @@ services:       #
 ##########################################################################################################################
 # Alpine Distribution
 # docker run --rm -it --entrypoint /keygen.sh linuxserver/openssh-server
+# SSH - Serveur SSH 
   openssh-server:
     image: 'linuxserver/openssh-server'
     container_name: 'CN_OpenSSH-Server'
@@ -1243,6 +1265,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# VPN - Serveur VPN
   OpenVPN-AS:
     image: 'linuxserver/openvpn-as'
     container_name: 'OpenVPN'
@@ -1270,6 +1293,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Supervision - 
   Organizr:
     image: 'linuxserver/organizr'
     container_name: 'CN_Organizr'
@@ -1314,8 +1338,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Papermerge est un système de gestion de documents open source principalement
-# conçu pour l’archivage et la récupération de vos documents numériques.
+# Hébergement - Papermerge - Hébergement de fichier
   PaperMerge:
     image: 'linuxserver/papermerge'
     container_name: 'CN_PaperMerge'
@@ -1340,7 +1363,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Photoshow est un logiciel de galerie à son plus facile.
+# Hebergement - Photoshow est un logiciel de galerie à son plus facile.
   PhotoShow:
     image: 'linuxserver/photoshow'
     container_name: 'CN_PhotoShow'
@@ -1365,6 +1388,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Hébergement - Photo
   PiwiGO:
     image: 'linuxserver/piwigo'
     container_name: 'CN_PiwiGO'
@@ -1389,7 +1413,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Pixapop: Affiher les photos sur une seule page (Basique)
+# Hébergement - Pixapop: Affiher les photos sur une seule page (Basique)
   PixaPOP:
     image: 'linuxserver/pixapop'
     container_name: 'CN_PixaPOP'
@@ -1420,6 +1444,7 @@ services:       #
 # Docker Version   : docker, latest, public, 
 # Docker-Hub Plex  : https://hub.docker.com/r/linuxserver/plex
 # Docker Nvidia    : https://github.com/NVIDIA/nvidia-docker
+# Multimedia - Lecteur Multimédia
   Plex:
     image: 'linuxserver/plex'
     container_name: 'CN_Plex'
@@ -1464,8 +1489,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Projectsend est une application pour l'hébergement de fichier
-# Download, Upload, Share Link
+# Hebergement - Projectsend est une application pour l'hébergement de fichier (Download, Upload, Share Link)
   ProjectSend:
     image: 'linuxserver/projectsend'
     container_name: 'CN_ProjectSend'
@@ -1492,8 +1516,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# http://192.168.10.5:1054/Hack
-# https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/demo1.gif
+# Audit: http://192.168.10.5:1054/Hack ( https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/demo1.gif)
   PwnDrop:
     image: 'linuxserver/pwndrop'
     container_name: 'CN_PwnDrop'
@@ -1517,7 +1540,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Pydio: Plateforme  pour le partage de fichiers et la synchronisation
+# Hebergement - Pydio: Plateforme  pour le partage de fichiers et la synchronisation
   Pydio:
     image: 'linuxserver/pydio'
     container_name: 'CN_Pydio'
@@ -1542,9 +1565,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Pyload est un gestionnaire de téléchargement DDL
-# Username: admin
-# Password: password
+# Warez - Pyload est un gestionnaire de téléchargement DDL (admin:password)
   Pyload:
     image: 'linuxserver/pyload'
     container_name: 'CN_Pyload'
@@ -1569,6 +1590,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
+# Editeur - Variante de Cloud9 (Meilleur que Cloud9)
   Pylon:
     image: 'linuxserver/pylon'
     container_name: 'CN_Pylon'
@@ -1594,12 +1616,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# clear ;
-# docker stop CN_QBitTorrent;
-# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
-# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
-# docker start CN_QBitTorrent ;
+# Torrent - Client torrent
   QBitTorrent:
     image: 'linuxserver/qbittorrent'
     container_name: 'CN_QBitTorrent'
@@ -1619,14 +1636,19 @@ services:       #
       - 'QBitTorrent:/downloads'
     labels:
        cacher: 'non'
+#       
+# docker stop CN_QBitTorrent;
+# echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
+# echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
+# docker start CN_QBitTorrent ;
 ##########################################################################################################################
 ````````
 
 
 ````yaml
 ##########################################################################################################################
-# Conteneur non fonctionnel en état
-# Requiert SQLite Ou PostgreSQL
+# Conteneur non fonctionnel en état (Requiert SQLite Ou PostgreSQL)
   Quassel-Core:
     image: 'linuxserver/quassel-core'
     container_name: 'CN_Quassel-Core'
@@ -1683,25 +1705,10 @@ services:       #
 ##########################################################################################################################
 ````````
 
+
 ````yaml
 
-
 ````
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
