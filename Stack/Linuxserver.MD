@@ -1732,7 +1732,26 @@ services:       #
 ````
 
 ````yaml
-
+##########################################################################################################################
+# Raneto - est une plate-forme open source Knowledgebase qui utilise des fichiers Markdown (admin:password)
+  Raneto:
+    image: 'linuxserver/raneto'
+    container_name: 'CN_Raneto'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Raneto'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1062:3000'
+    volumes:
+      - 'Raneto:/config'
+    labels:
+       cacher: 'non'
+##########################################################################################################################
 ````
 
 ````yaml
