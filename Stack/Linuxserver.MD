@@ -1758,7 +1758,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Bureau à distance (Login / Password: abc)
+# Outils - Bureau à distance (Login / Password: abc)
 # Environnement : https://hub.docker.com/r/linuxserver/rdesktop
   rDesktop:
     image: 'linuxserver/rdesktop'
@@ -1784,7 +1784,26 @@ services:       #
 ````
 
 ````yaml
-
+##########################################################################################################################
+# Outils - Remmina est un client de bureau distant (abc:abc http://localhost/?login=true)
+  Remmina:
+    image: 'linuxserver/remmina'
+    container_name: 'CN_Remmina'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Remmina'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1064:3000'
+    volumes:
+      - 'Remmina:/config'
+    labels:
+       cacher: 'non'
+##########################################################################################################################
 ````
 
 ````yaml
