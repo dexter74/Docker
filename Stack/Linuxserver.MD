@@ -1522,7 +1522,7 @@ services:       #
     container_name: 'CN_PwnDrop'
     network_mode: 'bridge'
     restart: 'no'
-    hostname: ''
+    hostname: 'PwnDrop'
     domainname: 'labs'
     environment:
       PUID: '1001'
@@ -1654,7 +1654,7 @@ services:       #
     container_name: 'CN_Quassel-Core'
     network_mode: 'bridge'
     restart: 'no'
-    hostname: ''
+    hostname: 'Quassel-Core'
     domainname: 'labs'
     environment:
       PUID: '1001'
