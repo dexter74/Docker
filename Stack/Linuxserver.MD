@@ -1757,7 +1757,30 @@ services:       #
 ````
 
 ````yaml
-
+##########################################################################################################################
+# Bureau à distance (Login / Password: abc)
+# Environnement : https://hub.docker.com/r/linuxserver/rdesktop
+  rDesktop:
+    image: 'linuxserver/rdesktop:mate-bionic'
+    container_name: 'CN_rDesktop'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'rDesktop'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1063:3389'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - 'rDesktop:/config'
+      - 'DL:/mnt/DL'
+    shm_size: "1gb"
+    labels:
+       cacher: 'non'
+##########################################################################################################################
 ````
 
 ````yaml
