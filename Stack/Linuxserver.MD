@@ -1714,7 +1714,7 @@ services:       #
     container_name: 'CN_Radarr'
     network_mode: 'bridge'
     restart: 'no'
-    hostname: ''
+    hostname: 'Radarr'
     domainname: 'labs'
     environment:
       PUID: '1001'
