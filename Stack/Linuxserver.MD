@@ -1807,12 +1807,100 @@ services:       #
 ````
 
 ````yaml
-
+##########################################################################################################################
+# Outils - Resilio utilise le protocole BitTorrent pour synchroniser les fichiers et les dossiers entre vos appareils.
+  Resilio-Sync:
+    image: 'linuxserver/resilio-sync'
+    container_name: 'CN_Resilio-Sync'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: 'Resilio-Sync'
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1065:8888'    # WebUi
+      - '55555:55555'  # Port de Synchronisation
+    volumes:
+      - 'Resilio-Sync:/config'
+      - 'Resilio-Sync:/sync'
+      - 'DL:/downloads'
+    labels:
+       cacher: 'non'
+##########################################################################################################################
 ````
 
 ````yaml
 
 ````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
+
+````yaml
+
+````
+
 
 
 
