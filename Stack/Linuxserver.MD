@@ -1707,8 +1707,58 @@ services:       #
 
 
 ````yaml
+##########################################################################################################################
+# Warez - Radarr est un gestionnaire de collection de films pour les utilisateurs d’Usenet et de BitTorrent
+  Radarr:
+    image: 'linuxserver/radarr'
+    container_name: 'CN_Radarr'
+    network_mode: 'bridge'
+    restart: 'no'
+    hostname: ''
+    domainname: 'labs'
+    environment:
+      PUID: '1001'
+      PGID: '74240'
+      TZ: 'Europe/Paris'
+    ports:
+      - '1061:7878'
+    volumes:
+      - 'Radarr:/config'
+      - 'Video:/movies'
+      - 'DL:/downloads'
+    labels:
+       cacher: 'non'
+##########################################################################################################################
+````
+
+````yaml
 
 ````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+````yaml
+
+````
+
+
+
+
+
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
