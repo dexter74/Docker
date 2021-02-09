@@ -1733,7 +1733,7 @@ services:       #
 
 ````yaml
 ##########################################################################################################################
-# Raneto - est une plate-forme open source Knowledgebase qui utilise des fichiers Markdown (admin:password)
+# Raneto - est une plate-forme open source Knowledgebase qui utilise des fichiers Markdown
   Raneto:
     image: 'linuxserver/raneto'
     container_name: 'CN_Raneto'
@@ -1751,11 +1751,9 @@ services:       #
       - 'Raneto:/config'
     labels:
        cacher: 'non'
+# Créer un fichier X:\Raneto\_data\content\readme.md  et aller sur http://localhost/readme
+# Problème de permission (Conteneur lancer en docker et permission en root)
 ##########################################################################################################################
-````
-
-````yaml
-
 ````
 
 ````yaml
