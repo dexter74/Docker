@@ -1761,7 +1761,7 @@ services:       #
 # Bureau à distance (Login / Password: abc)
 # Environnement : https://hub.docker.com/r/linuxserver/rdesktop
   rDesktop:
-    image: 'linuxserver/rdesktop:mate-bionic'
+    image: 'linuxserver/rdesktop'
     container_name: 'CN_rDesktop'
     network_mode: 'bridge'
     restart: 'no'
