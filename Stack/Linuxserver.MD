@@ -1640,7 +1640,7 @@ services:       #
 # docker stop CN_QBitTorrent;
 # echo "WebUI\HostHeaderValidation=false" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
 # echo "General\Locale=fr_FR" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
-# echo "Downloads\SavePath=/mnt/DL/Qbitorrent" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
+# echo "Downloads\SavePath=/mnt/DL/QBitTorrent" >> /home/docker/volumes/QBitTorrent/_data/qBittorrent/qBittorrent.conf ;
 # docker start CN_QBitTorrent ;
 ##########################################################################################################################
 ````````
