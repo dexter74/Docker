@@ -1944,7 +1944,7 @@ services:       #
       - 'Transmission:/watch'
       - 'DL:/downloads'
       - 'Musique:/mnt/Musique'
-      - 'Video:/mnt/Video'
+      - '/mnt/Video:/mnt/Video'
     labels:
        cacher: 'non'
 ##########################################################################################################################
