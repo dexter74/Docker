@@ -103,7 +103,7 @@ services:       #
       - 'AirSonic:/media'
       - 'AirSonic:/playlists'
       - 'AirSonic:/podcasts'
-      - 'Musique:/music'
+      - '/mnt/Musique:/music'
     labels:
        cacher: 'non'
 ##########################################################################################################################
