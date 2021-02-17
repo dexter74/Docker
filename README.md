@@ -457,7 +457,8 @@ root@host:$
 echo "
 //192.168.1.2/Video        /mnt/Video     cifs  uid=docker,username=Medias,password=Azertydu74@       0	0
 //192.168.1.2/DL           /mnt/DL        cifs  uid=docker,username=Qbitorrent,password=Admindu74@    0	0
-//192.168.1.2/Musique      /mnt/Musique   cifs  uid=docker,username=Medias,password=Azertydu74@       0	0" >> /etc/fstab ;
+//192.168.1.2/Musique      /mnt/Musique   cifs  uid=docker,username=Medias,password=Azertydu74@       0	0
+" >> /etc/fstab ;
 
 mount -a ;
 ````
