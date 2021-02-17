@@ -233,7 +233,7 @@ services:       #
       - 'Daapd:/Podcasts'
       - 'Daapd:/Audiobooks'
       - 'Daapd:/Compilations'
-      - 'Musique:/music'
+      - '/mnt/Musique:/music'
     ports:
       - '1005:3689/tcp'
 #      - '3689:3688'
