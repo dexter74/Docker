@@ -402,7 +402,7 @@ services:       #
     volumes:
       - 'DoubleCommander:/config'
       - 'DoubleCommander:/data'
-      - 'Video:/mnt/Video:ro'
+      - '/mnt/Video:/mnt/Video:ro'
     labels:
        cacher: 'non'
 ##########################################################################################################################
@@ -478,9 +478,9 @@ services:       #
     volumes:
       - 'Emby:/config'
       - 'Emby:/data/tvshows'
-      - 'DL:/data/DL:ro'
-      - 'Musique:/data/music:ro'
-      - 'Video:/data/movies:ro'
+      - '/mnt/DL:/data/DL:ro'
+      - '/mnt/Musique:/data/music:ro'
+      - '/mnt/Video:/data/movies:ro'
     labels:
        cacher: 'non'
 ##########################################################################################################################
@@ -530,7 +530,7 @@ services:       #
       - 'HeadPhones:/config'
       - 'HeadPhones:/downloads'
       - 'HeadPhones:/music'
-      - 'DL:/mnt/DL:ro'
+      - '/mnt/DL:/mnt/DL:ro'
     labels:
        cacher: 'non'
 ##########################################################################################################################
@@ -657,9 +657,9 @@ services:       #
       - '1021:8096'
     volumes:
       - 'JellyFin:/config'
-      - 'DL:/mnt/DL:ro'
-      - 'Musique:/mnt/Musique:ro'
-      - 'Video:/mnt/Video:ro'
+      - '/mnt/DL:/mnt/DL:ro'
+      - '/mnt/Musique:/mnt/Musique:ro'
+      - '/mnt/Video:/mnt/Video:ro'
     devices:
       - '/dev/dri:/dev/dri'
     labels:
@@ -822,8 +822,8 @@ services:       #
       - '1027:8686'
     volumes:
       - 'Lidarr:/config'
-      - 'Musique:/Music'
-      - 'DL:/downloads'
+      - '/mnt/Musique:/Music'
+      - '/mnt/DL:/downloads'
     labels:
        cacher: 'non'
 ##########################################################################################################################
@@ -1478,8 +1478,8 @@ services:       #
     volumes:
       - 'Plex:/config'
       - 'Plex:/tv'
-      - 'Video:/movies'
-      - 'Music:/Music'
+      - '/mnt/Video:/movies'
+      - '/mnt/Music:/Music'
     devices:
       - "/dev/dri:/dev/dri" # Materiels
     labels:
@@ -1633,7 +1633,7 @@ services:       #
       - '6881:6881'
     volumes:
       - 'QBitTorrent:/config'
-      - 'QBitTorrent:/downloads'
+      - '/mnt/DL/QBitTorrent:/downloads:rw'
     labels:
        cacher: 'non'
 #       
@@ -1724,8 +1724,8 @@ services:       #
       - '1061:7878'
     volumes:
       - 'Radarr:/config'
-      - 'Video:/movies'
-      - 'DL:/downloads'
+      - '/mnt/Video:/movies'
+      - '/mnt/DL:/downloads'
     labels:
        cacher: 'non'
 ##########################################################################################################################
@@ -1776,7 +1776,7 @@ services:       #
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
       - 'rDesktop:/config'
-      - 'DL:/mnt/DL'
+      - '/mnt/DL:/mnt/DL'
     shm_size: "1gb"
     labels:
        cacher: 'non'
@@ -1826,7 +1826,7 @@ services:       #
     volumes:
       - 'Resilio-Sync:/config'
       - 'Resilio-Sync:/sync'
-      - 'DL:/downloads'
+      - '/mnt/DL:/downloads'
     labels:
        cacher: 'non'
 ##########################################################################################################################
